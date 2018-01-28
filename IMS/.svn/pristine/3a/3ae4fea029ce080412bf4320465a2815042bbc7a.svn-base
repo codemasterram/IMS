@@ -1,0 +1,53 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SoftIms.Data.ViewModel
+{
+   public class ItemReleaseViewModel
+    {
+        public int Id { get; set; }
+        [Required]
+        [Display(Name = "Document Setup Id")]
+        public int DocumentSetupId { get; set; }
+        [Required]
+        public int FiscalYearId { get; set; }
+        public string DocumentNo { get; set; }
+        [StringLength(50, MinimumLength = 1)]
+        public string DisplayDocumentNo { get; set; }   
+        [Required]
+        public System.DateTime Date { get; set; }
+        [Required]
+        public int DepartmentId { get; set; }
+        [Required]
+        public int EmployeeId { get; set; }
+        [Required]
+        public int ItemRequestId { get; set; }
+        public string Remarks { get; set; }
+        [Required]
+        public int CreatedBy { get; set; }
+        [Required]
+        public System.DateTime CreatedDate { get; set; }
+        public Nullable<int> ModifiedBy { get; set; }
+        public Nullable<System.DateTime> ModifiedDate { get; set; }
+
+    }
+    public class ItemReleaseListViewModel
+    {
+        public int Id { get; set; }
+        public int DocumentSetupId { get; set; }
+        public int FiscalYearId { get; set; }
+        public Nullable<int> DocumentNo { get; set; }
+        public string DisplayDocumentNo { get; set; }
+        public System.DateTime Date { get; set; }
+        public int DepartmentId { get; set; }
+        public int EmployeeId { get; set; }
+        public int ItemRequestId { get; set; }
+        public string Remarks { get; set; }
+        public int CreatedBy { get; set; }
+        public System.DateTime CreatedDate { get; set; }
+    }
+}

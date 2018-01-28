@@ -1,0 +1,265 @@
+﻿using SoftIms.Data;
+using SoftIms.Data.Infrastructure;
+using SoftIms.Data.ViewModel;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Web;
+using System.Web.Mvc;
+using static SoftIms.Utilities.Utility;
+using static SoftIms.Utilities.ViewModelExtension;
+
+namespace SoftIms.Controllers
+{
+    public class MasterController : Controller
+    {
+        #region Common
+        private UnitOfWork db;
+        public MasterController()
+        {
+            db = new UnitOfWork();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            db.Dispose();
+            base.Dispose(disposing);
+        }
+        #endregion
+
+        #region Department
+        public ActionResult Department()
+        {
+            return View();
+        }
+
+        public PartialViewResult DepartmentDetail(string name)
+        {
+            var data = db.DepartmentRepo.Get(x => (string.IsNullOrEmpty(name.Trim()) || x.Name.StartsWith(name.Trim())))
+                        .OrderBy(x => x.DisplayOrder);
+            var model = AutomapperConfig.Mapper.Map<IEnumerable<Department>, IEnumerable<DepartmentListViewModel>>(data);
+            return PartialView(model);
+        }
+
+        public PartialViewResult CreateDepartment(int id = 0)
+        {
+            var model = new DepartmentViewModel();
+            if (id > 0)
+                model = AutomapperConfig.Mapper.Map<DepartmentViewModel>(db.DepartmentRepo.GetById(id));
+            if (model == null)
+            {
+                Response.StatusCode = (int)HttpStatusCode.OK;
+                return PartialView(BadRequestView);
+            }
+            return PartialView(model);
+        }
+
+        [HttpPost]
+        public JsonResult CreateDepartment(DepartmentViewModel model)
+        {
+            List<string> errors = new List<string>();
+            try
+            {
+                if (DuplicateDepartment(model.Id, model.Name) != null)
+                {
+                    ModelState.AddModelError("Name", $"डिपार्टमेन्ट {model.Name} पहिलेनै सुरक्षित छ ।");
+                }
+
+                if (ModelState.IsValid)
+                {
+                    if (model.Id == 0)
+                    {
+                        var dept = db.DepartmentRepo.Table();
+                        var order = dept.Any() ? dept.Max(x => x.DisplayOrder) : 0;
+                        model.DisplayOrder = order + 1;
+                        model.Id = db.DepartmentRepo.Create(AutomapperConfig.Mapper.Map<Department>(model));
+                    }
+                    else
+                    {
+                        var oldModel = db.DepartmentRepo.GetById(model.Id);
+                        if (oldModel == null)
+                        {
+                            Response.StatusCode = (int)HttpStatusCode.OK;
+                            return Json(new { redirecturl = "/error/badrequest" });
+                        }
+                        oldModel.Name = model.Name;
+                    }
+                    db.SaveChanges();
+                    Response.StatusCode = (int)HttpStatusCode.OK;
+                    return Json(new { message = "तथ्याङ्क सफलतापूर्कक सुरक्षित भयो ।" });
+                }
+                foreach (var item in ModelState.Where(x => x.Value.Errors.Any()))
+                {
+                    errors.Add(item.Value.Errors.FirstOrDefault().ErrorMessage);
+                }
+            }
+            catch (Exception ex)
+            {
+                errors.Add(ex.GetExceptionMessages());
+            }
+            Response.StatusCode = (int)HttpStatusCode.SeeOther;
+            return Json(new { error = errors });
+        }
+
+        [HttpPost]
+        public JsonResult DepartmentNotExist(int id, string name)
+        {
+            return Json(DuplicateDepartment(id, name) == null);
+        }
+
+        private Department DuplicateDepartment(int id, string name)
+        {
+            var model = db.DepartmentRepo.Get(x => x.Id != id && x.Name.Trim() == name.Trim()).FirstOrDefault();
+            return model;
+        }
+
+        [HttpPost]
+        public JsonResult DeleteDepartment(int id)
+        {
+            List<string> errors = new List<string>();
+            string fkMessage = string.Empty;
+            var model = db.DepartmentRepo.GetById(id);
+            if (model == null)
+            {
+                Response.StatusCode = (int)HttpStatusCode.OK;
+                return Json(new { redirecturl = "/error/badrequest" });
+            }
+
+            try
+            {
+                db.DepartmentRepo.Delete(model);
+                Response.StatusCode = (int)HttpStatusCode.OK;
+                return Json(new { success = true });
+            }
+            catch (Exception ex)
+            {
+                if (ex.GetExceptionMessages().Contains("REFERENCE"))
+                {
+                    fkMessage = ex.GetExceptionMessages();
+                    errors.Add("यो तथ्याङ्क प्रयोगमा आइसकेको छ । प्रयोग भइसकेको तथ्याङ्क डिलिट गर्न पाइँदैन ।");
+                }
+                else
+                {
+                    errors.Add(ex.GetExceptionMessages());
+                }
+            }
+            Response.StatusCode = (int)HttpStatusCode.SeeOther;
+            return Json(new { fkMessage = fkMessage, error = errors });
+        }
+        #endregion
+
+        #region ItemGroup
+        [HttpPost]
+        public JsonResult ItemGroupNotExist(int id, string name)
+        {
+            return Json(DuplicateItemGroup(id, name) == null);
+        }
+
+        private ItemGroup DuplicateItemGroup(int id, string name)
+        {
+            var model = db.ItemGroupRepo.Get(x => x.Id != id && x.Name.Trim() == name.Trim()).FirstOrDefault();
+            return model;
+        }
+        #endregion
+
+        #region Designation
+        [HttpPost]
+        public JsonResult DesignationNotExist(int id, string name)
+        {
+            return Json(DuplicateDesignation(id, name) == null);
+        }
+
+        private ItemGroup DuplicateDesignation(int id, string name)
+        {
+            var model = db.ItemGroupRepo.Get(x => x.Id != id && x.Name.Trim() == name.Trim()).FirstOrDefault();
+            return model;
+        }
+        #endregion
+        #region ItemUnit
+        [HttpPost]
+        public JsonResult ItemUnitNotExist(int id, string name)
+        {
+            return Json(DuplicateItemUnit(id, name) == null);
+        }
+
+        private ItemUnit DuplicateItemUnit(int id, string name)
+        {
+            var model = db.ItemUnitRepo.Get(x => x.Id != id && x.Name.Trim() == name.Trim()).FirstOrDefault();
+            return model;
+        }
+        #endregion
+        #region Item
+        [HttpPost]
+        public JsonResult ItemNotExist(int id, int itemGroupId, string name)
+        {
+            return Json(DuplicateItem(id, itemGroupId, name) == null);
+        }
+
+        private Item DuplicateItem(int id, int itemGroupId, string name)
+        {
+            var model = db.ItemRepo.Get(x => x.Id != id && x.Name.Trim() == name.Trim() && x.ItemGroupId != itemGroupId).FirstOrDefault();
+            return model;
+        }
+        #endregion
+        #region ItemType
+        [HttpPost]
+        public JsonResult ItemTypeNotExist(int id, string name)
+        {
+            return Json(DuplicateItemType(id, name) == null);
+        }
+
+        private ItemType DuplicateItemType(int id, string name)
+        {
+            var model = db.ItemTypeRepo.Get(x => x.Id != id && x.Name.Trim() == name.Trim()).FirstOrDefault();
+            return model;
+        }
+        #endregion
+        #region Role
+        [HttpPost]
+        public JsonResult RoleNotExist(int id, string name)
+        {
+            return Json(DuplicateRole(id, name) == null);
+        }
+
+        private Role DuplicateRole(int id, string name)
+        {
+            var model = db.RoleRepo.Get(x => x.Id != id && x.Name.Trim() == name.Trim()).FirstOrDefault();
+            return model;
+        }
+        #endregion
+
+        #region DocumentSetup
+        [HttpPost]
+        public JsonResult DocumentSetupNotExist(int id, string name)
+        {
+            return Json(DuplicateDocumentSetup(id, name) == null);
+        }
+
+        private DocumentSetup DuplicateDocumentSetup(int id, string name)
+        {
+            var model = db.DocumentSetupRepo.Get(x => x.Id != id && x.Name.Trim() == name.Trim()).FirstOrDefault();
+            return model;
+        }
+        #endregion
+
+
+        #region Permission
+        [HttpPost]
+        public JsonResult PermissionNotExist(int id, string name)
+        {
+            return Json(DuplicatePermission(id, name) == null);
+        }
+
+        private Permission DuplicatePermission(int id, string name)
+        {
+            var model = db.PermissionRepo.Get(x => x.Id != id && x.Name.Trim() == name.Trim()).FirstOrDefault();
+            return model;
+        }
+        #endregion
+
+
+
+
+    }
+}

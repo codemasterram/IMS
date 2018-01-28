@@ -1,0 +1,11 @@
+D:\IMS\trunk\IMS.Data\obj\Debug\IMS.Data.csprojResolveAssemblyReference.cache
+D:\IMS\trunk\IMS.Data\obj\Debug\IMS.Data.csproj.CoreCompileInputs.cache
+D:\IMS\trunk\IMS.Data\bin\Debug\IMS.Data.dll.config
+D:\IMS\trunk\IMS.Data\bin\Debug\IMS.Data.dll
+D:\IMS\trunk\IMS.Data\bin\Debug\IMS.Data.pdb
+D:\IMS\trunk\IMS.Data\bin\Debug\EntityFramework.dll
+D:\IMS\trunk\IMS.Data\bin\Debug\EntityFramework.SqlServer.dll
+D:\IMS\trunk\IMS.Data\bin\Debug\EntityFramework.xml
+D:\IMS\trunk\IMS.Data\bin\Debug\EntityFramework.SqlServer.xml
+D:\IMS\trunk\IMS.Data\obj\Debug\IMS.Data.dll
+D:\IMS\trunk\IMS.Data\obj\Debug\IMS.Data.pdb

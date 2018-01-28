@@ -1,0 +1,70 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SoftIms.Data.ViewModel
+{
+    public class ItemRequestViewModel
+    {
+        public int Id { get; set; }
+        [Required]
+        [Display(Name ="Document Setup Name")]
+        public int DocumentSetupId { get; set; }
+        [Required]
+        [Display(Name = "Department Name")]
+        public int DepartmentId { get; set; }
+        [Required]
+        [Display(Name = "Employee Name")]
+        public int EmployeeId { get; set; }
+        [Required]
+        [Display(Name = "Fiscal Year")]
+        public int FiscalYearId { get; set; }
+        [Required]
+        public System.DateTime Date { get; set; }
+        [DataType(DataType.Date)]
+        [Required]
+        public Nullable<int> DocumentNo { get; set; }
+        public int DisplayDocumentNo { get; set; }
+        public string Remarks { get; set; }
+        [Required]
+        public int ReleasedType { get; set; }
+        public Nullable<int> AcceptedBy { get; set; }
+        public Nullable<System.DateTime> AcceptedDate { get; set; }
+        public Nullable<int> ItemReceivedBy { get; set; }
+        public Nullable<System.DateTime> ItemReceivedDate { get; set; }
+        [Required]
+        public int ApplicationStatus { get; set; }
+        [Required]
+        public string DisplayRegistrationNo { get; set; }
+        [Required]
+        public int CreatedBy { get; set; }
+        [Required]
+        public System.DateTime CreatedDate { get; set; }
+        public Nullable<int> ModifiedBy { get; set; }
+        public Nullable<System.DateTime> ModifiedDate { get; set; }
+    }
+    public class ItemRequestListViewModel
+    {
+        public int Id { get; set; }
+        public int DocumentSetupId { get; set; }
+        public string DepartmentId { get; set; }
+        public string EmployeeId { get; set; }
+        public int FiscalYearId { get; set; }
+        public string Date { get; set; }
+        public string DocumentNo { get; set; }
+        public string DisplayDocumentNo { get; set; }
+        public string Remarks { get; set; }
+        public int ReleasedType { get; set; }
+        public string AcceptedBy { get; set; }
+        public string AcceptedDate { get; set; }
+        public string ItemReceivedBy { get; set; }
+        public string ItemReceivedDate { get; set; }
+        public int ApplicationStatus { get; set; }
+        public string DisplayRegistrationNo { get; set; }
+        public string CreatedBy { get; set; }
+        public string CreatedDate { get; set; }
+    }
+}

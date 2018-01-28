@@ -1,0 +1,50 @@
+﻿@model IEnumerable<SoftIms.Data.ViewModel.ItemTypeListViewModel>
+
+@{
+    int Sno = 1;
+}
+
+<div class="col-md-12">
+    <div class="box box-info">
+        <div class="box-body">
+            <form class="form-inline">
+                <div class="form-group right" style="margin-top:30px;">
+                    <button type="button" class="btn btn-info btnPrint" data-print-element=".employee-detail" data-report-title="Item Type Detail"><span class="fa fa-print"></span></button>
+                    <a type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal" href="@Url.Action("CreateItemType","master",new { id = 0 })" class="btn btn-primary "><span class="fa fa-plus"></span></a>
+                    <!-- Trigger the modal with a button -->
+                </div>
+            </form>
+            <div class="clearfix"></div>
+            <div class="employee-detail detail">
+                <div class="table-responsive">
+                    <table class="table-bordered table">
+                        <thead class="bg-light-blue">
+                            <tr>
+                                <th>S.No</th>
+                                <th>Item Type Name</th>
+                                <th>Alias</th>
+                                <th>Actions</th>
+
+                            </tr>
+                        </thead>
+                       <tbody>
+                           @foreach (var item in Model)
+                           {
+                               <tr>
+                                   <td>@Sno</td>
+                                   <td>@item.Name</td>
+                                   <td>@item.Alias</td>
+                                   <td>
+                                       <a type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal" href="@Url.Action("CreateItemType","master",new { id = item.Id})"><span class="fa fa-plus"> </span></a>
+                                       <a type="button" class="btn btn-danger btn-delete-using-modal" data-msg="Are you sure you wnat to delete Item Type - @item.Name ?" href="@Url.Action("deleteitemtype","master",new { id = item.Id })"><span class="fa fa-minus"> </span></a>
+                                   </td>
+                               </tr>
+                               Sno++;
+                           }
+                       </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

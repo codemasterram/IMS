@@ -1,0 +1,39 @@
+﻿@model SoftIms.Data.ViewModel.ItemGroupViewModel      
+@using (Html.BeginForm("createitemgroup", "master", FormMethod.Post, new { @enctype = "multipart/form-data", @class = "form-horizontal smooth-tab" }))
+ {
+    @Html.HiddenFor(x => x.Id)
+    @Html.AntiForgeryToken()
+    <div class="form-group">
+        @Html.LabelFor(x => x.Name, new { @class = "col-md-3" })
+        <div class="col-md-6">
+            @Html.TextBoxFor(x => x.Name, new { @class = "form-control col-md-6" })
+            @Html.ValidationMessageFor(x => x.Name)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.Code, new { @class = "col-md-3" })
+        <div class="col-md-6">
+            @Html.TextBoxFor(x => x.Code, new { @class = "form-control col-md-6" })
+            @Html.ValidationMessageFor(x => x.Code)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.ItemTypeId, new { @class = "col-md-3" })
+        <div class="col-md-6">
+            @Html.DropDownListFor(x => x.ItemTypeId, MasterDataList<ItemType>(selectedValue: Model.ItemTypeId), new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.ItemTypeId)
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-success">Submit</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    </div>
+
+}
+
+<script>
+    initializeCommon();
+    if (bindJqueryValidator) {
+        bindJqueryValidator();
+    }
+</script>

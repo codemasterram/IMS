@@ -1,0 +1,211 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{68A977DB-9A57-4F98-8512-2FF67812FE03}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>IMS.Data</RootNamespace>
+    <AssemblyName>IMS.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EfRepository.cs" />
+    <Compile Include="Enums.cs" />
+    <Compile Include="Extensions\EnumerableExtensions.cs" />
+    <Compile Include="Helper\UnitOfWork.cs" />
+    <Compile Include="Extensions\IQueryableExtensions.cs" />
+    <Compile Include="Infrastructure\AppUser.cs">
+      <DependentUpon>IMSDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\Company.cs">
+      <DependentUpon>IMSDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\DBContextTransactionWrapper.cs" />
+    <Compile Include="Infrastructure\Department.cs">
+      <DependentUpon>IMSDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\DepreciationRate.cs">
+      <DependentUpon>IMSDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\Designation.cs">
+      <DependentUpon>IMSDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\DocumentNumbering.cs">
+      <DependentUpon>IMSDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\DocumentSetup.cs">
+      <DependentUpon>IMSDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\Employee.cs">
+      <DependentUpon>IMSDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\FiscalYear.cs">
+      <DependentUpon>IMSDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\IDbContext.cs" />
+    <Compile Include="Infrastructure\IMSDbContext.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IMSDbContext.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\IMSDbContext.cs" />
+    <Compile Include="Infrastructure\IMSDbContext.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IMSDbContext.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\IMSDbContext1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IMSDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\Item.cs">
+      <DependentUpon>IMSDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\ItemGroup.cs">
+      <DependentUpon>IMSDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\ItemRelease.cs">
+      <DependentUpon>IMSDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\ItemReleaseDetail.cs">
+      <DependentUpon>IMSDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\ItemRequest.cs">
+      <DependentUpon>IMSDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\ItemRequestDetail.cs">
+      <DependentUpon>IMSDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\ItemType.cs">
+      <DependentUpon>IMSDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\ItemUnit.cs">
+      <DependentUpon>IMSDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\LoginHistory.cs">
+      <DependentUpon>IMSDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\PasswordResetLog.cs">
+      <DependentUpon>IMSDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\Permission.cs">
+      <DependentUpon>IMSDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\PurchaseOrder.cs">
+      <DependentUpon>IMSDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\PurchaseOrderDetail.cs">
+      <DependentUpon>IMSDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\Role.cs">
+      <DependentUpon>IMSDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\RolePermission.cs">
+      <DependentUpon>IMSDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\StockTransaction.cs">
+      <DependentUpon>IMSDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\StockTransactionDetail.cs">
+      <DependentUpon>IMSDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\sysdiagram.cs">
+      <DependentUpon>IMSDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\SystemConfiguration.cs">
+      <DependentUpon>IMSDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\UserRole.cs">
+      <DependentUpon>IMSDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\Vendor.cs">
+      <DependentUpon>IMSDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IRepository.cs" />
+    <Compile Include="Localization\Localization.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <EntityDeploy Include="Infrastructure\IMSDbContext.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>IMSDbContext.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Infrastructure\IMSDbContext.edmx.diagram">
+      <DependentUpon>IMSDbContext.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Localization\Localization.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Infrastructure\IMSDbContext.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>IMSDbContext.edmx</DependentUpon>
+      <LastGenOutput>IMSDbContext.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Infrastructure\IMSDbContext.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>IMSDbContext.edmx</DependentUpon>
+      <LastGenOutput>IMSDbContext1.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

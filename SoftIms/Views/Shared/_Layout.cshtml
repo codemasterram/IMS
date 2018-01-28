@@ -1,0 +1,128 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>@ViewBag.Title </title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link href="~/Content/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/Content/dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="~/Content/dist/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="~/Content/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+    <link rel="stylesheet" href="~/Content/bootstrap-daterangepicker/daterangepicker.css">
+    <link href="~/Content/plugins/nepali-datepicker/nepali.datepicker.v2.1.min.css" rel="stylesheet" />
+    <link href="~/Content/plugins/alertifyjs/css/alertify.min.css" rel="stylesheet" />
+    <link href="~/Content/plugins/chosen/chosen.min.css" rel="stylesheet" />
+    <link href="~/Content/plugins/iCheck/all.css" rel="stylesheet" />
+    <link href="~/Content/custom.css" rel="stylesheet" />
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Google Font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    <script src="~/Content/jquery/dist/jquery.min.js"></script>
+    <script src="~/Content/js/html2canvas.js"></script>
+    <script src="~/Content/js/nta.extension.js"> </script>
+    <script src="~/Content/js/app.js"> </script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Content/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="~/Content/raphael/raphael.min.js"></script>
+    <script src="~/Content/moment/min/moment.min.js"></script>
+    <script src="~/Content/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <script src="~/Content/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+    <script src="~/Content/plugins/alertifyjs/alertify.min.js"></script>
+    <script src="~/Content/plugins/iCheck/icheck.min.js"></script>
+    <!-- Bootstrap WYSIHTML5 -->
+    <!-- Slimscroll -->
+    <script src="~/Content/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+    <!-- FastClick -->
+    <script src="~/Content/fastclick/lib/fastclick.js"></script>
+    <script src="~/Content/plugins/input-mask/jquery.inputmask.js"></script>
+    <script src="~/Content/plugins/nepali-datepicker/nepali.datepicker.v2.1.min.js"></script>
+    <script src="~/Content/plugins/chosen/chosen.jquery.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="~/Content/dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+
+    <!-- AdminLTE for demo purposes -->
+    <script src="~/Content/dist/js/demo.js"></script>
+
+    <script>
+
+        $('body').on('hidden.bs.modal', '.modal', function () {
+            $(this).removeData('bs.modal');
+        });
+       
+    </script>
+</head>
+
+<body class="hold-transition  layout-top-nav fixed">
+
+    <div class="wrapper">
+        @Html.Partial("_NavTop")
+        <div class="content-wrapper">
+            <section class="content-header text-center">
+                <h1 class="page-heading">
+                    @Html.Raw(ViewBag.Title)   <br />
+                    <small>@ViewBag.PageDescription</small>
+                </h1>
+            </section>
+            <section class="content">
+                @*@Html.Partial("_Error")
+                @Html.Partial("_Success")*@
+                @Html.Partial("_EntryModal")
+                @Html.Partial("_DeleteConfirmation")
+                <div class="row main-con">
+                    @RenderBody()
+                </div>
+            </section>
+
+            @*<div class="container contain">
+                @if (TempData["Success"] != null)
+                {
+                    <div class="alert alert-success">
+                        @TempData["Success"]
+                    </div>
+                }
+                @if (TempData["Errors"] != null)
+                {
+                    <div class="alert alert-danger">
+                        @TempData["Errors"]
+                    </div>
+                }
+
+            </div>*@
+        </div>
+    </div>
+    <div id="content">
+
+    </div>
+    <footer class="main-footer">
+        <div class="pull-right hidden-xs">
+            <b>Version</b> 2.4.0
+        </div>
+
+        <strong>Copyright &copy; 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights
+        reserved.
+    </footer>
+
+    @Html.Partial("_DeleteModal")
+    @Html.Partial("_EntryModal")
+    @Html.Partial("_DeleteConfirmation")
+
+    <!-- jQuery 3 -->
+    
+    
+
+     <script>
+         initializeCommon();
+     </script>
+
+    @RenderSection("scripts", false)
+
+</body>
+</html>

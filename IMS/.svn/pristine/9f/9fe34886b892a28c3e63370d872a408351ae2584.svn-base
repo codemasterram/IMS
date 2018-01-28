@@ -1,0 +1,95 @@
+﻿@model SoftIms.Data.ViewModel.CompanyViewModel
+@{
+    ViewBag.Title = "Edit Company Details";
+}
+
+
+<div class="col-md-12 employee-data">
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="personalinformation-tab">
+            @using (Html.BeginForm("createcompany", "setup", FormMethod.Post, new { @enctype = "multipart/form-data", @class = "form-horizontal smooth-tab" }))
+            {
+                <div class="box box-solid">
+                    <div class="box-body">
+                        @Html.AntiForgeryToken()
+                        @Html.Hidden("next", "family-detail-tab")
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    @Html.LabelFor(x => x.Name, new { @class = "col-md-3" })
+                                    <div class="col-md-3">
+                                        @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(x => x.Name)
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(x => x.SubTitle1, new { @class = "col-md-3" })
+                                    <div class="col-md-3">
+                                        <div class="input-group date">
+                                            @Html.TextBoxFor(x => x.SubTitle1, new { @class = "form-control", @placeholder = "Subtitle (Optional)" })
+                                        </div>
+                                        @Html.ValidationMessageFor(x => x.SubTitle1)
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(x => x.SubTitle2, new { @class = "col-md-3" })
+                                    <div class="col-md-9">
+                                        @Html.TextBoxFor(x => x.SubTitle2, new { @class = "form-control", @placeholder = "Subtitle (Optional)" })
+                                        @Html.ValidationMessageFor(x => x.SubTitle2)
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(x => x.SubTitle3, new { @class = "col-md-3" })
+                                    <div class="col-md-9">
+                                        @Html.TextBoxFor(x => x.SubTitle3, new { @class = "form-control", @placeholder = "Subtitle (Optional)" })
+                                        @Html.ValidationMessageFor(x => x.SubTitle3)
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(x => x.SubTitle4, new { @class = "col-md-3" })
+                                    <div class="col-md-9">
+                                        @Html.TextBoxFor(x => x.SubTitle4, new { @class = "form-control", @placeholder = "Subtitle (Optional)" })
+                                        @Html.ValidationMessageFor(x => x.SubTitle4)
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(x => x.Phone, new { @class = "col-md-3" })
+                                    <div class="col-md-9">
+                                        @Html.TextBoxFor(x => x.Phone, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(x => x.Phone)
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(x => x.Address, new { @class = "col-md-3" })
+                                    <div class="col-md-9">
+                                        @Html.TextBoxFor(x => x.Address, new { @class = "form-control", @placeholder = "Address" })
+                                        @Html.ValidationMessageFor(x => x.Address)
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(x => x.EmailAddress, new { @class = "col-md-3" })
+                                    <div class="col-md-9">
+                                        @Html.TextBoxFor(x => x.EmailAddress, new { @class = "form-control", @placeholder = "Email Address" })
+                                        @Html.ValidationMessageFor(x => x.EmailAddress)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="box box-footer" style="margin-top:-10px; border-top:1px solid #c1c1c1">
+                            <button type="submit" class="btn btn-success">Submit</button>
+                            <a href="@Url.Action("companydetail", "setup")" class="btn btn-info">Return Back</a>
+                            <a href="@Url.Action("index","Home")" c class="btn btn-danger">Goto Home</a>
+
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

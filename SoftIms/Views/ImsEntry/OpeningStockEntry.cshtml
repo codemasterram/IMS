@@ -1,0 +1,238 @@
+﻿@model SoftIms.Data.ViewModel.OpeningStockViewModel
+@{ 
+    var itemGroups = ViewBag.ItemGroups as IList<SoftIms.Data.ViewModel.ItemGroupListViewModel>;
+}
+<div class="col-md-12">
+    @using (Html.BeginForm("OpeningStockEntry", "ImsEntry", FormMethod.Post, new { @id = "frmStockTransaction", @class = "ims-entry" }))
+    {
+        <div class="box box-info">
+            <div class="box-body">
+                @Html.AntiForgeryToken()
+                @Html.HiddenFor(x => x.Id)
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.DisplayDocumentNo, new { @class = "col-md-3" })
+                            <div class="col-md-6 no-padding">
+                                @Html.TextBoxFor(x => x.DisplayDocumentNo, new { @class = "form-control", @disabled = "disabled" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 pull-right">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.DateBS, new { @class = "col-md-6" })
+                            <div class="col-md-6 no-padding">
+                                @Html.TextBoxFor(x => x.DateBS, new { @class = "form-control mask-miti", @tabindex = "-1" })
+                                @Html.ValidationMessageFor(x => x.DateBS)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="ItemGroupId" data-required>सामानको समूह</label>
+                            <select id="ItemGroupId" name="ItemGroupId" class="form-control focus-first">
+                                <option value="" data-is-fixed="False">-- सामानको समूह --</option>
+                                @foreach (var item in itemGroups)
+                                {
+                                    <option value="@item.Id">@item.Name</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="ItemId" data-required>सामानको नाम</label>
+                            @Html.DropDownList("ItemId", NoDataList, "-- सामानको नाम --", new { @class = "form-control" })
+                            @Html.ValidationMessage("ItemId")
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="ItemSubCodeNo">सव कोड नं.</label>
+                        @Html.TextBox("ItemSubCodeNo", null, new { @class = "form-control", @placeholder = "सव कोड नं." })
+                        @Html.ValidationMessage("ItemSubCodeNo")
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="Qty" data-required> "परिमाण"</label>
+                            @Html.TextBox("Qty", null, new { @class = "form-control text-right number-type", @placeholder = "परिमाण" })
+                            @Html.ValidationMessage("Qty")
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="PurchaseDate">खरिद मिति</label>
+                            @Html.TextBox("PurchaseDateBS", null, new { @class = "form-control mask-miti", @placeholder = "खरिद मिति", @tabindex = "-1" })
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="PurchaseAmount">खरिद मूल्य</label>
+                            @Html.TextBox("PurchaseAmount", null, new { @class = "form-control text-right number-type amount", @placeholder = "खरिद मूल्य" })
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="Amount" data-required>हालको मूल्य </label>
+                            @Html.TextBox("Amount", null, new { @class = "form-control text-right number-type amount", @placeholder = "हालको मूल्य" })
+                            @Html.ValidationMessage("Amount")
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <label for="SectionId" data-required>विभाग/शाखा</label>
+                        @Html.DropDownList("DepartmentId", MasterDataList<Department>(), "-- Department --", new { @class = "form-control" })
+                        @Html.ValidationMessage("SectionId")
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="EmployeeId">कर्मचारी</label>
+                            @Html.DropDownList("EmployeeId", MasterDataList<Employee>("Id", "Name", null), "-- कर्मचारी --", new { @class = "form-control" })
+                            @Html.ValidationMessage("EmployeeId")
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label for="Narration">स्पेसिफिकेसन</label>
+                            @Html.TextBox("Narration", null, new { @class = "form-control", @placeholder = "स्पेसिफिकेसन" })
+                        </div>
+                    </div>
+                    <div class="col-md-1 no-pad-left">
+                        <button type="button" class="btn btn-success pull-left btn-add" id="btnAdd">सूचिमा थप्नुहोस्</button>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <button type="button" data-resultElement=".list-detail" data-url="@Url.Action("OpeningStockItemList", "imsentry")" class="hide" id="btnRefresh"><span class="fa fa-refresh"></span></button>
+                        <div class="list-detail detail vh65 slim-scroll lazy-loading" data-url="@Url.Action("OpeningStockItemList", "imsentry")">
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.Remarks)
+                            @Html.TextAreaFor(x => x.Remarks, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="box box-footer" style="margin-top:32px; border-top:1px solid #c1c1c1">
+                            <button type="submit" class="btn btnSave btn-success">सुरक्षित गर्ने"</button>
+                            <a href="@Url.Action("openingstocklist", "imsentry")" class="btn btn-info" style="padding-top:8px;">सूचिमा फर्कने</a>
+                            <a href="@Url.Action("index", "home")" class="btn btn-danger" style="padding-top:8px;">Cancel</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+@section scripts {
+<script>
+    $("#ItemGroupId").on("change", function () {
+        var childElement = $('#ItemId');
+        var selectedValue = $(childElement).val();
+        $(this).loadChildList({
+            url: "@Url.Action("getitem", "master")",
+            paramData: { itemgroupId: $(this).val(), dataValueField: "Id", dataTextField: 'Name' },
+            childElement: childElement,
+            optionalLabel: "-- सामानको नाम --",
+            selectedValue: selectedValue,
+            showLoader: false
+        });
+    });
+</script>
+
+<script>
+    collapseSidebar();
+    $("#btnAdd").on("click", function (e) {
+        hideErrorMessage();
+        var sno = $(".tbl-item-list tr").length;
+        var $itemId = $("#ItemId");
+        var $itemSubCodeNo = $("#ItemSubCodeNo");
+        var $qty = $("#Qty");
+        var $sectionId = $("#DepartmentId");
+        var $employeeId = $("#EmployeeId");
+
+        if ($('#ItemGroupId').val() == '') {
+            popupAlert('कृपया सामानको समूह छनौट गर्नुहोस् ।');
+            $('#ItemGroupId').focus();
+            return false;
+        };
+
+        if (($itemId.val() == "" || $itemId.val() == null) && sno > 0) {
+            $(".btnSave").focus();
+            return;
+        }
+
+        if ($itemId.val() == "" || $itemId.val() == null) {
+            popupAlert('सामानको नाम छनौट गर्नुहोस् ।');
+            $itemId.focus();
+            return false;
+        }
+
+        if ($itemSubCodeNo.val().trim() == '' && $('#ItemGroupId option:selected').attr('data-is-fixed') == 'True') {
+            popupAlert('कृपया सामानको सवकोड राख्नुहोस् ।');
+            $itemSubCodeNo.focus();
+            return false;
+        };
+
+        if ($qty.val() < 1) {
+            popupAlert('कृपया परिमाण राख्नुहोस् ।');
+            $qty.focus();
+            return false;
+        }
+
+        if ($sectionId.val() == "" || $sectionId.val() == null) {
+            popupAlert("Please select section");
+            $sectionId.focus();
+            return false;
+        }
+
+        $.ajax({
+            url: "@Url.Action("AddOpeningStockDetail", "ImsEntry")",
+            type: "post",
+            data: { itemId: $itemId.val(), itemSubCodeNo: $itemSubCodeNo.val(), qty: $qty.val(), amount: $('#Amount').val(), sectionId: $sectionId.val(), employeeId: $employeeId.val(), narration: $("#Narration").val(), purchaseDateBS: $("#PurchaseDateBS").val(), purchaseAmount: $("#PurchaseAmount").val() },
+            success: function (result) {
+                $("#btnRefresh").trigger("click");
+                $itemId.val('');
+                $itemSubCodeNo.val('');
+                $employeeId.val('');
+                $('#Amount').val('');
+                $qty.val(1);
+                $("#Narration").val(null);
+                $("#PurchaseDateBS").val('');
+                $("#PurchaseAmount").val('');
+            },
+            error: function (result) {
+                showErrorMessage('Unable to add item!!');
+                console.log(result);
+            }
+        });
+    });
+
+    $("#btnRefresh").refreshData();
+</script>
+
+<script>
+    $("#frmStockTransaction").on("submit", function (e) {
+        var detail = $(".tbl-item-list tr").length;
+        if (detail < 1) {
+            showError('कृपया सामानको विबरण राख्नुहोस् ।');
+            return false;
+        }
+        return true;
+    });
+</script>
+}

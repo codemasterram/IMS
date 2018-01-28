@@ -1,0 +1,152 @@
+﻿using SoftIms.Data;
+using SoftIms.Data.Infrastructure;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+
+namespace SoftIms.Controllers
+{
+    public class MasterController : Controller
+    {
+        private UnitOfWork db;
+        public MasterController()
+        {
+            db = new UnitOfWork();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            db.Dispose();
+            base.Dispose(disposing);
+        }
+
+        #region Department
+        [HttpPost]
+        public JsonResult DepartmentNotExist(int id, string name)
+        {
+            return Json(DuplicateDepartment(id, name) == null);
+        }
+
+        private Department DuplicateDepartment(int id, string name)
+        {
+            var model = db.DepartmentRepo.Get(x => x.Id != id && x.Name.Trim() == name.Trim()).FirstOrDefault();
+            return model;
+        }
+        #endregion
+
+        #region ItemGroup
+        [HttpPost]
+        public JsonResult ItemGroupNotExist(int id, string name)
+        {
+            return Json(DuplicateItemGroup(id, name) == null);
+        }
+
+        private ItemGroup DuplicateItemGroup(int id, string name)
+        {
+            var model = db.ItemGroupRepo.Get(x => x.Id != id && x.Name.Trim() == name.Trim()).FirstOrDefault();
+            return model;
+        }
+        #endregion
+
+        #region Designation
+        [HttpPost]
+        public JsonResult DesignationNotExist(int id, string name)
+        {
+            return Json(DuplicateDesignation(id, name) == null);
+        }
+
+        private ItemGroup DuplicateDesignation(int id, string name)
+        {
+            var model = db.ItemGroupRepo.Get(x => x.Id != id && x.Name.Trim() == name.Trim()).FirstOrDefault();
+            return model;
+        }
+        #endregion
+        #region ItemUnit
+        [HttpPost]
+        public JsonResult ItemUnitNotExist(int id, string name)
+        {
+            return Json(DuplicateItemUnit(id, name) == null);
+        }
+
+        private ItemUnit DuplicateItemUnit(int id, string name)
+        {
+            var model = db.ItemUnitRepo.Get(x => x.Id != id && x.Name.Trim() == name.Trim()).FirstOrDefault();
+            return model;
+        }
+        #endregion
+        #region Item
+        [HttpPost]
+        public JsonResult ItemNotExist(int id, int itemGroupId, string name)
+        {
+            return Json(DuplicateItem(id, itemGroupId, name) == null);
+        }
+
+        private Item DuplicateItem(int id, int itemGroupId, string name)
+        {
+            var model = db.ItemRepo.Get(x => x.Id != id && x.Name.Trim() == name.Trim()&&x.ItemGroupId!= itemGroupId).FirstOrDefault();
+            return model;
+        }
+        #endregion
+        #region ItemType
+        [HttpPost]
+        public JsonResult ItemTypeNotExist(int id, string name)
+        {
+            return Json(DuplicateItemType(id, name) == null);
+        }
+
+        private ItemType DuplicateItemType(int id, string name)
+        {
+            var model = db.ItemTypeRepo.Get(x => x.Id != id && x.Name.Trim() == name.Trim()).FirstOrDefault();
+            return model;
+        }
+        #endregion
+        #region Role
+        [HttpPost]
+        public JsonResult RoleNotExist(int id, string name)
+        {
+            return Json(DuplicateRole(id, name) == null);
+        }
+
+        private Role DuplicateRole(int id, string name)
+        {
+            var model = db.RoleRepo.Get(x => x.Id != id && x.Name.Trim() == name.Trim()).FirstOrDefault();
+            return model;
+        }
+        #endregion
+
+        #region DocumentSetup
+        [HttpPost]
+        public JsonResult DocumentSetupNotExist(int id, string name)
+        {
+            return Json(DuplicateDocumentSetup(id, name) == null);
+        }
+
+        private DocumentSetup DuplicateDocumentSetup(int id, string name)
+        {
+            var model = db.DocumentSetupRepo.Get(x => x.Id != id && x.Name.Trim() == name.Trim()).FirstOrDefault();
+            return model;
+        }
+        #endregion
+
+
+        #region Permission
+        [HttpPost]
+        public JsonResult PermissionNotExist(int id, string name)
+        {
+            return Json(DuplicatePermission(id, name) == null);
+        }
+
+        private Permission DuplicatePermission(int id, string name)
+        {
+            var model = db.PermissionRepo.Get(x => x.Id != id && x.Name.Trim() == name.Trim()).FirstOrDefault();
+            return model;
+        }
+        #endregion
+
+
+
+
+    }
+}

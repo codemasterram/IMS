@@ -1,0 +1,27 @@
+﻿@model IList<SoftIms.Data.ViewModel.TransactionItemViewModel>
+@{
+    int sno = 0;
+}
+<table class="table table-condensed">
+    <thead class="bg-light-blue">
+        <tr>
+            <th>Sno</th>
+            <th style="min-width:250px;">Item</th>
+            <th>Qty</th>
+            <th class="text-center">In Stock</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            sno++;
+            <tr>
+                <td>@sno</td>
+                <td>@item.ItemCode @item.ItemName</td>
+                <td class="text-center">@item.Qty</td>
+                <td class="text-center">@item.ItemId.ItemInStock()</td>
+            </tr>
+        }
+
+    </tbody>
+</table>

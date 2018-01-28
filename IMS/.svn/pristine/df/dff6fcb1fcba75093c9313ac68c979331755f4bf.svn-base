@@ -1,0 +1,38 @@
+﻿@model IEnumerable<SoftIms.Data.ViewModel.ItemListViewModel>
+
+@{
+    int Sno = 1;
+}
+
+
+<div class="table-responsive">
+    <table class="table-bordered table">
+        <thead class="bg-light-blue">
+            <tr>
+                <th>S.No</th>
+                <th>Item  Name</th>
+                <th>Code</th>
+                <th>Inte Group</th>
+                <th>Item Unit</th>
+                <th data-no-print="true">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Sno</td>
+                    <td>@item.Name</td>
+                    <td>@item.Code</td>
+                    <td>@item.ItemGroupName</td>
+                    <td>@item.ItemUnitName</td>
+                    <td data-no-print="true">
+                        <a type="button" class="btn-sm btn-info" data-toggle="modal" data-target="#myModal" href="@Url.Action("CreateItem","master",new { id = item.Id})"><span class="fa fa-plus"> </span></a>
+                        <a type="button" class="btn-sm btn-danger btn-delete-using-modal" data-msg="Are you sure you wnat to delete Item - @item.Name ?" href="@Url.Action("deleteitem","master",new { id = item.Id })"><span class="fa fa-minus"> </span></a>
+                    </td>
+                </tr>
+                Sno++;
+            }
+        </tbody>
+    </table>
+</div>

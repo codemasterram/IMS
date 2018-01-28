@@ -1,0 +1,88 @@
+﻿@model SoftIms.Data.ViewModel.AppUserViewModel
+@{
+    ViewBag.Title = "Create/Edit New Employee";
+    ViewBag.PageDescription = "Create Employee";
+}
+
+
+<div class="col-md-12 employee-data">
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="personalinformation-tab">
+            @using (Html.BeginForm("create", "User", FormMethod.Post, new { @enctype = "multipart/form-data", @class = "form-horizontal smooth-tab" }))
+            {
+                <div class="box box-solid">
+                    <div class="box-body">
+                        @Html.AntiForgeryToken()
+                        @Html.HiddenFor(x => x.Id)
+                        @Html.Hidden("next", "family-detail-tab")
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    @Html.LabelFor(x => x.UserName, new { @class = "col-md-3" })
+                                    <div class="col-md-3">
+                                        @if (Model.Id > 0)
+                                        {
+                                            @Html.HiddenFor(x => x.UserName)
+                                            <text>@Model.UserName</text>
+                                        }
+                                        else
+                                        {
+                                            @Html.TextBoxFor(x => x.UserName, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(x => x.UserName)
+                                        }
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(x=>x.Password,new { @class="col-md-3"})
+                                    <div class="col-md-3">
+                                        @Html.PasswordFor(x => x.Password, new { @class="form-control"})
+                                    </div>
+                                </div>
+
+                                
+                                <div class="form-group">
+                                    @Html.LabelFor(x => x.RoleId, new { @class = "col-md-3" })
+                                    <div class="col-md-3">
+                                        @Html.DropDownListFor(x => x.RoleId, MasterDataList<Role>(selectedValue: Model.Id), new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(x => x.RoleId)
+                                    </div>
+                                </div>
+
+                                
+
+
+                                <div class="form-group">
+                                    @Html.LabelFor(x => x.EmployeeId, new { @class = "col-md-3" })
+                                    @if (Model.Id > 0)
+                                    {
+                                        @Html.HiddenFor(x => x.EmployeeId)
+                                        <text>@Model.EmployeeName</text>
+                                    }
+                                    else
+                                    {
+                                        <div class="col-md-3">
+                                            @Html.DropDownListFor(x => x.EmployeeId, MasterDataList<Employee>(selectedValue: Model.EmployeeId), new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(x => x.EmployeeId)
+                                        </div>
+                                    } 
+                                </div>                     
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="box box-footer" style="margin-top:-10px; border-top:1px solid #c1c1c1">
+                            <button type="submit" class="btn btn-success">Submit</button>
+                            <a href="@Url.Action("index","User")" class="btn btn-info">Return to List</a>
+                            <a href="@Url.Action("index","Home")" c class="btn btn-danger">Cancel</a>
+
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

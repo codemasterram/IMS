@@ -1,0 +1,195 @@
+﻿using SoftIms.Data.Infrastructure;
+using System;
+using System.Collections.Generic;
+using System.Data.Entity.Validation;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SoftIms.Data
+{
+    public class UnitOfWork : IDisposable
+    {
+        #region Common
+        private DatabaseContext _context;
+        public UnitOfWork()
+        {
+            _context = new DatabaseContext();
+        }
+
+        public void SaveChanges()
+        {
+            _context.SaveChanges();
+        }
+
+        public int SaveChanges(out string error)
+        {
+            try
+            {
+                error = null;
+                return _context.SaveChanges();
+            }
+            catch (DbEntityValidationException e)
+            {
+                var newException = new FormattedDbEntityValidationException(e);
+                error = newException.Message;
+                throw newException;
+            }
+        }
+        #endregion
+        #region Employee
+        private EFRepositoryBase<Employee> _EmployeeRepo;
+        public EFRepositoryBase<Employee> EmployeeRepo => _EmployeeRepo ?? (_EmployeeRepo = new EFRepositoryBase<Employee>(_context));
+        #endregion
+        #region StockTransactionDetail
+        private EFRepositoryBase<StockTransactionDetail> _StockTransactionDetailRepo;
+        public EFRepositoryBase<StockTransactionDetail> StockTransactionDetailRepo => _StockTransactionDetailRepo ?? (_StockTransactionDetailRepo = new EFRepositoryBase<StockTransactionDetail>(_context));
+        #endregion
+        #region DepreciationRate
+        private EFRepositoryBase<DepreciationRate> _DepreciationRateRepo;
+        public EFRepositoryBase<DepreciationRate> DepreciationRateRepo => _DepreciationRateRepo ?? (_DepreciationRateRepo = new EFRepositoryBase<DepreciationRate>(_context));
+        #endregion
+        #region DocumentNumbering
+        private EFRepositoryBase<DocumentNumbering> _DocumentNumberingRepo;
+        public EFRepositoryBase<DocumentNumbering> DocumentNumberingRepo => _DocumentNumberingRepo ?? (_DocumentNumberingRepo = new EFRepositoryBase<DocumentNumbering>(_context));
+        #endregion
+        #region DocumentSetup
+        private EFRepositoryBase<DocumentSetup> _DocumentSetupRepo;
+        public EFRepositoryBase<DocumentSetup> DocumentSetupRepo => _DocumentSetupRepo ?? (_DocumentSetupRepo = new EFRepositoryBase<DocumentSetup>(_context));
+        #endregion
+        #region Item
+        private EFRepositoryBase<Item> _ItemRepo;
+        public EFRepositoryBase<Item> ItemRepo => _ItemRepo ?? (_ItemRepo = new EFRepositoryBase<Item>(_context));
+        #endregion
+        #region FiscalYear
+        private EFRepositoryBase<FiscalYear> _FiscalYearRepo;
+        public EFRepositoryBase<FiscalYear> FiscalYearRepo => _FiscalYearRepo ?? (_FiscalYearRepo = new EFRepositoryBase<FiscalYear>(_context));
+        #endregion
+        #region PasswordResetLog
+        private EFRepositoryBase<PasswordResetLog> _PasswordResetLogRepo;
+        public EFRepositoryBase<PasswordResetLog> PasswordResetLogRepo => _PasswordResetLogRepo ?? (_PasswordResetLogRepo = new EFRepositoryBase<PasswordResetLog>(_context));
+        #endregion
+        #region ItemReleaseDetail
+        private EFRepositoryBase<ItemReleaseDetail> _ItemReleaseDetailRepo;
+        public EFRepositoryBase<ItemReleaseDetail> ItemReleaseDetailRepo => _ItemReleaseDetailRepo ?? (_ItemReleaseDetailRepo = new EFRepositoryBase<ItemReleaseDetail>(_context));
+        #endregion
+        #region Role
+        private EFRepositoryBase<Role> _RoleRepo;
+        public EFRepositoryBase<Role> RoleRepo => _RoleRepo ?? (_RoleRepo = new EFRepositoryBase<Role>(_context));
+        #endregion
+        #region Vendor
+        private EFRepositoryBase<Vendor> _VendorRepo;
+        public EFRepositoryBase<Vendor> VendorRepo => _VendorRepo ?? (_VendorRepo = new EFRepositoryBase<Vendor>(_context));
+        #endregion
+        #region RolePermission
+        private EFRepositoryBase<RolePermission> _RolePermissionRepo;
+        public EFRepositoryBase<RolePermission> RolePermissionRepo => _RolePermissionRepo ?? (_RolePermissionRepo = new EFRepositoryBase<RolePermission>(_context));
+        #endregion
+        #region UserRole
+        private EFRepositoryBase<UserRole> _UserRoleRepo;
+        public EFRepositoryBase<UserRole> UserRoleRepo => _UserRoleRepo ?? (_UserRoleRepo = new EFRepositoryBase<UserRole>(_context));
+        #endregion
+        #region Permission
+        private EFRepositoryBase<Permission> _PermissionRepo;
+        public EFRepositoryBase<Permission> PermissionRepo => _PermissionRepo ?? (_PermissionRepo = new EFRepositoryBase<Permission>(_context));
+        #endregion
+        #region AppUser
+        private EFRepositoryBase<AppUser> _AppUserRepo;
+        public EFRepositoryBase<AppUser> AppUserRepo => _AppUserRepo ?? (_AppUserRepo = new EFRepositoryBase<AppUser>(_context));
+        #endregion
+        #region ItemRequestDetail
+        private EFRepositoryBase<ItemRequestDetail> _ItemRequestDetailRepo;
+        public EFRepositoryBase<ItemRequestDetail> ItemRequestDetailRepo => _ItemRequestDetailRepo ?? (_ItemRequestDetailRepo = new EFRepositoryBase<ItemRequestDetail>(_context));
+        #endregion
+        #region ItemRequest
+        private EFRepositoryBase<ItemRequest> _ItemRequestRepo;
+        public EFRepositoryBase<ItemRequest> ItemRequestRepo => _ItemRequestRepo ?? (_ItemRequestRepo = new EFRepositoryBase<ItemRequest>(_context));
+        #endregion
+        #region LoginHistory
+        private EFRepositoryBase<LoginHistory> _LoginHistoryRepo;
+        public EFRepositoryBase<LoginHistory> LoginHistoryRepo => _LoginHistoryRepo ?? (_LoginHistoryRepo = new EFRepositoryBase<LoginHistory>(_context));
+        #endregion
+        #region Department
+        private EFRepositoryBase<Department> _DepartmentRepo;
+        public EFRepositoryBase<Department> DepartmentRepo => _DepartmentRepo ?? (_DepartmentRepo = new EFRepositoryBase<Department>(_context));
+        #endregion
+        #region Designation
+        private EFRepositoryBase<Designation> _DesignationRepo;
+        public EFRepositoryBase<Designation> DesignationRepo => _DesignationRepo ?? (_DesignationRepo = new EFRepositoryBase<Designation>(_context));
+        #endregion
+        #region ItemRelease
+        private EFRepositoryBase<ItemRelease> _ItemReleaseRepo;
+        public EFRepositoryBase<ItemRelease> ItemReleaseRepo => _ItemReleaseRepo ?? (_ItemReleaseRepo = new EFRepositoryBase<ItemRelease>(_context));
+        #endregion
+        #region Company
+        private EFRepositoryBase<Company> _CompanyRepo;
+        public EFRepositoryBase<Company> CompanyRepo => _CompanyRepo ?? (_CompanyRepo = new EFRepositoryBase<Company>(_context));
+        #endregion
+        #region PurchaseOrder
+        private EFRepositoryBase<PurchaseOrder> _PurchaseOrderRepo;
+        public EFRepositoryBase<PurchaseOrder> PurchaseOrderRepo => _PurchaseOrderRepo ?? (_PurchaseOrderRepo = new EFRepositoryBase<PurchaseOrder>(_context));
+        #endregion
+        #region SystemConfiguration
+        private EFRepositoryBase<SystemConfiguration> _SystemConfigurationRepo;
+        public EFRepositoryBase<SystemConfiguration> SystemConfigurationRepo => _SystemConfigurationRepo ?? (_SystemConfigurationRepo = new EFRepositoryBase<SystemConfiguration>(_context));
+        #endregion
+        #region StockTransaction
+        private EFRepositoryBase<StockTransaction> _StockTransactionRepo;
+        public EFRepositoryBase<StockTransaction> StockTransactionRepo => _StockTransactionRepo ?? (_StockTransactionRepo = new EFRepositoryBase<StockTransaction>(_context));
+        #endregion
+        #region PurchaseOrderDetail
+        private EFRepositoryBase<PurchaseOrderDetail> _PurchaseOrderDetailRepo;
+        public EFRepositoryBase<PurchaseOrderDetail> PurchaseOrderDetailRepo => _PurchaseOrderDetailRepo ?? (_PurchaseOrderDetailRepo = new EFRepositoryBase<PurchaseOrderDetail>(_context));
+        #endregion
+        #region ItemGroup
+        private EFRepositoryBase<ItemGroup> _ItemGroupRepo;
+        public EFRepositoryBase<ItemGroup> ItemGroupRepo => _ItemGroupRepo ?? (_ItemGroupRepo = new EFRepositoryBase<ItemGroup>(_context));
+        #endregion
+        #region ItemType
+        private EFRepositoryBase<ItemType> _ItemTypeRepo;
+        public EFRepositoryBase<ItemType> ItemTypeRepo => _ItemTypeRepo ?? (_ItemTypeRepo = new EFRepositoryBase<ItemType>(_context));
+        #endregion
+        #region ItemUnit
+        private EFRepositoryBase<ItemUnit> _ItemUnitRepo;
+        public EFRepositoryBase<ItemUnit> ItemUnitRepo => _ItemUnitRepo ?? (_ItemUnitRepo = new EFRepositoryBase<ItemUnit>(_context));
+        #endregion
+
+        public void Dispose()
+        {
+            _context.Dispose();
+        }
+    }
+
+    public class FormattedDbEntityValidationException : Exception
+    {
+        public FormattedDbEntityValidationException(DbEntityValidationException innerException) :
+            base(null, innerException)
+        {
+        }
+
+        public override string Message
+        {
+            get
+            {
+                var innerException = InnerException as DbEntityValidationException;
+                if (innerException != null)
+                {
+                    StringBuilder sb = new StringBuilder();
+
+                    sb.AppendLine();
+                    foreach (var eve in innerException.EntityValidationErrors)
+                    {
+                        foreach (var ve in eve.ValidationErrors)
+                        {
+                            sb.AppendLine(string.Format("<b>Database error... </b> {0}", ve.ErrorMessage));
+                        }
+                    }
+                    sb.AppendLine();
+
+                    return sb.ToString();
+                }
+                return base.Message;
+            }
+        }
+    }
+}

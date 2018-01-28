@@ -1,0 +1,44 @@
+﻿@model IList<SoftIms.Data.ViewModel.OpeningStockListViewModel>
+@{
+    int sno = 0;
+}
+
+<table class="table table-condensed table-striped">
+    <thead class="bg-light-blue">
+        <tr>
+            <th width="30">सि.नं.</th>
+            <th>#नं.	</th>
+            <th>मिति</th>
+            <th>#सामान</th>
+            <th>सामानको विवरण</th>
+            <th>कैफियत</th>
+            <th data-no-print="true" width="50"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            sno++;
+            <tr>
+                <td class="text-right">@sno</td>
+                <td>@item.DisplayDocumentNo</td>
+                <td>@item.DateBS</td>
+                <td>@item.NoOfItems</td>
+                <td>@item.ItemList</td>
+                <td>@item.Remarks</td>
+                <td data-no-print="true">
+                    <div class="@CurrentUser.CheckForDestroy(ePermission.InventoryEntry)">
+                        <a href="@Url.Action("openingstockentry","imsentry", new { id = item.Id})"><i class="fa fa-edit"></i></a>
+                        <a href="javascript:;" class="btnDelete" data-refreshButton=".btnRefresh" data-url="@Url.Action("deletestocktransaction", "imsentry", new { id = item.Id })"><i class="fa fa-trash-o"></i></a>
+                    </div>
+                </td>
+            </tr>
+        }
+        @if (sno == 0)
+        {
+            <tr>
+                <td colspan="6" class="text-center"><b>No Record Found !</b></td>
+            </tr>
+        }
+    </tbody>
+</table>

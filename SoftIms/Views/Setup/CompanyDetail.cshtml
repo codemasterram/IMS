@@ -1,0 +1,46 @@
+﻿@model SoftIms.Data.ViewModel.CompanyListViewModel
+@{ 
+    ViewBag.Title = "Company Information";
+}
+<div class="col-md-12">
+    <div class="box box-info">
+        <div class="box-body">
+            <div class="clearfix"></div>
+            <div class="employee-detail detail">
+                <div class="table-responsive">
+                    <table class="table-bordered table">
+                        <thead class="bg-light-blue">
+                            <tr>
+                                <th width="200">Name</th>
+                                <th>Sub Title 1</th>
+                                <th>Sub Title 2</th>
+                                <th>Sub Title 3</th>
+                                <th>Sub Title 4</th>
+                                <th>Contact No</th>
+                                <th>Address</th>
+                                <th>Email</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                                <tr>
+                                    <td>@Model.Name</td>
+                                    <td>@Model.SubTitle1</td>
+                                    <td>@Model.SubTitle2</td>
+                                    <td>@Model.SubTitle3</td>
+                                    <td>@Model.SubTitle4</td>
+                                    <td>@Model.Phone</td>
+                                    <td>@Model.Address</td>
+                                    <td>@Model.EmailAddress</td>
+                                    <td>
+                                        <a type="button" class="btn btn-info" href="@Url.Action("createcompany","setup",new { id = Model.Id})"><span class="fa fa-edit"> </span></a>
+                                    </td>
+                                </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

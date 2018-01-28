@@ -1,0 +1,50 @@
+﻿using AutoMapper;
+using SoftIms.Data.Infrastructure;
+using SoftIms.Data.ViewModel;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SoftIms.Data
+{
+    public class AutomapperConfig
+    {
+        private static IMapper mapper;
+        public static IMapper Mapper
+        {
+            get
+            {
+                return mapper ?? (mapper = new AutomapperConfig().ConfigureMapper());
+            }
+        }
+
+        private IMapper ConfigureMapper()
+        {
+            var config = new MapperConfiguration(cfg =>
+            {
+                #region Department
+                cfg.CreateMap<Department, DepartmentViewModel>();
+                cfg.CreateMap<DepartmentViewModel, Department>();
+
+                cfg.CreateMap<Department, DepartmentListViewModel>();
+                #endregion
+
+                #region Item
+                cfg.CreateMap<Item, ItemViewModel>();
+                cfg.CreateMap<ItemViewModel, Item>();
+
+                cfg.CreateMap<Item, ItemListViewModel>()
+                .ForMember(d => d.ItemGroupName, opt => opt.MapFrom(src => src.ItemGroup.Name))
+                .ForMember(d => d.ItemUnitName, opt => opt.MapFrom(src => src.ItemUnit.Name));
+
+                #endregion
+
+
+            });
+            var mapper = config.CreateMapper();
+            return mapper;
+        }
+    }
+}

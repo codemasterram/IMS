@@ -1,0 +1,31 @@
+﻿using AutoMapper;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SoftIms.Data
+{
+    public class AutomapperConfig
+    {
+        private static IMapper mapper;
+        public static IMapper Mapper
+        {
+            get
+            {
+                return mapper ?? (mapper = new AutomapperConfig().ConfigureMapper());
+            }
+        }
+
+        private IMapper ConfigureMapper()
+        {
+            var config = new MapperConfiguration(cfg =>
+            {
+
+            });
+            var mapper = config.CreateMapper();
+            return mapper;
+        }
+    }
+}

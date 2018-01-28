@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "Consumable Item Record";
+}
+
+<div class="col-md-12">
+    <div class="box box-info">
+        <div class="box-body">
+            <form class="form-inline">
+                <div class="form-group">
+                    <label for="itemId">Consumable Items</label> <br />
+                    @Html.DropDownList("ItemId", null,  "-- All --", new { @class = "form-control" })
+                </div>  
+                <div class="form-group" style="margin-top:30px;">
+                    <button type="button" class="btn btn-info btnRefresh-consumableitemrecord" data-resultElement=".consumableitemrecord-detail" data-url="@Url.Action("consumableitemrecorddetail","imsReport")"><span class="fa fa-search"></span></button>
+                </div>
+            </form>
+            <div class="clearfix"></div>
+            <div class="consumableitemrecord-detail detail lazy-loading" data-url="@Url.Action("consumableitemrecorddetail", "imsreport")">
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script>
+        $(".btnRefresh-consumableitemrecord").refreshData({ showLoader: 'true' });
+    </script>
+}
+
+

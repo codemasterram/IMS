@@ -1,0 +1,111 @@
+﻿@model List<SoftIms.Data.ViewModel.ItemReleaseDetailViewModel>
+@{
+    int sno = 0;
+}
+
+<div class="table-responsive">
+    <table class="table table-condensed table-striped table-bordered">
+        <thead class="bg-light-blue">
+            <tr>
+                <th width="30">Sno</th>
+                <th>Item Code</th>
+                <th class="text-left">Item Name</th>
+                <th>Sub Code</th>
+                <th>Unit</th>
+                <th class="text-right" width="100">In Stock</th>
+                <th class="text-right" width="100">Quantity</th>
+                <th>Specification</th>
+                <th width="50"></th>
+            </tr>
+        </thead>
+        <tbody class="tbl-item-list">
+            @foreach (var item in Model)
+            {
+                sno++;
+                <tr class="entry-field" data-request-id="@item.ItemRequestIdCSV" data-requestdetail-id="@item.ItemRequestDetailIdCSV">
+                    <td>@sno</td>
+                    <td>@item.ItemCode</td>
+                    <td>@item.ItemName</td>
+                    <td>@Html.TextBoxFor(x => item.SubCode, new { @class = "subcode item form-control" })</td>
+                    <td>@item.UnitName</td>
+                    <td class="text-right">@item.ItemId.ItemInStock()</td>
+                    <td class="text-right">@Html.TextBoxFor(x => item.Qty, new { @class = "qty item  text-right form-control input-sm " })</td>
+                    <td>@Html.TextBoxFor(x => item.Narration, new { @class = "narration item form-control" })</td>
+                    <td class='text-right'>
+                        <a href='javascript:;' class="btnSaveItem" data-refreshButton="#btnRefresh" data-guid="@item.Guid"><i class='fa text-success fa-edit'></i><i class="fa fa-floppy-o hide" data-guid="@item.Guid"></i></a>
+                        <a href='javascript:;' class="deleteItem" data-url="@Url.Action("RemoveItemReleaseItemList", "ImsEntry", new { guid = item.Guid })" data-refreshButton="#btnRefresh"><i class='fa text-danger fa-trash-o'></i></a>
+                    </td>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+</div>
+
+<script>
+    $('.item').on('keydown', function (e) {
+        if (e.keyCode == 13) {
+            $(this).closest('tr').find('.fa-floppy-o').trigger('click');
+            e.preventDefault();
+        }
+    });
+
+    $(".deleteItem").deleteRecord();
+
+    $(".item").each(function () {
+        $(this).addClass('locked');
+    });
+
+    $(".fa-edit").click(function () {
+        $this = $(this);
+        $this.closest('tr').find('.fa-floppy-o').removeClass('hide');
+        $this.closest('tr').find('.item').each(function () {
+            $(this).removeClass('locked');
+        });
+        $this.addClass("fa-edit hide");
+    });
+
+    $('.fa-floppy-o').unbind("click").on("click", function () {
+        $this = $(this);
+
+        $parent = $this.closest('.entry-field');
+        var hasError = $(".field-validation-error", $parent).length > 0;
+        if (hasError)
+            return false;
+
+        var formData = {
+            guid: $this.attr("data-guid"),
+            qty: $('.qty', $parent).val(),
+            narration: $('.narration', $parent).val(),
+            subCode: $('.subcode',$parent).val()
+        };
+
+        $.ajax({
+            url: "@Url.Action("UpdateReleaseItem", "ImsEntry")",
+            type: "get",
+            data: formData,
+            success: function (result) {
+                $this.addClass('hide');
+                $this.closest('tr').find('.fa-edit').removeClass('hide');
+                $(".item").each(function () {
+                    $(this).addClass('locked');
+                });
+            },
+            error: function (result) {
+                showErrorMessage('Unable to save!');
+                console.log(result);
+            }
+        });
+    });
+</script>
+<script>
+    var amounts = $('.text-amount');
+    var total = 0;
+    $.each(amounts, function (i, amount) {
+        var pc = $(this).text();
+        if (pc != 'NA') {
+            total = total + parseInt(pc, 10);
+        }
+    });
+    $('#TotalSum').text(total);
+</script>

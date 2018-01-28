@@ -1,0 +1,24 @@
+﻿<div id="DeleteConfirmationModal" class="modal fade modal-dragable" tabindex="-1" style="z-index:99999;">
+    <div class="modal-dialog" style="max-width:450px;">
+        <div class="modal-content panel-primary">
+            <div class="modal-header panel-heading" style="cursor:move;">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title panel-title entry-header">Confirm to delete...</h4>
+            </div>
+            <div class="alert alert-danger error-message no-margin" style="display:none;"></div>
+            <div class="alert alert-success success-message no-margin" style="display:none;"></div>
+            <div class="modal-body">
+                <form action="" method="post">
+                    <p>Are you sure you want to delete?</p>
+                    <div class="child-item-confirmation">
+                        <input type="checkbox" class="icheck" value="true" id="deleteChildItem" name="deleteChildItem"/> <label for="deleteChildItem">Delete transaction under this item.</label>
+                    </div>
+                    <div class="modal-footer" style="margin-bottom: -9px; padding: 10px 0 0 7px;">
+                        <button type="submit" class="btn btn-primary">Delete</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

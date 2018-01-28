@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "User Details ";
+}
+<div class="col-md-12">
+    <div class="box box-info">
+        <div class="box-body">
+            <form class="form-inline frm-search">
+                <div class="form-group">
+                    <label for="name">Username</label> <br>
+                    <input type="text" placeholder="Username to search" name="name" id="name" class="form-control keyword">
+                </div>
+                <div class="form-group" style="margin-top:30px;">
+                    <button type="button" class="btn btn-info btnRefresh" data-showLoader="false" data-resultElement=".user-detail" data-url="@Url.Action("detail","user")"><span class="fa fa-search"></span></button>
+                    <button type="button" class="btn btn-info btnPrint" data-print-element=".user-detail" data-report-title="User Detail"><span class="fa fa-print"></span></button>
+                    <a href="@Url.Action("Create","user",new { id = 0 })" class="btn btn-primary "><span class="fa fa-plus"></span></a>
+                </div>
+            </form>
+            <div class="clearfix"></div>
+            <div class="user-detail detail">
+                @Html.Action("Detail", "user")
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+

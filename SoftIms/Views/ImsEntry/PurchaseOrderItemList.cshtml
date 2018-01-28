@@ -1,0 +1,124 @@
+﻿@model List<SoftIms.Data.ViewModel.PurchaseOrderDetailViewModel>
+@{
+    int sno = 0;
+}
+<table class="table table-condensed table-striped table-bordered">
+    <thead class="bg-light-blue">
+        <tr>
+            <th width="30">सि.नं.</th>
+            <th width="100">संकेत नं.</th>
+            <th class="text-left" style="min-width:200px;">सामान</th>
+            <th>इकाई</th>
+            <th class="text-right">उपलब्ध परिमाण</th>
+            <th class="text-right">परिमाण</th>
+            <th class="text-center">दर</th>
+            <th class="text-right">कूल रकम</th>
+            <th class="text-center">स्पेसिफिकेसन</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody class="tbl-item-list">
+        @foreach (var item in Model)
+        {
+            sno++;
+            <tr class="entry-field" data-request-id="@item.ItemRequestIdCSV" data-requestdetail-id="@item.ItemRequestDetailIdCSV">
+                <td>@sno</td>
+                <td>@item.ItemCode</td>
+                <td>@item.ItemName</td>
+                <td>@item.UnitName</td>
+                <td class="text-bold text-right">@item.ItemId.ItemInStock()</td>
+                <td class="text-right">
+                    @Html.TextBoxFor(x => item.Qty, new { @class = "qty item text-right form-control input-sm" })
+                </td>
+                <td class="text-center">
+                    @Html.TextBoxFor(x => item.Rate, new { @class = "rate item text-right form-control input-sm" })
+                    @Html.ValidationMessageFor(x => item.Rate)
+                </td>
+                <td class="text-center">
+                    @Html.TextBoxFor(x => item.TotalAmount, new { @class = "totalamount item text-right form-control input-sm" })
+                    @Html.ValidationMessageFor(x => item.TotalAmount)
+                </td>
+                <td>@Html.TextBoxFor(x => item.Specification, new { @class = "remarks item form-control input-sm" })</td>
+                <td class='text-right'>
+                    <a href='javascript:;' class="btnSaveItem" data-refreshButton="#btnRefresh" data-guid="@item.Guid"><i class='fa text-success fa-edit'></i><i class="fa fa-floppy-o hide" data-guid="@item.Guid"></i></a>
+                    <a href='javascript:;' class="deleteItem" data-url="@Url.Action("RemovePurchaseOrderItemList", "ImsEntry", new { guid = item.Guid })" data-refreshButton="#btnRefresh"><i class='fa text-danger fa-trash-o'></i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script>
+    $(".deleteItem").deleteRecord();
+
+    $(".item").each(function () {
+        $(this).attr('readonly', 'readonly');
+    });
+
+    $(".fa-edit").click(function () {
+        $this = $(this);
+        $this.closest('tr').find('.fa-floppy-o').removeClass('hide');
+        $this.closest('tr').find('.item').each(function () {
+            $(this).removeAttr('readonly');
+        });
+        $this.addClass("fa-edit hide");
+    });
+
+    $('.fa-floppy-o').unbind("click").on("click", function () {
+        $this = $(this);
+
+        $parent = $this.closest('.entry-field');
+        var hasError = $(".field-validation-error", $parent).length > 0;
+        if (hasError)
+            return false;
+
+        var formData = {
+            guid: $this.attr("data-guid"),
+            qty: $('.qty', $parent).val(),
+            rate: $(".rate", $parent).val(),
+            totalAmount: $('.totalamount', $parent).val(),
+            specification: $('.remarks', $parent).val()
+        };
+
+        $.ajax({
+            url: "@Url.Action("UpdateOrderItem", "ImsEntry")",
+            type: "get",
+            data: formData,
+            success: function (result) {
+                $('#btnRefresh').click();
+                $this.addClass('hide');
+                $this.closest('tr').find('.fa-edit').removeClass('hide');
+                //set updated data
+                $(".qty", $parent).val(result.data.qty);
+                $(".rate", $parent).val(result.data.rate);
+                $(".totalamount", $parent).text(result.data.totalamount);
+                $(".remarks", $parent).val(result.data.specification);
+            },
+            error: function (result) {
+                alert('Unable to save.');
+                console.log(result);
+            }
+        });
+    });
+    var calculateLineItem = function (ctx) {
+        $qty = $(".qty", ctx);
+        $rate = $(".rate", ctx);
+        $totalamount = $(".totalamount", ctx);
+        var rate = 0;
+        var totalamount = 0;
+
+        if (parseInt($qty.val()) > 0) {
+            qty = parseInt($qty.val());
+        }
+        if (parseFloat($rate.val()) > 0) {
+            rate = parseFloat($rate.val());
+        }
+        totalamount = rate * qty;
+        $totalamount.val(totalamount.toFixed(2));
+    }
+
+    $(".qty, .rate").on("change", function () {
+        var ctx = $(this).closest('tr');
+        calculateLineItem(ctx);
+    });
+</script>

@@ -1,0 +1,40 @@
+﻿@model SoftIms.Data.ViewModel.ItemRequestItemStatusViewModel
+<style>
+    .modal-body {
+        padding: 2px;
+    }
+</style>
+<table class="table table-condensed table-striped">
+    <thead class="bg-light-blue">
+        <tr>
+            <th class="text-left">Item Code</th>
+            <th class="text-left">Item Name</th>
+            <th class="text-left">Item Group</th>
+            <th class="text-left">Unit</th>
+            <th class="text-right">On Demand</th>
+            <th class="text-right">In Stock</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Details)
+        {
+            <tr>
+                <td class="text-left">@item.Code</td>
+                <td class="text-left">@item.Name</td>
+                <td class="text-left">@item.ItemGroupName</td>
+                <td class="text-left">@item.UnitName</td>
+                <td class="text-center">@item.OnDemandQuantity</td>
+                <td class="text-center">@item.ItemId.ItemInStock()</td>
+            </tr>
+        }
+        <tr>
+            <td class="text-left" colspan="7">Remarks : @Model.Remarks</td>
+        </tr>
+    </tbody>
+</table>
+<script>
+    initialization();
+</script>
+
+
+

@@ -1,0 +1,45 @@
+﻿@{
+    ViewBag.Title = "भण्डार दाखिला विबरण";
+}
+
+<div class="col-md-12">
+    <div class="box box-info">
+        <div class="box-body">
+            <form class="form-inline">
+                <div class="form-group">
+                    <label for="VendorId">बिक्रेता</label> <br />
+                    @Html.DropDownList("VendorId", MasterDataList<Vendor>(), "-- बिक्रेता --", new { @class = "form-control focus-first" })
+                </div>
+                <div class="form-group">
+                    <label for="DisplayDocumentNo">दाखिला नं.</label> <br />
+                    @Html.TextBox("DisplayDocumentNo", null, new { @class = "form-control keyword", @placeholder = "दाखिला नं..." })
+                </div>
+                <div class="form-group">
+                    <label for="MitiFrom">दाखिला मिति देखि</label> <br />
+                    @Html.TextBox("DateFromBS", null, new { @class = "form-control mask-miti", @placeholder = "दाखिला मिति..." })
+                </div>
+                <div class="form-group">
+                    <label for="MitiTo">सम्म</label> <br />
+                    @Html.TextBox("DateToBS", null, new { @class = "form-control mask-miti", @placeholder = "सम्म..." })
+                </div>
+                <div class="form-group" style="margin-top:30px;">
+                    <button type="button" class="btn btn-info btnRefresh-purchaseEntry" data-pageSizeElement="#purchaseEntry-detail-page-selector" data-showLoader="false" data-resultElement=".purchaseEntry-detail" data-url="@Url.Action("PurchaseEntrydetail","ImsEntry")" data-toggle="tooltip" data-placement="top" title="Search"><span class="fa fa-search"></span></button>
+                    <a href="@Url.Action("PurchaseEntryEntry","ImsEntry")" class="btn btn-primary" data-toggle="tooltip" data-placement="right" title="Create New Store Entry"><span class="fa fa-plus"></span></a>
+                </div>
+            </form>
+            <div class="clearfix"></div>
+            <div class="purchaseEntry-detail detail">
+                @Html.Action("PurchaseEntrydetail", "ImsEntry")
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script>
+        $(".btnRefresh-purchaseEntry").refreshData({ showLoader: 'true' });
+    </script>
+}
+
+

@@ -1,0 +1,56 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SoftIms.Data.ViewModel
+{
+    public class StockTransactionViewModel
+    {
+        public int Id { get; set; }
+        [Required]
+        public int FiscalYearId { get; set; }
+        [Required]
+        public int DocumentSetupId { get; set; }
+        public int DocumentNo { get; set; }
+        [Display(Name = "Opening No")]
+        public int DisplayDocumentNo { get; set; }
+        [Required]
+        public System.DateTime Date { get; set; }
+        public int VendorId { get; set; }
+        public int EmployeeId { get; set; }
+        public int DepartmentId { get; set; }
+        public int PurchaseOrderId { get; set; }
+        public string AdjustmentTypeId { get; set; }
+        [StringLength(150,MinimumLength =1)]
+        public string InvoiceNo { get; set; }
+        [StringLength(400,MinimumLength =1)]
+        public string Remarks { get; set; }
+        [Required]
+        public int CreatedBy { get; set; }
+        [Required]
+        public string CreatedDate { get; set; } 
+        public string ModifiedBy { get; set; }
+        public string ModifiedDate { get; set; }
+    }
+    public class StockTransactionListViewModel
+    {
+        public int Id { get; set; }
+        public int FiscalYearId { get; set; }
+        public int DocumentSetupId { get; set; }
+        public string DocumentNo { get; set; }
+        public string DisplayDocumentNo { get; set; }
+        public string Date { get; set; }
+        public string VendorId { get; set; }
+        public string EmployeeId { get; set; }
+        public string DepartmentId { get; set; }
+        public string PurchaseOrderId { get; set; }
+        public string AdjustmentTypeId { get; set; }
+        public string InvoiceNo { get; set; }
+        public string Remarks { get; set; }
+        public int CreatedBy { get; set; }
+        public string CreatedDate { get; set; }
+    }
+}

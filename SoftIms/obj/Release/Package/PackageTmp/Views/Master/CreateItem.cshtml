@@ -1,0 +1,64 @@
+﻿@model SoftIms.Data.ViewModel.ItemViewModel
+
+
+<div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="personalinformation-tab">
+        @using (Html.BeginForm("createitem", "master", FormMethod.Post, new { @enctype = "multipart/form-data", @class = "form-horizontal smooth-tab" }))
+            {
+            @Html.HiddenFor(x => x.Id)
+            <div class="box box-solid">
+                <div class="box-body">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title text-black">Create Item</h4>
+                    </div>
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            @Html.AntiForgeryToken()
+                            @Html.Hidden("next", "family-detail-tab")
+
+                            <div class="form-group">
+                                @Html.LabelFor(x => x.Name, new { @class = "col-md-3" })
+                                <div class="col-md-6">
+                                    @Html.TextBoxFor(x => x.Name, new { @class = "form-control col-md-6" })
+                                    @Html.ValidationMessageFor(x => x.Name)
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(x => x.Code, new { @class = "col-md-3" })
+                                <div class="col-md-6">
+                                    @Html.TextBoxFor(x => x.Code, new { @class = "form-control col-md-6" })
+                                    @Html.ValidationMessageFor(x => x.Code)
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(x => x.ItemGroupId, new { @class = "col-md-3" })
+                                <div class="col-md-9">
+                                    @Html.DropDownListFor(x => x.ItemGroupId, MasterDataList<ItemGroup>(selectedValue: Model.ItemGroupId), new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(x => x.ItemGroupId)
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(x => x.ItemUnitId, new { @class = "col-md-3" })
+                                <div class="col-md-9">
+                                    @Html.DropDownListFor(x => x.ItemUnitId, MasterDataList<ItemUnit>(selectedValue: Model.ItemUnitId), new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(x => x.ItemUnitId)
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-success">Submit</button>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<script>
+    if (bindJqueryValidator) {
+        bindJqueryValidator();
+    }
+</script>
+

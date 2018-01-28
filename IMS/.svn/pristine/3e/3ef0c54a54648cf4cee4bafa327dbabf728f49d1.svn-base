@@ -1,0 +1,29 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Web.Mvc;
+
+namespace SoftIms.Data.ViewModel
+{
+    public class DocumentSetupViewModel
+    {
+        public int Id { get; set; }
+        [Required]
+        [StringLength(400, MinimumLength = 1)]
+        [Display(Name = "Document Setup Name")]
+        [Remote("DocumentSetupNotExist", "Master", HttpMethod = "Post", AdditionalFields = "Id", ErrorMessage = "{0} already exists.")]
+        public string Name { get; set; }
+        [Required]
+        public string Alias { get; set; }
+    }
+    public class DocumentSetupListViewModel
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Alias { get; set; }
+
+    }
+}

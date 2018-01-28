@@ -1,0 +1,55 @@
+D:\GovtRevenueGit\softechrevenue\DateMiti\bin\Release\DateMiti.dll
+D:\GovtRevenueGit\softechrevenue\DateMiti\bin\Release\DateMiti.pdb
+D:\GovtRevenueGit\softechrevenue\DateMiti\obj\Release\DateMiti.dll
+D:\GovtRevenueGit\softechrevenue\DateMiti\obj\Release\DateMiti.pdb
+D:\GovtRevenueGit\softechrevenue\DateMiti\obj\Release\DateMiti.csprojResolveAssemblyReference.cache
+E:\SoftechRevenue\DateMiti\bin\Release\DateMiti.dll
+E:\SoftechRevenue\DateMiti\bin\Release\DateMiti.pdb
+E:\SoftechRevenue\DateMiti\obj\Release\DateMiti.csprojResolveAssemblyReference.cache
+E:\SoftechRevenue\DateMiti\obj\Release\DateMiti.dll
+E:\SoftechRevenue\DateMiti\obj\Release\DateMiti.pdb
+D:\Official\Softech\GovRevenueGIT\softechrevenue\DateMiti\bin\Release\DateMiti.dll
+D:\Official\Softech\GovRevenueGIT\softechrevenue\DateMiti\bin\Release\DateMiti.pdb
+D:\Official\Softech\GovRevenueGIT\softechrevenue\DateMiti\obj\Release\DateMiti.csprojResolveAssemblyReference.cache
+D:\Official\Softech\GovRevenueGIT\softechrevenue\DateMiti\obj\Release\DateMiti.dll
+D:\Official\Softech\GovRevenueGIT\softechrevenue\DateMiti\obj\Release\DateMiti.pdb
+D:\Softech Working Project\SoftechRevenue\SoftechRevenue\DateMiti\bin\Release\DateMiti.dll
+D:\Softech Working Project\SoftechRevenue\SoftechRevenue\DateMiti\bin\Release\DateMiti.pdb
+D:\Softech Working Project\SoftechRevenue\SoftechRevenue\DateMiti\obj\Release\DateMiti.csprojResolveAssemblyReference.cache
+D:\Softech Working Project\SoftechRevenue\SoftechRevenue\DateMiti\obj\Release\DateMiti.dll
+D:\Softech Working Project\SoftechRevenue\SoftechRevenue\DateMiti\obj\Release\DateMiti.pdb
+D:\software\SoftechRevenue\DateMiti\bin\Release\DateMiti.dll
+D:\software\SoftechRevenue\DateMiti\bin\Release\DateMiti.pdb
+D:\software\SoftechRevenue\DateMiti\obj\Release\DateMiti.csprojResolveAssemblyReference.cache
+D:\software\SoftechRevenue\DateMiti\obj\Release\DateMiti.dll
+D:\software\SoftechRevenue\DateMiti\obj\Release\DateMiti.pdb
+E:\Softeware\SoftechRevenue\DateMiti\bin\Release\DateMiti.dll
+E:\Softeware\SoftechRevenue\DateMiti\bin\Release\DateMiti.pdb
+E:\Softeware\SoftechRevenue\DateMiti\obj\Release\DateMiti.csprojResolveAssemblyReference.cache
+E:\Softeware\SoftechRevenue\DateMiti\obj\Release\DateMiti.dll
+E:\Softeware\SoftechRevenue\DateMiti\obj\Release\DateMiti.pdb
+C:\Users\lenovo\Desktop\Revenue System\softechrevenue\DateMiti\bin\Release\DateMiti.dll
+C:\Users\lenovo\Desktop\Revenue System\softechrevenue\DateMiti\bin\Release\DateMiti.pdb
+C:\Users\lenovo\Desktop\Revenue System\softechrevenue\DateMiti\obj\Release\DateMiti.csprojResolveAssemblyReference.cache
+C:\Users\lenovo\Desktop\Revenue System\softechrevenue\DateMiti\obj\Release\DateMiti.dll
+C:\Users\lenovo\Desktop\Revenue System\softechrevenue\DateMiti\obj\Release\DateMiti.pdb
+F:\Revenue System\softechrevenue\DateMiti\bin\Release\DateMiti.dll
+F:\Revenue System\softechrevenue\DateMiti\bin\Release\DateMiti.pdb
+F:\Revenue System\softechrevenue\DateMiti\obj\Release\DateMiti.csprojResolveAssemblyReference.cache
+F:\Revenue System\softechrevenue\DateMiti\obj\Release\DateMiti.dll
+F:\Revenue System\softechrevenue\DateMiti\obj\Release\DateMiti.pdb
+C:\Users\user\Workspace\Softech\NTAOAS\trunk\DateMiti\bin\Release\DateMiti.dll
+C:\Users\user\Workspace\Softech\NTAOAS\trunk\DateMiti\bin\Release\DateMiti.pdb
+C:\Users\user\Workspace\Softech\NTAOAS\trunk\DateMiti\obj\Release\DateMiti.csprojResolveAssemblyReference.cache
+C:\Users\user\Workspace\Softech\NTAOAS\trunk\DateMiti\obj\Release\DateMiti.dll
+C:\Users\user\Workspace\Softech\NTAOAS\trunk\DateMiti\obj\Release\DateMiti.pdb
+C:\Softech Projects\NTA Local SVN\trunk\DateMiti\bin\Release\DateMiti.dll
+C:\Softech Projects\NTA Local SVN\trunk\DateMiti\bin\Release\DateMiti.pdb
+C:\Softech Projects\NTA Local SVN\trunk\DateMiti\obj\Release\DateMiti.csprojResolveAssemblyReference.cache
+C:\Softech Projects\NTA Local SVN\trunk\DateMiti\obj\Release\DateMiti.dll
+C:\Softech Projects\NTA Local SVN\trunk\DateMiti\obj\Release\DateMiti.pdb
+F:\Demo Projects\Working Project\trunk\DateMiti\bin\Release\DateMiti.dll
+F:\Demo Projects\Working Project\trunk\DateMiti\bin\Release\DateMiti.pdb
+F:\Demo Projects\Working Project\trunk\DateMiti\obj\Release\DateMiti.dll
+F:\Demo Projects\Working Project\trunk\DateMiti\obj\Release\DateMiti.pdb
+F:\Demo Projects\Working Project\trunk\DateMiti\obj\Release\DateMiti.csprojResolveAssemblyReference.cache

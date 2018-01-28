@@ -1,0 +1,205 @@
+﻿using AutoMapper;
+using SoftIms.Data.Infrastructure;
+using SoftIms.Data.ViewModel;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using static DateMiti.GetDateMiti;
+
+namespace SoftIms.Data
+{
+    public class AutomapperConfig
+    {
+        private static IMapper mapper;
+        public static IMapper Mapper
+        {
+            get
+            {
+                return mapper ?? (mapper = new AutomapperConfig().ConfigureMapper());
+            }
+        }
+
+        private IMapper ConfigureMapper()
+        {
+            var config = new MapperConfiguration(cfg =>
+            {
+                #region Department
+                cfg.CreateMap<Department, DepartmentViewModel>();
+                cfg.CreateMap<DepartmentViewModel, Department>();
+
+                cfg.CreateMap<Department, DepartmentListViewModel>();
+                #endregion
+
+                #region Item
+                cfg.CreateMap<Item, ItemViewModel>();
+                cfg.CreateMap<ItemViewModel, Item>();
+
+                cfg.CreateMap<Item, ItemListViewModel>()
+                .ForMember(d => d.ItemGroupName, opt => opt.MapFrom(src => src.ItemGroup.Name))
+                .ForMember(d => d.ItemUnitName, opt => opt.MapFrom(src => src.ItemUnit.Name));
+
+                #endregion
+
+                #region AppUser
+                cfg.CreateMap<AppUser, AppUserViewModel>();
+                cfg.CreateMap<AppUserViewModel, AppUser>();
+                cfg.CreateMap<AppUser, AppUserListViewModel>()
+                .ForMember(d => d.EmployeeName, opt => opt.MapFrom(src => src.Employee.Name));
+                #endregion
+
+                #region Employee
+                cfg.CreateMap<Employee, EmployeeListViewModel>()
+                .ForMember(d => d.CreatedMiti, opt => opt.MapFrom(src => src.CreatedDate.GetMiti()));
+                #endregion
+
+                #region Company
+                cfg.CreateMap<Company, CompanyViewModel>();
+                cfg.CreateMap<CompanyViewModel, Company>();
+                cfg.CreateMap<Company, CompanyListViewModel>();
+                #endregion
+
+                #region DepreciationRate
+                cfg.CreateMap<DepreciationRate, DepreciationRateViewModel>();
+                cfg.CreateMap<DepreciationRateViewModel, DepreciationRate>();
+                cfg.CreateMap<DepreciationRate, DepreciationRateListViewModel>()
+                .ForMember(d => d.FiscalYear, opt => opt.MapFrom(src => src.FiscalYear.Name))
+                .ForMember(d => d.ItemGroupName, opt => opt.MapFrom(src => src.ItemGroup.Name));
+                #endregion
+
+                #region Designation
+                cfg.CreateMap<Designation, DesignationViewModel>();
+                cfg.CreateMap<DesignationViewModel, Designation>();
+                cfg.CreateMap<Designation, DesignationListViewModel>();
+                #endregion
+
+                #region DocumentNumbering
+                cfg.CreateMap<DocumentNumbering, DocumentNumberingViewModel>();
+                cfg.CreateMap<DocumentNumberingViewModel, DocumentNumbering>();
+                cfg.CreateMap<DocumentNumbering, DocumentNumberingListViewModel>();
+                #endregion
+
+                #region DocumentSetup
+                cfg.CreateMap<DocumentSetup, DocumentSetupViewModel>();
+                cfg.CreateMap<DocumentSetupViewModel, DocumentSetup>();
+                cfg.CreateMap<DocumentSetup, DocumentSetupListViewModel>();
+                #endregion
+
+                #region Employee
+                cfg.CreateMap<Employee, EmployeeViewModel>();
+                cfg.CreateMap<EmployeeViewModel, Employee>();
+                cfg.CreateMap<Employee, EmployeeListViewModel>()
+                .ForMember(d => d.DepartmentName, opt => opt.MapFrom(src => src.Department.Name))
+                .ForMember(d => d.CreatedByEmployeeName, opt => opt.MapFrom(src => src.CreatedBy))
+                .ForMember(d => d.DesignationName, opt => opt.MapFrom(src => src.Designation.Name));
+                #endregion
+
+                #region fiscalYear
+                cfg.CreateMap<FiscalYear, FiscalYearViewModel>();
+                cfg.CreateMap<FiscalYearViewModel, FiscalYear>();
+                cfg.CreateMap<FiscalYear, FiscalYearListViewModel>();
+                #endregion
+
+                #region itemGroup
+                cfg.CreateMap<ItemGroup, ItemGroupViewModel>();
+                cfg.CreateMap<ItemGroupViewModel, ItemGroup>();
+                cfg.CreateMap<ItemGroup, ItemGroupListViewModel>()
+                .ForMember(d => d.ItemTypeName, opt => opt.MapFrom(src => src.ItemType.Name));
+                #endregion
+
+                #region ItemRelease
+                cfg.CreateMap<ItemRelease, ItemReleaseViewModel>();
+                cfg.CreateMap<ItemReleaseViewModel, ItemRelease>();
+                cfg.CreateMap<ItemRelease, ItemReleaseListViewModel>();
+                #endregion
+
+                #region ItemRequest
+                cfg.CreateMap<ItemRequest, ItemRequestViewModel>();
+                cfg.CreateMap<ItemRequestViewModel, ItemRequest>();
+                cfg.CreateMap<ItemRequest, ItemRequestListViewModel>();
+                #endregion
+
+                #region ItemType
+                cfg.CreateMap<ItemType, ItemTypeViewModel>();
+                cfg.CreateMap<ItemTypeViewModel, ItemType>();
+                cfg.CreateMap<ItemType, ItemTypeListViewModel>();
+                #endregion
+
+                #region ItemUnit
+                cfg.CreateMap<ItemUnit, ItemUnitViewModel>();
+                cfg.CreateMap<ItemUnitViewModel, ItemUnit>();
+                cfg.CreateMap<ItemUnit, ItemUnitListViewModel>();
+                #endregion
+
+                #region LoginHistory
+                cfg.CreateMap<LoginHistory, LoginHistoryViewModel>();
+                cfg.CreateMap<LoginHistoryViewModel, LoginHistory>();
+                cfg.CreateMap<LoginHistory, LoginHistoryListViewModel>();
+                #endregion
+
+                #region PasswordReserLog
+                cfg.CreateMap<PasswordResetLog, PasswordResetLogViewModel>();
+                cfg.CreateMap<PasswordResetLogViewModel, PasswordResetLog>();
+                cfg.CreateMap<PasswordResetLog, PasswordResetLogListViewModel>();
+                #endregion
+
+                #region Permission
+                cfg.CreateMap<Permission, PermissionViewModel>();
+                cfg.CreateMap<PermissionViewModel, Permission>();
+                cfg.CreateMap<Permission, PermissionListViewModel>();
+                #endregion
+
+                #region Role
+                cfg.CreateMap<Role, RoleViewModel>();
+                cfg.CreateMap<RoleViewModel, Role>();
+                cfg.CreateMap<Role, RoleListViewModel>();
+                #endregion
+
+                #region PurchaseOrder
+                cfg.CreateMap<PurchaseOrder, PurchaseOrderViewModel>();
+                cfg.CreateMap<PurchaseOrderViewModel, PurchaseOrder>();
+                cfg.CreateMap<PurchaseOrderListViewModel, PurchaseOrder>();
+                #endregion
+
+                #region RolePermission
+                cfg.CreateMap<RolePermission, RolePermissionViewModel>();
+                cfg.CreateMap<RolePermissionViewModel, RolePermission>();
+                cfg.CreateMap<RolePermission, RolePermissionListViewModel>();
+                #endregion
+
+                #region StockTransaction
+                cfg.CreateMap<StockTransaction, StockTransactionViewModel>();
+                cfg.CreateMap<StockTransactionViewModel, StockTransaction>();
+                cfg.CreateMap<StockTransaction, StockTransactionListViewModel>();
+                #endregion
+
+                #region SystemConfigurataion
+                cfg.CreateMap<SystemConfiguration, SystemConfigurationViewModel>();
+                cfg.CreateMap<SystemConfigurationViewModel, SystemConfiguration>();
+                cfg.CreateMap<SystemConfiguration, SystemConfigurationListViewModel>();
+                #endregion
+
+                #region Vendor
+                cfg.CreateMap<Vendor, VendorViewModel>();
+                cfg.CreateMap<VendorViewModel, Vendor>();
+                cfg.CreateMap<Vendor, VendorListViewModel>();
+                #endregion
+
+                #region UserRole
+                cfg.CreateMap<UserRole, UserRoleViewModel>();
+                cfg.CreateMap<UserRoleViewModel, UserRole>();
+                cfg.CreateMap<UserRole, UserRoleListViewModel>();
+                #endregion
+
+
+
+
+
+
+            });
+            var mapper = config.CreateMapper();
+            return mapper;
+        }
+    }
+}

@@ -1,0 +1,71 @@
+﻿@model IEnumerable<SoftIms.Data.ViewModel.DepreciationRateListViewModel>
+@{
+    int Sno = 1;
+}
+<div class="col-md-12">                             
+    <div class="box box-info">
+        <div class="box-body">
+            <div class="row">
+                <div class="col-md-12">
+                    @Html.Action("CreateDepreciationRate", "master", new { id = 0, ItemGroupId = (int)ViewBag.ItemGroupId })
+                </div>
+            </div>
+            <form class="form-inline frm-search">
+                <div class="form-group">
+                    <label for="Name">जिन्सी समूहको  नाम</label> <br>
+                    @Html.TextBox("Name", "", new { @class = "form-control keyword", @style = "width:200px", @placeholder = "जिन्सी समूहको  नाम खोज......" })
+                </div>
+                <div class="form-group right" style="margin-top:30px;">
+                    <button type="button" class="btn btn-info btn-reload" data-showLoader="false" data-resultElement=".item-detail" data-url="@Url.Action("DepreciationRateDetail","master")"><span class="fa fa-search"></span></button>
+
+                    <button type="button" class="btn btn-info btn-reload hidden" data-showLoader="false" data-resultElement=".depreciation-rate-detail"><span class="fa fa-search"></span></button>
+                    <button type="button" class="btn btn-info btnPrint" data-print-element=".depreciation-rate-detail" data-report-title="Depreciation  Detail"><span class="fa fa-print"></span></button>
+                </div>
+            </form>
+            <script>
+                initializeCommon();
+            </script>
+            <div class="depreciation-rate-detail detail col-md-12">
+                <div class="table-responsive">
+                    <table class="table-bordered table">
+                        <thead class="bg-light-blue">
+                            <tr>
+                                <th width="30">S.No</th>
+                                <th>Fiscal Year</th>
+                                <th>Depreciation Rate</th>
+                                <th width="30" data-no-print="true">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@Sno</td>
+                                    <td>@item.FiscalYear</td>
+                                    <td>@item.Rate</td>
+                                    <td width="30">
+                                        <a href="javascript:;" class="btn-sm btn-danger btn-delete" data-url="@Url.Action("DeleteDepreciationRate","master",new { id = item.Id })"><span class="fa fa-trash"> </span></a>
+                                        @*<a type="button" class="btn btn-danger btn-delete-using-modal" data-msg="Are you sure you wnat to delete depreciation rate of year - @item.FiscalYear ?" href="@Url.Action("DeleteDepreciationRate","master",new { id = item.Id })"><span class="fa fa-minus"> </span></a>*@
+                                    </td>
+                                </tr>
+                                Sno++;
+                            }
+                            @if (Sno == 1)
+                            {
+                                <tr>
+                                    <td colspan="8" class="text-center bg-danger"><b>तथ्यांक फेला परेन !</b></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    initializeCommon();
+</script>
+
+
+

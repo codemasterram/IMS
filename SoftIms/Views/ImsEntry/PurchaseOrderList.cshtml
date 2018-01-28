@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "खरिद आदेश विबरण ";
+}
+
+<div class="col-md-12">
+    <div class="box box-info">
+        <div class="box-body">
+            <form class="form-inline frm-search">
+                <div class="form-group">
+                    <label for="DisplayDocumentNo">खरिद आदेश नं.</label> <br />
+                    @Html.TextBox("DisplayDocumentNo", null, new { @class = "form-control focus-first", @placeholder = "खरिद आदेश नं." })
+                </div>
+                <div class="form-group">
+                    <label for="MitiFrom">खरिद आदेश मिति देखि </label> <br />
+                    @Html.TextBox("DateFromBS", null, new { @class = "form-control mask-miti", @placeholder = "खरिद आदेश मिति देखि" })
+                </div>
+                <div class="form-group">
+                    <label for="MitiTo">सम्म</label> <br />
+                    @Html.TextBox("DateToBS", null, new { @class = "form-control mask-miti", @placeholder = "सम्म" })
+                </div>
+                <div class="form-group" style="margin-top:30px;">
+                    <button type="button" class="btn btn-info btnRefresh-purchaseOrder" data-resultElement=".detail-purchaseOrder" data-url="@Url.Action("PurchaseOrderDetail","ImsEntry")" data-toggle="tooltip" data-placement="top" title="Search"><span class="fa fa-search"></span></button>
+                    <a href="@Url.Action("PurchaseOrderEntry","ImsEntry")" class="btn btn-primary" data-toggle="tooltip" data-placement="right" title="Create New Purchase Order"><span class="fa fa-plus"></span></a>
+                </div>
+            </form>
+            <div class="clearfix"></div>
+            <div class="detail-purchaseOrder detail vh65 slim-scroll">
+                @Html.Action("PurchaseOrderDetail", "ImsEntry")
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script>
+        $(".btnRefresh-purchaseOrder").refreshData({ showLoader: 'true' });
+    </script>
+}
+
+

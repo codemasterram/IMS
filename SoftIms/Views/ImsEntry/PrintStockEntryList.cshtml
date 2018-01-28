@@ -1,0 +1,54 @@
+﻿@model List<SoftIms.Data.ViewModel.PurchaseEntryDetailViewModel>
+@{
+    int sno = 0;
+    var tdStyle = "border:1px solid; vertical-align:middle;";
+    var emptyTdStyle = "border-left:1px solid; border-right:1px solid; border-bottom:0px;border-top:0px;";
+}
+
+<table id="tblStockEntry" border="1" style="border-collapse:collapse; width:100%;" class="table">
+    <thead class="bg-gray-light">
+        <tr>
+            <td rowspan="2" width="2%" style="@tdStyle;">सि.नं</td>
+            <td rowspan="2" width="38%" style="@tdStyle;">विवरण</td>
+            <td rowspan="2" width="10%" style="@tdStyle;">भण्डार खाता नं</td>
+            <td rowspan="2" width="10%" style="@tdStyle;">इकाई</td>
+            <td class="text-right" rowspan="10" width="15%" style="@tdStyle;">परिमाण</td>
+            <td class="text-right" rowspan="2" width="5" style="@tdStyle;">दर </td>
+            <td colspan="2" width="20%" class="text-right" style="@tdStyle;">जम्मा मुल्य</td>
+        </tr>
+        <tr>
+            <td class="text-center" style="@tdStyle;">रुपैया</td>
+            <td class="text-center" style="@tdStyle;">पैसा</td>
+        </tr>
+
+    </thead>
+    <tbody class="tbl-item-list report-content-line-item">
+        @foreach (var item in Model)
+        {
+            string s = item.NetAmount.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture);
+            string[] parts = s.Split('.');
+            string rupees = parts[0];
+            string paisa = parts[1];
+            sno++;
+            <tr class="entry-field">
+                <td style="@tdStyle;">@sno</td>
+                <td style="@tdStyle;">@item.ItemName</td>
+                <td style="@tdStyle;"></td>
+                <td style="@tdStyle;">@item.UnitName</td>
+                <td class="text-right" style="@tdStyle;">@((item.Qty == 0) ? "" : item.Qty.ToString())</td>
+                <td class="text-right" style="@tdStyle;">@((item.Rate == 0) ? "" : item.Rate.ToString())</td>
+                <td class="text-right" style="@tdStyle;">@rupees</td>
+                <td style="@tdStyle;">@paisa</td>
+            </tr>
+        }
+        @for (int i = 0; i < 20; i++)
+        {
+            <tr>
+                @for (int j = 0; j < 8; j++)
+                {
+                    <td style="@emptyTdStyle"></td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>

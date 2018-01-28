@@ -1,0 +1,85 @@
+﻿@model SoftIms.Data.ViewModel.PurchaseEntryViewModel
+@{
+    ViewBag.Title = "Store Entry Detail";
+    ViewBag.NoTitle = true;
+}
+@section head {
+    <style>
+        .text-right .item {
+            text-align: right;
+        }
+
+        .item {
+            width: 50px !important;
+        }
+
+        #frmPurchaseOrder label {
+            padding-right: 5px !important;
+        }
+    </style>
+}
+
+<div class="col-md-12">
+    <page id="printablediv" class="box-body report-data" size="A4" style="border:1px solid; padding:1px">
+        <div class="row">
+            <div class="col-xs-3"></div>
+            <div class="text-center col-xs-6">
+                <h3>@OfficeInfo.Name</h3>
+                <h4>@OfficeInfo.Address</h4>
+                <h3 class="report-title-with-bg-black">भण्डार दाखिला प्रतिवेदन</h3>
+            </div>
+            <div class="col-xs-3">
+                <span class="pull-right" font-size:small">भ.दा.नं : @Model.DisplayDocumentNo</span>
+            </div>
+            <br />
+        </div>
+        <div class="row">
+            <div class="col-xs-5">
+                <p> श्री लेखा शाखा</p>
+                <p>..................</p>
+            </div>
+            <div class="col-xs-4"></div>
+            <div class="col-xs-3">
+                <div class="pull-right">  मिति : @Model.DateBS</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                खरिद आदेश नं @Model.PurchaseOrderDisplayOrderNo मिति ................. को यस भण्डार शाखामा निम्न बमोजिमको सामानहरु आपूर्तिकर्ता श्री ....................................
+                को बिल नं ............ बाट दाखिला भएको हुादा भुक्तानीको लागि अनुरोध छ ।
+            </div>
+        </div>
+        <div class="row" style="margin-top:10px;">
+            <div class="col-xs-12">
+                <div class="form-group list-detail detail">
+                    @Html.Action("printstockentrylist", "imsentry")
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-4">
+                <p> ........................................ </p>
+                <p> खाता चढाउनेको हस्ताक्षर </p>
+            </div>
+            <div class="col-xs-4">
+            </div>
+            <div class="col-xs-4">
+                <div class="pull-right">
+                    <p> ........................................ </p>
+                    <p> भण्डार शाखाको हस्ताक्षर </p>
+                </div>
+            </div>
+        </div>
+    </page>
+</div>
+<hr />
+<div class="row">
+    <div class="col-xs-12 pull-right" style="padding-left: 30px;">
+        <button type="button" class="btn btn-info btnPrint" data-print-element="#printablediv" data-static-title="true"><span class="fa fa-print"></span></button>
+        <button type="button" class="toexcel btn btn-success" data-report-title="Purchase Order Detail" data-sheet="Sheet1" data-table="#tblStockEntry"><img src="~/Content/img/excel-export-16x16.png" /></button>
+    </div>
+</div>
+
+<script>
+    initialization();
+</script>

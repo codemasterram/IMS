@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "Document Numbering";
+}
+
+<div class="col-md-12">
+    <div class="box box-info">
+        <div class="box-body">
+            <form class="form-inline">
+                <div class="form-group">
+                    <label for="DocumentSetupId">Document</label> <br>
+                    @Html.DropDownList("DocumentSetupId", MasterDataList<DocumentSetup>("Id", "Name"), "-- Document --", new { @class = "form-control", @style = "min-width:200px;" })
+                </div>
+                <div class="form-group" style="margin-top:30px;">
+                    <button type="button" class="btn btn-info btnRefresh-documentNumbering" data-showLoader="false" data-resultElement=".documentNumbering-detail" data-url="@Url.Action("documentnumberingdetail","setup")"><span class="fa fa-search"></span></button>
+                </div>
+            </form>
+            <div class="clearfix"></div>
+            <div class="documentNumbering-detail detail vh65">
+                @Html.Action("DocumentNumberingDetail", "setup")
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script>
+        $(".btnRefresh-documentNumbering").refreshData();
+    </script>
+}
+
+

@@ -1,0 +1,281 @@
+﻿@model SoftIms.Data.ViewModel.PurchaseEntryViewModel
+@{
+    ViewBag.Title = "भण्डार दाखिला";
+}
+
+<div class="col-md-12">
+    @using (Html.BeginForm("purchaseentryentry", "imsentry", FormMethod.Post, new { @id = "frmStockTransaction", @class = "ims-entry" }))
+    {
+        <div class="box box-info" id="frmDetailData">
+            <div class="box-body">
+                @Html.AntiForgeryToken()
+                @Html.HiddenFor(x => x.Id)
+
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.DisplayDocumentNo)
+                            @Html.TextBoxFor(x => x.DisplayDocumentNo, new { @class = "form-control locked" })
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.PurchaseOrderId)
+                            @Html.DropDownListFor(x => x.PurchaseOrderId, (IEnumerable<SelectListItem>)ViewBag.PurchaseOrderId, "खरिद आदेश नं.", new { @class = "form-control locked" })
+                            @Html.ValidationMessageFor(x => x.PurchaseOrderId)
+                        </div>
+                    </div>
+                    <div class="col-md-3 pull-right">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.DateBS)
+                            @Html.TextBoxFor(x => x.DateBS, new { @class = "form-control mask-miti" })
+                            @Html.ValidationMessageFor(x => x.DateBS)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="ItemGroupId">सामानको समूह</label>
+                            @Html.DropDownList("ItemGroupId", MasterDataList<ItemGroup>("Id", "Name", null), "-- सामानको समूह --", new { @class = "form-control focus-first" })
+                            @Html.ValidationMessage("ItemGroupId")
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="ItemId">सामानको नाम</label>
+                            @Html.DropDownList("ItemId", NoDataList, "-- सामानको नाम --", new { @class = "form-control" })
+                            @Html.ValidationMessage("ItemId")
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label for="Qty">परिमाण </label>
+                            @Html.TextBox("Qty", null, new { @class = "form-control text-right number-type", @placeholder = "परिमाण" })
+                            @Html.ValidationMessage("Qty")
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label for="Rate">दर</label>
+                            @Html.TextBox("Rate", null, new { @class = "form-control numeric text-right number-type amount", @placeholder = "दर" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="Narration">स्पेसिफिकेसन</label>
+                            @Html.TextBox("Narration", null, new { @class = "form-control", @placeholder = "स्पेसिफिकेसन" })
+                            @Html.ValidationMessage("Narration")
+                        </div>
+                    </div>
+                    <div class="col-md-2 pull-left">
+                        <button type="button" class="btn btn-success btn-add" id="btnAdd">सूचिमा थप्नुहोस्</button>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <button type="button" class="hide btn-refresh" id="btnRefresh" data-url="@Url.Action("PurchaseEntryData","imsentry")"><span class="fa fa-refresh"></span></button>
+                        <div class="list-detail detail min-h-45vh slim-scroll lazy-loading" id="item-detail" data-url="@Url.Action("PurchaseEntryData", "imsentry")" >
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.VendorId)
+                            <div class="input-group">
+                                @Html.DropDownListFor(x => x.VendorId, MasterDataList<Vendor>(selectedValue: Model.VendorId), "-- बिक्रेता  --", new { @class = "form-control" })
+                                <div class="input-group-addon btn"><span class="fa fa-refresh" id="btn-refresh-vendor"></span></div>
+                            </div>
+                            @Html.ValidationMessageFor(x => x.VendorId)
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.InvoiceNo)
+                            @Html.TextBoxFor(x => x.InvoiceNo, new { @class = "form-control", @placeholder = "InvoiceNo" })
+                            @Html.ValidationMessageFor(x => x.InvoiceNo)
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.Remarks)
+                            @Html.TextAreaFor(x => x.Remarks, new { @class = "form-control", @placeholder = "कैफियत" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="box box-footer" style="margin-top:-10px; border-top:1px solid #c1c1c1">
+                        <button type="submit" class="btn btnSave btn-success">@string.Format("{0}", Model.Id == 0 ? "सुरक्षित गर्ने ":  "Update")</button>
+                        <a href="@Url.Action("purchaseentrylist", "imsentry")" class="btn btn-info">सूचिमा फर्कने</a>
+                        <a href="@Url.Action("index", "ims")" class="btn btn-default">Cancel</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+@section scripts{
+    <script>
+    var calculateField = function () {
+        $qty = $("#Qty");
+        $rate = $("#Rate");
+        $vat = $("#Vat");
+        $basicAmount = $("#BasicAmount");
+        $netAmount = $("#NetAmount");
+
+        var vat = 13; var qty = 0; var basicAmount;
+        var rate = 0; var netAmount = 0;
+        var vatAmount = 0;
+        if (parseInt($qty.val()) > 0) {
+            qty = parseInt($qty.val());
+        }
+        if (parseFloat($rate.val()) > 0) {
+            rate = parseFloat($rate.val());
+        }
+
+        basicAmount = rate * qty;
+        $basicAmount.val(basicAmount.toFixed(2));
+
+        if ($vat.val() != '0') {
+            vatAmount = (qty * rate) * vat / 100;
+            $vat.val(vatAmount.toFixed(2));
+        }
+
+        netAmount = basicAmount + vatAmount;
+        $netAmount.val(netAmount.toFixed(2));
+    }
+
+    $("#Qty, #Rate, #VatPerQty").on("change", function () {
+        calculateField();
+    });
+
+
+    $("#ItemGroupId").on("change", function () {
+        var childElement = $('#ItemId');
+        var selectedValue = $(childElement).val();
+        $(this).loadChildList({
+            url: "@Url.Action("getitem", "master")",
+            paramData: { itemgroupId: $(this).val(), dataValueField: "Id", dataTextField: 'Name' },
+            childElement: childElement,
+            optionalLabel: '-- Item --',
+            selectedValue: selectedValue,
+            showLoader: false
+        });
+    });
+</script>
+
+<script>
+    $("#btnAdd").unbind('click').on("click", function (e) {
+        hideErrorMessage();
+        var sno = $(".tbl-item-list tr").length;
+        $itemId = $("#ItemId");
+        $qty = $("#Qty");
+        if (($itemId.val() == "" || $itemId.val() == null) && sno > 0) {
+            $(".btnSave").focus();
+            return;
+        }
+
+        if ($itemId.val() == "" || $itemId.val() == null) {
+            showErrorMessage('Please select item!');
+            $itemId.focus();
+            return false;
+        }
+
+        if ($qty.val() < 1) {
+            showErrorMessage('Plesase enter valid quantity!');
+            $qty.focus();
+            return false;
+        }
+
+        if ($itemId.val() == "") {
+            showErrorMessage('Plesase select item!');
+            $itemId.focus();
+            return false;
+        }
+
+
+        var data = $('#frmDetailData :input').serialize();
+        $.ajax({
+            url: "@Url.Action("AddPurchaseEntryDetail", "imsentry")",
+            type: "post",
+            data: data,
+            success: function (result) {
+                $(".list-detail").html('<span class="fa fa-refresh fa-spin text-center"></span>');
+                $("#btnRefresh").trigger("click");
+                $itemId.val('');
+                $qty.val(1);
+                $("#Rate").val('');
+                $("#Narration").val('');
+            },
+            error: function (result) {
+                showErrorMessage('Unable to add item!');
+                console.log(result);
+            }
+        });
+    });
+
+    $(".btn-refresh").unbind('click').on('click', function () {
+        $.ajax({
+            url: '@Url.Action("PurchaseEntryData", "imsentry")',
+            success: function(result)
+            {
+                $('#item-detail').html(result);
+            }
+        });
+    });
+
+    $("#btnRefresh1").refreshData({
+        url: '@Url.Action("PurchaseEntryData", "imsentry")',
+        resultElement: '#item-detail'
+    });
+</script>
+
+<script>
+    $("#frmStockTransaction").on("submit", function (e) {
+        var detail = $(".tbl-item-list tr").length;
+        if (detail < 1) {
+            showErrorMessage("Please enter detail");
+            return false;
+        }
+        return true;
+    });
+    $("#PurchaseOrderId").change(function (e) {
+        var id = $(this).val();
+        if (id == null || id == '') {
+            $(".list-detail").html(null);
+            return;
+        };
+    });
+
+    $("#PurchaseOrderId").change(function (e) {
+        $.ajax({
+            url: "@Url.Action("getvendorbypurchaseorder", "imsentry")",
+            type: "POST",
+            data: { purchaseOrderId: $(this).val() },
+            success: function (result) {
+                $("#VendorId").val(result);
+            }
+        });
+    });
+    $('#btn-refresh-vendor').on('click', function (e) {
+        $('#btn-refresh-vendor').loadChildList({
+            url: rootPath + 'common/getvendorlist',
+            childElement: "#VendorId",
+            optionalLabel: "-- Vendor --",
+            type: "post"
+        });
+    });
+
+    $("#PurchaseOrderId option[value='@Model.PurchaseOrderId']").attr("selected", "selected");
+</script>
+    }

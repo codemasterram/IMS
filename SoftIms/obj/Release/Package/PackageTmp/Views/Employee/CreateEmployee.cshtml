@@ -1,0 +1,111 @@
+﻿@model SoftIms.Data.ViewModel.EmployeeViewModel
+@{
+    ViewBag.Title = "Create/Edit New Employee";
+    ViewBag.PageDescription = "Create Employee";
+}
+
+
+<div class="col-md-12 employee-data">
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="personalinformation-tab">
+            @using (Html.BeginForm("CreateEmployee", "Employee", FormMethod.Post, new { @enctype = "multipart/form-data", @class = "form-horizontal smooth-tab" }))
+            {
+                <div class="box box-solid">
+                    <div class="box-body">
+                        @Html.AntiForgeryToken()
+                        @Html.Hidden("next", "family-detail-tab")
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    @Html.LabelFor(x => x.Name, new { @class = "col-md-3" })
+                                    <div class="col-md-3">
+                                        @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(x => x.Name)
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(x => x.DateOfBirth, new { @class = "col-md-3" })
+                                    <div class="col-md-3">
+                                       <div class="input-group date">
+                                           @Html.TextBoxFor(x => x.DateOfBirth, new { @class = "form-control datepicker" })
+                                           <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                       </div>
+                                        
+                                        @Html.ValidationMessageFor(x => x.DateOfBirth)
+
+                                    </div>
+                                </div>
+                                
+
+                                <div class="form-group">
+                                    @Html.LabelFor(x => x.DepartmentId, new { @class = "col-md-3" })
+                                    <div class="col-md-3">
+                                        @Html.DropDownListFor(x=>x.DepartmentId,MasterDataList<Department>(selectedValue:Model.DepartmentId), new { @class="form-control    "})
+                                        @Html.ValidationMessageFor(x => x.DepartmentId)
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(x => x.DesignationId, new { @class = "col-md-3" })
+                                    <div class="col-md-9">
+                                        @Html.DropDownListFor(x=>x.DesignationId,MasterDataList<Designation>(selectedValue:Model.DesignationId),new { @class="form-control"})
+                                        @Html.ValidationMessageFor(x => x.DesignationId)
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(x => x.EmployeeType, new { @class = "col-md-3" })
+                                    <div class="col-md-9">
+                                        @Html.DropDownList("EmployeeType", MasterDataList(eSelectListType.EmployeeType, null), "-- All --", new { @class = "form-control", @style = "min-width:200px;" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(x => x.ContactNo, new { @class = "col-md-3" })
+                                    <div class="col-md-9">
+                                        @Html.TextBoxFor(x => x.ContactNo, new { @class = "form-control", @placeholder = "Contact No" })
+                                        @Html.ValidationMessageFor(x => x.ContactNo)
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(x => x.Email, new { @class = "col-md-3" })
+                                    <div class="col-md-9">
+                                        @Html.TextBoxFor(x => x.Email, new { @class = "form-control", @placeholder = "Email Address" })
+                                        @Html.ValidationMessageFor(x => x.Email)
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(x => x.Gender, new { @class = "col-md-3" })
+                                    <div class="col-md-3">
+                                        @Html.DropDownListFor(x => x.Gender, MasterDataList(eSelectListType.Gender, Model.Gender), new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(x => x.Gender)
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(x => x.IsActive, new { @class = "col-md-3" })
+                                    <div class="col-md-3">
+                                        @Html.DropDownListFor(x => x.IsActive, MasterDataList(eSelectListType.IsActive, Model.IsActive), new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(x => x.IsActive)
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="box box-footer" style="margin-top:-10px; border-top:1px solid #c1c1c1">
+                            <button type="submit" class="btn btn-success">Submit</button>
+                            <a href="@Url.Action("index","Employee")" class="btn btn-info" >Return to List</a>
+                            <a href="@Url.Action("index","Home")" c class="btn btn-danger">Cancel</a>
+
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

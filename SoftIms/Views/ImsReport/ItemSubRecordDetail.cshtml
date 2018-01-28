@@ -1,0 +1,119 @@
+﻿@model SoftIms.Data.ViewModel.ItemRecordViewModel
+@{
+    ViewBag.Title =  "Consumable Item RecordDetail";
+    int sno = 0;
+    var tdStyle = "border:1px solid; vertical-align:middle;";
+}
+
+
+<div class="col-xs-12">
+    <div class="box box-info">
+        <div class="box-body" style="min-height:400px;">
+            <div id="printablediv">
+                <div class="row">
+                    <div class="col-xs-3"></div>
+                    <div class="text-center col-xs-6">
+                        <h3>नेपाल दूरसञ्चार प्राधिकरण </h3>
+                        <h4>काठमाडौं</h4>
+                        <h3>जिन्सी मालसामानको सहायक खाता</h3>
+                    </div>
+                    <div class="col-xs-3">
+                        <span class="pull-right" font-size:small">@*म.ले.प.फा.नं.४७*@</span>
+                    </div>
+                    <br />
+                </div>
+                <div class="row">
+                    <div class="col-xs-5">
+                        <div>जिन्सी सामानको नाम : @Model.ItemName</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-5">
+                        <div>इकाई : @Model.ItemUnitName</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-7">
+                        <div>जिन्सी सामानको सम्पत्ति वर्गीकरण संकेत नम्बर : @Model.ItemCode</div>
+                    </div>
+                </div>
+                <div class="row" style="margin-top:10px;">
+                    <div class="col-xs-12">
+                        <div class="form-group">
+                            <table id="tblItemSubRecordDetail" border="1" style="border-collapse:collapse; width:100%;" class="table">
+                                <thead class="bg-gray-light">
+                                    <tr>
+                                        <td width="10%" rowspan="2" style="@tdStyle;" class="text-center">मिती</td>
+                                        <td width="10%" rowspan="2" style="@tdStyle;" class="text-center">दाखिला नं./निकासी नं.</td>
+                                        <td width="12%" rowspan="2" style="@tdStyle;" class="text-center">विभाग / शाखा</td>
+                                        <td width="12%" rowspan="2" style="@tdStyle;" class="text-center">कर्मचारी</td>
+                                        <td width="12%" rowspan="2" style="@tdStyle;" class="text-center">स्पेसिफिकेशन</td>
+                                        <td colspan="2" width="12%" style="@tdStyle;" class="text-center">आम्दानी</td>
+                                        <td colspan="2" width="12%" style="@tdStyle;" class="text-center">खर्च</td>
+                                        <td rowspan="2" class="text-center" style="@tdStyle;" width="10%">बाकि</td>
+                                        <td rowspan="2" class="text-center" style="@tdStyle;" width="10%">कैफियत</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center" style="@tdStyle;">परिमाण</td>
+                                        <td class="text-center" style="@tdStyle;">जम्मा परल रकम</td>
+                                        <td class="text-center" style="@tdStyle;">परिमाण</td>
+                                        <td class="text-center" style="@tdStyle;">जम्मा परल रकम</td>
+                                    </tr>
+                                </thead>
+                                <tbody class="tbl-item-list">
+                                    @foreach (var item in Model.SubDetail)
+                                    {
+                                        sno++;
+                                        <tr>
+                                            <td class="text-center" style="@tdStyle;">@DateMiti.GetDateMiti.GetMiti(item.Date)</td>
+                                            <td class="text-center" style="@tdStyle;">@item.DisplayDocumentNo</td>
+                                            <td class="text-center" style="@tdStyle;">@item.DepartmentName</td>
+                                            <td class="text-center" style="@tdStyle;">@item.EmployeeName</td>
+                                            <td class="text-center" style="@tdStyle;">@item.Narration</td>
+                                            <td class="text-center" style="@tdStyle;">@((item.EarningsQuantity == 0) ? "" : item.EarningsQuantity.ToString())</td>
+                                            <td class="text-center" style="@tdStyle;">@((item.EarningsTotalPrice == 0) ? "" : item.EarningsTotalPrice.ToString("N2", System.Globalization.CultureInfo.InvariantCulture))</td>
+                                            <td class="text-center" style="@tdStyle;">@((item.ExpenseQuantity == 0) ? "" : item.ExpenseQuantity.ToString())</td>
+                                            <td class="text-center" style="@tdStyle;">@((item.ExpensesTotalPrice == 0) ? "" : item.ExpensesTotalPrice.ToString("N2", System.Globalization.CultureInfo.InvariantCulture))</td>
+                                            <td class="text-center" style="@tdStyle;">@item.RemainingQuantity</td>
+                                            <td class="text-center" style="@tdStyle;"></td>
+                                        </tr>
+                                    }
+                                    @if (sno == 0)
+                                    {
+                                        <tr>
+                                            <td colspan="12" class="text-center" style="@tdStyle;">रेकर्ड भेटिएन् ।</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-4">
+                        <p> फाँटवालाको दस्तखत : </p>
+                        <p> मिती : </p>
+                    </div>
+                    <div class="col-xs-4">
+                        <p> शाखा प्रमुखको दस्तखत : </p>
+                        <p> मिती : </p>
+                    </div>
+                    <div class="col-xs-4">
+                        <p> कार्यलय प्रमुखको दस्तखत : </p>
+                        <p> मिती : </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<hr />
+<div class="row">
+    <div class="col-xs-12 pull-right" style="padding-left: 30px;">
+        <button type="button" class="btn btn-info btnPrint" data-static-title="true" data-print-element="#printablediv"><span class="fa fa-print"></span></button>
+        <button type="button" class="toexcel btn btn-success" data-report-title="Item Sub-Record Detail" data-sheet="Sheet1" data-table="#tblItemSubRecordDetail"><img src="~/Content/img/excel-export-16x16.png" /></button>
+    </div>
+</div>
+
+
+

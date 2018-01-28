@@ -1,0 +1,42 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Web.Mvc;
+
+namespace SoftIms.Data.ViewModel
+{
+   public class ItemViewModel
+    {
+        public int Id { get; set; }
+        [Required]
+
+        [Remote("ItemNotExist", "Master", HttpMethod = "Post", AdditionalFields = "Id", ErrorMessage = "{0} already exists.")]
+        [StringLength(400, MinimumLength = 1)]
+        public string Name { get; set; }
+        [Required]
+        [StringLength(400, MinimumLength = 1)]
+        [Display(Name = "Employee Name")]
+        public string Code { get; set; }
+        [Required]
+        [Display(Name = "Item Group Ids")]
+        public int ItemGroupId { get; set; }
+        [Required]
+        [Display(Name = "Iteem Unit Id")]
+        public int ItemUnitId { get; set; }
+        [Required]
+        [Display(Name = "Display Order")]
+        public int DisplayOrder { get; set; } = 1;
+    }
+    public class ItemListViewModel
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Code { get; set; }
+        public int ItemGroupId { get; set; }
+        public int ItemUnitId { get; set; }
+        public int DisplayOrder { get; set; }
+    }
+}

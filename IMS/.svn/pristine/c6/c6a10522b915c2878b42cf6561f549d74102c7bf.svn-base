@@ -1,0 +1,40 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SoftIms.Data.ViewModel
+{
+    public class AppUserViewModel
+    {
+        public int Id { get; set; }
+        [Required]
+        [StringLength(400, MinimumLength = 1)]
+        [RegularExpression(@"^\S*$", ErrorMessage = "No white space allowed in {0}.")]
+        [Display(Name = "User Name")]
+        public string UserName { get; set; }
+        [Required(ErrorMessage = "Please enter {0}.")]
+        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 5)]
+        [DataType(DataType.Password)]
+        [Display(Name = "Password")]
+        public string Password { get; set; }
+        public Nullable<int> EmployeeId { get; set; }
+        [Required]
+        public string Salt { get; set; }
+        public string Photo { get; set; }
+        [Required]
+        public bool IsActive { get; set; }
+    }
+    public class AppUserListViewModel
+    {
+        public int Id { get; set; }
+        public string UserName { get; set; }
+        public string Password { get; set; }
+        public string EmployeeId { get; set; }
+        public string Salt { get; set; }
+        public string Photo { get; set; }
+        public bool IsActive { get; set; }
+    }
+}

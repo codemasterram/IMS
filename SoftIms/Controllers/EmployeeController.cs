@@ -1,0 +1,150 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using SoftIms.Data.ViewModel;
+using static SoftIms.Utilities.Utility;
+using static SoftIms.Utilities.ViewModelExtension;
+using SoftIms.Data;
+using System.Net;
+using SoftIms.Data.Infrastructure;
+
+namespace SoftIms.Controllers
+{
+    public class EmployeeController : BaseController
+    {
+        public ActionResult Index()
+        {
+            return View();
+        }
+
+        public PartialViewResult Detail(string name,string employeetypeid,int? departmentid,int? designationid, int? status)
+        {
+            
+            var data = db.EmployeeRepo.Get(x => (string.IsNullOrEmpty(name.Trim()) || x.Name.StartsWith(name.Trim()))
+            && (!designationid.HasValue || designationid.Value == 0 || x.DesignationId == designationid)
+            && (!departmentid.HasValue || departmentid.Value == 0 || x.DepartmentId == departmentid)
+            && (string.IsNullOrEmpty(employeetypeid.Trim()) || x.EmployeeType.StartsWith(employeetypeid.Trim()))
+             && (!status.HasValue || status.Value == 0 || (status==1 && x.IsActive) || (status==2 && !x.IsActive)));
+            var model = AutomapperConfig.Mapper.Map<IEnumerable<Employee>, IEnumerable<EmployeeListViewModel>>(data);
+            return PartialView(model);
+        }
+
+        [HttpGet]
+        public JsonResult GetEmployee(int? departmentid, object selectedValue = null)
+        {
+            var data = helper.GetEmployeeList(departmentid, selectedValue);
+            return Json(data, JsonRequestBehavior.AllowGet);
+        }
+
+
+
+     
+
+
+        public ActionResult CreateEmployee(int id = 0)
+        {
+            var model = new EmployeeViewModel();
+            if (id > 0)
+                model = AutomapperConfig.Mapper.Map<EmployeeViewModel>(db.EmployeeRepo.GetById(id));
+            if (model == null)
+            {
+                Response.StatusCode = (int)HttpStatusCode.OK;
+                return PartialView(BadRequestView);
+            }
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult CreateEmployee(EmployeeViewModel model)
+        {
+            List<string> errors = new List<string>();
+            try
+            {
+              
+                if (ModelState.IsValid)
+                {
+                    if (model.Id == 0)
+                    {
+                        var itemD = db.EmployeeRepo.Table();
+                        var dbModel = AutomapperConfig.Mapper.Map<Employee>(model);
+                        dbModel.CreatedDate = DateTime.Now;
+                        dbModel.CreatedBy = 1;
+                        model.Id = db.EmployeeRepo.Create(dbModel);
+                    }
+                    else
+                    {
+                        var oldmodel = db.EmployeeRepo.GetById(model.Id);
+                        if (oldmodel == null)
+                        {
+                            Response.StatusCode = (int)HttpStatusCode.OK;
+                            return Json(new { redirecturl = "/error/badrequest" });
+                        }
+                        oldmodel.Name = model.Name;
+                        oldmodel.ContactNo = model.ContactNo;
+                        oldmodel.DateOfBirth = model.DateOfBirth;
+                        oldmodel.Gender = model.Gender;
+                        oldmodel.Email = model.Email;
+                        oldmodel.EmployeeType = model.EmployeeType;
+                        oldmodel.DepartmentId = model.DepartmentId;
+                        oldmodel.DesignationId = model.DesignationId;
+                        
+
+
+                    }
+                    db.SaveChanges();
+                    Response.StatusCode = (int)HttpStatusCode.OK;
+                    TempData["Success"]="Employee Successfully Saved";
+                    return RedirectToAction("Index");
+
+                }
+                foreach (var item in ModelState.Where(x => x.Value.Errors.Any()))
+                {
+                    errors.Add(item.Value.Errors.FirstOrDefault().ErrorMessage);
+                }
+            }
+            catch (Exception ex)
+            {
+                errors.Add(ex.GetExceptionMessages());
+            }
+            Response.StatusCode = (int)HttpStatusCode.SeeOther;
+            return View(model);
+        }
+
+        [HttpPost]
+        public JsonResult DeleteEmployee(int id)
+        {
+            List<string> errors = new List<string>();
+            string fkMessage = string.Empty;
+            var model = db.EmployeeRepo.GetById(id);
+            if (model == null)
+            {
+                Response.StatusCode = (int)HttpStatusCode.OK;
+                return Json(new { redirecturl = "/error/badrequest" });
+            }
+            try
+            {
+                db.EmployeeRepo.Delete(model);
+                Response.StatusCode = (int)HttpStatusCode.OK;
+                return Json(new { success = true });
+            }
+            catch (Exception ex)
+            {
+                if (ex.GetExceptionMessages().Contains("REFERENCE"))
+                {
+                    fkMessage = ex.GetExceptionMessages();
+                    errors.Add("Emploee  cannot be deleted.");
+                }
+                else
+                {
+                    errors.Add(ex.GetExceptionMessages());
+
+                }
+            }
+            Response.StatusCode = (int)HttpStatusCode.SeeOther;
+            return Json(new { fkMessage = fkMessage, error = errors });
+        }
+
+    }
+}

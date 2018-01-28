@@ -1,0 +1,503 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Date_Conversion_Information>
+  <Year yearid="1970">
+    <Month id="1">
+      <StartDate>4/13/1913</StartDate>
+      <EndDate>5/13/1913</EndDate>
+    </Month>
+    <Month id="2">
+      <StartDate>5/14/1913</StartDate>
+      <EndDate>6/13/1913</EndDate>
+    </Month>
+    <Month id="3">
+      <StartDate>6/14/1913</StartDate>
+      <EndDate>7/15/1913</EndDate>
+    </Month>
+    <Month id="4">
+      <StartDate>7/16/1913</StartDate>
+      <EndDate>8/15/1913</EndDate>
+    </Month>
+    <Month id="5">
+      <StartDate>8/16/1913</StartDate>
+      <EndDate>9/15/1913</EndDate>
+    </Month>
+    <Month id="6">
+      <StartDate>9/16/1913</StartDate>
+      <EndDate>10/16/1913</EndDate>
+    </Month>
+    <Month id="7">
+      <StartDate>10/17/1913</StartDate>
+      <EndDate>11/15/1913</EndDate>
+    </Month>
+    <Month id="8">
+      <StartDate>11/16/1913</StartDate>
+      <EndDate>12/14/1913</EndDate>
+    </Month>
+    <Month id="9">
+      <StartDate>12/15/1913</StartDate>
+      <EndDate>1/13/1914</EndDate>
+    </Month>
+    <Month id="10">
+      <StartDate>1/14/1914</StartDate>
+      <EndDate>2/11/1914</EndDate>
+    </Month>
+    <Month id="11">
+      <StartDate>2/12/1914</StartDate>
+      <EndDate>3/13/1914</EndDate>
+    </Month>
+    <Month id="12">
+      <StartDate>3/14/1914</StartDate>
+      <EndDate>4/12/1914</EndDate>
+    </Month>
+  </Year>
+  <Year yearid="1971">
+    <Month id="1">
+      <StartDate>4/13/1914</StartDate>
+      <EndDate>5/13/1914</EndDate>
+    </Month>
+    <Month id="2">
+      <StartDate>5/14/1914</StartDate>
+      <EndDate>6/13/1914</EndDate>
+    </Month>
+    <Month id="3">
+      <StartDate>6/14/1914</StartDate>
+      <EndDate>7/15/1914</EndDate>
+    </Month>
+    <Month id="4">
+      <StartDate>7/16/1914</StartDate>
+      <EndDate>8/15/1914</EndDate>
+    </Month>
+    <Month id="5">
+      <StartDate>8/16/1914</StartDate>
+      <EndDate>9/16/1914</EndDate>
+    </Month>
+    <Month id="6">
+      <StartDate>9/17/1914</StartDate>
+      <EndDate>10/16/1914</EndDate>
+    </Month>
+    <Month id="7">
+      <StartDate>10/17/1914</StartDate>
+      <EndDate>11/15/1914</EndDate>
+    </Month>
+    <Month id="8">
+      <StartDate>11/16/1914</StartDate>
+      <EndDate>12/14/1914</EndDate>
+    </Month>
+    <Month id="9">
+      <StartDate>12/15/1914</StartDate>
+      <EndDate>1/13/1915</EndDate>
+    </Month>
+    <Month id="10">
+      <StartDate>1/14/1915</StartDate>
+      <EndDate>2/11/1915</EndDate>
+    </Month>
+    <Month id="11">
+      <StartDate>2/12/1915</StartDate>
+      <EndDate>3/13/1915</EndDate>
+    </Month>
+    <Month id="12">
+      <StartDate>3/14/1915</StartDate>
+      <EndDate>4/12/1915</EndDate>
+    </Month>
+  </Year>
+  <Year yearid="1972">
+    <Month id="1">
+      <StartDate>4/13/1915</StartDate>
+      <EndDate>5/13/1915</EndDate>
+    </Month>
+    <Month id="2">
+      <StartDate>5/14/1915</StartDate>
+      <EndDate>6/14/1915</EndDate>
+    </Month>
+    <Month id="3">
+      <StartDate>6/15/1915</StartDate>
+      <EndDate>7/15/1915</EndDate>
+    </Month>
+    <Month id="4">
+      <StartDate>7/16/1915</StartDate>
+      <EndDate>8/16/1915</EndDate>
+    </Month>
+    <Month id="5">
+      <StartDate>8/17/1915</StartDate>
+      <EndDate>9/16/1915</EndDate>
+    </Month>
+    <Month id="6">
+      <StartDate>9/17/1915</StartDate>
+      <EndDate>10/16/1915</EndDate>
+    </Month>
+    <Month id="7">
+      <StartDate>10/17/1915</StartDate>
+      <EndDate>11/15/1915</EndDate>
+    </Month>
+    <Month id="8">
+      <StartDate>11/16/1915</StartDate>
+      <EndDate>12/15/1915</EndDate>
+    </Month>
+    <Month id="9">
+      <StartDate>12/16/1915</StartDate>
+      <EndDate>1/13/1916</EndDate>
+    </Month>
+    <Month id="10">
+      <StartDate>1/14/1916</StartDate>
+      <EndDate>2/11/1916</EndDate>
+    </Month>
+    <Month id="11">
+      <StartDate>2/12/1916</StartDate>
+      <EndDate>3/13/1916</EndDate>
+    </Month>
+    <Month id="12">
+      <StartDate>3/14/1916</StartDate>
+      <EndDate>4/12/1916</EndDate>
+    </Month>
+  </Year>
+  <Year yearid="1973">
+    <Month id="1">
+      <StartDate>4/13/1916</StartDate>
+      <EndDate>5/12/1916</EndDate>
+    </Month>
+    <Month id="2">
+      <StartDate>5/13/1916</StartDate>
+      <EndDate>6/13/1916</EndDate>
+    </Month>
+    <Month id="3">
+      <StartDate>6/14/1916</StartDate>
+      <EndDate>7/14/1916</EndDate>
+    </Month>
+    <Month id="4">
+      <StartDate>7/15/1916</StartDate>
+      <EndDate>8/15/1916</EndDate>
+    </Month>
+    <Month id="5">
+      <StartDate>8/16/1916</StartDate>
+      <EndDate>9/15/1916</EndDate>
+    </Month>
+    <Month id="6">
+      <StartDate>9/16/1916</StartDate>
+      <EndDate>10/15/1916</EndDate>
+    </Month>
+    <Month id="7">
+      <StartDate>10/16/1916</StartDate>
+      <EndDate>11/14/1916</EndDate>
+    </Month>
+    <Month id="8">
+      <StartDate>11/15/1916</StartDate>
+      <EndDate>12/14/1916</EndDate>
+    </Month>
+    <Month id="9">
+      <StartDate>12/15/1916</StartDate>
+      <EndDate>1/12/1917</EndDate>
+    </Month>
+    <Month id="10">
+      <StartDate>1/13/1917</StartDate>
+      <EndDate>2/11/1917</EndDate>
+    </Month>
+    <Month id="11">
+      <StartDate>2/12/1917</StartDate>
+      <EndDate>3/12/1917</EndDate>
+    </Month>
+    <Month id="12">
+      <StartDate>3/13/1917</StartDate>
+      <EndDate>4/12/1917</EndDate>
+    </Month>
+  </Year>
+  <Year yearid="1974">
+    <Month id="1">
+      <StartDate>4/13/1917</StartDate>
+      <EndDate>5/13/1917</EndDate>
+    </Month>
+    <Month id="2">
+      <StartDate>5/14/1917</StartDate>
+      <EndDate>6/13/1917</EndDate>
+    </Month>
+    <Month id="3">
+      <StartDate>6/14/1917</StartDate>
+      <EndDate>7/15/1917</EndDate>
+    </Month>
+    <Month id="4">
+      <StartDate>7/16/1917</StartDate>
+      <EndDate>8/15/1917</EndDate>
+    </Month>
+    <Month id="5">
+      <StartDate>8/16/1917</StartDate>
+      <EndDate>9/15/1917</EndDate>
+    </Month>
+    <Month id="6">
+      <StartDate>9/16/1917</StartDate>
+      <EndDate>10/16/1917</EndDate>
+    </Month>
+    <Month id="7">
+      <StartDate>10/17/1917</StartDate>
+      <EndDate>11/15/1917</EndDate>
+    </Month>
+    <Month id="8">
+      <StartDate>11/16/1917</StartDate>
+      <EndDate>12/14/1917</EndDate>
+    </Month>
+    <Month id="9">
+      <StartDate>12/15/1917</StartDate>
+      <EndDate>1/13/1918</EndDate>
+    </Month>
+    <Month id="10">
+      <StartDate>1/14/1918</StartDate>
+      <EndDate>2/11/1918</EndDate>
+    </Month>
+    <Month id="11">
+      <StartDate>2/12/1918</StartDate>
+      <EndDate>3/13/1918</EndDate>
+    </Month>
+    <Month id="12">
+      <StartDate>3/14/1918</StartDate>
+      <EndDate>4/12/1918</EndDate>
+    </Month>
+  </Year>
+  <Year yearid="1975">
+    <Month id="1">
+      <StartDate>4/13/1918</StartDate>
+      <EndDate>5/13/1918</EndDate>
+    </Month>
+    <Month id="2">
+      <StartDate>5/14/1918</StartDate>
+      <EndDate>6/13/1918</EndDate>
+    </Month>
+    <Month id="3">
+      <StartDate>6/14/1918</StartDate>
+      <EndDate>7/15/1918</EndDate>
+    </Month>
+    <Month id="4">
+      <StartDate>7/16/1918</StartDate>
+      <EndDate>8/15/1918</EndDate>
+    </Month>
+    <Month id="5">
+      <StartDate>8/16/1918</StartDate>
+      <EndDate>9/16/1918</EndDate>
+    </Month>
+    <Month id="6">
+      <StartDate>9/17/1918</StartDate>
+      <EndDate>10/16/1918</EndDate>
+    </Month>
+    <Month id="7">
+      <StartDate>10/17/1918</StartDate>
+      <EndDate>11/15/1918</EndDate>
+    </Month>
+    <Month id="8">
+      <StartDate>11/16/1918</StartDate>
+      <EndDate>12/14/1918</EndDate>
+    </Month>
+    <Month id="9">
+      <StartDate>12/15/1918</StartDate>
+      <EndDate>1/13/1919</EndDate>
+    </Month>
+    <Month id="10">
+      <StartDate>1/14/1919</StartDate>
+      <EndDate>2/11/1919</EndDate>
+    </Month>
+    <Month id="11">
+      <StartDate>2/12/1919</StartDate>
+      <EndDate>3/13/1919</EndDate>
+    </Month>
+    <Month id="12">
+      <StartDate>3/14/1919</StartDate>
+      <EndDate>4/12/1919</EndDate>
+    </Month>
+  </Year>
+  <Year yearid="1976">
+    <Month id="1">
+      <StartDate>4/13/1919</StartDate>
+      <EndDate>5/13/1919</EndDate>
+    </Month>
+    <Month id="2">
+      <StartDate>5/14/1919</StartDate>
+      <EndDate>6/14/1919</EndDate>
+    </Month>
+    <Month id="3">
+      <StartDate>6/15/1919</StartDate>
+      <EndDate>7/15/1919</EndDate>
+    </Month>
+    <Month id="4">
+      <StartDate>7/16/1919</StartDate>
+      <EndDate>8/16/1919</EndDate>
+    </Month>
+    <Month id="5">
+      <StartDate>8/17/1919</StartDate>
+      <EndDate>9/16/1919</EndDate>
+    </Month>
+    <Month id="6">
+      <StartDate>9/17/1919</StartDate>
+      <EndDate>10/16/1919</EndDate>
+    </Month>
+    <Month id="7">
+      <StartDate>10/17/1919</StartDate>
+      <EndDate>11/15/1919</EndDate>
+    </Month>
+    <Month id="8">
+      <StartDate>11/16/1919</StartDate>
+      <EndDate>12/15/1919</EndDate>
+    </Month>
+    <Month id="9">
+      <StartDate>12/16/1919</StartDate>
+      <EndDate>1/13/1920</EndDate>
+    </Month>
+    <Month id="10">
+      <StartDate>1/14/1920</StartDate>
+      <EndDate>2/11/1920</EndDate>
+    </Month>
+    <Month id="11">
+      <StartDate>2/12/1920</StartDate>
+      <EndDate>3/12/1920</EndDate>
+    </Month>
+    <Month id="12">
+      <StartDate>3/13/1920</StartDate>
+      <EndDate>4/12/1920</EndDate>
+    </Month>
+  </Year>
+  <Year yearid="1977">
+    <Month id="1">
+      <StartDate>4/13/1920</StartDate>
+      <EndDate>5/12/1920</EndDate>
+    </Month>
+    <Month id="2">
+      <StartDate>5/13/1920</StartDate>
+      <EndDate>6/13/1920</EndDate>
+    </Month>
+    <Month id="3">
+      <StartDate>6/14/1920</StartDate>
+      <EndDate>7/14/1920</EndDate>
+    </Month>
+    <Month id="4">
+      <StartDate>7/15/1920</StartDate>
+      <EndDate>8/15/1920</EndDate>
+    </Month>
+    <Month id="5">
+      <StartDate>8/16/1920</StartDate>
+      <EndDate>9/15/1920</EndDate>
+    </Month>
+    <Month id="6">
+      <StartDate>9/16/1920</StartDate>
+      <EndDate>10/16/1920</EndDate>
+    </Month>
+    <Month id="7">
+      <StartDate>10/17/1920</StartDate>
+      <EndDate>11/14/1920</EndDate>
+    </Month>
+    <Month id="8">
+      <StartDate>11/15/1920</StartDate>
+      <EndDate>12/14/1920</EndDate>
+    </Month>
+    <Month id="9">
+      <StartDate>12/15/1920</StartDate>
+      <EndDate>1/12/1921</EndDate>
+    </Month>
+    <Month id="10">
+      <StartDate>1/13/1921</StartDate>
+      <EndDate>2/11/1921</EndDate>
+    </Month>
+    <Month id="11">
+      <StartDate>2/12/1921</StartDate>
+      <EndDate>3/12/1921</EndDate>
+    </Month>
+    <Month id="12">
+      <StartDate>3/13/1921</StartDate>
+      <EndDate>4/12/1921</EndDate>
+    </Month>
+  </Year>
+  <Year yearid="1978">
+    <Month id="1">
+      <StartDate>4/13/1921</StartDate>
+      <EndDate>5/13/1921</EndDate>
+    </Month>
+    <Month id="2">
+      <StartDate>5/14/1921</StartDate>
+      <EndDate>6/13/1921</EndDate>
+    </Month>
+    <Month id="3">
+      <StartDate>6/14/1921</StartDate>
+      <EndDate>7/15/1921</EndDate>
+    </Month>
+    <Month id="4">
+      <StartDate>7/16/1921</StartDate>
+      <EndDate>8/15/1921</EndDate>
+    </Month>
+    <Month id="5">
+      <StartDate>8/16/1921</StartDate>
+      <EndDate>9/15/1921</EndDate>
+    </Month>
+    <Month id="6">
+      <StartDate>9/16/1921</StartDate>
+      <EndDate>10/16/1921</EndDate>
+    </Month>
+    <Month id="7">
+      <StartDate>10/17/1921</StartDate>
+      <EndDate>11/15/1921</EndDate>
+    </Month>
+    <Month id="8">
+      <StartDate>11/16/1921</StartDate>
+      <EndDate>12/14/1921</EndDate>
+    </Month>
+    <Month id="9">
+      <StartDate>12/15/1921</StartDate>
+      <EndDate>1/13/1922</EndDate>
+    </Month>
+    <Month id="10">
+      <StartDate>1/14/1922</StartDate>
+      <EndDate>2/11/1922</EndDate>
+    </Month>
+    <Month id="11">
+      <StartDate>2/12/1922</StartDate>
+      <EndDate>3/13/1922</EndDate>
+    </Month>
+    <Month id="12">
+      <StartDate>3/14/1922</StartDate>
+      <EndDate>4/12/1922</EndDate>
+    </Month>
+  </Year>
+  <Year yearid="1979">
+    <Month id="1">
+      <StartDate>4/13/1922</StartDate>
+      <EndDate>5/13/1922</EndDate>
+    </Month>
+    <Month id="2">
+      <StartDate>5/14/1922</StartDate>
+      <EndDate>6/13/1922</EndDate>
+    </Month>
+    <Month id="3">
+      <StartDate>6/14/1922</StartDate>
+      <EndDate>7/15/1922</EndDate>
+    </Month>
+    <Month id="4">
+      <StartDate>7/16/1922</StartDate>
+      <EndDate>8/16/1922</EndDate>
+    </Month>
+    <Month id="5">
+      <StartDate>8/17/1922</StartDate>
+      <EndDate>9/16/1922</EndDate>
+    </Month>
+    <Month id="6">
+      <StartDate>9/17/1922</StartDate>
+      <EndDate>10/16/1922</EndDate>
+    </Month>
+    <Month id="7">
+      <StartDate>10/17/1922</StartDate>
+      <EndDate>11/15/1922</EndDate>
+    </Month>
+    <Month id="8">
+      <StartDate>11/16/1922</StartDate>
+      <EndDate>12/14/1922</EndDate>
+    </Month>
+    <Month id="9">
+      <StartDate>12/15/1922</StartDate>
+      <EndDate>1/13/1923</EndDate>
+    </Month>
+    <Month id="10">
+      <StartDate>1/14/1923</StartDate>
+      <EndDate>2/11/1923</EndDate>
+    </Month>
+    <Month id="11">
+      <StartDate>2/12/1923</StartDate>
+      <EndDate>3/13/1923</EndDate>
+    </Month>
+    <Month id="12">
+      <StartDate>3/14/1923</StartDate>
+      <EndDate>4/12/1923</EndDate>
+    </Month>
+  </Year>
+</Date_Conversion_Information>

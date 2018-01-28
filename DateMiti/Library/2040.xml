@@ -1,0 +1,503 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Date_Conversion_Information>
+  <Year yearid="2040">
+    <Month id="1">
+      <StartDate>4/14/1983</StartDate>
+      <EndDate>5/14/1983</EndDate>
+    </Month>
+    <Month id="2">
+      <StartDate>5/15/1983</StartDate>
+      <EndDate>6/14/1983</EndDate>
+    </Month>
+    <Month id="3">
+      <StartDate>6/15/1983</StartDate>
+      <EndDate>7/16/1983</EndDate>
+    </Month>
+    <Month id="4">
+      <StartDate>7/17/1983</StartDate>
+      <EndDate>8/16/1983</EndDate>
+    </Month>
+    <Month id="5">
+      <StartDate>8/17/1983</StartDate>
+      <EndDate>9/16/1983</EndDate>
+    </Month>
+    <Month id="6">
+      <StartDate>9/17/1983</StartDate>
+      <EndDate>10/17/1983</EndDate>
+    </Month>
+    <Month id="7">
+      <StartDate>10/18/1983</StartDate>
+      <EndDate>11/16/1983</EndDate>
+    </Month>
+    <Month id="8">
+      <StartDate>11/17/1983</StartDate>
+      <EndDate>12/15/1983</EndDate>
+    </Month>
+    <Month id="9">
+      <StartDate>12/16/1983</StartDate>
+      <EndDate>1/14/1984</EndDate>
+    </Month>
+    <Month id="10">
+      <StartDate>1/15/1984</StartDate>
+      <EndDate>2/12/1984</EndDate>
+    </Month>
+    <Month id="11">
+      <StartDate>2/13/1984</StartDate>
+      <EndDate>3/13/1984</EndDate>
+    </Month>
+    <Month id="12">
+      <StartDate>3/14/1984</StartDate>
+      <EndDate>4/12/1984</EndDate>
+    </Month>
+  </Year>
+  <Year yearid="2041">
+    <Month id="1">
+      <StartDate>4/13/1984</StartDate>
+      <EndDate>5/13/1984</EndDate>
+    </Month>
+    <Month id="2">
+      <StartDate>5/14/1984</StartDate>
+      <EndDate>6/13/1984</EndDate>
+    </Month>
+    <Month id="3">
+      <StartDate>6/14/1984</StartDate>
+      <EndDate>7/15/1984</EndDate>
+    </Month>
+    <Month id="4">
+      <StartDate>7/16/1984</StartDate>
+      <EndDate>8/16/1984</EndDate>
+    </Month>
+    <Month id="5">
+      <StartDate>8/17/1984</StartDate>
+      <EndDate>9/16/1984</EndDate>
+    </Month>
+    <Month id="6">
+      <StartDate>9/17/1984</StartDate>
+      <EndDate>10/16/1984</EndDate>
+    </Month>
+    <Month id="7">
+      <StartDate>10/17/1984</StartDate>
+      <EndDate>11/15/1984</EndDate>
+    </Month>
+    <Month id="8">
+      <StartDate>11/16/1984</StartDate>
+      <EndDate>12/14/1984</EndDate>
+    </Month>
+    <Month id="9">
+      <StartDate>12/15/1984</StartDate>
+      <EndDate>1/13/1985</EndDate>
+    </Month>
+    <Month id="10">
+      <StartDate>1/14/1985</StartDate>
+      <EndDate>2/11/1985</EndDate>
+    </Month>
+    <Month id="11">
+      <StartDate>2/12/1985</StartDate>
+      <EndDate>3/13/1985</EndDate>
+    </Month>
+    <Month id="12">
+      <StartDate>3/14/1985</StartDate>
+      <EndDate>4/12/1985</EndDate>
+    </Month>
+  </Year>
+  <Year yearid="2042">
+    <Month id="1">
+      <StartDate>4/13/1985</StartDate>
+      <EndDate>5/13/1985</EndDate>
+    </Month>
+    <Month id="2">
+      <StartDate>5/14/1985</StartDate>
+      <EndDate>6/14/1985</EndDate>
+    </Month>
+    <Month id="3">
+      <StartDate>6/15/1985</StartDate>
+      <EndDate>7/15/1985</EndDate>
+    </Month>
+    <Month id="4">
+      <StartDate>7/16/1985</StartDate>
+      <EndDate>8/16/1985</EndDate>
+    </Month>
+    <Month id="5">
+      <StartDate>8/17/1985</StartDate>
+      <EndDate>9/16/1985</EndDate>
+    </Month>
+    <Month id="6">
+      <StartDate>9/17/1985</StartDate>
+      <EndDate>10/16/1985</EndDate>
+    </Month>
+    <Month id="7">
+      <StartDate>10/17/1985</StartDate>
+      <EndDate>11/15/1985</EndDate>
+    </Month>
+    <Month id="8">
+      <StartDate>11/16/1985</StartDate>
+      <EndDate>12/15/1985</EndDate>
+    </Month>
+    <Month id="9">
+      <StartDate>12/16/1985</StartDate>
+      <EndDate>1/13/1986</EndDate>
+    </Month>
+    <Month id="10">
+      <StartDate>1/14/1986</StartDate>
+      <EndDate>2/11/1986</EndDate>
+    </Month>
+    <Month id="11">
+      <StartDate>2/12/1986</StartDate>
+      <EndDate>3/13/1986</EndDate>
+    </Month>
+    <Month id="12">
+      <StartDate>3/14/1986</StartDate>
+      <EndDate>4/13/1986</EndDate>
+    </Month>
+  </Year>
+  <Year yearid="2043">
+    <Month id="1">
+      <StartDate>4/14/1986</StartDate>
+      <EndDate>5/14/1986</EndDate>
+    </Month>
+    <Month id="2">
+      <StartDate>5/15/1986</StartDate>
+      <EndDate>6/14/1986</EndDate>
+    </Month>
+    <Month id="3">
+      <StartDate>6/15/1986</StartDate>
+      <EndDate>7/15/1986</EndDate>
+    </Month>
+    <Month id="4">
+      <StartDate>7/16/1986</StartDate>
+      <EndDate>8/16/1986</EndDate>
+    </Month>
+    <Month id="5">
+      <StartDate>8/17/1986</StartDate>
+      <EndDate>9/16/1986</EndDate>
+    </Month>
+    <Month id="6">
+      <StartDate>9/17/1986</StartDate>
+      <EndDate>10/17/1986</EndDate>
+    </Month>
+    <Month id="7">
+      <StartDate>10/18/1986</StartDate>
+      <EndDate>11/15/1986</EndDate>
+    </Month>
+    <Month id="8">
+      <StartDate>11/16/1986</StartDate>
+      <EndDate>12/15/1986</EndDate>
+    </Month>
+    <Month id="9">
+      <StartDate>12/16/1986</StartDate>
+      <EndDate>1/14/1987</EndDate>
+    </Month>
+    <Month id="10">
+      <StartDate>1/15/1987</StartDate>
+      <EndDate>2/12/1987</EndDate>
+    </Month>
+    <Month id="11">
+      <StartDate>2/13/1987</StartDate>
+      <EndDate>3/14/1987</EndDate>
+    </Month>
+    <Month id="12">
+      <StartDate>3/15/1987</StartDate>
+      <EndDate>4/13/1987</EndDate>
+    </Month>
+  </Year>
+  <Year yearid="2044">
+    <Month id="1">
+      <StartDate>4/14/1987</StartDate>
+      <EndDate>5/14/1987</EndDate>
+    </Month>
+    <Month id="2">
+      <StartDate>5/15/1987</StartDate>
+      <EndDate>6/14/1987</EndDate>
+    </Month>
+    <Month id="3">
+      <StartDate>6/15/1987</StartDate>
+      <EndDate>7/16/1987</EndDate>
+    </Month>
+    <Month id="4">
+      <StartDate>7/17/1987</StartDate>
+      <EndDate>8/16/1987</EndDate>
+    </Month>
+    <Month id="5">
+      <StartDate>8/17/1987</StartDate>
+      <EndDate>9/16/1987</EndDate>
+    </Month>
+    <Month id="6">
+      <StartDate>9/17/1987</StartDate>
+      <EndDate>10/17/1987</EndDate>
+    </Month>
+    <Month id="7">
+      <StartDate>10/18/1987</StartDate>
+      <EndDate>11/16/1987</EndDate>
+    </Month>
+    <Month id="8">
+      <StartDate>11/17/1987</StartDate>
+      <EndDate>12/15/1987</EndDate>
+    </Month>
+    <Month id="9">
+      <StartDate>12/16/1987</StartDate>
+      <EndDate>1/14/1988</EndDate>
+    </Month>
+    <Month id="10">
+      <StartDate>1/15/1988</StartDate>
+      <EndDate>2/12/1988</EndDate>
+    </Month>
+    <Month id="11">
+      <StartDate>2/13/1988</StartDate>
+      <EndDate>3/13/1988</EndDate>
+    </Month>
+    <Month id="12">
+      <StartDate>3/14/1988</StartDate>
+      <EndDate>4/12/1988</EndDate>
+    </Month>
+  </Year>
+  <Year yearid="2045">
+    <Month id="1">
+      <StartDate>4/13/1988</StartDate>
+      <EndDate>5/13/1988</EndDate>
+    </Month>
+    <Month id="2">
+      <StartDate>5/14/1988</StartDate>
+      <EndDate>6/14/1988</EndDate>
+    </Month>
+    <Month id="3">
+      <StartDate>6/15/1988</StartDate>
+      <EndDate>7/15/1988</EndDate>
+    </Month>
+    <Month id="4">
+      <StartDate>7/16/1988</StartDate>
+      <EndDate>8/16/1988</EndDate>
+    </Month>
+    <Month id="5">
+      <StartDate>8/17/1988</StartDate>
+      <EndDate>9/16/1988</EndDate>
+    </Month>
+    <Month id="6">
+      <StartDate>9/17/1988</StartDate>
+      <EndDate>10/16/1988</EndDate>
+    </Month>
+    <Month id="7">
+      <StartDate>10/17/1988</StartDate>
+      <EndDate>11/15/1988</EndDate>
+    </Month>
+    <Month id="8">
+      <StartDate>11/16/1988</StartDate>
+      <EndDate>12/14/1988</EndDate>
+    </Month>
+    <Month id="9">
+      <StartDate>12/15/1988</StartDate>
+      <EndDate>1/13/1989</EndDate>
+    </Month>
+    <Month id="10">
+      <StartDate>1/14/1989</StartDate>
+      <EndDate>2/11/1989</EndDate>
+    </Month>
+    <Month id="11">
+      <StartDate>2/12/1989</StartDate>
+      <EndDate>3/13/1989</EndDate>
+    </Month>
+    <Month id="12">
+      <StartDate>3/14/1989</StartDate>
+      <EndDate>4/12/1989</EndDate>
+    </Month>
+  </Year>
+  <Year yearid="2046">
+    <Month id="1">
+      <StartDate>4/13/1989</StartDate>
+      <EndDate>5/13/1989</EndDate>
+    </Month>
+    <Month id="2">
+      <StartDate>5/14/1989</StartDate>
+      <EndDate>6/14/1989</EndDate>
+    </Month>
+    <Month id="3">
+      <StartDate>6/15/1989</StartDate>
+      <EndDate>7/15/1989</EndDate>
+    </Month>
+    <Month id="4">
+      <StartDate>7/16/1989</StartDate>
+      <EndDate>8/16/1989</EndDate>
+    </Month>
+    <Month id="5">
+      <StartDate>8/17/1989</StartDate>
+      <EndDate>9/16/1989</EndDate>
+    </Month>
+    <Month id="6">
+      <StartDate>9/17/1989</StartDate>
+      <EndDate>10/16/1989</EndDate>
+    </Month>
+    <Month id="7">
+      <StartDate>10/17/1989</StartDate>
+      <EndDate>11/15/1989</EndDate>
+    </Month>
+    <Month id="8">
+      <StartDate>11/16/1989</StartDate>
+      <EndDate>12/15/1989</EndDate>
+    </Month>
+    <Month id="9">
+      <StartDate>12/16/1989</StartDate>
+      <EndDate>1/13/1990</EndDate>
+    </Month>
+    <Month id="10">
+      <StartDate>1/14/1990</StartDate>
+      <EndDate>2/11/1990</EndDate>
+    </Month>
+    <Month id="11">
+      <StartDate>2/12/1990</StartDate>
+      <EndDate>3/13/1990</EndDate>
+    </Month>
+    <Month id="12">
+      <StartDate>3/14/1990</StartDate>
+      <EndDate>4/13/1990</EndDate>
+    </Month>
+  </Year>
+  <Year yearid="2047">
+    <Month id="1">
+      <StartDate>4/14/1990</StartDate>
+      <EndDate>5/14/1990</EndDate>
+    </Month>
+    <Month id="2">
+      <StartDate>5/15/1990</StartDate>
+      <EndDate>6/14/1990</EndDate>
+    </Month>
+    <Month id="3">
+      <StartDate>6/15/1990</StartDate>
+      <EndDate>7/15/1990</EndDate>
+    </Month>
+    <Month id="4">
+      <StartDate>7/16/1990</StartDate>
+      <EndDate>8/16/1990</EndDate>
+    </Month>
+    <Month id="5">
+      <StartDate>8/17/1990</StartDate>
+      <EndDate>9/16/1990</EndDate>
+    </Month>
+    <Month id="6">
+      <StartDate>9/17/1990</StartDate>
+      <EndDate>10/17/1990</EndDate>
+    </Month>
+    <Month id="7">
+      <StartDate>10/18/1990</StartDate>
+      <EndDate>11/16/1990</EndDate>
+    </Month>
+    <Month id="8">
+      <StartDate>11/17/1990</StartDate>
+      <EndDate>12/15/1990</EndDate>
+    </Month>
+    <Month id="9">
+      <StartDate>12/16/1990</StartDate>
+      <EndDate>1/14/1991</EndDate>
+    </Month>
+    <Month id="10">
+      <StartDate>1/15/1991</StartDate>
+      <EndDate>2/12/1991</EndDate>
+    </Month>
+    <Month id="11">
+      <StartDate>2/13/1991</StartDate>
+      <EndDate>3/14/1991</EndDate>
+    </Month>
+    <Month id="12">
+      <StartDate>3/15/1991</StartDate>
+      <EndDate>4/13/1991</EndDate>
+    </Month>
+  </Year>
+  <Year yearid="2048">
+    <Month id="1">
+      <StartDate>4/14/1991</StartDate>
+      <EndDate>5/14/1991</EndDate>
+    </Month>
+    <Month id="2">
+      <StartDate>5/15/1991</StartDate>
+      <EndDate>6/14/1991</EndDate>
+    </Month>
+    <Month id="3">
+      <StartDate>6/15/1991</StartDate>
+      <EndDate>7/16/1991</EndDate>
+    </Month>
+    <Month id="4">
+      <StartDate>7/17/1991</StartDate>
+      <EndDate>8/16/1991</EndDate>
+    </Month>
+    <Month id="5">
+      <StartDate>8/17/1991</StartDate>
+      <EndDate>9/16/1991</EndDate>
+    </Month>
+    <Month id="6">
+      <StartDate>9/17/1991</StartDate>
+      <EndDate>10/17/1991</EndDate>
+    </Month>
+    <Month id="7">
+      <StartDate>10/18/1991</StartDate>
+      <EndDate>11/16/1991</EndDate>
+    </Month>
+    <Month id="8">
+      <StartDate>11/17/1991</StartDate>
+      <EndDate>12/15/1991</EndDate>
+    </Month>
+    <Month id="9">
+      <StartDate>12/16/1991</StartDate>
+      <EndDate>1/14/1992</EndDate>
+    </Month>
+    <Month id="10">
+      <StartDate>1/15/1992</StartDate>
+      <EndDate>2/12/1992</EndDate>
+    </Month>
+    <Month id="11">
+      <StartDate>2/13/1992</StartDate>
+      <EndDate>3/13/1992</EndDate>
+    </Month>
+    <Month id="12">
+      <StartDate>3/14/1992</StartDate>
+      <EndDate>4/12/1992</EndDate>
+    </Month>
+  </Year>
+  <Year yearid="2049">
+    <Month id="1">
+      <StartDate>4/13/1992</StartDate>
+      <EndDate>5/13/1992</EndDate>
+    </Month>
+    <Month id="2">
+      <StartDate>5/14/1992</StartDate>
+      <EndDate>6/14/1992</EndDate>
+    </Month>
+    <Month id="3">
+      <StartDate>6/15/1992</StartDate>
+      <EndDate>7/15/1992</EndDate>
+    </Month>
+    <Month id="4">
+      <StartDate>7/16/1992</StartDate>
+      <EndDate>8/16/1992</EndDate>
+    </Month>
+    <Month id="5">
+      <StartDate>8/17/1992</StartDate>
+      <EndDate>9/16/1992</EndDate>
+    </Month>
+    <Month id="6">
+      <StartDate>9/17/1992</StartDate>
+      <EndDate>10/16/1992</EndDate>
+    </Month>
+    <Month id="7">
+      <StartDate>10/17/1992</StartDate>
+      <EndDate>11/15/1992</EndDate>
+    </Month>
+    <Month id="8">
+      <StartDate>11/16/1992</StartDate>
+      <EndDate>12/15/1992</EndDate>
+    </Month>
+    <Month id="9">
+      <StartDate>12/16/1992</StartDate>
+      <EndDate>1/13/1993</EndDate>
+    </Month>
+    <Month id="10">
+      <StartDate>1/14/1993</StartDate>
+      <EndDate>2/11/1993</EndDate>
+    </Month>
+    <Month id="11">
+      <StartDate>2/12/1993</StartDate>
+      <EndDate>3/13/1993</EndDate>
+    </Month>
+    <Month id="12">
+      <StartDate>3/14/1993</StartDate>
+      <EndDate>4/12/1993</EndDate>
+    </Month>
+  </Year>
+</Date_Conversion_Information>

@@ -1,0 +1,34 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SoftIms.Data.ViewModel
+{
+   public class ItemGroupViewModel
+    {
+        public int Id { get; set; }
+        [Required]
+        [StringLength(400, MinimumLength = 1)]
+        [Display(Name = "Employee Name")]
+        public string Name { get; set; }
+        [Required]
+        public string Code { get; set; }
+        [Required]
+        [Display(Name ="Item Type")]
+        public int ItemTypeId { get; set; }
+        [Required]
+        [Display(Name = "Display Order")]
+        public int DisplayOrder { get; set; }
+    }
+    public class ItemGroupListViewModel
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Code { get; set; }
+        public int ItemTypeId { get; set; }
+        public int DisplayOrder { get; set; }
+    }
+}

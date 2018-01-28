@@ -1,0 +1,38 @@
+﻿@model List<SoftIms.Data.ViewModel.PurchaseOrderDetailViewModel>
+@{
+    int sno = 0;
+    var tdStyle = "border:1px solid; vertical-align:middle;";
+}
+
+<table id="tblPurchaseOrderItemList" border="1" style="border-collapse:collapse; width:100%;" class="table">
+    <thead class="bg-gray-light">
+        <tr>
+            <td rowspan="2" width="2%" style="@tdStyle;">क्र.सं</td>
+            <td rowspan="2" width="38%" style="@tdStyle">विवरण </td>
+            <td rowspan="2" width="10%" style="@tdStyle">इकाई</td>
+            <td class="text-right" rowspan="2" width="10%" style="@tdStyle">परिमाण</td>
+            <td class="text-center" width="10%" style="@tdStyle">दर</td>
+            <td rowspan="2" width="15%" class="text-center" style="@tdStyle">रकम</td>
+            <td class="text-center" rowspan="2" width="15%" style="@tdStyle">कैफियत</td>
+        </tr>
+        <tr>
+            <td class="text-center" style="@tdStyle">प्रति इकाई</td>
+        </tr>
+
+    </thead>
+    <tbody class="tbl-item-list">
+        @foreach (var item in Model)
+        {
+            sno++;
+            <tr class="entry-field" data-request-id="@item.ItemRequestDetailIdCSV">
+                <td style="@tdStyle">@sno</td>
+                <td style="@tdStyle">@item.ItemName</td>
+                <td style="@tdStyle">@item.UnitName</td>
+                <td class="text-right" style="@tdStyle">@((item.Qty == 0) ? "" : item.Qty.ToString())</td>
+                <td class="text-center" style="@tdStyle">@((item.Rate == 0) ? "" : item.Rate.ToString())</td>
+                <td class="text-right text-amount" style="@tdStyle">@((item.TotalAmount == 0) ? "" : item.TotalAmount.ToString())</td>
+                <td style="@tdStyle">@item.Specification</td>
+            </tr>
+        }
+    </tbody>
+</table>

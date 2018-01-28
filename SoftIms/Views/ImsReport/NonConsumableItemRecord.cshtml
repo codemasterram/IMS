@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title =  "Non-Consumable Item Record";
+}
+
+<div class="col-md-12">
+    <div class="box box-info">
+        <div class="box-body">
+            <form class="form-inline">
+                <div class="form-group">
+                    <label for="itemId">Non Consumable Items</label> <br />
+                    @Html.DropDownList("ItemId", null, "-- All --", new { @class = "form-control" })
+                </div>
+                <div class="form-group" style="margin-top:30px;">
+                    <button type="button" class="btn btn-info btnRefresh" data-resultElement=".detail" data-url="@Url.Action("nonconsumableitemrecorddetail","imsReport")"><span class="fa fa-search"></span></button>
+                </div>
+            </form>
+            <div class="clearfix"></div>
+            <div class="detail vh65 slim-scroll lazy-loading" data-url="@Url.Action("nonconsumableitemrecorddetail", "imsreport")">
+               
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script>
+        collapseSidebar();
+        $(".btnRefresh").refreshData({ showLoader: 'true' });
+    </script>
+}
+
+

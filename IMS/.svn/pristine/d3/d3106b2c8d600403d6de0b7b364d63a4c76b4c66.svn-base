@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "Item Type Detail";
+}
+
+<div class="col-md-12">
+    <div class="box box-info">
+        <div class="box-body">
+            <form class="form-inline">
+                <div class="form-group">
+                    <label for="Name">Item Type Detail</label> <br>
+                    @Html.TextBox("Name", "", new { @class = "form-control keyword", @style = "width:200px", @placeholder = "Item Type Detail ......" })
+                </div>
+                <div class="form-group" style="margin-top:30px;">
+                    <button type="button" class="btn btn-info btnRefresh" data-showLoader="false" data-resultElement=".itemunit-detail" data-url="@Url.Action("itemunitdetail","master")" data-toggle="tooltip" data-placement="top" title="Search"><span class="fa fa-search"></span></button>
+                    <a type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal" href="@Url.Action("CreateItemunit","master",new { id = 0 })"><span class="fa fa-plus"></span></a>
+                    <button type="button" class="btn btn-info btnPrint" data-print-element=".itemunit-detail" data-report-title="Item Unit Detail"><span class="fa fa-print"></span></button>
+
+                </div>
+            </form>
+            <div class="clearfix"></div>
+            <div class="itemunit-detail detail">
+                @Html.Action("itemunitdetail", "master")
+            </div>
+        </div>
+    </div>
+</div>

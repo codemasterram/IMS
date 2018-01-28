@@ -1,0 +1,86 @@
+﻿@model SoftIms.Data.ViewModel.PurchaseOrderListViewModel
+@{
+    ViewBag.Title = "Purchase Order Request";
+}
+
+<div class="col-md-6">
+    <div class="box box-info">
+        <div class="box-body" style="min-height:70vh;">
+            <div class="row">
+                <div class="col-md-12">
+                    <table id="formreport" style="width:100%;">
+                        <tbody>
+                            <tr>
+                                <td colspan="6"><h1 class="text-center"><img src="@Url.Content(OfficeInfo.LetterHeadLogo)" width="350"></h1></td>
+                            </tr>
+                            <tr>
+                                <td colspan="6"><h4 class="text-center">@ViewBag.Title</h4></td>
+                            </tr>
+                            <tr>
+                                <td class="text-right" colspan="6">Date:&nbsp;<strong>@Model.DateBS</strong>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td class="text-right" colspan="6">Request No.:&nbsp;<em>@Model.DisplayDocumentNo</em>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td colspan="6" height="5">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td colspan="6" height="5">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td colspan="6">&nbsp;&nbsp;&nbsp;&nbsp;<strong>Item Details</strong></td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">&nbsp;&nbsp;&nbsp;&nbsp;<strong>Item</strong></td>
+                                <td colspan="1"><strong>Quantity</strong></td>
+                                <td colspan="2"><strong>Narration</strong></td>
+                            </tr>
+                            @foreach (var item in Model.Details)
+                            {
+                                <tr>
+                                    <td colspan="3">
+                                        &nbsp;&nbsp;&nbsp;&nbsp;@item.ItemCode @item.ItemName
+                                        @if (!string.IsNullOrEmpty(item.Specification))
+                                        {
+                                            <br />
+                                            <i>&nbsp;&nbsp;&nbsp;&nbsp;@item.Specification</i>
+                                        }
+                                    </td>
+                                    <td colspan="1">@item.Qty @item.UnitName</td>
+                                    <td colspan="2">@item.Specification</td>
+                                </tr>
+                            }
+                            <tr>
+                                <td colspan="6" height="5">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;Remarks:&nbsp;</td>
+                                <td colspan="4"><em><strong>@Model.Remarks</strong></em></td>
+                            </tr>
+                            <tr>
+                                <td colspan="6" height="5">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td colspan="3" class="mid">&nbsp;&nbsp;&nbsp;&nbsp;Requested&nbsp;By&nbsp;&nbsp;</td>
+                                <td colspan="3" class="mid">&nbsp;&nbsp;Accepted&nbsp;By&nbsp;&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td colspan="3" class="mid">&nbsp;&nbsp;&nbsp;&nbsp;<em><strong>@Model.CreatedEmployeeName</strong></em>&nbsp;&nbsp;</td>
+                                <td colspan="3" class="mid">&nbsp;&nbsp;<em><strong>@Model.AcceptedEmployeeName</strong></em>&nbsp;&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td colspan="3" class="mid">&nbsp;&nbsp;&nbsp;&nbsp; on <em><strong>@Model.DateBS</strong></em>&nbsp;&nbsp;</td>
+                                <td colspan="3" class="mid">&nbsp;&nbsp;<em><strong>@Model.AcceptedDateBs</strong></em>&nbsp;&nbsp;</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="lazy-loading" data-show-loader="false" data-url="@Url.Action("ItemsStatus", "ImsEntry", new { id = Model.Id })"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

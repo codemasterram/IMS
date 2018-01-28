@@ -1,0 +1,166 @@
+﻿@model SoftIms.Data.ViewModel.ItemRequestViewModel
+@{
+    int sno = 0;
+    var tdStyle = "border:1px solid; vertical-align:middle;font-size:14px;padding: 3px !important;";
+    var emptyTdStyle = "border-left:1px solid; border-right:1px solid; border-bottom:0px;border-top:0px;";
+    var detail = (List<SoftIms.Data.ViewModel.ItemRequestDetailViewModel>)Session["ItemRequestDetail"];
+    var rowcount = detail.Count > 8 ? 28 : 40;
+    var emptyRows = rowcount - detail.Count;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" />
+    <title>Item Request Report</title>
+    <link href="~/Content/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="~/Content/css/AdminLTE.min.css" rel="stylesheet" />
+    <link href="~/Content/custom.css" rel="stylesheet" />
+    <script src="~/Content/jquery/dist/jquery.min.js"></script>
+    <link href="~/Content/logo.png" rel="shortcut icon" />
+    <style>
+        body {
+            background: rgb(204,204,204);
+        }
+
+        page[size="A4"] {
+            background: white;
+            width: 21cm;
+            height: 29.7cm;
+            display: block;
+            margin: 0 auto;
+            margin-bottom: 0.5cm;
+            box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
+        }
+
+        @@media print {
+            body, page[size="A4"] {
+                margin: 0;
+                box-shadow: 0;
+            }
+
+            .do-not-print {
+                border: 0px !important;
+                background: white !important;
+            }
+        }
+
+        .do-not-print {
+            max-height: 800px !important;
+        }
+
+        .print-table td, th {
+            padding: 6px !important;
+        }
+
+        th {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <page size="A4" style="padding:1px 20px; font-size:14px; min-height:800px;">
+        <div class="row">
+            <div class="col-xs-3">
+                <div class="text-center">
+                    <img src="~/Content/logo.png" style="z-index:-999; border: 6px solid #FFFFFF; border-radius: 50%;margin-bottom: -40px;width: 125px;height: 125px;" class="img-circle img">
+                </div>
+            </div>
+            <div class="text-center col-xs-6">
+                <h3 style="font-weight:bold;">@OfficeInfo.Name</h3>
+                <h4>@OfficeInfo.Address</h4>
+                <h3 style="font-size: 25px;border-style: solid;border-width: 1px;border-color: #000;height: 42px;width:40%;font-weight: bold;padding:5px;margin-left:108px;">माग फारम</h3>
+            </div>
+            <div class="col-xs-3" style="margin-top:75px;padding:0 20px;">
+                <span class="pull-right" font-size:small">मा.फा.नं. : @Model.DisplayDocumentNo</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-8">
+                <p> माग गर्नेको नाम : @Model.EmployeeName</p>
+                <p> विभाग शाखा : @Model.SectionName</p>
+                <p> मिति : @Model.DateBS</p>
+            </div>
+
+        </div>
+        <table id="tblStockEntry" border="1" style="border-collapse:collapse; width:100%;" class="print-table">
+            <thead class="bg-gray-light">
+                <tr>
+                    <th rowspan="2" width="2%" style="@tdStyle;">सि.नं.</th>
+                    <th rowspan="2" width="38%" style="@tdStyle;">विवरण</th>
+                    <th rowspan="2" width="8%" style="@tdStyle;">इकाई</th>
+                    <th rowspan="2" width="5%" style="@tdStyle;">परिमाण</th>
+                    <th width="20%" style="@tdStyle;">भण्डार प्रयोजनको लागि</th>
+                    <th rowspan="2" width="27%" style="@tdStyle;">कैफियत</th>
+                </tr>
+                <tr>
+                    <th style="@tdStyle;">भण्डार खा.पा.नं.</th>
+                </tr>
+
+            </thead>
+            <tbody class="tbl-item-list report-content-line-item">
+                @foreach (var item in detail)
+                {
+                    sno++;
+                    <tr class="entry-field">
+                        <td style="@tdStyle;">@sno</td>
+                        <td style="@tdStyle;">@item.ItemName</td>
+                        <td style="@tdStyle;">@item.UnitName</td>
+                        <td style="@tdStyle;">@((item.Qty == 0) ? "" : item.Qty.ToString())</td>
+                        <td class="text-right" style="@tdStyle;"></td>
+                        <td class="text-right" style="@tdStyle;">@item.Remarks</td>
+                    </tr>
+                }
+                @for (int i = 0; i < emptyRows; i++)
+                {
+                    <tr>
+                        @for (int j = 0; j < 6; j++)
+                        {
+                            <td style="@emptyTdStyle"></td>
+                        }
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <br />
+        <br />
+        <table style="width:100%; margin:10px 20px;">
+            <tr>
+                <td>
+                    <p class="text-italic">@Model.EmployeeName</p>
+                    <p>सामान बुझिलिनेको सही</p>
+                </td>
+                <td class="text-center">
+                    <p>@Model.AcceptedBy</p>
+                </td>
+                <td style="padding:0 20px;" class="pull-right">
+                    <p>......................................</p>
+                    <p class="text-center">खातामा चढाउने</p>
+                </td>
+            </tr>
+        </table>
+
+    </page>
+    <script>
+        $('body').bind('keydown', function (e) {
+            if (e.keyCode == 27) {
+                window.close();
+                return false;
+            }
+
+            if (e.ctrlKey || e.metaKey) {
+                switch (String.fromCharCode(e.which).toLowerCase()) {
+                    case 'p':
+                        e.preventDefault();
+                        $('.btnPrint').trigger('click');
+                        break;
+                };
+            };
+        });
+    </script>
+</body>
+</html>
+
+

@@ -1,0 +1,59 @@
+﻿@model IList<SoftIms.Data.ViewModel.PurchaseEntryListViewModel>
+@{
+    int sno = 0;
+}
+
+<table class="table table-condensed table-striped">
+    <thead class="bg-light-blue">
+        <tr>
+            <th width="30">सि.नं.</th>
+            <th>दाखिला नं.</th>
+            <th>दाखिला मिति</th>
+            <th>विबरण</th>
+            <th>बिक्रेता</th>
+            <th>बिल नं.</th>
+            <th>कैफियत</th>
+            <th data-no-print="true" width="50"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            sno++;
+            <tr>
+                <td class="text-right">@sno</td>
+                <td>@item.DisplayDocumentNo</td>
+                <td>@item.DateBS</td>
+                <td>@item.ItemList</td>
+                <td>@item.VendorName</td>
+                <td>@item.InvoiceNo</td>
+                <td>@item.Remarks</td>
+                <td data-no-print="true">
+                    <ul class="nav navbar-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle access-control" data-toggle="dropdown">
+                                <i class="fa fa-cog fa-2x img-thumbnail" style="font-size: 18px;padding:3px;"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="@Url.Action("PurchaseEntryentry","ImsEntry", new { id = item.Id})"><i class="fa fa-edit"></i> Edit</a></li>
+                                <li><a href="javascript:;" class="btnUpload" data-masterId="@item.Id" data-id="@item.Id" data-documenttype="@item.DocumentSetupId"><i class="fa fa-cloud-upload"></i> Upload</a></li>
+                                <li><a href="javascript:;" class="btnDelete" data-refreshButton=".btnRefresh-purchaseEntry" data-url="@Url.Action("deletestocktransaction", "ImsEntry", new { id = item.Id})"><i class="fa fa-trash-o"></i> Delete</a></li>
+                                <li><a target="_blank" href="@Url.Action("storeentryreport","imsentry",new { id = item.Id})"><i class="fa fa-print"></i> Print</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        }
+        @if (sno == 0)
+        {
+            <tr>
+                <td colspan="8" class="text-center"><b>No Record Found !</b></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script>
+    initialization();
+</script>

@@ -1,0 +1,14 @@
+﻿@model DepartmentViewModel
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        @Html.HiddenFor(x => x.Id)
+        @Html.LabelFor(x => x.Name)
+        @Html.TextBoxFor(x => x.Name, new { @class = "form-control focus-first", @placeholder=Model.GetDisplayName(x => x.Name) })
+        @Html.ValidationMessageFor(x => x.Name)
+    </div>
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-primary">@string.Format("{0}",Model.Id> 0 ? "Save changes" : "Save")</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+    </div>
+}

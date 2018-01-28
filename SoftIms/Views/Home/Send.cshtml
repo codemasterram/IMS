@@ -1,0 +1,107 @@
+﻿@model SoftIms.Data.ViewModel.FeedbackViewModel
+<style>
+    .btn-file {
+        position: relative;
+        overflow: hidden;
+    }
+        .btn-file input[type=file] {
+            position: absolute;
+            top: 0;
+            right: 0;
+            min-width: 100%;
+            min-height: 100%;
+            font-size: 100px;
+            text-align: right;
+            filter: alpha(opacity=0);
+            opacity: 0;
+            outline: none;
+            background: white;
+            cursor: inherit;
+            display: block;
+        }
+</style>
+
+@using (Html.BeginForm("send", "home", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.Hidden("Url", "")
+    <div class="form-group">
+        @Html.LabelFor(x => x.Detail)
+        @Html.TextAreaFor(x => x.Detail, new { @class = "form-control focus-first", @placeholder = "Briefly explain what happened and what steps we can take to reproduce the problem ..." })
+        @Html.ValidationMessageFor(x => x.Detail)
+    </div>
+
+    <div class="form-group">
+        @Html.CheckBox("TakeScreenshot")
+        <label for="TakeScreenshot">Include a screenshot with my report</label>
+    </div>
+    <div class="form-group">
+        @Html.HiddenFor(x => x.ScreenshotData)
+        <img src="#" id="ScreenPreview" class="image img-responsive" style="display:none;" />
+    </div>
+    <div class="form-group">
+        <label class="btn btn-default btn-file">
+            <span class="fa fa-cloud-upload"></span> <span class="fileName">Attach file</span>
+            <input type="file" id="files" name="files" multiple="multiple" style="display:none" />
+        </label>
+    </div>
+    <div class="box-footer">
+        <button type="submit" class="btn btn-primary">Send</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    </div>
+}
+
+<script>
+    initializeCommon();
+    $(document).ready(function () {
+        $('#Url').val(document.URL);
+        var getCanvas;
+        $("#TakeScreenshot").on('ifToggled', function () {
+            var checked = $(this).is(':checked');
+            if (!checked) {
+                $("#ScreenshotData").val(null);
+                $("#ScreenPreview").attr('src', '');
+                $("#ScreenPreview").hide();
+                return false;
+            };
+
+            //$(".modal-backdrop").removeClass('in');
+            //$("#modal-right").hide();
+            var element = $(".main-con");
+            html2canvas(element, {
+                onrendered: function (canvas) {
+                    getCanvas = canvas;
+                    setImageValue();
+                }
+            });
+            //$("#modal-right").show();
+            //$(".modal-backdrop").addClass('in');
+
+        });
+
+        var setImageValue = function () {
+            var srcData = getCanvas.toDataURL("image/png").replace(/^data:image\/png/, "data:application/octet-stream");
+            $("#ScreenshotData").val(srcData);
+            $("#ScreenPreview").attr('src', srcData);
+            $("#ScreenPreview").show();
+        }
+    });
+
+    $(document).on('change', ':file', function () {
+        var input = $(this),
+            numFiles = input.get(0).files ? input.get(0).files.length : 1,
+            label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+        input.trigger('files', [numFiles, label]);
+        if (numFiles > 0) {
+            var names = [];
+            for (var i = 0; i < $(this).get(0).files.length; ++i) {
+                names.push($(this).get(0).files[i].name);
+            }
+
+            $(".fileName").html(names.join(', '));
+        }
+        else{
+            $(".fileName").html('Attach file');
+        }
+    });
+</script>

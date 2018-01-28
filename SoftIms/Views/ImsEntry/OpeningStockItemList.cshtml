@@ -1,0 +1,47 @@
+﻿@model List<SoftIms.Data.ViewModel.OpeningStockDetailViewModel>
+@{
+    int sno = 0;
+}
+
+<table class="table table-condensed table-striped">
+    <thead class="bg-light-blue">
+        <tr>
+            <th width="20">सि.नं.</th>
+            <th class="text-left" width="30%">सामान </th>
+            <th class="text-left" width="80">सव कोड नं.</th>
+            <th width="60">परिमाण </th>
+            <th>इकाई	</th>
+            <th>खरिद मिति</th>
+            <th>खरिद मूल्य</th>
+            <th>हालको मूल्य</th>
+            <th>विभाग/शाखा</th>
+            <th>कर्मचारी</th>
+            <th>स्पेसिफिकेसन</th>
+            <th width="10"></th>
+        </tr>
+    </thead>
+    <tbody class="tbl-item-list">
+        @foreach (var item in Model)
+        {
+            sno++;
+            <tr>
+                <td>@sno</td>
+                <td>@item.ItemName</td>
+                <td>@item.ItemSubCodeNo</td>
+                <td>@item.Qty</td>
+                <td>@item.UnitName</td>
+                <td>@item.PurchaseDateBS</td>
+                <td>@item.PurchaseAmount</td>
+                <td>@item.Amount</td>
+                <td>@item.DepartmentName</td>
+                <td>@item.EmployeeName</td>
+                <td>@item.Narration</td>
+                <td class='text-right'><a href='javascript:;' class="deleteItem" data-url="@Url.Action("RemoveOpeningStockItemList","imsentry",new { guid = item.Guid })" data-refreshButton="#btnRefresh"><i class='fa text-danger fa-trash-o'></i></a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script>
+    $(".deleteItem").deleteRecord();
+</script>

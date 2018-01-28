@@ -1,0 +1,115 @@
+﻿using SoftIms.Data;
+using SoftIms.Data.ViewModel;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Web;
+
+namespace SoftIms.Utilities
+{
+    public static class Utility
+    {
+        public static string BadRequestView
+        {
+            get
+            {
+                return "~/views/error/badrequest.cshtml";
+            }
+        }
+
+        public static int ItemInStock(this int itemId)
+        {
+            using (var db = new UnitOfWork())
+            {
+                var item = db.ItemRepo.GetById(itemId);
+                if (item == null)
+                    return 0;
+                var storeSecId = Convert.ToInt32(SessionData.GetSystemConfigurationValue("StoreSection"));
+                var store = db.DepartmentRepo.GetById(storeSecId);
+
+                var openingAndStoreEntry = item.StockTransactionDetails.Where(x => (x.StockTransaction.DocumentSetup.Alias == "Opening" || x.StockTransaction.DocumentSetup.Alias == "StoreEntry") && x.DepartmentId == storeSecId && x.StockTransaction.FiscalYearId == CurrentFiscalYear.FiscalYearId).Sum(x => x.Qty);
+                //var adjustmentPlus = item.StockTransactionDetails.Where(x => x.StockTransaction.DocumentSetup.Alias == "StockAdjustment" && x.DepartmentId == storeSecId && x.StockTransaction.AdjustmentType != null && x.StockTransaction.AdjustmentType.InOut == "In" && x.StockTransaction.FiscalYearId == CurrentFiscalYear.FiscalYearId).Sum(x => x.Qty);
+                //var adjustmentMinus = item.StockTransactionDetails.Where(x => x.StockTransaction.DocumentSetup.Alias == "StockAdjustment" && x.DepartmentId == storeSecId && x.StockTransaction.AdjustmentType != null && x.StockTransaction.AdjustmentType.InOut == "Out" && x.StockTransaction.FiscalYearId == CurrentFiscalYear.FiscalYearId).Sum(x => x.Qty);
+
+                var released = item.ItemReleaseDetails.Where(x => x.ItemRelease.FiscalYearId == CurrentFiscalYear.FiscalYearId).Sum(x => x.Qty);
+
+                var val = openingAndStoreEntry /*+ adjustmentPlus - adjustmentMinus*/ - released;
+                return val;
+            }
+        }
+
+
+        public static FiscalYearViewModel CurrentFiscalYear
+        {
+            get
+            {
+                using (UnitOfWork db = new UnitOfWork())
+                {
+                    var item = db.FiscalYearRepo.Table().FirstOrDefault(x => x.IsActive);
+                    return AutomapperConfig.Mapper.Map<FiscalYearViewModel>(item);
+                }
+            }
+        }
+
+        public static AppUserViewModel CurrentUser
+        {
+            get
+            {
+                var Request = HttpContext.Current.Request;
+                if (Request.IsAuthenticated)
+                {
+                    //get user
+                    using (UnitOfWork db = new UnitOfWork())
+                    {
+                        var user = db.AppUserRepo.Table().FirstOrDefault(x => x.UserName == HttpContext.Current.User.Identity.Name);
+                        if (user != null)
+                            return AutomapperConfig.Mapper.Map<AppUserViewModel>(user);
+                    }
+                }
+
+                return null;
+            }
+        }
+
+        public static OfficeInformationViewModel OfficeInfo
+        {
+            get
+            {
+                return new OfficeInformationViewModel();
+            }
+        }
+
+
+        public static List<string> ValidateModal(this object model, List<string> errors)
+        {
+            var results = new List<ValidationResult>();
+            var context = new ValidationContext(model, null, null);
+            if (!Validator.TryValidateObject(model, context, results))
+            {
+                foreach (var item in results)
+                {
+                    errors.Add(item.ErrorMessage);
+                }
+            }
+            return errors;
+        }
+
+        public static string RepeateString(this string s, int times)
+        {
+            string value = string.Empty;
+            for (int i = 0; i < times; i++)
+            {
+                value += s;
+            }
+            return value;
+        }
+
+        public static bool IsNumeric(this string s)
+        {
+            int i;
+            return int.TryParse(s, out i);
+        }
+
+    }
+}

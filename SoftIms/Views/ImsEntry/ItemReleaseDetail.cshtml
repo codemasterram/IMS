@@ -1,0 +1,63 @@
+﻿@model IList<SoftIms.Data.ViewModel.ItemReleaseListViewModel>
+
+@{
+    int sno = 0;
+}
+<div class="table-responsive">
+    <table class="table table-condensed table-striped">
+        <thead class="bg-light-blue">
+            <tr>
+                <th width="30">सि.नं.</th>
+                <th width="120">निकासा नं. </th>
+                <th width="120">मा.फा.नं.</th>
+                <th>कर्मचारी</th>
+                <th width="120">निकासा मिति</th>
+                <th width="150">सामान</th>
+                <th>कैफियत</th>
+                <th data-no-print="true"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                sno++;
+                <tr>
+                    <td class="text-right">@sno</td>
+                    <td>@item.DisplayReleaseNo</td>
+                    <td>@item.DisplayRequestNo</td>
+                    <td>@item.EmployeeName</td>
+                    <td>@item.DateBS</td>
+                    <td><a href="javascript:;" class="tp-popover" data-url="@Url.Action("ReleasedItemDetail", "ImsEntry", new { itemReleaseId = item.Id })" data-title="Released Detail">@item.ItemList</a></td>
+                    <td>@item.Remarks</td>
+                    <td data-no-print="true">
+                        <ul class="nav navbar-right @CurrentUser.CheckForDisable(ePermission.InventoryEntry)">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle access-control" data-toggle="dropdown">
+                                    <i class="fa fa-cog fa-2x img-thumbnail" style="font-size: 18px;padding:3px;"></i>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="javascript:;" class="btnUpload" data-masterId="@item.Id" data-id="@item.Id" data-documenttype="@item.DocumentSetupId"><i class="fa fa-cloud-upload"></i> Upload</a></li>
+                                    @if (1 == 2)
+                                    {
+                                        <li><a href="@Url.Action("itemreleaseentry", "ImsEntry", new { id = item.Id })"><i class="fa fa-edit"></i> Edit</a></li>
+                                        <li><a href="javascript:;" class="btnDelete" data-refreshButton=".btnRefresh-itemRelease" data-url="@Url.Action("DeleteItemRelease", "ImsEntry", new { id = item.Id })"><i class="fa fa-trash-o"></i>Delete</a></li>
+                                    }
+                                </ul>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            }
+            @if (!Model.Any())
+            {
+                <tr>
+                    <td colspan="8" class="text-center"><b>No Record Found !</b></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<script>
+    initializeCommon();
+</script>

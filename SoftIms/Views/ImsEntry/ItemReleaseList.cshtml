@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "सामान निकासी विबरण ";
+}
+
+<div class="col-md-12">
+    <div class="box box-info">
+        <div class="box-body">
+            <form class="form-inline frm-search">
+                <div class="form-group">
+                    <label for="DisplayDocumentNo">निकासा  नं.</label> <br />
+                    @Html.TextBox("DisplayReleaseNo", null, new { @class = "form-control focus-first keyword", @placeholder = "निकासा  नं." })
+                </div>
+                <div class="form-group">
+                    <label for="MitiFrom">निकासा मिति देखि</label> <br />
+                    @Html.TextBox("DateFromBS", null, new { @class = "form-control mask-miti", @placeholder = "निकासा मिति देखि" })
+                </div>
+                <div class="form-group">
+                    <label for="MitiTo">सम्म </label> <br />
+                    @Html.TextBox("DateToBS", null, new { @class = "form-control mask-miti", @placeholder = "सम्म " })
+                </div>
+                <div class="form-group" style="margin-top:30px;">
+                    <button type="button" class="btn btn-info btnRefresh" data-resultElement=".itemRelease-detail" data-url="@Url.Action("ItemReleaseDetail","ImsEntry")"><span class="fa fa-search"></span></button>
+                </div>
+            </form>
+            <div class="clearfix"></div>
+            
+            <div class="itemRelease-detail detail vh65 slim-scroll lazy-loading" data-url="@Url.Action("ItemReleaseDetail", "ImsEntry")">
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script>
+        $(".btnRefresh").refreshData({ showLoader: 'true' });
+    </script>
+}
+
+

@@ -1,0 +1,216 @@
+﻿@model SoftIms.Data.ViewModel.ItemRequestViewModel
+@{
+    ViewBag.Title = "माग फाराम";
+}
+
+<div class="col-md-12">
+    @using (Html.BeginForm("ItemRequestEntry", "ImsEntry", FormMethod.Post, new { @id = "frmItemRequest" }))
+    {
+        <div class="box box-info ims-entry" id="frmDetailData">
+            <div class="box-body">
+                @Html.AntiForgeryToken()
+                @Html.HiddenFor(x => x.Id)
+                @Html.HiddenFor(x => x.RequestedEmployeeId)
+                @Html.HiddenFor(x => x.DepartmentId)
+                @Html.HiddenFor(x=>x.EmployeeId)
+
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.DisplayRequestNo)
+                            @Html.TextBoxFor(x => x.DisplayRequestNo, new { @class = "form-control", @disabled = "disabled" })
+                        </div>
+                    </div>
+                    <div class="col-md-3 pull-right">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.DateBS)
+                            @Html.TextBoxFor(x => x.DateBS, new { @class = "form-control mask-miti light-lockd" })
+                            @Html.ValidationMessageFor(x => x.DateBS)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row hide">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.DepartmentId)
+                            @Html.DropDownList("SectionId", MasterDataList<Department>("Id", "Name", (object)ViewBag.SectionId), "-- Department/Section --", new { @class = "form-control" })
+                            @Html.ValidationMessage("SectionId")
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.EmployeeId)
+                            @Html.DropDownList("EmployeeId", MasterDataList<Employee>("Id", "Name", (object)ViewBag.EmployeeId), "-- Employee --", new { @class = "form-control", data_value = Model.EmployeeId })
+                            @Html.ValidationMessage("EmployeeId")
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="ItemGroupId">सामानको समूह</label>
+                            @Html.DropDownList("ItemGroupId", MasterDataList<ItemGroup>("Id", "Name", null), "-- सामानको समूह --", new { @class = "form-control focus-first" })
+                            @Html.ValidationMessage("ItemGroupId")
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <label for="ItemId">सामानको नाम</label>
+                            @Html.DropDownList("ItemId", NoDataList, "-- सामानको नाम --", new { @class = "form-control" })
+                            @Html.ValidationMessage("ItemId")
+                        </div>
+                    </div>
+
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label for="Qty">परिमाण</label>
+                            @Html.TextBox("Qty", null, new { @class = "form-control text-right int-num", @placeholder = "परिमाण" })
+                            @Html.ValidationMessage("Qty")
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="Specification">स्पेसिफिकेसन</label>
+                            @Html.TextBox("Specification", null, new { @class = "form-control", @placeholder = "स्पेसिफिकेसन" })
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="Narration">कैफियत</label>
+                            @Html.TextBox("Narration", null, new { @class = "form-control", @placeholder = "कैफियत" })
+                        </div>
+                    </div>
+                    <div class="col-md-4 no-pad-left">
+                        <button type="button" class="btn btn-success pull-left btn-add" id="btnAdd">सूचिमा थप्नुहोस्</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <button type="button" data-resultElement=".list-detail" data-url="@Url.Action("ItemRequestItemList", "ImsEntry")" class="hide" id="btnRefresh"><span class="fa fa-refresh"></span></button>
+                        <div class="list-detail detail min-h-25vh slim-scroll lazy-loading" data-url=" @Url.Action("itemrequestitemlist", "imsentry")">
+                           
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.Remarks)
+                            @Html.TextAreaFor(x => x.Remarks, new { @class = "form-control"})
+                        </div>
+                        
+                    </div>
+                    <div class="col-md-6">
+                        <div class="box box-footer" style="margin-top:120px; border-top:1px solid #c1c1c1">
+                            <button type="submit" class="btn btnSave btn-success">@string.Format("{0}", Model.Id == 0 ? "पेश गर्नुहोस्" : "अपडेट गर्ने")</button>
+                            @*@if (CurrentUser.HasPermission(ePermission.InventoryEntry))
+                            {
+                                <a href="@Url.Action("itemrequestlist", "imsentry")" class="btn btn-info">सूचिमा फर्कने</a>
+                                <a href="@Url.Action("index", "ims")" class="btn btn-default">Cancel</a>
+                            }
+                            else
+                            {
+                                <a href="@Url.Action("index", "Home")" class="btn btn-default">Cancel</a>
+                            }*@
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+@section scripts {
+
+    <script>
+        collapseSidebar();
+        $("#ItemGroupId").on("change", function () {
+            var childElement = $('#ItemId');
+            var selectedValue = $(childElement).val();
+            $(this).loadChildList({
+                url: '@Url.Action("getitem", "master")',
+                paramData: { itemgroupId: $(this).val(), dataValueField: "Id", dataTextField: 'Name' },
+                childElement: childElement,
+                optionalLabel: '-- Item --',
+                selectedValue: selectedValue,
+                showLoader: false
+            });
+        });
+
+        $("#SectionId").on("change", function () {
+            var childElement = $('#EmployeeId');
+            var selectedValue = parseInt($(childElement).attr("data-value"));
+            selectedValue = isNaN(selectedValue) ? 0 : selectedValue;
+            $(this).loadChildList({
+                url: '@Url.Action("detail", "employee")',
+                paramData: { sectionId: $(this).val(), dataValueField: "Id", dataTextField: 'Name', selectedValue: selectedValue },
+                childElement: childElement,
+                optionalLabel: '-- Employee --',
+                selectedValue: selectedValue,
+                showLoader: false
+            });
+        });
+    </script>
+
+    <script>
+        $("#btnAdd").on("click", function (e) {
+            var sno = $(".tbl-item-list tr").length;
+            $itemId = $("#ItemId");
+            $qty = $("#Qty");
+            if (($itemId.val() == "" || $itemId.val() == null) && sno > 0) {
+                $(".btnSave").focus();
+                return;
+            }
+
+            if ($itemId.val() == "" || $itemId.val() == null) {
+                showErrorMessage('Please select item to process.');
+                $itemId.focus();
+                return false;
+            }
+
+            if ($qty.val() < 1) {
+                showErrorMessage('Plesase enter valid quantity!');
+                $qty.focus();
+                return false;
+            }
+
+            var data = $('#frmDetailData :input').serialize();
+            $.ajax({
+                url: '@Url.Action("AddItemRequestDetail", "ImsEntry")',
+                type: "post",
+                data: data,
+                success: function (result) {
+                    $("#btnRefresh").trigger("click");
+                    //$itemId.val('');
+                    $qty.val(1);
+                    $("#Specification").val('');
+                    $("#Narration").val(null);
+                    $("#ItemGroupId").focus();
+                },
+                error: function (result) {
+                    showErrorMessage('Unable to add item!');
+                    console.log(result);
+                }
+            });
+        });
+
+        $("#btnRefresh").refreshData();
+    </script>
+
+    <script>
+        $("#frmItemRequest").on("submit", function (e) {
+            var detail = $(".tbl-item-list tr").length;
+            if (detail < 1) {
+                showErrorMessage('Please select item to process!!');
+                return false;
+            }
+            return true;
+        });
+    </script>
+}
+

@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "शुरुवाती मौज्दात  विबरण ";
+}
+
+<div class="col-md-12">
+    <div class="box box-info">
+        <div class="box-body">
+            <div class="clearfix"></div>
+            <div class="detail  vh65 slim-scroll">
+                @Html.Action("openingstockdetail", "imsentry")
+            </div>
+        </div>
+    </div>
+</div>
+

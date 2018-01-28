@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "Item Type Detail";
+}  
+<div class="col-md-12">
+    <div class="box box-info">
+        <div class="box-body">
+            <form class="form-inline frm-search">
+                <div class="form-group">
+                    <label for="Name">Item Type Detail</label> <br>
+                    <input type="text" placeholder="Item type Name" name="Name" id="Name" class="form-control keyword">
+                </div>
+                <div class="form-group" style="margin-top:25px;">
+                    <button type="button" class="btn btn-info btn-reload" data-showLoader="false" data-resultElement=".itemtype-detail" data-url="@Url.Action("ItemTypeDetail","master")"><span class="fa fa-search"></span></button>
+                    <a class="btn btn-new btn-info" data-id="0" data-url="@Url.Action("CreateItemType", "master")" data-title="Create Item Type"><i class="fa fa-plus" aria-hidden="true"></i></a>
+                    <button type="button" class="btn btn-info btnPrint" data-print-element=".itemtype-detail" data-report-title="Item Type Detail"><span class="fa fa-print"></span></button>
+                </div>
+            </form>
+            <div class="clearfix"></div>
+            <div class="itemtype-detail detail lazy-loading" data-url="@Url.Action("itemtypedetail","master")">
+            </div>   
+        </div>
+    </div>
+</div>
+

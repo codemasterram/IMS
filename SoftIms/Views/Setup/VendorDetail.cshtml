@@ -1,0 +1,48 @@
+﻿@model IEnumerable<SoftIms.Data.ViewModel.VendorListViewModel>
+
+@{
+    int Sno = 1;
+}
+
+<div class="table-responsive">
+    <table class="table table-striped table-condensed">
+        <thead class="bg-light-gray">
+            <tr>
+                <th width="10">S.No</th>
+                <th width="200">Name</th>
+                <th>Vat | Pan No</th>
+                <th>Address</th>
+                <th>Email</th>
+                <th>Contact No</th>
+                <th>Web Site</th>
+                <th data-no-print="true">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {   
+                <tr>
+                    <td>@Sno</td>
+                    <td>@item.Name</td>
+                    <td>@item.VatPanNo</td>
+                    <td>@item.Address</td>
+                    <td>@item.EmailId</td>
+                    <td>@item.PhoneNo</td>
+                    <td>@item.WebSite</td>
+                    <td data-no-print="true">
+                        <a href="javascript:;" class="btn-sm btn-new btn-info" data-id="0" data-url="@Url.Action("CreateVendor", "setup",new { id = item.Id})" data-title="Edit Department"><i class="fa fa-edit" aria-hidden="true"></i></a>
+                        <a href="javascript:;" class="btn-sm btn-danger btn-delete" data-url="@Url.Action("deletevendor","setup",new { id = item.Id })"><span class="fa fa-trash"> </span></a>
+                    </td>
+                </tr> 
+                Sno++;
+            }
+            @if (Sno == 1)
+            {
+                <tr>
+                    <td colspan="8" class="text-center bg-danger"><b>तथ्यांक फेला परेन !</b></td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+</div>

@@ -1,0 +1,397 @@
+﻿using SoftIms.Data;
+using SoftIms.Data.Infrastructure;
+using SoftIms.Data.ViewModel;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Web;
+using System.Web.Mvc;
+using static SoftIms.Utilities.Utility;
+using static SoftIms.Utilities.ViewModelExtension;
+
+namespace SoftIms.Controllers
+{
+    public class SetupController : BaseController
+    {
+
+        #region DocumentSetup
+
+        public ActionResult DocumentSetup()
+        {
+            return View();
+        }
+
+        public PartialViewResult DocumentSetupDetail(string name)
+        {
+            var data = db.DocumentSetupRepo.Get(x => (string.IsNullOrEmpty(name.Trim()) || x.Name.StartsWith(name.Trim())));
+            var model = AutomapperConfig.Mapper.Map<IEnumerable<DocumentSetup>, IEnumerable<DocumentSetupListViewModel>>(data);
+
+            return PartialView(model);
+        }
+
+        public PartialViewResult CreateDocumentSetup(int id)
+        {
+            var model = new DocumentSetupViewModel();
+            if (id > 0)
+                model = AutomapperConfig.Mapper.Map<DocumentSetupViewModel>(db.DocumentSetupRepo.GetById(id));
+            if (model == null)
+            {
+                Response.StatusCode = (int)HttpStatusCode.OK;
+                return PartialView(BadRequestView);
+            }
+            return PartialView(model);
+        }
+
+        [HttpPost]
+        public JsonResult CreateDocumentSetup(DocumentSetup model)
+        {
+            List<string> errors = new List<string>();
+            try
+            {
+                if (DuplicateDocumentSetup(model.Id, model.Name) != null)
+                {
+                    ModelState.AddModelError("Name", $"Document Setup {model.Name} already exists.");
+                }
+
+                if (ModelState.IsValid)
+                {
+                    if (model.Id == 0)
+                    {
+                        var itemD = db.DocumentSetupRepo.Table();
+                        model.Id = db.DocumentSetupRepo.Create(AutomapperConfig.Mapper.Map<DocumentSetup>(model));
+                    }
+                    else
+                    {
+                        var oldmodel = db.DocumentSetupRepo.GetById(model.Id);
+                        if (oldmodel == null)
+                        {
+                            Response.StatusCode = (int)HttpStatusCode.OK;
+                            return Json(new { redirecturl = "/error/badrequest" });
+                        }
+                        oldmodel.Name = model.Name;
+
+                    }
+                    db.SaveChanges();
+                    Response.StatusCode = (int)HttpStatusCode.OK;
+                    return Json(new { message = "Document Setup successfully created" });
+
+                }
+                foreach (var item in ModelState.Where(x => x.Value.Errors.Any()))
+                {
+                    errors.Add(item.Value.Errors.FirstOrDefault().ErrorMessage);
+                }
+            }
+            catch (Exception ex)
+            {
+                errors.Add(ex.GetExceptionMessages());
+            }
+            Response.StatusCode = (int)HttpStatusCode.SeeOther;
+            return Json(new { error = errors });
+        }
+
+        [HttpPost]
+        public JsonResult DeleteDocumentSetup(int id)
+        {
+            List<string> errors = new List<string>();
+            string fkMessage = string.Empty;
+            var model = db.DocumentSetupRepo.GetById(id);
+            if (model == null)
+            {
+                Response.StatusCode = (int)HttpStatusCode.OK;
+                return Json(new { redirecturl = "/error/badrequest" });
+            }
+            try
+            {
+                db.DocumentSetupRepo.Delete(model);
+                Response.StatusCode = (int)HttpStatusCode.OK;
+                return Json(new { success = true });
+            }
+            catch (Exception ex)
+            {
+                if (ex.GetExceptionMessages().Contains("REFERENCE"))
+                {
+                    fkMessage = ex.GetExceptionMessages();
+                    errors.Add("Document Setup is already in use. Used document  cannot cannot be deleted");
+                }
+                else
+                {
+                    errors.Add(ex.GetExceptionMessages());
+
+                }
+            }
+            Response.StatusCode = (int)HttpStatusCode.SeeOther;
+            return Json(new { fkMessage = fkMessage, error = errors });
+        }
+
+        [HttpPost]
+        public JsonResult DocumentSetupNotExist(int id, string name)
+        {
+            return Json(DuplicateDocumentSetup(id, name) == null);
+        }
+
+        private DocumentSetup DuplicateDocumentSetup(int id, string name)
+        {
+            var model = db.DocumentSetupRepo.Get(x => x.Id != id && x.Name.Trim() == name.Trim()).FirstOrDefault();
+            return model;
+        }
+        #endregion
+
+        #region DocumentNumbering
+        public ActionResult DocumentNumberingList()
+        {
+            return View();
+        }
+
+        public PartialViewResult DocumentNumberingDetail(int? documentSetupId)
+        {
+            var data= db.DocumentNumberingRepo.Get(x => x.FiscalYearId == CurrentFiscalYear.FiscalYearId && (!documentSetupId.HasValue || x.DocumentSetupId == documentSetupId));
+            var model = AutomapperConfig.Mapper.Map<IEnumerable<DocumentNumbering>, IEnumerable<DocumentNumberingListViewModel>>(data);
+
+            return PartialView(model);
+        }
+
+        [HttpGet]
+        public PartialViewResult CreateDocumentNumbering(int id = 0)
+        {
+            var model = new DocumentNumberingViewModel();
+            if (id > 0)
+                model = AutomapperConfig.Mapper.Map<DocumentNumberingViewModel>(db.DocumentNumberingRepo.GetById(id));
+            if (model == null)
+            {
+                Response.StatusCode = (int)HttpStatusCode.OK;
+                return PartialView(BadRequestView);
+            }
+            return PartialView(model);
+        }
+
+        [HttpPost]
+        public ActionResult CreateDocumentNumbering(DocumentNumberingViewModel model)
+        {
+            var fiscalyear = CurrentFiscalYear;
+            model.FiscalYearId = fiscalyear != null ? fiscalyear.FiscalYearId : 0;
+            if (model.Validate())
+            {
+                try
+                {
+                    db.DocumentNumberingRepo.Update(AutomapperConfig.Mapper.Map<DocumentNumbering>(model));
+                }
+                catch (Exception ex)
+                {
+                    model.ErrorMessages.Add(ex.GetExceptionMessages());
+                }
+            }
+            if (model.HasError)
+            {
+                Response.StatusCode = (int)HttpStatusCode.SeeOther;
+                return Json(new { redirecturl = "/error/badrequest" });
+                //return Json(new { success = false, errors = model.ErrorMessages });
+            }
+
+            Response.StatusCode = (int)HttpStatusCode.OK;
+            //return Json(new { success = true });
+            return RedirectToAction("DocumentNumberingList");
+
+        }
+
+        [HttpPost]
+        public JsonResult DocumentNumberingNotExist(int Id, int documentSetupid)
+        {
+            var data = db.DocumentNumberingRepo.Get(x => x.FiscalYearId == CurrentFiscalYear.FiscalYearId && x.DocumentSetupId == documentSetupid);
+            var model = data.Where(x => x.Id != Id);
+            return Json(!model.Any());
+        }
+
+        #endregion DocumentNumbering
+
+
+        #region Company
+
+        public ActionResult CompanyDetail()
+        {
+            var model = AutomapperConfig.Mapper.Map<CompanyListViewModel>(db.CompanyRepo.Table().FirstOrDefault());
+            return View(model);
+        }
+
+
+
+
+        public ActionResult CreateCompany(int id = 0)
+        {
+            var model = new CompanyViewModel();
+            if (id > 0)
+                model = AutomapperConfig.Mapper.Map<CompanyViewModel>(db.CompanyRepo.GetById(id));
+            if (model == null)
+            {
+                Response.StatusCode = (int)HttpStatusCode.OK;
+                return PartialView(BadRequestView);
+            }
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult CreateCompany(CompanyViewModel model)
+        {
+            List<string> errors = new List<string>();
+            try
+            {
+
+                if (ModelState.IsValid)
+                {
+                    if (model.Id == 0)
+                    {
+                        return RedirectToAction("companydetail");
+                    }
+                    else
+                    {
+                        var oldmodel = db.CompanyRepo.GetById(model.Id);
+                        if (oldmodel == null)
+                        {
+                            Response.StatusCode = (int)HttpStatusCode.OK;
+                            return Json(new { redirecturl = "/error/badrequest" });
+                        }
+                        oldmodel.Name = model.Name;
+                        oldmodel.Address = model.Address;
+                        oldmodel.EmailAddress = model.EmailAddress;
+                        oldmodel.SubTitle1 = model.SubTitle1;
+                        oldmodel.SubTitle2 = model.SubTitle2;
+                        oldmodel.SubTitle3 = model.SubTitle3;
+                        oldmodel.SubTitle4 = model.SubTitle4;
+                        oldmodel.Phone = model.Phone;
+                    }
+                    db.SaveChanges();
+                    Response.StatusCode = (int)HttpStatusCode.OK;
+                    TempData["Success"] = "Company Details  Successfully Updated";
+                    return RedirectToAction("companydetail");
+
+                }
+                foreach (var item in ModelState.Where(x => x.Value.Errors.Any()))
+                {
+                    errors.Add(item.Value.Errors.FirstOrDefault().ErrorMessage);
+                }
+            }
+            catch (Exception ex)
+            {
+                errors.Add(ex.GetExceptionMessages());
+            }
+            Response.StatusCode = (int)HttpStatusCode.SeeOther;
+            return View(model);
+        }
+
+        #endregion
+
+        #region Vendor
+        public ActionResult Vendor()
+        {
+            return View();
+        }
+        public PartialViewResult VendorDetail(string name)
+        {
+            var data = db.VendorRepo.Get(x => (string.IsNullOrEmpty(name.Trim()) || x.Name.StartsWith(name.Trim()))).OrderBy(x => x.DisplayOrder);
+            var model = AutomapperConfig.Mapper.Map<IEnumerable<Vendor>, IEnumerable<VendorListViewModel>>(data);
+            return PartialView(model);
+        }
+
+        public ActionResult CreateVendor(int id = 0)
+        {
+            var model = new VendorViewModel();
+            if (id > 0)
+                model = AutomapperConfig.Mapper.Map<VendorViewModel>(db.VendorRepo.GetById(id));
+            if (model == null)
+            {
+                Response.StatusCode = (int)HttpStatusCode.OK;
+                return PartialView(BadRequestView);
+            }
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult CreateVendor(VendorViewModel model)
+        {
+            List<string> errors = new List<string>();
+            try
+            {
+
+                if (ModelState.IsValid)
+                {
+                    if (model.Id == 0)
+                    {
+                        var itemD = db.VendorRepo.Table();
+                        var order = itemD.Any() ? itemD.Max(x => x.DisplayOrder) : 0;
+                        model.DisplayOrder = order + 1;
+                        model.Id = db.VendorRepo.Create(AutomapperConfig.Mapper.Map<Vendor>(model));
+                    }
+                    else
+                    {
+                        var oldmodel = db.VendorRepo.GetById(model.Id);
+                        if (oldmodel == null)
+                        {
+                            Response.StatusCode = (int)HttpStatusCode.OK;
+                            return Json(new { redirecturl = "/error/badrequest" });
+                        }
+                        oldmodel.Name = model.Name;
+                        oldmodel.VatPanNo = model.VatPanNo;
+                        oldmodel.Address = model.Address;
+                        oldmodel.EmailId = model.EmailId;
+                        oldmodel.City = model.City;
+                        oldmodel.ContactPerson = model.ContactPerson;
+                        oldmodel.PhoneNo = model.PhoneNo;
+                        oldmodel.WebSite = model.WebSite;
+                        oldmodel.Remarks = model.Remarks;
+                    }
+                    db.SaveChanges();
+                    Response.StatusCode = (int)HttpStatusCode.OK;
+                    TempData["Success"] = "Vendor Successfully Saved";
+                    return RedirectToAction("vendor");
+
+                }
+                foreach (var item in ModelState.Where(x => x.Value.Errors.Any()))
+                {
+                    errors.Add(item.Value.Errors.FirstOrDefault().ErrorMessage);
+                }
+            }
+            catch (Exception ex)
+            {
+                errors.Add(ex.GetExceptionMessages());
+            }
+            Response.StatusCode = (int)HttpStatusCode.SeeOther;
+            return View(model);
+        }
+
+        [HttpPost]
+        public JsonResult DeleteVendor(int id)
+        {
+            List<string> errors = new List<string>();
+            string fkMessage = string.Empty;
+            var model = db.VendorRepo.GetById(id);
+            if (model == null)
+            {
+                Response.StatusCode = (int)HttpStatusCode.OK;
+                return Json(new { redirecturl = "/error/badrequest" });
+            }
+            try
+            {
+                db.VendorRepo.Delete(model);
+                Response.StatusCode = (int)HttpStatusCode.OK;
+                return Json(new { success = true });
+            }
+            catch (Exception ex)
+            {
+                if (ex.GetExceptionMessages().Contains("REFERENCE"))
+                {
+                    fkMessage = ex.GetExceptionMessages();
+                    errors.Add("Vendor  cannot be deleted.");
+                }
+                else
+                {
+                    errors.Add(ex.GetExceptionMessages());
+
+                }
+            }
+            Response.StatusCode = (int)HttpStatusCode.SeeOther;
+            return Json(new { fkMessage = fkMessage, error = errors });
+        }
+        #endregion
+
+    }
+}

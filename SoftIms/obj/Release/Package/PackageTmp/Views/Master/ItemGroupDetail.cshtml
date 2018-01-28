@@ -1,0 +1,43 @@
+﻿@model IEnumerable<SoftIms.Data.ViewModel.ItemGroupListViewModel>
+
+@{
+    int Sno = 1;
+}
+
+
+<table class="table-bordered table">
+    <thead class="bg-light-blue">
+        <tr>
+            <th>S.No</th>
+            <th>Item Group Name</th>
+            <th>Code</th>
+            <th>Item Type</th>
+            <th data-no-print="true">Actions</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Sno</td>
+                <td>@item.Name</td>
+                <td>@item.Code</td>
+                <td>@item.ItemTypeName</td>
+                <td class="pull-right" data-no-print="true">
+                    @if (item.ItemTypeName == "Non-Consumable")
+                    {
+                        <a type="button" class="btn btn" href="@Url.Action("DepreciationRateDetail","master",new { ItemGroupId = item.Id})"><i class="fa fa-area-chart"></i></a>
+                    }
+                    else
+                    {
+
+                    }
+                    <a type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal" href="@Url.Action("CreateItemGroup","master",new { id = item.Id})"><span class="fa fa-edit"> </span></a>
+                    <a type="button" class="btn btn-danger btn-delete-using-modal" data-msg="Are you sure you wnat to delete Item Group - @item.Name ?" href="@Url.Action("DeleteItemGroup","master",new { id = item.Id })"><span class="fa fa-minus"> </span></a>
+                </td>
+            </tr>
+            Sno++;
+        }
+    </tbody>
+</table>

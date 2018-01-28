@@ -1,0 +1,2074 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="NTA_OASModelStoreContainer" CdmEntityContainer="NTA_OASEntities">
+    <FunctionImportMapping FunctionImportName="SpDailyAttendance" FunctionName="NTA_OASModel.Store.SpDailyAttendance" />
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="NTA_OASModel.Customer">
+        <MappingFragment StoreEntitySet="Customer">
+          <ScalarProperty Name="VerifiedDate" ColumnName="VerifiedDate" />
+          <ScalarProperty Name="VerifiedByEmployeeId" ColumnName="VerifiedByEmployeeId" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="IsVerified" ColumnName="IsVerified" />
+          <ScalarProperty Name="Salt" ColumnName="Salt" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ContactPersonName" ColumnName="ContactPersonName" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="FaxNo" ColumnName="FaxNo" />
+          <ScalarProperty Name="TelNo" ColumnName="TelNo" />
+          <ScalarProperty Name="VATNo" ColumnName="VATNo" />
+          <ScalarProperty Name="PANNo" ColumnName="PANNo" />
+          <ScalarProperty Name="CompanyRegNo" ColumnName="CompanyRegNo" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="FiscalYearId" ColumnName="FiscalYearId" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CustomerModules">
+      <EntityTypeMapping TypeName="NTA_OASModel.CustomerModule">
+        <MappingFragment StoreEntitySet="CustomerModule">
+          <ScalarProperty Name="ModuleId" ColumnName="ModuleId" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TransactionLogs">
+      <EntityTypeMapping TypeName="NTA_OASModel.TransactionLog">
+        <MappingFragment StoreEntitySet="TransactionLog">
+          <ScalarProperty Name="LogType" ColumnName="LogType" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="NewValue" ColumnName="NewValue" />
+          <ScalarProperty Name="PreviousValue" ColumnName="PreviousValue" />
+          <ScalarProperty Name="FieldName" ColumnName="FieldName" />
+          <ScalarProperty Name="DataId" ColumnName="DataId" />
+          <ScalarProperty Name="TableName" ColumnName="TableName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DocumentNumberings">
+      <EntityTypeMapping TypeName="NTA_OASModel.DocumentNumbering">
+        <MappingFragment StoreEntitySet="DocumentNumbering">
+          <ScalarProperty Name="Length" ColumnName="Length" />
+          <ScalarProperty Name="Sufix" ColumnName="Sufix" />
+          <ScalarProperty Name="Prefix" ColumnName="Prefix" />
+          <ScalarProperty Name="StartNumber" ColumnName="StartNumber" />
+          <ScalarProperty Name="FiscalYearId" ColumnName="FiscalYearId" />
+          <ScalarProperty Name="DocumentSetupId" ColumnName="DocumentSetupId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DocumentSetups">
+      <EntityTypeMapping TypeName="NTA_OASModel.DocumentSetup">
+        <MappingFragment StoreEntitySet="DocumentSetup">
+          <ScalarProperty Name="Alias" ColumnName="Alias" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FiscalYears">
+      <EntityTypeMapping TypeName="NTA_OASModel.FiscalYear">
+        <MappingFragment StoreEntitySet="FiscalYear">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="ReportYear" ColumnName="ReportYear" />
+          <ScalarProperty Name="Alias" ColumnName="Alias" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QueryLogs">
+      <EntityTypeMapping TypeName="NTA_OASModel.QueryLog">
+        <MappingFragment StoreEntitySet="QueryLog">
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="Query" ColumnName="Query" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ShiftSetups">
+      <EntityTypeMapping TypeName="NTA_OASModel.ShiftSetup">
+        <MappingFragment StoreEntitySet="ShiftSetup">
+          <ScalarProperty Name="DateTo" ColumnName="DateTo" />
+          <ScalarProperty Name="DateFrom" ColumnName="DateFrom" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="NTA_OASModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="definition" ColumnName="definition" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SystemConfigurations">
+      <EntityTypeMapping TypeName="NTA_OASModel.SystemConfiguration">
+        <MappingFragment StoreEntitySet="SystemConfiguration">
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Key" ColumnName="Key" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TestLogs">
+      <EntityTypeMapping TypeName="NTA_OASModel.TestLog">
+        <MappingFragment StoreEntitySet="TestLog">
+          <ScalarProperty Name="ResolvedRemarks" ColumnName="ResolvedRemarks" />
+          <ScalarProperty Name="ResolvedDate" ColumnName="ResolvedDate" />
+          <ScalarProperty Name="ResolvedBy" ColumnName="ResolvedBy" />
+          <ScalarProperty Name="IsResolved" ColumnName="IsResolved" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="CheckedBy" ColumnName="CheckedBy" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="DataUrl" ColumnName="DataUrl" />
+          <ScalarProperty Name="Field" ColumnName="Field" />
+          <ScalarProperty Name="Module" ColumnName="Module" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WorkingTimes">
+      <EntityTypeMapping TypeName="NTA_OASModel.WorkingTime">
+        <MappingFragment StoreEntitySet="WorkingTime">
+          <ScalarProperty Name="EarlyOut" ColumnName="EarlyOut" />
+          <ScalarProperty Name="LateIn" ColumnName="LateIn" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="Day" ColumnName="Day" />
+          <ScalarProperty Name="ShiftId" ColumnName="ShiftId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CustomerDocuments">
+      <EntityTypeMapping TypeName="NTA_OASModel.CustomerDocument">
+        <MappingFragment StoreEntitySet="CustomerDocument">
+          <ScalarProperty Name="LastModifiedOn" ColumnName="LastModifiedOn" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="FileMimeType" ColumnName="FileMimeType" />
+          <ScalarProperty Name="FileSize" ColumnName="FileSize" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="ThumbMiddle" ColumnName="ThumbMiddle" />
+          <ScalarProperty Name="ThumbSmall" ColumnName="ThumbSmall" />
+          <ScalarProperty Name="FileBinary" ColumnName="FileBinary" />
+          <ScalarProperty Name="DataId" ColumnName="DataId" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="DocumentTypeId" ColumnName="DocumentTypeId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DocumentTypes">
+      <EntityTypeMapping TypeName="NTA_OASModel.DocumentType">
+        <MappingFragment StoreEntitySet="DocumentType">
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="DataModule" ColumnName="DataModule" />
+          <ScalarProperty Name="IsMultipleAllowed" ColumnName="IsMultipleAllowed" />
+          <ScalarProperty Name="MaxFileSizeByte" ColumnName="MaxFileSizeByte" />
+          <ScalarProperty Name="Accept" ColumnName="Accept" />
+          <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ModuleId" ColumnName="ModuleId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HRDocuments">
+      <EntityTypeMapping TypeName="NTA_OASModel.HRDocument">
+        <MappingFragment StoreEntitySet="HRDocument">
+          <ScalarProperty Name="LastModifiedBy" ColumnName="LastModifiedBy" />
+          <ScalarProperty Name="LastModifiedOn" ColumnName="LastModifiedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="FileMimeType" ColumnName="FileMimeType" />
+          <ScalarProperty Name="FileSize" ColumnName="FileSize" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="ThumbMiddle" ColumnName="ThumbMiddle" />
+          <ScalarProperty Name="ThumbSmall" ColumnName="ThumbSmall" />
+          <ScalarProperty Name="FileBinary" ColumnName="FileBinary" />
+          <ScalarProperty Name="DataId" ColumnName="DataId" />
+          <ScalarProperty Name="MasterId" ColumnName="MasterId" />
+          <ScalarProperty Name="DocumentTypeId" ColumnName="DocumentTypeId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Transmissions">
+      <EntityTypeMapping TypeName="NTA_OASModel.Transmission">
+        <MappingFragment StoreEntitySet="Transmission">
+          <ScalarProperty Name="ProcessStatus" ColumnName="ProcessStatus" />
+          <ScalarProperty Name="OperationalDate" ColumnName="OperationalDate" />
+          <ScalarProperty Name="ApprovalDate" ColumnName="ApprovalDate" />
+          <ScalarProperty Name="AntennaHeight" ColumnName="AntennaHeight" />
+          <ScalarProperty Name="Bandwidth" ColumnName="Bandwidth" />
+          <ScalarProperty Name="TransmittedPower" ColumnName="TransmittedPower" />
+          <ScalarProperty Name="AntennaGain" ColumnName="AntennaGain" />
+          <ScalarProperty Name="AntennaDiameter" ColumnName="AntennaDiameter" />
+          <ScalarProperty Name="Polarization" ColumnName="Polarization" />
+          <ScalarProperty Name="FrequencyRx" ColumnName="FrequencyRx" />
+          <ScalarProperty Name="FrequencyTx" ColumnName="FrequencyTx" />
+          <ScalarProperty Name="ProtectionType" ColumnName="ProtectionType" />
+          <ScalarProperty Name="RadiosModel" ColumnName="RadiosModel" />
+          <ScalarProperty Name="Azimuth" ColumnName="Azimuth" />
+          <ScalarProperty Name="Distance" ColumnName="Distance" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="StationWardNo" ColumnName="StationWardNo" />
+          <ScalarProperty Name="StationVdcId" ColumnName="StationVdcId" />
+          <ScalarProperty Name="StationDistrictId" ColumnName="StationDistrictId" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="StationName" ColumnName="StationName" />
+          <ScalarProperty Name="StationNumber" ColumnName="StationNumber" />
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Addresses">
+      <EntityTypeMapping TypeName="NTA_OASModel.Address">
+        <MappingFragment StoreEntitySet="Address">
+          <ScalarProperty Name="HouseNumber" ColumnName="HouseNumber" />
+          <ScalarProperty Name="StreetAddress" ColumnName="StreetAddress" />
+          <ScalarProperty Name="WardNo" ColumnName="WardNo" />
+          <ScalarProperty Name="VdcId" ColumnName="VdcId" />
+          <ScalarProperty Name="DistrictId" ColumnName="DistrictId" />
+          <ScalarProperty Name="ZoneId" ColumnName="ZoneId" />
+          <ScalarProperty Name="AddressType" ColumnName="AddressType" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AttendanceLogs">
+      <EntityTypeMapping TypeName="NTA_OASModel.AttendanceLog">
+        <MappingFragment StoreEntitySet="AttendanceLog">
+          <ScalarProperty Name="ApproveRemarks" ColumnName="ApproveRemarks" />
+          <ScalarProperty Name="ApprovedDate" ColumnName="ApprovedDate" />
+          <ScalarProperty Name="ApprovedBy" ColumnName="ApprovedBy" />
+          <ScalarProperty Name="ApprovedStatus" ColumnName="ApprovedStatus" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="IsManual" ColumnName="IsManual" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="CheckType" ColumnName="CheckType" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="DeviceId" ColumnName="DeviceId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AwardDecorations">
+      <EntityTypeMapping TypeName="NTA_OASModel.AwardDecoration">
+        <MappingFragment StoreEntitySet="AwardDecoration">
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="AwardedBy" ColumnName="AwardedBy" />
+          <ScalarProperty Name="Benefit" ColumnName="Benefit" />
+          <ScalarProperty Name="ReasonToReceiveAward" ColumnName="ReasonToReceiveAward" />
+          <ScalarProperty Name="ReceivedDate" ColumnName="ReceivedDate" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="AwardDecorationTypeId" ColumnName="AwardDecorationTypeId" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AwardDecorationTypes">
+      <EntityTypeMapping TypeName="NTA_OASModel.AwardDecorationType">
+        <MappingFragment StoreEntitySet="AwardDecorationType">
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="NameNP" ColumnName="NameNP" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Countries">
+      <EntityTypeMapping TypeName="NTA_OASModel.Country">
+        <MappingFragment StoreEntitySet="Country">
+          <ScalarProperty Name="IsDefault" ColumnName="IsDefault" />
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="NameNP" ColumnName="NameNP" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Degrees">
+      <EntityTypeMapping TypeName="NTA_OASModel.Degree">
+        <MappingFragment StoreEntitySet="Degree">
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="NameNP" ColumnName="NameNP" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Designations">
+      <EntityTypeMapping TypeName="NTA_OASModel.Designation">
+        <MappingFragment StoreEntitySet="Designation">
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="DesignationNP" ColumnName="DesignationNP" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="DesignationCategoryId" ColumnName="DesignationCategoryId" />
+          <ScalarProperty Name="ServiceClassId" ColumnName="ServiceClassId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DesignationCategories">
+      <EntityTypeMapping TypeName="NTA_OASModel.DesignationCategory">
+        <MappingFragment StoreEntitySet="DesignationCategory">
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Devices">
+      <EntityTypeMapping TypeName="NTA_OASModel.Device">
+        <MappingFragment StoreEntitySet="Device">
+          <ScalarProperty Name="PortNo" ColumnName="PortNo" />
+          <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DeviceDataLogs">
+      <EntityTypeMapping TypeName="NTA_OASModel.DeviceDataLog">
+        <MappingFragment StoreEntitySet="DeviceDataLog">
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="EmployeeNo" ColumnName="EmployeeNo" />
+          <ScalarProperty Name="DeviceId" ColumnName="DeviceId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Districts">
+      <EntityTypeMapping TypeName="NTA_OASModel.District">
+        <MappingFragment StoreEntitySet="District">
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="NameNP" ColumnName="NameNP" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ZoneId" ColumnName="ZoneId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EducationalQualifications">
+      <EntityTypeMapping TypeName="NTA_OASModel.EducationalQualification">
+        <MappingFragment StoreEntitySet="EducationalQualification">
+          <ScalarProperty Name="Certificate" ColumnName="Certificate" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="TeachingInstitutionAddress" ColumnName="TeachingInstitutionAddress" />
+          <ScalarProperty Name="TeachingInstitutionName" ColumnName="TeachingInstitutionName" />
+          <ScalarProperty Name="Division" ColumnName="Division" />
+          <ScalarProperty Name="EndYear" ColumnName="EndYear" />
+          <ScalarProperty Name="StartYear" ColumnName="StartYear" />
+          <ScalarProperty Name="MajorSubjects" ColumnName="MajorSubjects" />
+          <ScalarProperty Name="DegreeId" ColumnName="DegreeId" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="NTA_OASModel.Employee">
+        <MappingFragment StoreEntitySet="Employee">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="EmployeeStatus" ColumnName="EmployeeStatus" />
+          <ScalarProperty Name="EmployeeType" ColumnName="EmployeeType" />
+          <ScalarProperty Name="SupervisorId" ColumnName="SupervisorId" />
+          <ScalarProperty Name="MaritalStatus" ColumnName="MaritalStatus" />
+          <ScalarProperty Name="DriverLicenseIssuedDate" ColumnName="DriverLicenseIssuedDate" />
+          <ScalarProperty Name="DriverLicenseNumber" ColumnName="DriverLicenseNumber" />
+          <ScalarProperty Name="PassportIssuedDate" ColumnName="PassportIssuedDate" />
+          <ScalarProperty Name="PassportNumber" ColumnName="PassportNumber" />
+          <ScalarProperty Name="CitizenshipIssuedDistrictId" ColumnName="CitizenshipIssuedDistrictId" />
+          <ScalarProperty Name="CitizenshipIssuedDate" ColumnName="CitizenshipIssuedDate" />
+          <ScalarProperty Name="CitizenshipNumber" ColumnName="CitizenshipNumber" />
+          <ScalarProperty Name="PANNumber" ColumnName="PANNumber" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="TelExtenstionNumber" ColumnName="TelExtenstionNumber" />
+          <ScalarProperty Name="OfficeTelephone" ColumnName="OfficeTelephone" />
+          <ScalarProperty Name="HomeTelephone" ColumnName="HomeTelephone" />
+          <ScalarProperty Name="DesignationId" ColumnName="DesignationId" />
+          <ScalarProperty Name="SectionId" ColumnName="SectionId" />
+          <ScalarProperty Name="GrandFatherName" ColumnName="GrandFatherName" />
+          <ScalarProperty Name="MotherName" ColumnName="MotherName" />
+          <ScalarProperty Name="FatherName" ColumnName="FatherName" />
+          <ScalarProperty Name="DateTo58YrsOld" ColumnName="DateTo58YrsOld" />
+          <ScalarProperty Name="DateTo20YrsofServiceDuration" ColumnName="DateTo20YrsofServiceDuration" />
+          <ScalarProperty Name="AppointmentDate" ColumnName="AppointmentDate" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="FullNameNP" ColumnName="FullNameNP" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="EmployeeNo" ColumnName="EmployeeNo" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmployeeLeaveSetups">
+      <EntityTypeMapping TypeName="NTA_OASModel.EmployeeLeaveSetup">
+        <MappingFragment StoreEntitySet="EmployeeLeaveSetup">
+          <ScalarProperty Name="NoOfLeave" ColumnName="NoOfLeave" />
+          <ScalarProperty Name="OpeningBalance" ColumnName="OpeningBalance" />
+          <ScalarProperty Name="LeaveCategoryId" ColumnName="LeaveCategoryId" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="FiscalYearId" ColumnName="FiscalYearId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Experiences">
+      <EntityTypeMapping TypeName="NTA_OASModel.Experience">
+        <MappingFragment StoreEntitySet="Experience">
+          <ScalarProperty Name="ExperienceVerificationForm" ColumnName="ExperienceVerificationForm" />
+          <ScalarProperty Name="AuthorizedBy" ColumnName="AuthorizedBy" />
+          <ScalarProperty Name="SeparationDate" ColumnName="SeparationDate" />
+          <ScalarProperty Name="AppointedDate" ColumnName="AppointedDate" />
+          <ScalarProperty Name="ServiceClassId" ColumnName="ServiceClassId" />
+          <ScalarProperty Name="DesignationId" ColumnName="DesignationId" />
+          <ScalarProperty Name="OfficeName" ColumnName="OfficeName" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Families">
+      <EntityTypeMapping TypeName="NTA_OASModel.Family">
+        <MappingFragment StoreEntitySet="Family">
+          <ScalarProperty Name="RetirementDate" ColumnName="RetirementDate" />
+          <ScalarProperty Name="JoinedDate" ColumnName="JoinedDate" />
+          <ScalarProperty Name="DesignationId" ColumnName="DesignationId" />
+          <ScalarProperty Name="OfficeName" ColumnName="OfficeName" />
+          <ScalarProperty Name="ProfessionId" ColumnName="ProfessionId" />
+          <ScalarProperty Name="RelationshipId" ColumnName="RelationshipId" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Holidays">
+      <EntityTypeMapping TypeName="NTA_OASModel.Holiday">
+        <MappingFragment StoreEntitySet="Holiday">
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JobDescriptions">
+      <EntityTypeMapping TypeName="NTA_OASModel.JobDescription">
+        <MappingFragment StoreEntitySet="JobDescription">
+          <ScalarProperty Name="WorkDutyAndResponsibilities" ColumnName="WorkDutyAndResponsibilities" />
+          <ScalarProperty Name="JobObjective" ColumnName="JobObjective" />
+          <ScalarProperty Name="DesignationId" ColumnName="DesignationId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LeaveApplications">
+      <EntityTypeMapping TypeName="NTA_OASModel.LeaveApplication">
+        <MappingFragment StoreEntitySet="LeaveApplication">
+          <ScalarProperty Name="DisplayRegistrationNo" ColumnName="DisplayRegistrationNo" />
+          <ScalarProperty Name="ApplicationStatus" ColumnName="ApplicationStatus" />
+          <ScalarProperty Name="DesignationId" ColumnName="DesignationId" />
+          <ScalarProperty Name="SectionId" ColumnName="SectionId" />
+          <ScalarProperty Name="Detail" ColumnName="Detail" />
+          <ScalarProperty Name="ApproveRemarks" ColumnName="ApproveRemarks" />
+          <ScalarProperty Name="ApproveDate" ColumnName="ApproveDate" />
+          <ScalarProperty Name="ApproveStatus" ColumnName="ApproveStatus" />
+          <ScalarProperty Name="ApproveBy" ColumnName="ApproveBy" />
+          <ScalarProperty Name="RecommendRemarks" ColumnName="RecommendRemarks" />
+          <ScalarProperty Name="RecommendDate" ColumnName="RecommendDate" />
+          <ScalarProperty Name="RecommendStatus" ColumnName="RecommendStatus" />
+          <ScalarProperty Name="RecommendBy" ColumnName="RecommendBy" />
+          <ScalarProperty Name="RequestDate" ColumnName="RequestDate" />
+          <ScalarProperty Name="TotalDay" ColumnName="TotalDay" />
+          <ScalarProperty Name="DateTo" ColumnName="DateTo" />
+          <ScalarProperty Name="DateFrom" ColumnName="DateFrom" />
+          <ScalarProperty Name="Cause" ColumnName="Cause" />
+          <ScalarProperty Name="LeaveTypeId" ColumnName="LeaveTypeId" />
+          <ScalarProperty Name="LeaveCategoryId" ColumnName="LeaveCategoryId" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="FiscalYearId" ColumnName="FiscalYearId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LeaveCategories">
+      <EntityTypeMapping TypeName="NTA_OASModel.LeaveCategory">
+        <MappingFragment StoreEntitySet="LeaveCategory">
+          <ScalarProperty Name="WeeklyOffInclude" ColumnName="WeeklyOffInclude" />
+          <ScalarProperty Name="IsTransferable" ColumnName="IsTransferable" />
+          <ScalarProperty Name="AllowHalfDay" ColumnName="AllowHalfDay" />
+          <ScalarProperty Name="ApplicableFor" ColumnName="ApplicableFor" />
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="NameNP" ColumnName="NameNP" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Alias" ColumnName="Alias" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LeaveSetups">
+      <EntityTypeMapping TypeName="NTA_OASModel.LeaveSetup">
+        <MappingFragment StoreEntitySet="LeaveSetup">
+          <ScalarProperty Name="NoOfLeave" ColumnName="NoOfLeave" />
+          <ScalarProperty Name="LeaveCategoryId" ColumnName="LeaveCategoryId" />
+          <ScalarProperty Name="FiscalYearId" ColumnName="FiscalYearId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LeaveTypes">
+      <EntityTypeMapping TypeName="NTA_OASModel.LeaveType">
+        <MappingFragment StoreEntitySet="LeaveType">
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="Alias" ColumnName="Alias" />
+          <ScalarProperty Name="NameNP" ColumnName="NameNP" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Nominees">
+      <EntityTypeMapping TypeName="NTA_OASModel.Nominee">
+        <MappingFragment StoreEntitySet="Nominee">
+          <ScalarProperty Name="NomineeFormMIMEType" ColumnName="NomineeFormMIMEType" />
+          <ScalarProperty Name="NomineeForm" ColumnName="NomineeForm" />
+          <ScalarProperty Name="AuthorizedBy" ColumnName="AuthorizedBy" />
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
+          <ScalarProperty Name="RelationshipId" ColumnName="RelationshipId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PBISAllowanceRates">
+      <EntityTypeMapping TypeName="NTA_OASModel.PBISAllowanceRate">
+        <MappingFragment StoreEntitySet="PBISAllowanceRate">
+          <ScalarProperty Name="Rate" ColumnName="Rate" />
+          <ScalarProperty Name="RangeTo" ColumnName="RangeTo" />
+          <ScalarProperty Name="RangeFrom" ColumnName="RangeFrom" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PBISForms">
+      <EntityTypeMapping TypeName="NTA_OASModel.PBISForm">
+        <MappingFragment StoreEntitySet="PBISForm">
+          <ScalarProperty Name="SectionHeadEmployeeId" ColumnName="SectionHeadEmployeeId" />
+          <ScalarProperty Name="Guid" ColumnName="Guid" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="VerifierTotal" ColumnName="VerifierTotal" />
+          <ScalarProperty Name="SupervisorTotal" ColumnName="SupervisorTotal" />
+          <ScalarProperty Name="SubmittedDate2" ColumnName="SubmittedDate2" />
+          <ScalarProperty Name="VerifierId" ColumnName="VerifierId" />
+          <ScalarProperty Name="SubmittedDate1" ColumnName="SubmittedDate1" />
+          <ScalarProperty Name="SupervisorId" ColumnName="SupervisorId" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Month" ColumnName="Month" />
+          <ScalarProperty Name="FiscalYearId" ColumnName="FiscalYearId" />
+          <ScalarProperty Name="DesignationId" ColumnName="DesignationId" />
+          <ScalarProperty Name="SectionId" ColumnName="SectionId" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PBISFormDetails">
+      <EntityTypeMapping TypeName="NTA_OASModel.PBISFormDetail">
+        <MappingFragment StoreEntitySet="PBISFormDetail">
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="ValueType" ColumnName="ValueType" />
+          <ScalarProperty Name="PBISIndicatorId" ColumnName="PBISIndicatorId" />
+          <ScalarProperty Name="PBISFormId" ColumnName="PBISFormId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PBISFormSetups">
+      <EntityTypeMapping TypeName="NTA_OASModel.PBISFormSetup">
+        <MappingFragment StoreEntitySet="PBISFormSetup">
+          <ScalarProperty Name="Weightage" ColumnName="Weightage" />
+          <ScalarProperty Name="PBISIndicatorId" ColumnName="PBISIndicatorId" />
+          <ScalarProperty Name="DesignationId" ColumnName="DesignationId" />
+          <ScalarProperty Name="SectionId" ColumnName="SectionId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PBISIndicators">
+      <EntityTypeMapping TypeName="NTA_OASModel.PBISIndicator">
+        <MappingFragment StoreEntitySet="PBISIndicator">
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Professions">
+      <EntityTypeMapping TypeName="NTA_OASModel.Profession">
+        <MappingFragment StoreEntitySet="Profession">
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="NameNP" ColumnName="NameNP" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Promotions">
+      <EntityTypeMapping TypeName="NTA_OASModel.Promotion">
+        <MappingFragment StoreEntitySet="Promotion">
+          <ScalarProperty Name="PromotionLetter" ColumnName="PromotionLetter" />
+          <ScalarProperty Name="PromotionTypeId" ColumnName="PromotionTypeId" />
+          <ScalarProperty Name="PromotedDate" ColumnName="PromotedDate" />
+          <ScalarProperty Name="PromotedTo" ColumnName="PromotedTo" />
+          <ScalarProperty Name="PromotedFrom" ColumnName="PromotedFrom" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PromotionTypes">
+      <EntityTypeMapping TypeName="NTA_OASModel.PromotionType">
+        <MappingFragment StoreEntitySet="PromotionType">
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Punishments">
+      <EntityTypeMapping TypeName="NTA_OASModel.Punishment">
+        <MappingFragment StoreEntitySet="Punishment">
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="CourtDecisionDate" ColumnName="CourtDecisionDate" />
+          <ScalarProperty Name="CourtDecision" ColumnName="CourtDecision" />
+          <ScalarProperty Name="PunishmentOrderDate" ColumnName="PunishmentOrderDate" />
+          <ScalarProperty Name="PunishmentTypeId" ColumnName="PunishmentTypeId" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PunishmentTypes">
+      <EntityTypeMapping TypeName="NTA_OASModel.PunishmentType">
+        <MappingFragment StoreEntitySet="PunishmentType">
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="DisplayNumber" ColumnName="DisplayNumber" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Relationships">
+      <EntityTypeMapping TypeName="NTA_OASModel.Relationship">
+        <MappingFragment StoreEntitySet="Relationship">
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Retirements">
+      <EntityTypeMapping TypeName="NTA_OASModel.Retirement">
+        <MappingFragment StoreEntitySet="Retirement">
+          <ScalarProperty Name="HasCITLetterIssued" ColumnName="HasCITLetterIssued" />
+          <ScalarProperty Name="HasPFLetterIssued" ColumnName="HasPFLetterIssued" />
+          <ScalarProperty Name="IsHandoverCompleted" ColumnName="IsHandoverCompleted" />
+          <ScalarProperty Name="RetirementDate" ColumnName="RetirementDate" />
+          <ScalarProperty Name="RetirementReasonId" ColumnName="RetirementReasonId" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RetirementReasons">
+      <EntityTypeMapping TypeName="NTA_OASModel.RetirementReason">
+        <MappingFragment StoreEntitySet="RetirementReason">
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Salaries">
+      <EntityTypeMapping TypeName="NTA_OASModel.Salary">
+        <MappingFragment StoreEntitySet="Salary">
+          <ScalarProperty Name="EffectiveFromTo" ColumnName="EffectiveFromTo" />
+          <ScalarProperty Name="EffectiveFromDate" ColumnName="EffectiveFromDate" />
+          <ScalarProperty Name="DailyAllowanceInternational" ColumnName="DailyAllowanceInternational" />
+          <ScalarProperty Name="DailyAllowanceNational" ColumnName="DailyAllowanceNational" />
+          <ScalarProperty Name="AdditionalAccidentalInsurance" ColumnName="AdditionalAccidentalInsurance" />
+          <ScalarProperty Name="PersonalAccidentalInsuranceAmount" ColumnName="PersonalAccidentalInsuranceAmount" />
+          <ScalarProperty Name="MedicalAllowance" ColumnName="MedicalAllowance" />
+          <ScalarProperty Name="DressAllowance" ColumnName="DressAllowance" />
+          <ScalarProperty Name="TelephoneFacility" ColumnName="TelephoneFacility" />
+          <ScalarProperty Name="MagazineBooksFacility" ColumnName="MagazineBooksFacility" />
+          <ScalarProperty Name="TransportationAllowance" ColumnName="TransportationAllowance" />
+          <ScalarProperty Name="TiffinAllowance" ColumnName="TiffinAllowance" />
+          <ScalarProperty Name="RegulatoryAllowance" ColumnName="RegulatoryAllowance" />
+          <ScalarProperty Name="AdditionalGrade" ColumnName="AdditionalGrade" />
+          <ScalarProperty Name="Grade" ColumnName="Grade" />
+          <ScalarProperty Name="BasicSalary" ColumnName="BasicSalary" />
+          <ScalarProperty Name="DesignationId" ColumnName="DesignationId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sections">
+      <EntityTypeMapping TypeName="NTA_OASModel.Section">
+        <MappingFragment StoreEntitySet="Section">
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="ServiceGroupId" ColumnName="ServiceGroupId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SectionHeads">
+      <EntityTypeMapping TypeName="NTA_OASModel.SectionHead">
+        <MappingFragment StoreEntitySet="SectionHead">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="DateTo" ColumnName="DateTo" />
+          <ScalarProperty Name="DateFrom" ColumnName="DateFrom" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="SectionId" ColumnName="SectionId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Services">
+      <EntityTypeMapping TypeName="NTA_OASModel.Service">
+        <MappingFragment StoreEntitySet="Service">
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ServiceClasses">
+      <EntityTypeMapping TypeName="NTA_OASModel.ServiceClass">
+        <MappingFragment StoreEntitySet="ServiceClass">
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="ServiceLevelId" ColumnName="ServiceLevelId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ServiceGroups">
+      <EntityTypeMapping TypeName="NTA_OASModel.ServiceGroup">
+        <MappingFragment StoreEntitySet="ServiceGroup">
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="ServiceId" ColumnName="ServiceId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ServiceLevels">
+      <EntityTypeMapping TypeName="NTA_OASModel.ServiceLevel">
+        <MappingFragment StoreEntitySet="ServiceLevel">
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ShiftTypes">
+      <EntityTypeMapping TypeName="NTA_OASModel.ShiftType">
+        <MappingFragment StoreEntitySet="ShiftType">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Alias" ColumnName="Alias" />
+          <ScalarProperty Name="NameNp" ColumnName="NameNp" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StandardSalaries">
+      <EntityTypeMapping TypeName="NTA_OASModel.StandardSalary">
+        <MappingFragment StoreEntitySet="StandardSalary">
+          <ScalarProperty Name="EffectiveFromTo" ColumnName="EffectiveFromTo" />
+          <ScalarProperty Name="EffectiveFromDate" ColumnName="EffectiveFromDate" />
+          <ScalarProperty Name="DailyAllowanceInternational" ColumnName="DailyAllowanceInternational" />
+          <ScalarProperty Name="DailyAllowanceNational" ColumnName="DailyAllowanceNational" />
+          <ScalarProperty Name="AdditionalAccidentalInsurance" ColumnName="AdditionalAccidentalInsurance" />
+          <ScalarProperty Name="PersonalAccidentalInsuranceAmount" ColumnName="PersonalAccidentalInsuranceAmount" />
+          <ScalarProperty Name="LifeInsuranceAmount" ColumnName="LifeInsuranceAmount" />
+          <ScalarProperty Name="CITContribution" ColumnName="CITContribution" />
+          <ScalarProperty Name="GrossSalary" ColumnName="GrossSalary" />
+          <ScalarProperty Name="ProvidentFund" ColumnName="ProvidentFund" />
+          <ScalarProperty Name="MedicalAllowance" ColumnName="MedicalAllowance" />
+          <ScalarProperty Name="DressAllowance" ColumnName="DressAllowance" />
+          <ScalarProperty Name="TelephoneFacility" ColumnName="TelephoneFacility" />
+          <ScalarProperty Name="MagazineBooksFacility" ColumnName="MagazineBooksFacility" />
+          <ScalarProperty Name="TransportationAllowance" ColumnName="TransportationAllowance" />
+          <ScalarProperty Name="TiffinAllowance" ColumnName="TiffinAllowance" />
+          <ScalarProperty Name="RegulatoryAllowance" ColumnName="RegulatoryAllowance" />
+          <ScalarProperty Name="AdditionalGrade" ColumnName="AdditionalGrade" />
+          <ScalarProperty Name="Grade" ColumnName="Grade" />
+          <ScalarProperty Name="BasicSalary" ColumnName="BasicSalary" />
+          <ScalarProperty Name="DesignationId" ColumnName="DesignationId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SubstitionTypes">
+      <EntityTypeMapping TypeName="NTA_OASModel.SubstitionType">
+        <MappingFragment StoreEntitySet="SubstitionType">
+          <ScalarProperty Name="IsSubstitutedPostSalaryEligible" ColumnName="IsSubstitutedPostSalaryEligible" />
+          <ScalarProperty Name="EligibleSubstituionLevel" ColumnName="EligibleSubstituionLevel" />
+          <ScalarProperty Name="MaxSubstitutionDays" ColumnName="MaxSubstitutionDays" />
+          <ScalarProperty Name="IsFullyAuthorised" ColumnName="IsFullyAuthorised" />
+          <ScalarProperty Name="MinimumSubstitutionDays" ColumnName="MinimumSubstitutionDays" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Substitutions">
+      <EntityTypeMapping TypeName="NTA_OASModel.Substitution">
+        <MappingFragment StoreEntitySet="Substitution">
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="EffectiveToDate" ColumnName="EffectiveToDate" />
+          <ScalarProperty Name="EffectiveFromDate" ColumnName="EffectiveFromDate" />
+          <ScalarProperty Name="SubstitutedEmployee" ColumnName="SubstitutedEmployee" />
+          <ScalarProperty Name="EmployeeToSubstitute" ColumnName="EmployeeToSubstitute" />
+          <ScalarProperty Name="SubstitutionTypeId" ColumnName="SubstitutionTypeId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TrainingSeminarConferences">
+      <EntityTypeMapping TypeName="NTA_OASModel.TrainingSeminarConference">
+        <MappingFragment StoreEntitySet="TrainingSeminarConference">
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="AwardedCertificated" ColumnName="AwardedCertificated" />
+          <ScalarProperty Name="SelectionLetter" ColumnName="SelectionLetter" />
+          <ScalarProperty Name="OrganizationAddress" ColumnName="OrganizationAddress" />
+          <ScalarProperty Name="OrganizationName" ColumnName="OrganizationName" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Transfers">
+      <EntityTypeMapping TypeName="NTA_OASModel.Transfer">
+        <MappingFragment StoreEntitySet="Transfer">
+          <ScalarProperty Name="TransferCertificate" ColumnName="TransferCertificate" />
+          <ScalarProperty Name="PersonalCertificate" ColumnName="PersonalCertificate" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="AuthorisedDate" ColumnName="AuthorisedDate" />
+          <ScalarProperty Name="AuthorisedBy" ColumnName="AuthorisedBy" />
+          <ScalarProperty Name="PreparedDate" ColumnName="PreparedDate" />
+          <ScalarProperty Name="PreparedBy" ColumnName="PreparedBy" />
+          <ScalarProperty Name="TransferReasonId" ColumnName="TransferReasonId" />
+          <ScalarProperty Name="AttendedDate" ColumnName="AttendedDate" />
+          <ScalarProperty Name="NextTransferDate" ColumnName="NextTransferDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="TransferredSection" ColumnName="TransferredSection" />
+          <ScalarProperty Name="PreviousSection" ColumnName="PreviousSection" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TransferReasons">
+      <EntityTypeMapping TypeName="NTA_OASModel.TransferReason">
+        <MappingFragment StoreEntitySet="TransferReason">
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TravelApplications">
+      <EntityTypeMapping TypeName="NTA_OASModel.TravelApplication">
+        <MappingFragment StoreEntitySet="TravelApplication">
+          <ScalarProperty Name="DisplayRegistrationNo" ColumnName="DisplayRegistrationNo" />
+          <ScalarProperty Name="ApplicationStatus" ColumnName="ApplicationStatus" />
+          <ScalarProperty Name="DesignationId" ColumnName="DesignationId" />
+          <ScalarProperty Name="SectionId" ColumnName="SectionId" />
+          <ScalarProperty Name="Detail" ColumnName="Detail" />
+          <ScalarProperty Name="ApproveRemarks" ColumnName="ApproveRemarks" />
+          <ScalarProperty Name="ApproveDate" ColumnName="ApproveDate" />
+          <ScalarProperty Name="ApproveStatus" ColumnName="ApproveStatus" />
+          <ScalarProperty Name="ApproveBy" ColumnName="ApproveBy" />
+          <ScalarProperty Name="RecommendRemarks" ColumnName="RecommendRemarks" />
+          <ScalarProperty Name="RecommendDate" ColumnName="RecommendDate" />
+          <ScalarProperty Name="RecommendStatus" ColumnName="RecommendStatus" />
+          <ScalarProperty Name="RecommendBy" ColumnName="RecommendBy" />
+          <ScalarProperty Name="RequestDate" ColumnName="RequestDate" />
+          <ScalarProperty Name="DateTo" ColumnName="DateTo" />
+          <ScalarProperty Name="DateFrom" ColumnName="DateFrom" />
+          <ScalarProperty Name="TravelCategoryId" ColumnName="TravelCategoryId" />
+          <ScalarProperty Name="TravelTypeId" ColumnName="TravelTypeId" />
+          <ScalarProperty Name="OtherAllowance" ColumnName="OtherAllowance" />
+          <ScalarProperty Name="DailyAllowance" ColumnName="DailyAllowance" />
+          <ScalarProperty Name="TravelingAllowance" ColumnName="TravelingAllowance" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="Organizer" ColumnName="Organizer" />
+          <ScalarProperty Name="Objectives" ColumnName="Objectives" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TravelCategories">
+      <EntityTypeMapping TypeName="NTA_OASModel.TravelCategory">
+        <MappingFragment StoreEntitySet="TravelCategory">
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="NameNP" ColumnName="NameNP" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TravelTypes">
+      <EntityTypeMapping TypeName="NTA_OASModel.TravelType">
+        <MappingFragment StoreEntitySet="TravelType">
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="NameNP" ColumnName="NameNP" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vdcs">
+      <EntityTypeMapping TypeName="NTA_OASModel.Vdc">
+        <MappingFragment StoreEntitySet="Vdc">
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="NameNP" ColumnName="NameNP" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="DistrictId" ColumnName="DistrictId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WeeklyShiftTimes">
+      <EntityTypeMapping TypeName="NTA_OASModel.WeeklyShiftTime">
+        <MappingFragment StoreEntitySet="WeeklyShiftTime">
+          <ScalarProperty Name="ShiftEarlyOutBefore" ColumnName="ShiftEarlyOutBefore" />
+          <ScalarProperty Name="ShiftLateInAfter" ColumnName="ShiftLateInAfter" />
+          <ScalarProperty Name="ShiftEndTime" ColumnName="ShiftEndTime" />
+          <ScalarProperty Name="ShiftStartTime" ColumnName="ShiftStartTime" />
+          <ScalarProperty Name="IsWeekOff" ColumnName="IsWeekOff" />
+          <ScalarProperty Name="WeekDay" ColumnName="WeekDay" />
+          <ScalarProperty Name="ShiftTypeId" ColumnName="ShiftTypeId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Zones">
+      <EntityTypeMapping TypeName="NTA_OASModel.Zone">
+        <MappingFragment StoreEntitySet="Zone">
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="NameNP" ColumnName="NameNP" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AdjustmentTypes">
+      <EntityTypeMapping TypeName="NTA_OASModel.AdjustmentType">
+        <MappingFragment StoreEntitySet="AdjustmentType">
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="InOut" ColumnName="InOut" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Items">
+      <EntityTypeMapping TypeName="NTA_OASModel.Item">
+        <MappingFragment StoreEntitySet="Item">
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="ItemUnitId" ColumnName="ItemUnitId" />
+          <ScalarProperty Name="ItemGroupId" ColumnName="ItemGroupId" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ItemGroups">
+      <EntityTypeMapping TypeName="NTA_OASModel.ItemGroup">
+        <MappingFragment StoreEntitySet="ItemGroup">
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="ItemTypeId" ColumnName="ItemTypeId" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ItemGroupDepreciationRates">
+      <EntityTypeMapping TypeName="NTA_OASModel.ItemGroupDepreciationRate">
+        <MappingFragment StoreEntitySet="ItemGroupDepreciationRate">
+          <ScalarProperty Name="DepreciationRate" ColumnName="DepreciationRate" />
+          <ScalarProperty Name="ItemGroupId" ColumnName="ItemGroupId" />
+          <ScalarProperty Name="FiscalYearId" ColumnName="FiscalYearId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ItemLedgers">
+      <EntityTypeMapping TypeName="NTA_OASModel.ItemLedger">
+        <MappingFragment StoreEntitySet="ItemLedger">
+          <ScalarProperty Name="Rem_7273" ColumnName="Rem_7273" />
+          <ScalarProperty Name="Sale_7273" ColumnName="Sale_7273" />
+          <ScalarProperty Name="Dep_7273" ColumnName="Dep_7273" />
+          <ScalarProperty Name="Rem_7172" ColumnName="Rem_7172" />
+          <ScalarProperty Name="Sale_7172" ColumnName="Sale_7172" />
+          <ScalarProperty Name="Dep_7172" ColumnName="Dep_7172" />
+          <ScalarProperty Name="Rem_7071" ColumnName="Rem_7071" />
+          <ScalarProperty Name="Sale_7071" ColumnName="Sale_7071" />
+          <ScalarProperty Name="Dep_7071" ColumnName="Dep_7071" />
+          <ScalarProperty Name="Rem_6970" ColumnName="Rem_6970" />
+          <ScalarProperty Name="Sale_6970" ColumnName="Sale_6970" />
+          <ScalarProperty Name="Dep_6970" ColumnName="Dep_6970" />
+          <ScalarProperty Name="Rem_6869" ColumnName="Rem_6869" />
+          <ScalarProperty Name="Sale_6869" ColumnName="Sale_6869" />
+          <ScalarProperty Name="Dep_6869" ColumnName="Dep_6869" />
+          <ScalarProperty Name="Rem_6768" ColumnName="Rem_6768" />
+          <ScalarProperty Name="Sale_6768" ColumnName="Sale_6768" />
+          <ScalarProperty Name="Dep_6768" ColumnName="Dep_6768" />
+          <ScalarProperty Name="Rem_6667" ColumnName="Rem_6667" />
+          <ScalarProperty Name="Sale_6667" ColumnName="Sale_6667" />
+          <ScalarProperty Name="Dep_6667" ColumnName="Dep_6667" />
+          <ScalarProperty Name="Rem_6566" ColumnName="Rem_6566" />
+          <ScalarProperty Name="Sale_6566" ColumnName="Sale_6566" />
+          <ScalarProperty Name="Dep_6566" ColumnName="Dep_6566" />
+          <ScalarProperty Name="Rem_6465" ColumnName="Rem_6465" />
+          <ScalarProperty Name="Sale_6465" ColumnName="Sale_6465" />
+          <ScalarProperty Name="Dep_6465" ColumnName="Dep_6465" />
+          <ScalarProperty Name="Rem_6364" ColumnName="Rem_6364" />
+          <ScalarProperty Name="Sale_6364" ColumnName="Sale_6364" />
+          <ScalarProperty Name="Dep_6364" ColumnName="Dep_6364" />
+          <ScalarProperty Name="Rem_6263" ColumnName="Rem_6263" />
+          <ScalarProperty Name="Sale_6263" ColumnName="Sale_6263" />
+          <ScalarProperty Name="Dep_6263" ColumnName="Dep_6263" />
+          <ScalarProperty Name="Rem_6162" ColumnName="Rem_6162" />
+          <ScalarProperty Name="Sale_6162" ColumnName="Sale_6162" />
+          <ScalarProperty Name="Dep_6162" ColumnName="Dep_6162" />
+          <ScalarProperty Name="Rem_6061" ColumnName="Rem_6061" />
+          <ScalarProperty Name="Sale_6061" ColumnName="Sale_6061" />
+          <ScalarProperty Name="Dep_6061" ColumnName="Dep_6061" />
+          <ScalarProperty Name="Rem_5960" ColumnName="Rem_5960" />
+          <ScalarProperty Name="Sale_5960" ColumnName="Sale_5960" />
+          <ScalarProperty Name="Dep_5960" ColumnName="Dep_5960" />
+          <ScalarProperty Name="Rem_5859" ColumnName="Rem_5859" />
+          <ScalarProperty Name="Sale_5859" ColumnName="Sale_5859" />
+          <ScalarProperty Name="Dep_5859" ColumnName="Dep_5859" />
+          <ScalarProperty Name="Rem_5758" ColumnName="Rem_5758" />
+          <ScalarProperty Name="Sale_5758" ColumnName="Sale_5758" />
+          <ScalarProperty Name="Dep_5758" ColumnName="Dep_5758" />
+          <ScalarProperty Name="Rem_5657" ColumnName="Rem_5657" />
+          <ScalarProperty Name="Sale_5657" ColumnName="Sale_5657" />
+          <ScalarProperty Name="Dep_5657" ColumnName="Dep_5657" />
+          <ScalarProperty Name="Rem_5556" ColumnName="Rem_5556" />
+          <ScalarProperty Name="Sale_5556" ColumnName="Sale_5556" />
+          <ScalarProperty Name="Dep_5556" ColumnName="Dep_5556" />
+          <ScalarProperty Name="Rem_5455" ColumnName="Rem_5455" />
+          <ScalarProperty Name="Sale_5455" ColumnName="Sale_5455" />
+          <ScalarProperty Name="Dep_5455" ColumnName="Dep_5455" />
+          <ScalarProperty Name="PurchaseAmt" ColumnName="PurchaseAmt" />
+          <ScalarProperty Name="Rate" ColumnName="Rate" />
+          <ScalarProperty Name="Qty" ColumnName="Qty" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="DescriptionConverted" ColumnName="DescriptionConverted" />
+          <ScalarProperty Name="PurchasedDate" ColumnName="PurchasedDate" />
+          <ScalarProperty Name="SubCode" ColumnName="SubCode" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="DataId" ColumnName="DataId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ItemLedgerMasters">
+      <EntityTypeMapping TypeName="NTA_OASModel.ItemLedgerMaster">
+        <MappingFragment StoreEntitySet="ItemLedgerMaster">
+          <ScalarProperty Name="Unit" ColumnName="Unit" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ItemReleases">
+      <EntityTypeMapping TypeName="NTA_OASModel.ItemRelease">
+        <MappingFragment StoreEntitySet="ItemRelease">
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="ItemRequestId" ColumnName="ItemRequestId" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="SectionId" ColumnName="SectionId" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="DisplayReleaseNo" ColumnName="DisplayReleaseNo" />
+          <ScalarProperty Name="ReleaseNo" ColumnName="ReleaseNo" />
+          <ScalarProperty Name="FiscalYearId" ColumnName="FiscalYearId" />
+          <ScalarProperty Name="DocumentSetupId" ColumnName="DocumentSetupId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ItemReleaseDetails">
+      <EntityTypeMapping TypeName="NTA_OASModel.ItemReleaseDetail">
+        <MappingFragment StoreEntitySet="ItemReleaseDetail">
+          <ScalarProperty Name="SubCode" ColumnName="SubCode" />
+          <ScalarProperty Name="Narration" ColumnName="Narration" />
+          <ScalarProperty Name="Qty" ColumnName="Qty" />
+          <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+          <ScalarProperty Name="ItemReleaseId" ColumnName="ItemReleaseId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ItemRequests">
+      <EntityTypeMapping TypeName="NTA_OASModel.ItemRequest">
+        <MappingFragment StoreEntitySet="ItemRequest">
+          <ScalarProperty Name="DisplayRegistrationNo" ColumnName="DisplayRegistrationNo" />
+          <ScalarProperty Name="ApplicationStatus" ColumnName="ApplicationStatus" />
+          <ScalarProperty Name="ItemReceivedDate" ColumnName="ItemReceivedDate" />
+          <ScalarProperty Name="ItemReceivedBy" ColumnName="ItemReceivedBy" />
+          <ScalarProperty Name="AcceptedDate" ColumnName="AcceptedDate" />
+          <ScalarProperty Name="AcceptedBy" ColumnName="AcceptedBy" />
+          <ScalarProperty Name="ReleasedType" ColumnName="ReleasedType" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="DisplayRequestNo" ColumnName="DisplayRequestNo" />
+          <ScalarProperty Name="RequestNo" ColumnName="RequestNo" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="FiscalYearId" ColumnName="FiscalYearId" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="SectionId" ColumnName="SectionId" />
+          <ScalarProperty Name="DocumentSetupId" ColumnName="DocumentSetupId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ItemRequestDetails">
+      <EntityTypeMapping TypeName="NTA_OASModel.ItemRequestDetail">
+        <MappingFragment StoreEntitySet="ItemRequestDetail">
+          <ScalarProperty Name="Specification" ColumnName="Specification" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="ItemReleaseId" ColumnName="ItemReleaseId" />
+          <ScalarProperty Name="PurchaseOrderId" ColumnName="PurchaseOrderId" />
+          <ScalarProperty Name="Qty" ColumnName="Qty" />
+          <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+          <ScalarProperty Name="ItemRequestId" ColumnName="ItemRequestId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ItemTypes">
+      <EntityTypeMapping TypeName="NTA_OASModel.ItemType">
+        <MappingFragment StoreEntitySet="ItemType">
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="Alias" ColumnName="Alias" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ItemUnits">
+      <EntityTypeMapping TypeName="NTA_OASModel.ItemUnit">
+        <MappingFragment StoreEntitySet="ItemUnit">
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PurchaseOrders">
+      <EntityTypeMapping TypeName="NTA_OASModel.PurchaseOrder">
+        <MappingFragment StoreEntitySet="PurchaseOrder">
+          <ScalarProperty Name="DisplayRegistrationNo" ColumnName="DisplayRegistrationNo" />
+          <ScalarProperty Name="ApplicationStatus" ColumnName="ApplicationStatus" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="AcceptedDate" ColumnName="AcceptedDate" />
+          <ScalarProperty Name="AcceptedBy" ColumnName="AcceptedBy" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+          <ScalarProperty Name="VendorId" ColumnName="VendorId" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="DisplayOrderNo" ColumnName="DisplayOrderNo" />
+          <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+          <ScalarProperty Name="FiscalYearId" ColumnName="FiscalYearId" />
+          <ScalarProperty Name="DocumentSetupId" ColumnName="DocumentSetupId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PurchaseOrderDetails">
+      <EntityTypeMapping TypeName="NTA_OASModel.PurchaseOrderDetail">
+        <MappingFragment StoreEntitySet="PurchaseOrderDetail">
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+          <ScalarProperty Name="BasicAmount" ColumnName="BasicAmount" />
+          <ScalarProperty Name="Rate" ColumnName="Rate" />
+          <ScalarProperty Name="Qty" ColumnName="Qty" />
+          <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+          <ScalarProperty Name="PurchaseOrderId" ColumnName="PurchaseOrderId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StockTransactions">
+      <EntityTypeMapping TypeName="NTA_OASModel.StockTransaction">
+        <MappingFragment StoreEntitySet="StockTransaction">
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="InvoiceNo" ColumnName="InvoiceNo" />
+          <ScalarProperty Name="AdjustmentTypeId" ColumnName="AdjustmentTypeId" />
+          <ScalarProperty Name="PurchaseOrderId" ColumnName="PurchaseOrderId" />
+          <ScalarProperty Name="SectionId" ColumnName="SectionId" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="VendorId" ColumnName="VendorId" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="DisplayDocumentNo" ColumnName="DisplayDocumentNo" />
+          <ScalarProperty Name="DocumentNo" ColumnName="DocumentNo" />
+          <ScalarProperty Name="DocumentSetupId" ColumnName="DocumentSetupId" />
+          <ScalarProperty Name="FiscalYearId" ColumnName="FiscalYearId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StockTransactionDetails">
+      <EntityTypeMapping TypeName="NTA_OASModel.StockTransactionDetail">
+        <MappingFragment StoreEntitySet="StockTransactionDetail">
+          <ScalarProperty Name="PurchaseAmount" ColumnName="PurchaseAmount" />
+          <ScalarProperty Name="PurchaseDate" ColumnName="PurchaseDate" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="StockEffect" ColumnName="StockEffect" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="SectionId" ColumnName="SectionId" />
+          <ScalarProperty Name="NetAmount" ColumnName="NetAmount" />
+          <ScalarProperty Name="BasicAmount" ColumnName="BasicAmount" />
+          <ScalarProperty Name="Vat" ColumnName="Vat" />
+          <ScalarProperty Name="Rate" ColumnName="Rate" />
+          <ScalarProperty Name="Qty" ColumnName="Qty" />
+          <ScalarProperty Name="LedgerPageNo" ColumnName="LedgerPageNo" />
+          <ScalarProperty Name="ItemSubCodeNo" ColumnName="ItemSubCodeNo" />
+          <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+          <ScalarProperty Name="StockTransactionId" ColumnName="StockTransactionId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vendors">
+      <EntityTypeMapping TypeName="NTA_OASModel.Vendor">
+        <MappingFragment StoreEntitySet="Vendor">
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="ContactPersonMobileNo" ColumnName="ContactPersonMobileNo" />
+          <ScalarProperty Name="ContactPersonPhoneNo" ColumnName="ContactPersonPhoneNo" />
+          <ScalarProperty Name="ContactPerson" ColumnName="ContactPerson" />
+          <ScalarProperty Name="WebSite" ColumnName="WebSite" />
+          <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+          <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+          <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="VatPanNo" ColumnName="VatPanNo" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Emails">
+      <EntityTypeMapping TypeName="NTA_OASModel.Email">
+        <MappingFragment StoreEntitySet="Email">
+          <ScalarProperty Name="SentDate" ColumnName="SentDate" />
+          <ScalarProperty Name="SentBy" ColumnName="SentBy" />
+          <ScalarProperty Name="IsSent" ColumnName="IsSent" />
+          <ScalarProperty Name="ComposedDate" ColumnName="ComposedDate" />
+          <ScalarProperty Name="ComposedBy" ColumnName="ComposedBy" />
+          <ScalarProperty Name="Body" ColumnName="Body" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="BCC" ColumnName="BCC" />
+          <ScalarProperty Name="CC" ColumnName="CC" />
+          <ScalarProperty Name="EmailTo" ColumnName="EmailTo" />
+          <ScalarProperty Name="EmailFrom" ColumnName="EmailFrom" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmailTemplates">
+      <EntityTypeMapping TypeName="NTA_OASModel.EmailTemplate">
+        <MappingFragment StoreEntitySet="EmailTemplate">
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="TemplateBody" ColumnName="TemplateBody" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="EmailTemplateType" ColumnName="EmailTemplateType" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmailTemplateMetas">
+      <EntityTypeMapping TypeName="NTA_OASModel.EmailTemplateMeta">
+        <MappingFragment StoreEntitySet="EmailTemplateMeta">
+          <ScalarProperty Name="Meta" ColumnName="Meta" />
+          <ScalarProperty Name="EmailTemplateId" ColumnName="EmailTemplateId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Notifications">
+      <EntityTypeMapping TypeName="NTA_OASModel.Notification">
+        <MappingFragment StoreEntitySet="Notification">
+          <ScalarProperty Name="DataId" ColumnName="DataId" />
+          <ScalarProperty Name="WorkFlowType" ColumnName="WorkFlowType" />
+          <ScalarProperty Name="RedirectUrl" ColumnName="RedirectUrl" />
+          <ScalarProperty Name="ViewedDate" ColumnName="ViewedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LicenseApplications">
+      <EntityTypeMapping TypeName="NTA_OASModel.LicenseApplication">
+        <MappingFragment StoreEntitySet="LicenseApplication">
+          <ScalarProperty Name="DisplayRegistrationNo" ColumnName="DisplayRegistrationNo" />
+          <ScalarProperty Name="NTARemarks" ColumnName="NTARemarks" />
+          <ScalarProperty Name="CustomerRemarks" ColumnName="CustomerRemarks" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="LicenseValidTill" ColumnName="LicenseValidTill" />
+          <ScalarProperty Name="LicenseIssueDate" ColumnName="LicenseIssueDate" />
+          <ScalarProperty Name="ValidForYears" ColumnName="ValidForYears" />
+          <ScalarProperty Name="IsInSaleOrTransfer" ColumnName="IsInSaleOrTransfer" />
+          <ScalarProperty Name="IsInAmendment" ColumnName="IsInAmendment" />
+          <ScalarProperty Name="ProcessStatus" ColumnName="ProcessStatus" />
+          <ScalarProperty Name="IsSubmitted" ColumnName="IsSubmitted" />
+          <ScalarProperty Name="IsCancelled" ColumnName="IsCancelled" />
+          <ScalarProperty Name="IsApprovedFinal" ColumnName="IsApprovedFinal" />
+          <ScalarProperty Name="IsApprovedAccount" ColumnName="IsApprovedAccount" />
+          <ScalarProperty Name="IsApprovedTechnical" ColumnName="IsApprovedTechnical" />
+          <ScalarProperty Name="ApplicationFee" ColumnName="ApplicationFee" />
+          <ScalarProperty Name="ApplicationDate" ColumnName="ApplicationDate" />
+          <ScalarProperty Name="ApplicantSignature" ColumnName="ApplicantSignature" />
+          <ScalarProperty Name="ApplicantAddress" ColumnName="ApplicantAddress" />
+          <ScalarProperty Name="ApplicantName" ColumnName="ApplicantName" />
+          <ScalarProperty Name="TariffRate" ColumnName="TariffRate" />
+          <ScalarProperty Name="ApproxProfitLoss" ColumnName="ApproxProfitLoss" />
+          <ScalarProperty Name="ApproxIncome" ColumnName="ApproxIncome" />
+          <ScalarProperty Name="EstimatedOperationExpense" ColumnName="EstimatedOperationExpense" />
+          <ScalarProperty Name="ServiceWardNo" ColumnName="ServiceWardNo" />
+          <ScalarProperty Name="ServiceVdcId" ColumnName="ServiceVdcId" />
+          <ScalarProperty Name="ServiceDistrictId" ColumnName="ServiceDistrictId" />
+          <ScalarProperty Name="ServiceStartDate" ColumnName="ServiceStartDate" />
+          <ScalarProperty Name="IntendedFrequency" ColumnName="IntendedFrequency" />
+          <ScalarProperty Name="QualityStandards" ColumnName="QualityStandards" />
+          <ScalarProperty Name="ImportCountryId" ColumnName="ImportCountryId" />
+          <ScalarProperty Name="ManufactureYear" ColumnName="ManufactureYear" />
+          <ScalarProperty Name="Manufacturer" ColumnName="Manufacturer" />
+          <ScalarProperty Name="StandardService" ColumnName="StandardService" />
+          <ScalarProperty Name="TechnologyUsed" ColumnName="TechnologyUsed" />
+          <ScalarProperty Name="NetworkExpansion" ColumnName="NetworkExpansion" />
+          <ScalarProperty Name="DemandSupplyProjection" ColumnName="DemandSupplyProjection" />
+          <ScalarProperty Name="WorkCompletionDate" ColumnName="WorkCompletionDate" />
+          <ScalarProperty Name="WorkStartDate" ColumnName="WorkStartDate" />
+          <ScalarProperty Name="InvestmentSource" ColumnName="InvestmentSource" />
+          <ScalarProperty Name="ProposedInvestment" ColumnName="ProposedInvestment" />
+          <ScalarProperty Name="EstimatedCapital" ColumnName="EstimatedCapital" />
+          <ScalarProperty Name="TelecomServiceTypeId" ColumnName="TelecomServiceTypeId" />
+          <ScalarProperty Name="TemporaryAddress" ColumnName="TemporaryAddress" />
+          <ScalarProperty Name="PermanentAddress" ColumnName="PermanentAddress" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+          <ScalarProperty Name="LicenseNumber" ColumnName="LicenseNumber" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LicenseRenewals">
+      <EntityTypeMapping TypeName="NTA_OASModel.LicenseRenewal">
+        <MappingFragment StoreEntitySet="LicenseRenewal">
+          <ScalarProperty Name="NTARemarks" ColumnName="NTARemarks" />
+          <ScalarProperty Name="CustomerRemarks" ColumnName="CustomerRemarks" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="RenewDate" ColumnName="RenewDate" />
+          <ScalarProperty Name="ValidForYears" ColumnName="ValidForYears" />
+          <ScalarProperty Name="RenewFee" ColumnName="RenewFee" />
+          <ScalarProperty Name="LicenseApplicationId" ColumnName="LicenseApplicationId" />
+          <ScalarProperty Name="RenewNumber" ColumnName="RenewNumber" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LicenseRoyalties">
+      <EntityTypeMapping TypeName="NTA_OASModel.LicenseRoyalty">
+        <MappingFragment StoreEntitySet="LicenseRoyalty">
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="ModiefiedBy" ColumnName="ModiefiedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="FiscalYearId" ColumnName="FiscalYearId" />
+          <ScalarProperty Name="Outstanding" ColumnName="Outstanding" />
+          <ScalarProperty Name="RecievedDate" ColumnName="RecievedDate" />
+          <ScalarProperty Name="LastYearOutstanding" ColumnName="LastYearOutstanding" />
+          <ScalarProperty Name="TotalReceived" ColumnName="TotalReceived" />
+          <ScalarProperty Name="Royalty" ColumnName="Royalty" />
+          <ScalarProperty Name="GrossRevenue" ColumnName="GrossRevenue" />
+          <ScalarProperty Name="IsAuditSubmitted" ColumnName="IsAuditSubmitted" />
+          <ScalarProperty Name="LicenseApplicationId" ColumnName="LicenseApplicationId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LicenseTransfers">
+      <EntityTypeMapping TypeName="NTA_OASModel.LicenseTransfer">
+        <MappingFragment StoreEntitySet="LicenseTransfer">
+          <ScalarProperty Name="DisplayRegistrationNo" ColumnName="DisplayRegistrationNo" />
+          <ScalarProperty Name="IsTransfered" ColumnName="IsTransfered" />
+          <ScalarProperty Name="TransferDate" ColumnName="TransferDate" />
+          <ScalarProperty Name="AppliedDate" ColumnName="AppliedDate" />
+          <ScalarProperty Name="TransferReason" ColumnName="TransferReason" />
+          <ScalarProperty Name="TransferFromWardNo" ColumnName="TransferFromWardNo" />
+          <ScalarProperty Name="TransferFromVdcId" ColumnName="TransferFromVdcId" />
+          <ScalarProperty Name="TransferFromDistrictId" ColumnName="TransferFromDistrictId" />
+          <ScalarProperty Name="TransferFromAddress" ColumnName="TransferFromAddress" />
+          <ScalarProperty Name="TransferFromName" ColumnName="TransferFromName" />
+          <ScalarProperty Name="TransferToWardNo" ColumnName="TransferToWardNo" />
+          <ScalarProperty Name="TransferToVdcId" ColumnName="TransferToVdcId" />
+          <ScalarProperty Name="TransferToDistrictId" ColumnName="TransferToDistrictId" />
+          <ScalarProperty Name="TransferToAddress" ColumnName="TransferToAddress" />
+          <ScalarProperty Name="TransferToName" ColumnName="TransferToName" />
+          <ScalarProperty Name="LicenseApplicationId" ColumnName="LicenseApplicationId" />
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TelecomServiceTypes">
+      <EntityTypeMapping TypeName="NTA_OASModel.TelecomServiceType">
+        <MappingFragment StoreEntitySet="TelecomServiceType">
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="LicenseRenewalFee" ColumnName="LicenseRenewalFee" />
+          <ScalarProperty Name="LicenseFee" ColumnName="LicenseFee" />
+          <ScalarProperty Name="Alias" ColumnName="Alias" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QOSDatas">
+      <EntityTypeMapping TypeName="NTA_OASModel.QOSData">
+        <MappingFragment StoreEntitySet="QOSData">
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ProcessStatus" ColumnName="ProcessStatus" />
+          <ScalarProperty Name="ApplicationType" ColumnName="ApplicationType" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="ComplaintResolution" ColumnName="ComplaintResolution" />
+          <ScalarProperty Name="DebetSolveWithIn30Days" ColumnName="DebetSolveWithIn30Days" />
+          <ScalarProperty Name="DebetSolveWithIn15Days" ColumnName="DebetSolveWithIn15Days" />
+          <ScalarProperty Name="BillingDebet" ColumnName="BillingDebet" />
+          <ScalarProperty Name="DataLatency" ColumnName="DataLatency" />
+          <ScalarProperty Name="Throughput" ColumnName="Throughput" />
+          <ScalarProperty Name="DataUpload" ColumnName="DataUpload" />
+          <ScalarProperty Name="DataDownload" ColumnName="DataDownload" />
+          <ScalarProperty Name="ServiceActivationAndProvisioning" ColumnName="ServiceActivationAndProvisioning" />
+          <ScalarProperty Name="GradeOfService" ColumnName="GradeOfService" />
+          <ScalarProperty Name="MobileNetworkAccessibility" ColumnName="MobileNetworkAccessibility" />
+          <ScalarProperty Name="InterNetworkCallConnectionLoss" ColumnName="InterNetworkCallConnectionLoss" />
+          <ScalarProperty Name="IntraNetworkCallConnectionLoss" ColumnName="IntraNetworkCallConnectionLoss" />
+          <ScalarProperty Name="EndToEndSpeechQuality" ColumnName="EndToEndSpeechQuality" />
+          <ScalarProperty Name="CallDropRatio" ColumnName="CallDropRatio" />
+          <ScalarProperty Name="CallConnectionTime" ColumnName="CallConnectionTime" />
+          <ScalarProperty Name="NetworkDownTime" ColumnName="NetworkDownTime" />
+          <ScalarProperty Name="ResearchDuration" ColumnName="ResearchDuration" />
+          <ScalarProperty Name="ResearchLocation" ColumnName="ResearchLocation" />
+          <ScalarProperty Name="LicenseNo" ColumnName="LicenseNo" />
+          <ScalarProperty Name="ResearchMethod" ColumnName="ResearchMethod" />
+          <ScalarProperty Name="StudyPersonPost" ColumnName="StudyPersonPost" />
+          <ScalarProperty Name="StudyPersonName" ColumnName="StudyPersonName" />
+          <ScalarProperty Name="Background" ColumnName="Background" />
+          <ScalarProperty Name="Trimester" ColumnName="Trimester" />
+          <ScalarProperty Name="FiscalYearId" ColumnName="FiscalYearId" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ServiceTypes">
+      <EntityTypeMapping TypeName="NTA_OASModel.ServiceType">
+        <MappingFragment StoreEntitySet="ServiceType">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ShortCodeApplications">
+      <EntityTypeMapping TypeName="NTA_OASModel.ShortCodeApplication">
+        <MappingFragment StoreEntitySet="ShortCodeApplication">
+          <ScalarProperty Name="HasResubmited" ColumnName="HasResubmited" />
+          <ScalarProperty Name="ResubmitedFromApplicationId" ColumnName="ResubmitedFromApplicationId" />
+          <ScalarProperty Name="AgreementDate" ColumnName="AgreementDate" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="AgreementByPosition" ColumnName="AgreementByPosition" />
+          <ScalarProperty Name="AgreementByName" ColumnName="AgreementByName" />
+          <ScalarProperty Name="IsAgree2ByCustomer" ColumnName="IsAgree2ByCustomer" />
+          <ScalarProperty Name="IsAgree1ByCustomer" ColumnName="IsAgree1ByCustomer" />
+          <ScalarProperty Name="DisplayRegistrationNo" ColumnName="DisplayRegistrationNo" />
+          <ScalarProperty Name="NextRenewDate" ColumnName="NextRenewDate" />
+          <ScalarProperty Name="ApplicationStatus" ColumnName="ApplicationStatus" />
+          <ScalarProperty Name="ProcessStatus" ColumnName="ProcessStatus" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CertificateIssuingAuthority" ColumnName="CertificateIssuingAuthority" />
+          <ScalarProperty Name="CertificateNo" ColumnName="CertificateNo" />
+          <ScalarProperty Name="IsAnyCertificateReceived" ColumnName="IsAnyCertificateReceived" />
+          <ScalarProperty Name="ExistingCodes" ColumnName="ExistingCodes" />
+          <ScalarProperty Name="ActivationDate" ColumnName="ActivationDate" />
+          <ScalarProperty Name="ServiceArea" ColumnName="ServiceArea" />
+          <ScalarProperty Name="Purpose" ColumnName="Purpose" />
+          <ScalarProperty Name="ServiceTypeId" ColumnName="ServiceTypeId" />
+          <ScalarProperty Name="ShortCode" ColumnName="ShortCode" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ShortCodeCertificates">
+      <EntityTypeMapping TypeName="NTA_OASModel.ShortCodeCertificate">
+        <MappingFragment StoreEntitySet="ShortCodeCertificate">
+          <ScalarProperty Name="SampleApplicationId" ColumnName="SampleApplicationId" />
+          <ScalarProperty Name="DisplayCertificateNo" ColumnName="DisplayCertificateNo" />
+          <ScalarProperty Name="CertificateNo" ColumnName="CertificateNo" />
+          <ScalarProperty Name="ValidityTo" ColumnName="ValidityTo" />
+          <ScalarProperty Name="ValidityFrom" ColumnName="ValidityFrom" />
+          <ScalarProperty Name="CertificateData" ColumnName="CertificateData" />
+          <ScalarProperty Name="ShortCodeCertificateTemplateId" ColumnName="ShortCodeCertificateTemplateId" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ShortCodeCertificateTemplates">
+      <EntityTypeMapping TypeName="NTA_OASModel.ShortCodeCertificateTemplate">
+        <MappingFragment StoreEntitySet="ShortCodeCertificateTemplate">
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="TemplateBody" ColumnName="TemplateBody" />
+          <ScalarProperty Name="CertificateType" ColumnName="CertificateType" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ShortCodeCertificateTemplateMetas">
+      <EntityTypeMapping TypeName="NTA_OASModel.ShortCodeCertificateTemplateMeta">
+        <MappingFragment StoreEntitySet="ShortCodeCertificateTemplateMeta">
+          <ScalarProperty Name="Meta" ColumnName="Meta" />
+          <ScalarProperty Name="TemplateId" ColumnName="TemplateId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ShortCodeRenewals">
+      <EntityTypeMapping TypeName="NTA_OASModel.ShortCodeRenewal">
+        <MappingFragment StoreEntitySet="ShortCodeRenewal">
+          <ScalarProperty Name="DisplayRegistrationNo" ColumnName="DisplayRegistrationNo" />
+          <ScalarProperty Name="AgreementedByPostion" ColumnName="AgreementedByPostion" />
+          <ScalarProperty Name="AgreementedByName" ColumnName="AgreementedByName" />
+          <ScalarProperty Name="ProcessStatus" ColumnName="ProcessStatus" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="DisplayCertificateNo" ColumnName="DisplayCertificateNo" />
+          <ScalarProperty Name="ApplicationExpiryDate" ColumnName="ApplicationExpiryDate" />
+          <ScalarProperty Name="RequestedDate" ColumnName="RequestedDate" />
+          <ScalarProperty Name="ShortCodeApplicationId" ColumnName="ShortCodeApplicationId" />
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ShortCodeRenewalLogBookDetails">
+      <EntityTypeMapping TypeName="NTA_OASModel.ShortCodeRenewalLogBookDetail">
+        <MappingFragment StoreEntitySet="ShortCodeRenewalLogBookDetail">
+          <ScalarProperty Name="ComplainDate" ColumnName="ComplainDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="Solution" ColumnName="Solution" />
+          <ScalarProperty Name="ComplainedByContactNo" ColumnName="ComplainedByContactNo" />
+          <ScalarProperty Name="ComplainedByName" ColumnName="ComplainedByName" />
+          <ScalarProperty Name="Complaint" ColumnName="Complaint" />
+          <ScalarProperty Name="ShortCodeRenewalId" ColumnName="ShortCodeRenewalId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EquipmentCategories">
+      <EntityTypeMapping TypeName="NTA_OASModel.EquipmentCategory">
+        <MappingFragment StoreEntitySet="EquipmentCategory">
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EquipmentSubCategories">
+      <EntityTypeMapping TypeName="NTA_OASModel.EquipmentSubCategory">
+        <MappingFragment StoreEntitySet="EquipmentSubCategory">
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="EquipmentCategoryId" ColumnName="EquipmentCategoryId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EquipmentTypes">
+      <EntityTypeMapping TypeName="NTA_OASModel.EquipmentType">
+        <MappingFragment StoreEntitySet="EquipmentType">
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MobilityTypes">
+      <EntityTypeMapping TypeName="NTA_OASModel.MobilityType">
+        <MappingFragment StoreEntitySet="MobilityType">
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SampleImportApplications">
+      <EntityTypeMapping TypeName="NTA_OASModel.SampleImportApplication">
+        <MappingFragment StoreEntitySet="SampleImportApplication">
+          <ScalarProperty Name="DisplayRegistrationNo" ColumnName="DisplayRegistrationNo" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ApplicationStatus" ColumnName="ApplicationStatus" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="ModelNo" ColumnName="ModelNo" />
+          <ScalarProperty Name="BrandName" ColumnName="BrandName" />
+          <ScalarProperty Name="ManufacturerAddress" ColumnName="ManufacturerAddress" />
+          <ScalarProperty Name="ManufacturerName" ColumnName="ManufacturerName" />
+          <ScalarProperty Name="EquipmentTypeId" ColumnName="EquipmentTypeId" />
+          <ScalarProperty Name="MobilityTypeId" ColumnName="MobilityTypeId" />
+          <ScalarProperty Name="EquipmentCategoryId" ColumnName="EquipmentCategoryId" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SampleImportApplicationEquipmentSubCategories">
+      <EntityTypeMapping TypeName="NTA_OASModel.SampleImportApplicationEquipmentSubCategory">
+        <MappingFragment StoreEntitySet="SampleImportApplicationEquipmentSubCategory">
+          <ScalarProperty Name="EquipmentSubCategoryId" ColumnName="EquipmentSubCategoryId" />
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypeApprovalApplications">
+      <EntityTypeMapping TypeName="NTA_OASModel.TypeApprovalApplication">
+        <MappingFragment StoreEntitySet="TypeApprovalApplication">
+          <ScalarProperty Name="HasResubmitted" ColumnName="HasResubmitted" />
+          <ScalarProperty Name="ResubmitedFromApplicationId" ColumnName="ResubmitedFromApplicationId" />
+          <ScalarProperty Name="DisplayRegistrationNo" ColumnName="DisplayRegistrationNo" />
+          <ScalarProperty Name="NextRenewDate" ColumnName="NextRenewDate" />
+          <ScalarProperty Name="ApplicationStatus" ColumnName="ApplicationStatus" />
+          <ScalarProperty Name="ProcessStatus" ColumnName="ProcessStatus" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="AgreementDate" ColumnName="AgreementDate" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="AgreementedByPosition" ColumnName="AgreementedByPosition" />
+          <ScalarProperty Name="AgreementedByName" ColumnName="AgreementedByName" />
+          <ScalarProperty Name="IsAgree2ByCustomer" ColumnName="IsAgree2ByCustomer" />
+          <ScalarProperty Name="IsAgree1ByCustomer" ColumnName="IsAgree1ByCustomer" />
+          <ScalarProperty Name="ReleventStandard" ColumnName="ReleventStandard" />
+          <ScalarProperty Name="CertificateIssuingAuthority" ColumnName="CertificateIssuingAuthority" />
+          <ScalarProperty Name="CertificateNo" ColumnName="CertificateNo" />
+          <ScalarProperty Name="IsAnyCertificateReceived" ColumnName="IsAnyCertificateReceived" />
+          <ScalarProperty Name="UsingPurpose" ColumnName="UsingPurpose" />
+          <ScalarProperty Name="MinChargingCapacity" ColumnName="MinChargingCapacity" />
+          <ScalarProperty Name="MinReceiverSensitivity" ColumnName="MinReceiverSensitivity" />
+          <ScalarProperty Name="MaxSARValue" ColumnName="MaxSARValue" />
+          <ScalarProperty Name="YearOfManufacture" ColumnName="YearOfManufacture" />
+          <ScalarProperty Name="FirmwareVersion" ColumnName="FirmwareVersion" />
+          <ScalarProperty Name="RFOutputImpedance" ColumnName="RFOutputImpedance" />
+          <ScalarProperty Name="TypeOfModulation" ColumnName="TypeOfModulation" />
+          <ScalarProperty Name="RFChannelSpacing" ColumnName="RFChannelSpacing" />
+          <ScalarProperty Name="TradeName" ColumnName="TradeName" />
+          <ScalarProperty Name="ModelNo" ColumnName="ModelNo" />
+          <ScalarProperty Name="BrandName" ColumnName="BrandName" />
+          <ScalarProperty Name="ManufacturerEmail" ColumnName="ManufacturerEmail" />
+          <ScalarProperty Name="ManufacturerFaxNo" ColumnName="ManufacturerFaxNo" />
+          <ScalarProperty Name="ManufacturerTelNo" ColumnName="ManufacturerTelNo" />
+          <ScalarProperty Name="ManufacturerContactPerson" ColumnName="ManufacturerContactPerson" />
+          <ScalarProperty Name="ManufacturerAddress" ColumnName="ManufacturerAddress" />
+          <ScalarProperty Name="ManufacturerName" ColumnName="ManufacturerName" />
+          <ScalarProperty Name="EquipmentTypeId" ColumnName="EquipmentTypeId" />
+          <ScalarProperty Name="MobilityTypeId" ColumnName="MobilityTypeId" />
+          <ScalarProperty Name="EquipmentCategoryId" ColumnName="EquipmentCategoryId" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypeApprovalApplicationEquipmentOperatingFrequencies">
+      <EntityTypeMapping TypeName="NTA_OASModel.TypeApprovalApplicationEquipmentOperatingFrequency">
+        <MappingFragment StoreEntitySet="TypeApprovalApplicationEquipmentOperatingFrequency">
+          <ScalarProperty Name="BrandType" ColumnName="BrandType" />
+          <ScalarProperty Name="MaxEIRP" ColumnName="MaxEIRP" />
+          <ScalarProperty Name="ReceiveToUnit" ColumnName="ReceiveToUnit" />
+          <ScalarProperty Name="ReceiveTo" ColumnName="ReceiveTo" />
+          <ScalarProperty Name="ReceiveFromUnit" ColumnName="ReceiveFromUnit" />
+          <ScalarProperty Name="ReceiveFrom" ColumnName="ReceiveFrom" />
+          <ScalarProperty Name="TransmitToUnit" ColumnName="TransmitToUnit" />
+          <ScalarProperty Name="TransmitTo" ColumnName="TransmitTo" />
+          <ScalarProperty Name="TransmitFromUnit" ColumnName="TransmitFromUnit" />
+          <ScalarProperty Name="TransmitFrom" ColumnName="TransmitFrom" />
+          <ScalarProperty Name="ModelNo" ColumnName="ModelNo" />
+          <ScalarProperty Name="BrandName" ColumnName="BrandName" />
+          <ScalarProperty Name="TypeApprovalApplicationId" ColumnName="TypeApprovalApplicationId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypeApprovalApplicationEquipmentSubCategories">
+      <EntityTypeMapping TypeName="NTA_OASModel.TypeApprovalApplicationEquipmentSubCategory">
+        <MappingFragment StoreEntitySet="TypeApprovalApplicationEquipmentSubCategory">
+          <ScalarProperty Name="EquipmentSubCategoryId" ColumnName="EquipmentSubCategoryId" />
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypeApprovalCertificates">
+      <EntityTypeMapping TypeName="NTA_OASModel.TypeApprovalCertificate">
+        <MappingFragment StoreEntitySet="TypeApprovalCertificate">
+          <ScalarProperty Name="EmployeeDeputyDirector" ColumnName="EmployeeDeputyDirector" />
+          <ScalarProperty Name="EmployeeAssistantDirector" ColumnName="EmployeeAssistantDirector" />
+          <ScalarProperty Name="SampleApplicationId" ColumnName="SampleApplicationId" />
+          <ScalarProperty Name="DisplayCertificateNo" ColumnName="DisplayCertificateNo" />
+          <ScalarProperty Name="CertificateNo" ColumnName="CertificateNo" />
+          <ScalarProperty Name="ValidityTo" ColumnName="ValidityTo" />
+          <ScalarProperty Name="ValidityFrom" ColumnName="ValidityFrom" />
+          <ScalarProperty Name="CertificateData" ColumnName="CertificateData" />
+          <ScalarProperty Name="TypeApprovalCertificateTemplateId" ColumnName="TypeApprovalCertificateTemplateId" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypeApprovalCertificateTemplates">
+      <EntityTypeMapping TypeName="NTA_OASModel.TypeApprovalCertificateTemplate">
+        <MappingFragment StoreEntitySet="TypeApprovalCertificateTemplate">
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="TemplateBody" ColumnName="TemplateBody" />
+          <ScalarProperty Name="CertificateType" ColumnName="CertificateType" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypeApprovalCertificateTemplateMetas">
+      <EntityTypeMapping TypeName="NTA_OASModel.TypeApprovalCertificateTemplateMeta">
+        <MappingFragment StoreEntitySet="TypeApprovalCertificateTemplateMeta">
+          <ScalarProperty Name="Meta" ColumnName="Meta" />
+          <ScalarProperty Name="TemplateId" ColumnName="TemplateId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypeApprovalRenewals">
+      <EntityTypeMapping TypeName="NTA_OASModel.TypeApprovalRenewal">
+        <MappingFragment StoreEntitySet="TypeApprovalRenewal">
+          <ScalarProperty Name="DisplayRegistrationNo" ColumnName="DisplayRegistrationNo" />
+          <ScalarProperty Name="AgreementedByPosition" ColumnName="AgreementedByPosition" />
+          <ScalarProperty Name="AgreementedByName" ColumnName="AgreementedByName" />
+          <ScalarProperty Name="ProcessStatus" ColumnName="ProcessStatus" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="NoOfComplainedDevices" ColumnName="NoOfComplainedDevices" />
+          <ScalarProperty Name="NoOfSoldDevices" ColumnName="NoOfSoldDevices" />
+          <ScalarProperty Name="NoOfImportedDevices" ColumnName="NoOfImportedDevices" />
+          <ScalarProperty Name="DisplayCertificateNo" ColumnName="DisplayCertificateNo" />
+          <ScalarProperty Name="ApplicationExpiryDate" ColumnName="ApplicationExpiryDate" />
+          <ScalarProperty Name="RequestedDate" ColumnName="RequestedDate" />
+          <ScalarProperty Name="TypeApprovalApplicationId" ColumnName="TypeApprovalApplicationId" />
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypeApprovalRenewalLogBookDetails">
+      <EntityTypeMapping TypeName="NTA_OASModel.TypeApprovalRenewalLogBookDetail">
+        <MappingFragment StoreEntitySet="TypeApprovalRenewalLogBookDetail">
+          <ScalarProperty Name="ComplainDate" ColumnName="ComplainDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="Solution" ColumnName="Solution" />
+          <ScalarProperty Name="ComplainedByContactNo" ColumnName="ComplainedByContactNo" />
+          <ScalarProperty Name="ComplainedByName" ColumnName="ComplainedByName" />
+          <ScalarProperty Name="Complaint" ColumnName="Complaint" />
+          <ScalarProperty Name="TypeApprovalRenewalId" ColumnName="TypeApprovalRenewalId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LoginHistories">
+      <EntityTypeMapping TypeName="NTA_OASModel.LoginHistory">
+        <MappingFragment StoreEntitySet="LoginHistory">
+          <ScalarProperty Name="IsLoginSuccessful" ColumnName="IsLoginSuccessful" />
+          <ScalarProperty Name="LogDate" ColumnName="LogDate" />
+          <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+          <ScalarProperty Name="Device" ColumnName="Device" />
+          <ScalarProperty Name="Browser" ColumnName="Browser" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Modules">
+      <EntityTypeMapping TypeName="NTA_OASModel.Module">
+        <MappingFragment StoreEntitySet="Module">
+          <ScalarProperty Name="IsForClient" ColumnName="IsForClient" />
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+          <ScalarProperty Name="Alias" ColumnName="Alias" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PasswordResetLogs">
+      <EntityTypeMapping TypeName="NTA_OASModel.PasswordResetLog">
+        <MappingFragment StoreEntitySet="PasswordResetLog">
+          <ScalarProperty Name="ResetIPAddress" ColumnName="ResetIPAddress" />
+          <ScalarProperty Name="ResetDevice" ColumnName="ResetDevice" />
+          <ScalarProperty Name="ResetBrowser" ColumnName="ResetBrowser" />
+          <ScalarProperty Name="UsedDate" ColumnName="UsedDate" />
+          <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+          <ScalarProperty Name="Device" ColumnName="Device" />
+          <ScalarProperty Name="Browser" ColumnName="Browser" />
+          <ScalarProperty Name="IsUsed" ColumnName="IsUsed" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Guid" ColumnName="Guid" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="AppUserId" ColumnName="AppUserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Permissions">
+      <EntityTypeMapping TypeName="NTA_OASModel.Permission">
+        <MappingFragment StoreEntitySet="Permission">
+          <ScalarProperty Name="ModuleId" ColumnName="ModuleId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="NTA_OASModel.Role">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RoleModulePermissions">
+      <EntityTypeMapping TypeName="NTA_OASModel.RoleModulePermission">
+        <MappingFragment StoreEntitySet="RoleModulePermission">
+          <ScalarProperty Name="PermissionId" ColumnName="PermissionId" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="RoleModulePermissionId" ColumnName="RoleModulePermissionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="NTA_OASModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Salt" ColumnName="Salt" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserRoles">
+      <EntityTypeMapping TypeName="NTA_OASModel.UserRole">
+        <MappingFragment StoreEntitySet="UserRole">
+          <ScalarProperty Name="RoleGrantedTo" ColumnName="RoleGrantedTo" />
+          <ScalarProperty Name="RoleGrantedFrom" ColumnName="RoleGrantedFrom" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WhoIsISPDatas">
+      <EntityTypeMapping TypeName="NTA_OASModel.WhoIsISPData">
+        <MappingFragment StoreEntitySet="WhoIsISPData">
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="BandwidthUnit" ColumnName="BandwidthUnit" />
+          <ScalarProperty Name="BandwidthValue" ColumnName="BandwidthValue" />
+          <ScalarProperty Name="IPtype" ColumnName="IPtype" />
+          <ScalarProperty Name="IpAddress" ColumnName="IpAddress" />
+          <ScalarProperty Name="ServiceType" ColumnName="ServiceType" />
+          <ScalarProperty Name="Month" ColumnName="Month" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WorkFlows">
+      <EntityTypeMapping TypeName="NTA_OASModel.WorkFlow">
+        <MappingFragment StoreEntitySet="WorkFlow">
+          <ScalarProperty Name="ClientTableName" ColumnName="ClientTableName" />
+          <ScalarProperty Name="TableName" ColumnName="TableName" />
+          <ScalarProperty Name="ModuleId" ColumnName="ModuleId" />
+          <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WorkFlowMembers">
+      <EntityTypeMapping TypeName="NTA_OASModel.WorkFlowMember">
+        <MappingFragment StoreEntitySet="WorkFlowMember">
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="CanComplete" ColumnName="CanComplete" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="WorkFlowProcessId" ColumnName="WorkFlowProcessId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WorkFlowProcesses">
+      <EntityTypeMapping TypeName="NTA_OASModel.WorkFlowProcess">
+        <MappingFragment StoreEntitySet="WorkFlowProcess">
+          <ScalarProperty Name="SectionId" ColumnName="SectionId" />
+          <ScalarProperty Name="ForwardToMultiple" ColumnName="ForwardToMultiple" />
+          <ScalarProperty Name="ForwardToApplicant" ColumnName="ForwardToApplicant" />
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="MemberFromSetup" ColumnName="MemberFromSetup" />
+          <ScalarProperty Name="RedirectURL" ColumnName="RedirectURL" />
+          <ScalarProperty Name="DefaultComment" ColumnName="DefaultComment" />
+          <ScalarProperty Name="ActionName" ColumnName="ActionName" />
+          <ScalarProperty Name="NoOption" ColumnName="NoOption" />
+          <ScalarProperty Name="IsClosedState" ColumnName="IsClosedState" />
+          <ScalarProperty Name="IsPublicProcess" ColumnName="IsPublicProcess" />
+          <ScalarProperty Name="Weitage" ColumnName="Weitage" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ProcessName" ColumnName="ProcessName" />
+          <ScalarProperty Name="IsFinal" ColumnName="IsFinal" />
+          <ScalarProperty Name="Sno" ColumnName="Sno" />
+          <ScalarProperty Name="WorkFlowId" ColumnName="WorkFlowId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WorkFlowRequests">
+      <EntityTypeMapping TypeName="NTA_OASModel.WorkFlowRequest">
+        <MappingFragment StoreEntitySet="WorkFlowRequest">
+          <ScalarProperty Name="TempId" ColumnName="TempId" />
+          <ScalarProperty Name="DisplayRegistrationNo" ColumnName="DisplayRegistrationNo" />
+          <ScalarProperty Name="RegistrationNo" ColumnName="RegistrationNo" />
+          <ScalarProperty Name="StatusDate" ColumnName="StatusDate" />
+          <ScalarProperty Name="CreatedByEmployeeId" ColumnName="CreatedByEmployeeId" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="DataId" ColumnName="DataId" />
+          <ScalarProperty Name="WorkFlowProcessId" ColumnName="WorkFlowProcessId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WorkFlowRequestProcesses">
+      <EntityTypeMapping TypeName="NTA_OASModel.WorkFlowRequestProcess">
+        <MappingFragment StoreEntitySet="WorkFlowRequestProcess">
+          <ScalarProperty Name="ReadDate" ColumnName="ReadDate" />
+          <ScalarProperty Name="HasRead" ColumnName="HasRead" />
+          <ScalarProperty Name="ActionType" ColumnName="ActionType" />
+          <ScalarProperty Name="ForClient" ColumnName="ForClient" />
+          <ScalarProperty Name="OnlyComment" ColumnName="OnlyComment" />
+          <ScalarProperty Name="ProcessDate" ColumnName="ProcessDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="WorkFlowRequestId" ColumnName="WorkFlowRequestId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

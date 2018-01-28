@@ -1,0 +1,1199 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Infrastructure" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="DatabaseContext" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AppUsers" EntityType="Infrastructure.AppUser" />
+    <EntitySet Name="Companies" EntityType="Infrastructure.Company" />
+    <EntitySet Name="Departments" EntityType="Infrastructure.Department" />
+    <EntitySet Name="DepreciationRates" EntityType="Infrastructure.DepreciationRate" />
+    <EntitySet Name="Designations" EntityType="Infrastructure.Designation" />
+    <EntitySet Name="DocumentNumberings" EntityType="Infrastructure.DocumentNumbering" />
+    <EntitySet Name="DocumentSetups" EntityType="Infrastructure.DocumentSetup" />
+    <EntitySet Name="Employees" EntityType="Infrastructure.Employee" />
+    <EntitySet Name="FiscalYears" EntityType="Infrastructure.FiscalYear" />
+    <EntitySet Name="Items" EntityType="Infrastructure.Item" />
+    <EntitySet Name="ItemGroups" EntityType="Infrastructure.ItemGroup" />
+    <EntitySet Name="ItemReleases" EntityType="Infrastructure.ItemRelease" />
+    <EntitySet Name="ItemReleaseDetails" EntityType="Infrastructure.ItemReleaseDetail" />
+    <EntitySet Name="ItemRequests" EntityType="Infrastructure.ItemRequest" />
+    <EntitySet Name="ItemRequestDetails" EntityType="Infrastructure.ItemRequestDetail" />
+    <EntitySet Name="ItemTypes" EntityType="Infrastructure.ItemType" />
+    <EntitySet Name="ItemUnits" EntityType="Infrastructure.ItemUnit" />
+    <EntitySet Name="LoginHistories" EntityType="Infrastructure.LoginHistory" />
+    <EntitySet Name="PasswordResetLogs" EntityType="Infrastructure.PasswordResetLog" />
+    <EntitySet Name="Permissions" EntityType="Infrastructure.Permission" />
+    <EntitySet Name="PurchaseOrders" EntityType="Infrastructure.PurchaseOrder" />
+    <EntitySet Name="Roles" EntityType="Infrastructure.Role" />
+    <EntitySet Name="RolePermissions" EntityType="Infrastructure.RolePermission" />
+    <EntitySet Name="StockTransactions" EntityType="Infrastructure.StockTransaction" />
+    <EntitySet Name="StockTransactionDetails" EntityType="Infrastructure.StockTransactionDetail" />
+    <EntitySet Name="sysdiagrams" EntityType="Infrastructure.sysdiagram" />
+    <EntitySet Name="SystemConfigurations" EntityType="Infrastructure.SystemConfiguration" />
+    <EntitySet Name="UserRoles" EntityType="Infrastructure.UserRole" />
+    <EntitySet Name="Vendors" EntityType="Infrastructure.Vendor" />
+    <EntitySet Name="PurchaseOrderDetails" EntityType="Infrastructure.PurchaseOrderDetail" />
+    <AssociationSet Name="FK_AppUser_Employee" Association="Infrastructure.FK_AppUser_Employee">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="AppUser" EntitySet="AppUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserRole_User" Association="Infrastructure.FK_UserRole_User">
+      <End Role="AppUser" EntitySet="AppUsers" />
+      <End Role="UserRole" EntitySet="UserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employee_Department" Association="Infrastructure.FK_Employee_Department">
+      <End Role="Department" EntitySet="Departments" />
+      <End Role="Employee" EntitySet="Employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItemRelease_Department" Association="Infrastructure.FK_ItemRelease_Department">
+      <End Role="Department" EntitySet="Departments" />
+      <End Role="ItemRelease" EntitySet="ItemReleases" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItemRequest_Department" Association="Infrastructure.FK_ItemRequest_Department">
+      <End Role="Department" EntitySet="Departments" />
+      <End Role="ItemRequest" EntitySet="ItemRequests" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StockTransaction_Department" Association="Infrastructure.FK_StockTransaction_Department">
+      <End Role="Department" EntitySet="Departments" />
+      <End Role="StockTransaction" EntitySet="StockTransactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StockTransactionDetail_Department" Association="Infrastructure.FK_StockTransactionDetail_Department">
+      <End Role="Department" EntitySet="Departments" />
+      <End Role="StockTransactionDetail" EntitySet="StockTransactionDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DepreciationRate_FiscalYear" Association="Infrastructure.FK_DepreciationRate_FiscalYear">
+      <End Role="FiscalYear" EntitySet="FiscalYears" />
+      <End Role="DepreciationRate" EntitySet="DepreciationRates" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DepreciationRate_ItemGroup" Association="Infrastructure.FK_DepreciationRate_ItemGroup">
+      <End Role="ItemGroup" EntitySet="ItemGroups" />
+      <End Role="DepreciationRate" EntitySet="DepreciationRates" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employee_Designation" Association="Infrastructure.FK_Employee_Designation">
+      <End Role="Designation" EntitySet="Designations" />
+      <End Role="Employee" EntitySet="Employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DocumentNumbering_DocumentSetup" Association="Infrastructure.FK_DocumentNumbering_DocumentSetup">
+      <End Role="DocumentSetup" EntitySet="DocumentSetups" />
+      <End Role="DocumentNumbering" EntitySet="DocumentNumberings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DocumentNumbering_FiscalYear" Association="Infrastructure.FK_DocumentNumbering_FiscalYear">
+      <End Role="FiscalYear" EntitySet="FiscalYears" />
+      <End Role="DocumentNumbering" EntitySet="DocumentNumberings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItemRelease_DocumentSetup" Association="Infrastructure.FK_ItemRelease_DocumentSetup">
+      <End Role="DocumentSetup" EntitySet="DocumentSetups" />
+      <End Role="ItemRelease" EntitySet="ItemReleases" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItemRequest_DocumentSetup" Association="Infrastructure.FK_ItemRequest_DocumentSetup">
+      <End Role="DocumentSetup" EntitySet="DocumentSetups" />
+      <End Role="ItemRequest" EntitySet="ItemRequests" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PurchaseOrder_DocumentSetup" Association="Infrastructure.FK_PurchaseOrder_DocumentSetup">
+      <End Role="DocumentSetup" EntitySet="DocumentSetups" />
+      <End Role="PurchaseOrder" EntitySet="PurchaseOrders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItemRelease_Employee" Association="Infrastructure.FK_ItemRelease_Employee">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="ItemRelease" EntitySet="ItemReleases" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItemRequest_Employee" Association="Infrastructure.FK_ItemRequest_Employee">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="ItemRequest" EntitySet="ItemRequests" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PurchaseOrder_Employee" Association="Infrastructure.FK_PurchaseOrder_Employee">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="PurchaseOrder" EntitySet="PurchaseOrders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StockTransaction_Employee" Association="Infrastructure.FK_StockTransaction_Employee">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="StockTransaction" EntitySet="StockTransactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StockTransactionDetail_Employee" Association="Infrastructure.FK_StockTransactionDetail_Employee">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="StockTransactionDetail" EntitySet="StockTransactionDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItemRelease_FiscalYear" Association="Infrastructure.FK_ItemRelease_FiscalYear">
+      <End Role="FiscalYear" EntitySet="FiscalYears" />
+      <End Role="ItemRelease" EntitySet="ItemReleases" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItemRequest_FiscalYear" Association="Infrastructure.FK_ItemRequest_FiscalYear">
+      <End Role="FiscalYear" EntitySet="FiscalYears" />
+      <End Role="ItemRequest" EntitySet="ItemRequests" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PurchaseOrder_FiscalYear" Association="Infrastructure.FK_PurchaseOrder_FiscalYear">
+      <End Role="FiscalYear" EntitySet="FiscalYears" />
+      <End Role="PurchaseOrder" EntitySet="PurchaseOrders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StockTransaction_FiscalYear" Association="Infrastructure.FK_StockTransaction_FiscalYear">
+      <End Role="FiscalYear" EntitySet="FiscalYears" />
+      <End Role="StockTransaction" EntitySet="StockTransactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Item_ItemGroup" Association="Infrastructure.FK_Item_ItemGroup">
+      <End Role="ItemGroup" EntitySet="ItemGroups" />
+      <End Role="Item" EntitySet="Items" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Item_ItemUnit" Association="Infrastructure.FK_Item_ItemUnit">
+      <End Role="ItemUnit" EntitySet="ItemUnits" />
+      <End Role="Item" EntitySet="Items" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItemReleaseDetail_Item" Association="Infrastructure.FK_ItemReleaseDetail_Item">
+      <End Role="Item" EntitySet="Items" />
+      <End Role="ItemReleaseDetail" EntitySet="ItemReleaseDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItemRequestDetail_Item" Association="Infrastructure.FK_ItemRequestDetail_Item">
+      <End Role="Item" EntitySet="Items" />
+      <End Role="ItemRequestDetail" EntitySet="ItemRequestDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PurchaseOrderDetail_Item" Association="Infrastructure.FK_PurchaseOrderDetail_Item">
+      <End Role="Item" EntitySet="Items" />
+      <End Role="PurchaseOrderDetail" EntitySet="PurchaseOrderDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StockTransactionDetail_Item" Association="Infrastructure.FK_StockTransactionDetail_Item">
+      <End Role="Item" EntitySet="Items" />
+      <End Role="StockTransactionDetail" EntitySet="StockTransactionDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItemGroup_ItemType" Association="Infrastructure.FK_ItemGroup_ItemType">
+      <End Role="ItemType" EntitySet="ItemTypes" />
+      <End Role="ItemGroup" EntitySet="ItemGroups" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItemRelease_ItemRequest" Association="Infrastructure.FK_ItemRelease_ItemRequest">
+      <End Role="ItemRequest" EntitySet="ItemRequests" />
+      <End Role="ItemRelease" EntitySet="ItemReleases" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItemReleaseDetail_ItemRelease" Association="Infrastructure.FK_ItemReleaseDetail_ItemRelease">
+      <End Role="ItemRelease" EntitySet="ItemReleases" />
+      <End Role="ItemReleaseDetail" EntitySet="ItemReleaseDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItemRequestDetail_ItemRelease" Association="Infrastructure.FK_ItemRequestDetail_ItemRelease">
+      <End Role="ItemRelease" EntitySet="ItemReleases" />
+      <End Role="ItemRequestDetail" EntitySet="ItemRequestDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItemRequestDetail_ItemRequest" Association="Infrastructure.FK_ItemRequestDetail_ItemRequest">
+      <End Role="ItemRequest" EntitySet="ItemRequests" />
+      <End Role="ItemRequestDetail" EntitySet="ItemRequestDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItemRequestDetail_PurchaseOrder" Association="Infrastructure.FK_ItemRequestDetail_PurchaseOrder">
+      <End Role="PurchaseOrder" EntitySet="PurchaseOrders" />
+      <End Role="ItemRequestDetail" EntitySet="ItemRequestDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RoleModulePermission_Permission" Association="Infrastructure.FK_RoleModulePermission_Permission">
+      <End Role="Permission" EntitySet="Permissions" />
+      <End Role="RolePermission" EntitySet="RolePermissions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PurchaseOrder_Vendor" Association="Infrastructure.FK_PurchaseOrder_Vendor">
+      <End Role="Vendor" EntitySet="Vendors" />
+      <End Role="PurchaseOrder" EntitySet="PurchaseOrders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PurchaseOrderDetail_PurchaseOrder" Association="Infrastructure.FK_PurchaseOrderDetail_PurchaseOrder">
+      <End Role="PurchaseOrder" EntitySet="PurchaseOrders" />
+      <End Role="PurchaseOrderDetail" EntitySet="PurchaseOrderDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StockTransaction_PurchaseOrder" Association="Infrastructure.FK_StockTransaction_PurchaseOrder">
+      <End Role="PurchaseOrder" EntitySet="PurchaseOrders" />
+      <End Role="StockTransaction" EntitySet="StockTransactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RoleModulePermission_Role" Association="Infrastructure.FK_RoleModulePermission_Role">
+      <End Role="Role" EntitySet="Roles" />
+      <End Role="RolePermission" EntitySet="RolePermissions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserRole_Role" Association="Infrastructure.FK_UserRole_Role">
+      <End Role="Role" EntitySet="Roles" />
+      <End Role="UserRole" EntitySet="UserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StockTransactionDetail_StockTransaction" Association="Infrastructure.FK_StockTransactionDetail_StockTransaction">
+      <End Role="StockTransaction" EntitySet="StockTransactions" />
+      <End Role="StockTransactionDetail" EntitySet="StockTransactionDetails" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="AppUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="EmployeeId" Type="Int32" />
+    <Property Name="Salt" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Photo" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Employee" Relationship="Infrastructure.FK_AppUser_Employee" FromRole="AppUser" ToRole="Employee" />
+    <NavigationProperty Name="UserRoles" Relationship="Infrastructure.FK_UserRole_User" FromRole="AppUser" ToRole="UserRole" />
+  </EntityType>
+  <EntityType Name="Company">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="SubTitle1" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="SubTitle2" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="SubTitle3" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="SubTitle4" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" Nullable="false" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="EmailAddress" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Department">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="400" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Employees" Relationship="Infrastructure.FK_Employee_Department" FromRole="Department" ToRole="Employee" />
+    <NavigationProperty Name="ItemReleases" Relationship="Infrastructure.FK_ItemRelease_Department" FromRole="Department" ToRole="ItemRelease" />
+    <NavigationProperty Name="ItemRequests" Relationship="Infrastructure.FK_ItemRequest_Department" FromRole="Department" ToRole="ItemRequest" />
+    <NavigationProperty Name="StockTransactions" Relationship="Infrastructure.FK_StockTransaction_Department" FromRole="Department" ToRole="StockTransaction" />
+    <NavigationProperty Name="StockTransactionDetails" Relationship="Infrastructure.FK_StockTransactionDetail_Department" FromRole="Department" ToRole="StockTransactionDetail" />
+  </EntityType>
+  <EntityType Name="DepreciationRate">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="FiscalYearId" Type="Int32" Nullable="false" />
+    <Property Name="ItemGroupId" Type="Int32" Nullable="false" />
+    <Property Name="Rate" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+    <NavigationProperty Name="FiscalYear" Relationship="Infrastructure.FK_DepreciationRate_FiscalYear" FromRole="DepreciationRate" ToRole="FiscalYear" />
+    <NavigationProperty Name="ItemGroup" Relationship="Infrastructure.FK_DepreciationRate_ItemGroup" FromRole="DepreciationRate" ToRole="ItemGroup" />
+  </EntityType>
+  <EntityType Name="Designation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Employees" Relationship="Infrastructure.FK_Employee_Designation" FromRole="Designation" ToRole="Employee" />
+  </EntityType>
+  <EntityType Name="DocumentNumbering">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DocumentSetupId" Type="Int32" />
+    <Property Name="FiscalYearId" Type="Int32" />
+    <Property Name="StartNumber" Type="Int32" Nullable="false" />
+    <Property Name="Prefix" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Sufix" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Length" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="DocumentSetup" Relationship="Infrastructure.FK_DocumentNumbering_DocumentSetup" FromRole="DocumentNumbering" ToRole="DocumentSetup" />
+    <NavigationProperty Name="FiscalYear" Relationship="Infrastructure.FK_DocumentNumbering_FiscalYear" FromRole="DocumentNumbering" ToRole="FiscalYear" />
+  </EntityType>
+  <EntityType Name="DocumentSetup">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="Alias" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="DocumentNumberings" Relationship="Infrastructure.FK_DocumentNumbering_DocumentSetup" FromRole="DocumentSetup" ToRole="DocumentNumbering" />
+    <NavigationProperty Name="ItemReleases" Relationship="Infrastructure.FK_ItemRelease_DocumentSetup" FromRole="DocumentSetup" ToRole="ItemRelease" />
+    <NavigationProperty Name="ItemRequests" Relationship="Infrastructure.FK_ItemRequest_DocumentSetup" FromRole="DocumentSetup" ToRole="ItemRequest" />
+    <NavigationProperty Name="PurchaseOrders" Relationship="Infrastructure.FK_PurchaseOrder_DocumentSetup" FromRole="DocumentSetup" ToRole="PurchaseOrder" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="DateOfBirth" Type="DateTime" Precision="0" />
+    <Property Name="Gender" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DepartmentId" Type="Int32" Nullable="false" />
+    <Property Name="DesignationId" Type="Int32" Nullable="false" />
+    <Property Name="ContactNo" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="EmployeeType" Type="String" Nullable="false" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedBy" Type="Int32" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="AppUsers" Relationship="Infrastructure.FK_AppUser_Employee" FromRole="Employee" ToRole="AppUser" />
+    <NavigationProperty Name="Department" Relationship="Infrastructure.FK_Employee_Department" FromRole="Employee" ToRole="Department" />
+    <NavigationProperty Name="Designation" Relationship="Infrastructure.FK_Employee_Designation" FromRole="Employee" ToRole="Designation" />
+    <NavigationProperty Name="ItemReleases" Relationship="Infrastructure.FK_ItemRelease_Employee" FromRole="Employee" ToRole="ItemRelease" />
+    <NavigationProperty Name="ItemRequests" Relationship="Infrastructure.FK_ItemRequest_Employee" FromRole="Employee" ToRole="ItemRequest" />
+    <NavigationProperty Name="PurchaseOrders" Relationship="Infrastructure.FK_PurchaseOrder_Employee" FromRole="Employee" ToRole="PurchaseOrder" />
+    <NavigationProperty Name="StockTransactions" Relationship="Infrastructure.FK_StockTransaction_Employee" FromRole="Employee" ToRole="StockTransaction" />
+    <NavigationProperty Name="StockTransactionDetails" Relationship="Infrastructure.FK_StockTransactionDetail_Employee" FromRole="Employee" ToRole="StockTransactionDetail" />
+  </EntityType>
+  <EntityType Name="FiscalYear">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Alias" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ReportYear" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="DepreciationRates" Relationship="Infrastructure.FK_DepreciationRate_FiscalYear" FromRole="FiscalYear" ToRole="DepreciationRate" />
+    <NavigationProperty Name="DocumentNumberings" Relationship="Infrastructure.FK_DocumentNumbering_FiscalYear" FromRole="FiscalYear" ToRole="DocumentNumbering" />
+    <NavigationProperty Name="ItemReleases" Relationship="Infrastructure.FK_ItemRelease_FiscalYear" FromRole="FiscalYear" ToRole="ItemRelease" />
+    <NavigationProperty Name="ItemRequests" Relationship="Infrastructure.FK_ItemRequest_FiscalYear" FromRole="FiscalYear" ToRole="ItemRequest" />
+    <NavigationProperty Name="PurchaseOrders" Relationship="Infrastructure.FK_PurchaseOrder_FiscalYear" FromRole="FiscalYear" ToRole="PurchaseOrder" />
+    <NavigationProperty Name="StockTransactions" Relationship="Infrastructure.FK_StockTransaction_FiscalYear" FromRole="FiscalYear" ToRole="StockTransaction" />
+  </EntityType>
+  <EntityType Name="Item">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="Code" Type="String" Nullable="false" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="ItemGroupId" Type="Int32" Nullable="false" />
+    <Property Name="ItemUnitId" Type="Int32" Nullable="false" />
+    <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="ItemGroup" Relationship="Infrastructure.FK_Item_ItemGroup" FromRole="Item" ToRole="ItemGroup" />
+    <NavigationProperty Name="ItemUnit" Relationship="Infrastructure.FK_Item_ItemUnit" FromRole="Item" ToRole="ItemUnit" />
+    <NavigationProperty Name="ItemReleaseDetails" Relationship="Infrastructure.FK_ItemReleaseDetail_Item" FromRole="Item" ToRole="ItemReleaseDetail" />
+    <NavigationProperty Name="ItemRequestDetails" Relationship="Infrastructure.FK_ItemRequestDetail_Item" FromRole="Item" ToRole="ItemRequestDetail" />
+    <NavigationProperty Name="PurchaseOrderDetails" Relationship="Infrastructure.FK_PurchaseOrderDetail_Item" FromRole="Item" ToRole="PurchaseOrderDetail" />
+    <NavigationProperty Name="StockTransactionDetails" Relationship="Infrastructure.FK_StockTransactionDetail_Item" FromRole="Item" ToRole="StockTransactionDetail" />
+  </EntityType>
+  <EntityType Name="ItemGroup">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="Code" Type="String" Nullable="false" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="ItemTypeId" Type="Int32" Nullable="false" />
+    <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="DepreciationRates" Relationship="Infrastructure.FK_DepreciationRate_ItemGroup" FromRole="ItemGroup" ToRole="DepreciationRate" />
+    <NavigationProperty Name="Items" Relationship="Infrastructure.FK_Item_ItemGroup" FromRole="ItemGroup" ToRole="Item" />
+    <NavigationProperty Name="ItemType" Relationship="Infrastructure.FK_ItemGroup_ItemType" FromRole="ItemGroup" ToRole="ItemType" />
+  </EntityType>
+  <EntityType Name="ItemRelease">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DocumentSetupId" Type="Int32" Nullable="false" />
+    <Property Name="FiscalYearId" Type="Int32" Nullable="false" />
+    <Property Name="DocumentNo" Type="Int32" />
+    <Property Name="DisplayDocumentNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="DepartmentId" Type="Int32" Nullable="false" />
+    <Property Name="EmployeeId" Type="Int32" Nullable="false" />
+    <Property Name="ItemRequestId" Type="Int32" Nullable="false" />
+    <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedBy" Type="Int32" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Department" Relationship="Infrastructure.FK_ItemRelease_Department" FromRole="ItemRelease" ToRole="Department" />
+    <NavigationProperty Name="DocumentSetup" Relationship="Infrastructure.FK_ItemRelease_DocumentSetup" FromRole="ItemRelease" ToRole="DocumentSetup" />
+    <NavigationProperty Name="Employee" Relationship="Infrastructure.FK_ItemRelease_Employee" FromRole="ItemRelease" ToRole="Employee" />
+    <NavigationProperty Name="FiscalYear" Relationship="Infrastructure.FK_ItemRelease_FiscalYear" FromRole="ItemRelease" ToRole="FiscalYear" />
+    <NavigationProperty Name="ItemRequest" Relationship="Infrastructure.FK_ItemRelease_ItemRequest" FromRole="ItemRelease" ToRole="ItemRequest" />
+    <NavigationProperty Name="ItemReleaseDetails" Relationship="Infrastructure.FK_ItemReleaseDetail_ItemRelease" FromRole="ItemRelease" ToRole="ItemReleaseDetail" />
+    <NavigationProperty Name="ItemRequestDetails" Relationship="Infrastructure.FK_ItemRequestDetail_ItemRelease" FromRole="ItemRelease" ToRole="ItemRequestDetail" />
+  </EntityType>
+  <EntityType Name="ItemReleaseDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ItemReleaseId" Type="Int32" Nullable="false" />
+    <Property Name="ItemId" Type="Int32" Nullable="false" />
+    <Property Name="Qty" Type="Int32" Nullable="false" />
+    <Property Name="Narration" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="SubCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Item" Relationship="Infrastructure.FK_ItemReleaseDetail_Item" FromRole="ItemReleaseDetail" ToRole="Item" />
+    <NavigationProperty Name="ItemRelease" Relationship="Infrastructure.FK_ItemReleaseDetail_ItemRelease" FromRole="ItemReleaseDetail" ToRole="ItemRelease" />
+  </EntityType>
+  <EntityType Name="ItemRequest">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DocumentSetupId" Type="Int32" Nullable="false" />
+    <Property Name="DepartmentId" Type="Int32" Nullable="false" />
+    <Property Name="EmployeeId" Type="Int32" Nullable="false" />
+    <Property Name="FiscalYearId" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="DocumentNo" Type="Int32" />
+    <Property Name="DisplayDocumentNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Remarks" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="ReleasedType" Type="Int32" Nullable="false" />
+    <Property Name="AcceptedBy" Type="Int32" />
+    <Property Name="AcceptedDate" Type="DateTime" Precision="3" />
+    <Property Name="ItemReceivedBy" Type="Int32" />
+    <Property Name="ItemReceivedDate" Type="DateTime" Precision="3" />
+    <Property Name="ApplicationStatus" Type="Int32" Nullable="false" />
+    <Property Name="DisplayRegistrationNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedBy" Type="Int32" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Department" Relationship="Infrastructure.FK_ItemRequest_Department" FromRole="ItemRequest" ToRole="Department" />
+    <NavigationProperty Name="DocumentSetup" Relationship="Infrastructure.FK_ItemRequest_DocumentSetup" FromRole="ItemRequest" ToRole="DocumentSetup" />
+    <NavigationProperty Name="Employee" Relationship="Infrastructure.FK_ItemRequest_Employee" FromRole="ItemRequest" ToRole="Employee" />
+    <NavigationProperty Name="FiscalYear" Relationship="Infrastructure.FK_ItemRequest_FiscalYear" FromRole="ItemRequest" ToRole="FiscalYear" />
+    <NavigationProperty Name="ItemReleases" Relationship="Infrastructure.FK_ItemRelease_ItemRequest" FromRole="ItemRequest" ToRole="ItemRelease" />
+    <NavigationProperty Name="ItemRequestDetails" Relationship="Infrastructure.FK_ItemRequestDetail_ItemRequest" FromRole="ItemRequest" ToRole="ItemRequestDetail" />
+  </EntityType>
+  <EntityType Name="ItemRequestDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ItemRequestId" Type="Int32" Nullable="false" />
+    <Property Name="ItemId" Type="Int32" Nullable="false" />
+    <Property Name="Qty" Type="Int32" Nullable="false" />
+    <Property Name="PurchaseOrderId" Type="Int32" />
+    <Property Name="ItemReleaseId" Type="Int32" />
+    <Property Name="Remarks" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="Specification" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Item" Relationship="Infrastructure.FK_ItemRequestDetail_Item" FromRole="ItemRequestDetail" ToRole="Item" />
+    <NavigationProperty Name="ItemRelease" Relationship="Infrastructure.FK_ItemRequestDetail_ItemRelease" FromRole="ItemRequestDetail" ToRole="ItemRelease" />
+    <NavigationProperty Name="ItemRequest" Relationship="Infrastructure.FK_ItemRequestDetail_ItemRequest" FromRole="ItemRequestDetail" ToRole="ItemRequest" />
+    <NavigationProperty Name="PurchaseOrder" Relationship="Infrastructure.FK_ItemRequestDetail_PurchaseOrder" FromRole="ItemRequestDetail" ToRole="PurchaseOrder" />
+  </EntityType>
+  <EntityType Name="ItemType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="Alias" Type="String" Nullable="false" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="ItemGroups" Relationship="Infrastructure.FK_ItemGroup_ItemType" FromRole="ItemType" ToRole="ItemGroup" />
+  </EntityType>
+  <EntityType Name="ItemUnit">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="Code" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Items" Relationship="Infrastructure.FK_Item_ItemUnit" FromRole="ItemUnit" ToRole="Item" />
+  </EntityType>
+  <EntityType Name="LoginHistory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="Browser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Device" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IPAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LogDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="IsSuccess" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PasswordResetLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AppUserId" Type="Int32" />
+    <Property Name="Guid" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IsUsed" Type="Boolean" Nullable="false" />
+    <Property Name="Browser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Device" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IPAddress" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UsedDate" Type="DateTime" Precision="3" />
+    <Property Name="ResetBrowser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ResetDevice" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ResetIPAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Permission">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="RolePermissions" Relationship="Infrastructure.FK_RoleModulePermission_Permission" FromRole="Permission" ToRole="RolePermission" />
+  </EntityType>
+  <EntityType Name="PurchaseOrder">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DocumentSetupId" Type="Int32" Nullable="false" />
+    <Property Name="FiscalYearId" Type="Int32" Nullable="false" />
+    <Property Name="DocumentNo" Type="Int32" />
+    <Property Name="DisplayDocumentNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="VendorId" Type="Int32" />
+    <Property Name="DueDate" Type="DateTime" Precision="0" />
+    <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AcceptedBy" Type="Int32" />
+    <Property Name="AcceptedDate" Type="DateTime" Precision="3" />
+    <Property Name="EmployeeId" Type="Int32" />
+    <Property Name="ApplicationStatus" Type="Int32" Nullable="false" />
+    <Property Name="DisplayRegistrationNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedBy" Type="Int32" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="DocumentSetup" Relationship="Infrastructure.FK_PurchaseOrder_DocumentSetup" FromRole="PurchaseOrder" ToRole="DocumentSetup" />
+    <NavigationProperty Name="Employee" Relationship="Infrastructure.FK_PurchaseOrder_Employee" FromRole="PurchaseOrder" ToRole="Employee" />
+    <NavigationProperty Name="FiscalYear" Relationship="Infrastructure.FK_PurchaseOrder_FiscalYear" FromRole="PurchaseOrder" ToRole="FiscalYear" />
+    <NavigationProperty Name="ItemRequestDetails" Relationship="Infrastructure.FK_ItemRequestDetail_PurchaseOrder" FromRole="PurchaseOrder" ToRole="ItemRequestDetail" />
+    <NavigationProperty Name="Vendor" Relationship="Infrastructure.FK_PurchaseOrder_Vendor" FromRole="PurchaseOrder" ToRole="Vendor" />
+    <NavigationProperty Name="PurchaseOrderDetails" Relationship="Infrastructure.FK_PurchaseOrderDetail_PurchaseOrder" FromRole="PurchaseOrder" ToRole="PurchaseOrderDetail" />
+    <NavigationProperty Name="StockTransactions" Relationship="Infrastructure.FK_StockTransaction_PurchaseOrder" FromRole="PurchaseOrder" ToRole="StockTransaction" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="RolePermissions" Relationship="Infrastructure.FK_RoleModulePermission_Role" FromRole="Role" ToRole="RolePermission" />
+    <NavigationProperty Name="UserRoles" Relationship="Infrastructure.FK_UserRole_Role" FromRole="Role" ToRole="UserRole" />
+  </EntityType>
+  <EntityType Name="RolePermission">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleId" Type="Int32" Nullable="false" />
+    <Property Name="PermissionId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Permission" Relationship="Infrastructure.FK_RoleModulePermission_Permission" FromRole="RolePermission" ToRole="Permission" />
+    <NavigationProperty Name="Role" Relationship="Infrastructure.FK_RoleModulePermission_Role" FromRole="RolePermission" ToRole="Role" />
+  </EntityType>
+  <EntityType Name="StockTransaction">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FiscalYearId" Type="Int32" Nullable="false" />
+    <Property Name="DocumentSetupId" Type="Int32" Nullable="false" />
+    <Property Name="DocumentNo" Type="Int32" />
+    <Property Name="DisplayDocumentNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="VendorId" Type="Int32" />
+    <Property Name="EmployeeId" Type="Int32" />
+    <Property Name="DepartmentId" Type="Int32" />
+    <Property Name="PurchaseOrderId" Type="Int32" />
+    <Property Name="AdjustmentTypeId" Type="Int32" />
+    <Property Name="InvoiceNo" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedBy" Type="Int32" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Department" Relationship="Infrastructure.FK_StockTransaction_Department" FromRole="StockTransaction" ToRole="Department" />
+    <NavigationProperty Name="Employee" Relationship="Infrastructure.FK_StockTransaction_Employee" FromRole="StockTransaction" ToRole="Employee" />
+    <NavigationProperty Name="FiscalYear" Relationship="Infrastructure.FK_StockTransaction_FiscalYear" FromRole="StockTransaction" ToRole="FiscalYear" />
+    <NavigationProperty Name="PurchaseOrder" Relationship="Infrastructure.FK_StockTransaction_PurchaseOrder" FromRole="StockTransaction" ToRole="PurchaseOrder" />
+    <NavigationProperty Name="StockTransactionDetails" Relationship="Infrastructure.FK_StockTransactionDetail_StockTransaction" FromRole="StockTransaction" ToRole="StockTransactionDetail" />
+  </EntityType>
+  <EntityType Name="StockTransactionDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StockTransactionId" Type="Int32" Nullable="false" />
+    <Property Name="ItemId" Type="Int32" Nullable="false" />
+    <Property Name="ItemSubCodeNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LedgerPageNo" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Qty" Type="Int32" Nullable="false" />
+    <Property Name="Rate" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Vat" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="BasicAmount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="NetAmount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="DepartmentId" Type="Int32" />
+    <Property Name="EmployeeId" Type="Int32" />
+    <Property Name="StockEffect" Type="Int32" Nullable="false" />
+    <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PurchaseDate" Type="DateTime" Precision="0" />
+    <Property Name="PurchaseAmount" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <NavigationProperty Name="Department" Relationship="Infrastructure.FK_StockTransactionDetail_Department" FromRole="StockTransactionDetail" ToRole="Department" />
+    <NavigationProperty Name="Employee" Relationship="Infrastructure.FK_StockTransactionDetail_Employee" FromRole="StockTransactionDetail" ToRole="Employee" />
+    <NavigationProperty Name="Item" Relationship="Infrastructure.FK_StockTransactionDetail_Item" FromRole="StockTransactionDetail" ToRole="Item" />
+    <NavigationProperty Name="StockTransaction" Relationship="Infrastructure.FK_StockTransactionDetail_StockTransaction" FromRole="StockTransactionDetail" ToRole="StockTransaction" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="SystemConfiguration">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Key" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DisplayKey" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="Value" Type="String" Nullable="false" MaxLength="4000" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="UserRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="RoleId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="AppUser" Relationship="Infrastructure.FK_UserRole_User" FromRole="UserRole" ToRole="AppUser" />
+    <NavigationProperty Name="Role" Relationship="Infrastructure.FK_UserRole_Role" FromRole="UserRole" ToRole="Role" />
+  </EntityType>
+  <EntityType Name="Vendor">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="VatPanNo" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNo" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="EmailId" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="WebSite" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="ContactPerson" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="Remarks" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="PurchaseOrders" Relationship="Infrastructure.FK_PurchaseOrder_Vendor" FromRole="Vendor" ToRole="PurchaseOrder" />
+  </EntityType>
+  <EntityType Name="PurchaseOrderDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="PurchaseOrderId" />
+      <PropertyRef Name="ItemId" />
+      <PropertyRef Name="Qty" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="PurchaseOrderId" Type="Int32" Nullable="false" />
+    <Property Name="ItemId" Type="Int32" Nullable="false" />
+    <Property Name="Qty" Type="Int32" Nullable="false" />
+    <Property Name="Rate" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="BasicAmount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="TotalAmount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Item" Relationship="Infrastructure.FK_PurchaseOrderDetail_Item" FromRole="PurchaseOrderDetail" ToRole="Item" />
+    <NavigationProperty Name="PurchaseOrder" Relationship="Infrastructure.FK_PurchaseOrderDetail_PurchaseOrder" FromRole="PurchaseOrderDetail" ToRole="PurchaseOrder" />
+  </EntityType>
+  <Association Name="FK_AppUser_Employee">
+    <End Type="Infrastructure.Employee" Role="Employee" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="Infrastructure.AppUser" Role="AppUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AppUser">
+        <PropertyRef Name="EmployeeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserRole_User">
+    <End Type="Infrastructure.AppUser" Role="AppUser" Multiplicity="1" />
+    <End Type="Infrastructure.UserRole" Role="UserRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserRole">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employee_Department">
+    <End Type="Infrastructure.Department" Role="Department" Multiplicity="1" />
+    <End Type="Infrastructure.Employee" Role="Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="DepartmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItemRelease_Department">
+    <End Type="Infrastructure.Department" Role="Department" Multiplicity="1" />
+    <End Type="Infrastructure.ItemRelease" Role="ItemRelease" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ItemRelease">
+        <PropertyRef Name="DepartmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItemRequest_Department">
+    <End Type="Infrastructure.Department" Role="Department" Multiplicity="1" />
+    <End Type="Infrastructure.ItemRequest" Role="ItemRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ItemRequest">
+        <PropertyRef Name="DepartmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StockTransaction_Department">
+    <End Type="Infrastructure.Department" Role="Department" Multiplicity="0..1" />
+    <End Type="Infrastructure.StockTransaction" Role="StockTransaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StockTransaction">
+        <PropertyRef Name="DepartmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StockTransactionDetail_Department">
+    <End Type="Infrastructure.Department" Role="Department" Multiplicity="0..1" />
+    <End Type="Infrastructure.StockTransactionDetail" Role="StockTransactionDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StockTransactionDetail">
+        <PropertyRef Name="DepartmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DepreciationRate_FiscalYear">
+    <End Type="Infrastructure.FiscalYear" Role="FiscalYear" Multiplicity="1" />
+    <End Type="Infrastructure.DepreciationRate" Role="DepreciationRate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FiscalYear">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DepreciationRate">
+        <PropertyRef Name="FiscalYearId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DepreciationRate_ItemGroup">
+    <End Type="Infrastructure.ItemGroup" Role="ItemGroup" Multiplicity="1" />
+    <End Type="Infrastructure.DepreciationRate" Role="DepreciationRate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ItemGroup">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DepreciationRate">
+        <PropertyRef Name="ItemGroupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employee_Designation">
+    <End Type="Infrastructure.Designation" Role="Designation" Multiplicity="1" />
+    <End Type="Infrastructure.Employee" Role="Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Designation">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="DesignationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DocumentNumbering_DocumentSetup">
+    <End Type="Infrastructure.DocumentSetup" Role="DocumentSetup" Multiplicity="0..1" />
+    <End Type="Infrastructure.DocumentNumbering" Role="DocumentNumbering" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DocumentSetup">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DocumentNumbering">
+        <PropertyRef Name="DocumentSetupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DocumentNumbering_FiscalYear">
+    <End Type="Infrastructure.FiscalYear" Role="FiscalYear" Multiplicity="0..1" />
+    <End Type="Infrastructure.DocumentNumbering" Role="DocumentNumbering" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FiscalYear">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DocumentNumbering">
+        <PropertyRef Name="FiscalYearId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItemRelease_DocumentSetup">
+    <End Type="Infrastructure.DocumentSetup" Role="DocumentSetup" Multiplicity="1" />
+    <End Type="Infrastructure.ItemRelease" Role="ItemRelease" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DocumentSetup">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ItemRelease">
+        <PropertyRef Name="DocumentSetupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItemRequest_DocumentSetup">
+    <End Type="Infrastructure.DocumentSetup" Role="DocumentSetup" Multiplicity="1" />
+    <End Type="Infrastructure.ItemRequest" Role="ItemRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DocumentSetup">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ItemRequest">
+        <PropertyRef Name="DocumentSetupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PurchaseOrder_DocumentSetup">
+    <End Type="Infrastructure.DocumentSetup" Role="DocumentSetup" Multiplicity="1" />
+    <End Type="Infrastructure.PurchaseOrder" Role="PurchaseOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DocumentSetup">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PurchaseOrder">
+        <PropertyRef Name="DocumentSetupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItemRelease_Employee">
+    <End Type="Infrastructure.Employee" Role="Employee" Multiplicity="1" />
+    <End Type="Infrastructure.ItemRelease" Role="ItemRelease" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ItemRelease">
+        <PropertyRef Name="EmployeeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItemRequest_Employee">
+    <End Type="Infrastructure.Employee" Role="Employee" Multiplicity="1" />
+    <End Type="Infrastructure.ItemRequest" Role="ItemRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ItemRequest">
+        <PropertyRef Name="EmployeeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PurchaseOrder_Employee">
+    <End Type="Infrastructure.Employee" Role="Employee" Multiplicity="0..1" />
+    <End Type="Infrastructure.PurchaseOrder" Role="PurchaseOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PurchaseOrder">
+        <PropertyRef Name="EmployeeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StockTransaction_Employee">
+    <End Type="Infrastructure.Employee" Role="Employee" Multiplicity="0..1" />
+    <End Type="Infrastructure.StockTransaction" Role="StockTransaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StockTransaction">
+        <PropertyRef Name="EmployeeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StockTransactionDetail_Employee">
+    <End Type="Infrastructure.Employee" Role="Employee" Multiplicity="0..1" />
+    <End Type="Infrastructure.StockTransactionDetail" Role="StockTransactionDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StockTransactionDetail">
+        <PropertyRef Name="EmployeeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItemRelease_FiscalYear">
+    <End Type="Infrastructure.FiscalYear" Role="FiscalYear" Multiplicity="1" />
+    <End Type="Infrastructure.ItemRelease" Role="ItemRelease" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FiscalYear">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ItemRelease">
+        <PropertyRef Name="FiscalYearId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItemRequest_FiscalYear">
+    <End Type="Infrastructure.FiscalYear" Role="FiscalYear" Multiplicity="1" />
+    <End Type="Infrastructure.ItemRequest" Role="ItemRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FiscalYear">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ItemRequest">
+        <PropertyRef Name="FiscalYearId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PurchaseOrder_FiscalYear">
+    <End Type="Infrastructure.FiscalYear" Role="FiscalYear" Multiplicity="1" />
+    <End Type="Infrastructure.PurchaseOrder" Role="PurchaseOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FiscalYear">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PurchaseOrder">
+        <PropertyRef Name="FiscalYearId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StockTransaction_FiscalYear">
+    <End Type="Infrastructure.FiscalYear" Role="FiscalYear" Multiplicity="1" />
+    <End Type="Infrastructure.StockTransaction" Role="StockTransaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FiscalYear">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StockTransaction">
+        <PropertyRef Name="FiscalYearId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Item_ItemGroup">
+    <End Type="Infrastructure.ItemGroup" Role="ItemGroup" Multiplicity="1" />
+    <End Type="Infrastructure.Item" Role="Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ItemGroup">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Item">
+        <PropertyRef Name="ItemGroupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Item_ItemUnit">
+    <End Type="Infrastructure.ItemUnit" Role="ItemUnit" Multiplicity="1" />
+    <End Type="Infrastructure.Item" Role="Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ItemUnit">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Item">
+        <PropertyRef Name="ItemUnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItemReleaseDetail_Item">
+    <End Type="Infrastructure.Item" Role="Item" Multiplicity="1" />
+    <End Type="Infrastructure.ItemReleaseDetail" Role="ItemReleaseDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Item">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ItemReleaseDetail">
+        <PropertyRef Name="ItemId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItemRequestDetail_Item">
+    <End Type="Infrastructure.Item" Role="Item" Multiplicity="1" />
+    <End Type="Infrastructure.ItemRequestDetail" Role="ItemRequestDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Item">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ItemRequestDetail">
+        <PropertyRef Name="ItemId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PurchaseOrderDetail_Item">
+    <End Type="Infrastructure.Item" Role="Item" Multiplicity="1" />
+    <End Type="Infrastructure.PurchaseOrderDetail" Role="PurchaseOrderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Item">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PurchaseOrderDetail">
+        <PropertyRef Name="ItemId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StockTransactionDetail_Item">
+    <End Type="Infrastructure.Item" Role="Item" Multiplicity="1" />
+    <End Type="Infrastructure.StockTransactionDetail" Role="StockTransactionDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Item">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StockTransactionDetail">
+        <PropertyRef Name="ItemId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItemGroup_ItemType">
+    <End Type="Infrastructure.ItemType" Role="ItemType" Multiplicity="1" />
+    <End Type="Infrastructure.ItemGroup" Role="ItemGroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ItemType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ItemGroup">
+        <PropertyRef Name="ItemTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItemRelease_ItemRequest">
+    <End Type="Infrastructure.ItemRequest" Role="ItemRequest" Multiplicity="1" />
+    <End Type="Infrastructure.ItemRelease" Role="ItemRelease" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ItemRequest">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ItemRelease">
+        <PropertyRef Name="ItemRequestId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItemReleaseDetail_ItemRelease">
+    <End Type="Infrastructure.ItemRelease" Role="ItemRelease" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="Infrastructure.ItemReleaseDetail" Role="ItemReleaseDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ItemRelease">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ItemReleaseDetail">
+        <PropertyRef Name="ItemReleaseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItemRequestDetail_ItemRelease">
+    <End Type="Infrastructure.ItemRelease" Role="ItemRelease" Multiplicity="0..1" />
+    <End Type="Infrastructure.ItemRequestDetail" Role="ItemRequestDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ItemRelease">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ItemRequestDetail">
+        <PropertyRef Name="ItemReleaseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItemRequestDetail_ItemRequest">
+    <End Type="Infrastructure.ItemRequest" Role="ItemRequest" Multiplicity="1" />
+    <End Type="Infrastructure.ItemRequestDetail" Role="ItemRequestDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ItemRequest">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ItemRequestDetail">
+        <PropertyRef Name="ItemRequestId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItemRequestDetail_PurchaseOrder">
+    <End Type="Infrastructure.PurchaseOrder" Role="PurchaseOrder" Multiplicity="0..1" />
+    <End Type="Infrastructure.ItemRequestDetail" Role="ItemRequestDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PurchaseOrder">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ItemRequestDetail">
+        <PropertyRef Name="PurchaseOrderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RoleModulePermission_Permission">
+    <End Type="Infrastructure.Permission" Role="Permission" Multiplicity="1" />
+    <End Type="Infrastructure.RolePermission" Role="RolePermission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Permission">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RolePermission">
+        <PropertyRef Name="PermissionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PurchaseOrder_Vendor">
+    <End Type="Infrastructure.Vendor" Role="Vendor" Multiplicity="0..1" />
+    <End Type="Infrastructure.PurchaseOrder" Role="PurchaseOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vendor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PurchaseOrder">
+        <PropertyRef Name="VendorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PurchaseOrderDetail_PurchaseOrder">
+    <End Type="Infrastructure.PurchaseOrder" Role="PurchaseOrder" Multiplicity="1" />
+    <End Type="Infrastructure.PurchaseOrderDetail" Role="PurchaseOrderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PurchaseOrder">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PurchaseOrderDetail">
+        <PropertyRef Name="PurchaseOrderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StockTransaction_PurchaseOrder">
+    <End Type="Infrastructure.PurchaseOrder" Role="PurchaseOrder" Multiplicity="0..1" />
+    <End Type="Infrastructure.StockTransaction" Role="StockTransaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PurchaseOrder">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StockTransaction">
+        <PropertyRef Name="PurchaseOrderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RoleModulePermission_Role">
+    <End Type="Infrastructure.Role" Role="Role" Multiplicity="1" />
+    <End Type="Infrastructure.RolePermission" Role="RolePermission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RolePermission">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserRole_Role">
+    <End Type="Infrastructure.Role" Role="Role" Multiplicity="1" />
+    <End Type="Infrastructure.UserRole" Role="UserRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserRole">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StockTransactionDetail_StockTransaction">
+    <End Type="Infrastructure.StockTransaction" Role="StockTransaction" Multiplicity="1" />
+    <End Type="Infrastructure.StockTransactionDetail" Role="StockTransactionDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StockTransaction">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StockTransactionDetail">
+        <PropertyRef Name="StockTransactionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

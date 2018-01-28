@@ -1,0 +1,47 @@
+﻿@model SoftIms.Data.ViewModel.ItemViewModel
+@using (Html.BeginForm("createitem", "master", FormMethod.Post, new { @enctype = "multipart/form-data", @class = "form-horizontal smooth-tab" }))
+{
+    @Html.HiddenFor(x => x.Id)
+    @Html.AntiForgeryToken()
+    @Html.Hidden("next", "family-detail-tab")
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.Name, new { @class = "col-md-3" })
+        <div class="col-md-6">
+            @Html.TextBoxFor(x => x.Name, new { @class = "form-control col-md-6" })
+            @Html.ValidationMessageFor(x => x.Name)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.Code, new { @class = "col-md-3" })
+        <div class="col-md-6">
+            @Html.TextBoxFor(x => x.Code, new { @class = "form-control col-md-6" })
+            @Html.ValidationMessageFor(x => x.Code)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.ItemGroupId, new { @class = "col-md-3" })
+        <div class="col-md-6">
+            @Html.DropDownListFor(x => x.ItemGroupId, MasterDataList<ItemGroup>(selectedValue: Model.ItemGroupId), new { @class = "form-control col-md-6" })
+            @Html.ValidationMessageFor(x => x.ItemGroupId)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.ItemUnitId, new { @class = "col-md-3" })
+        <div class="col-md-6">
+            @Html.DropDownListFor(x => x.ItemUnitId, MasterDataList<ItemUnit>(selectedValue: Model.ItemUnitId), new { @class = "form-control col-md-6" })
+            @Html.ValidationMessageFor(x => x.ItemUnitId)
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-success">Submit</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    </div>
+}
+<script>
+    initializeCommon();
+    if (bindJqueryValidator) {
+        bindJqueryValidator();
+    }
+</script>
+

@@ -1,0 +1,503 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Date_Conversion_Information>
+  <Year yearid="1990">
+    <Month id="1">
+      <StartDate>4/13/1933</StartDate>
+      <EndDate>5/13/1933</EndDate>
+    </Month>
+    <Month id="2">
+      <StartDate>5/14/1933</StartDate>
+      <EndDate>6/13/1933</EndDate>
+    </Month>
+    <Month id="3">
+      <StartDate>6/14/1933</StartDate>
+      <EndDate>7/15/1933</EndDate>
+    </Month>
+    <Month id="4">
+      <StartDate>7/16/1933</StartDate>
+      <EndDate>8/15/1933</EndDate>
+    </Month>
+    <Month id="5">
+      <StartDate>8/16/1933</StartDate>
+      <EndDate>9/15/1933</EndDate>
+    </Month>
+    <Month id="6">
+      <StartDate>9/16/1933</StartDate>
+      <EndDate>10/16/1933</EndDate>
+    </Month>
+    <Month id="7">
+      <StartDate>10/17/1933</StartDate>
+      <EndDate>11/15/1933</EndDate>
+    </Month>
+    <Month id="8">
+      <StartDate>11/16/1933</StartDate>
+      <EndDate>12/14/1933</EndDate>
+    </Month>
+    <Month id="9">
+      <StartDate>12/15/1933</StartDate>
+      <EndDate>1/13/1934</EndDate>
+    </Month>
+    <Month id="10">
+      <StartDate>1/14/1934</StartDate>
+      <EndDate>2/11/1934</EndDate>
+    </Month>
+    <Month id="11">
+      <StartDate>2/12/1934</StartDate>
+      <EndDate>3/13/1934</EndDate>
+    </Month>
+    <Month id="12">
+      <StartDate>3/14/1934</StartDate>
+      <EndDate>4/12/1934</EndDate>
+    </Month>
+  </Year>
+  <Year yearid="1991">
+    <Month id="1">
+      <StartDate>4/13/1934</StartDate>
+      <EndDate>5/13/1934</EndDate>
+    </Month>
+    <Month id="2">
+      <StartDate>5/14/1934</StartDate>
+      <EndDate>6/14/1934</EndDate>
+    </Month>
+    <Month id="3">
+      <StartDate>6/15/1934</StartDate>
+      <EndDate>7/15/1934</EndDate>
+    </Month>
+    <Month id="4">
+      <StartDate>7/16/1934</StartDate>
+      <EndDate>8/16/1934</EndDate>
+    </Month>
+    <Month id="5">
+      <StartDate>8/17/1934</StartDate>
+      <EndDate>9/16/1934</EndDate>
+    </Month>
+    <Month id="6">
+      <StartDate>9/17/1934</StartDate>
+      <EndDate>10/16/1934</EndDate>
+    </Month>
+    <Month id="7">
+      <StartDate>10/17/1934</StartDate>
+      <EndDate>11/15/1934</EndDate>
+    </Month>
+    <Month id="8">
+      <StartDate>11/16/1934</StartDate>
+      <EndDate>12/15/1934</EndDate>
+    </Month>
+    <Month id="9">
+      <StartDate>12/16/1934</StartDate>
+      <EndDate>1/13/1935</EndDate>
+    </Month>
+    <Month id="10">
+      <StartDate>1/14/1935</StartDate>
+      <EndDate>2/11/1935</EndDate>
+    </Month>
+    <Month id="11">
+      <StartDate>2/12/1935</StartDate>
+      <EndDate>3/13/1935</EndDate>
+    </Month>
+    <Month id="12">
+      <StartDate>3/14/1935</StartDate>
+      <EndDate>4/12/1935</EndDate>
+    </Month>
+  </Year>
+  <Year yearid="1992">
+    <Month id="1">
+      <StartDate>4/13/1935</StartDate>
+      <EndDate>5/13/1935</EndDate>
+    </Month>
+    <Month id="2">
+      <StartDate>5/14/1935</StartDate>
+      <EndDate>6/14/1935</EndDate>
+    </Month>
+    <Month id="3">
+      <StartDate>6/15/1935</StartDate>
+      <EndDate>7/15/1935</EndDate>
+    </Month>
+    <Month id="4">
+      <StartDate>7/16/1935</StartDate>
+      <EndDate>8/16/1935</EndDate>
+    </Month>
+    <Month id="5">
+      <StartDate>8/17/1935</StartDate>
+      <EndDate>9/16/1935</EndDate>
+    </Month>
+    <Month id="6">
+      <StartDate>9/17/1935</StartDate>
+      <EndDate>10/16/1935</EndDate>
+    </Month>
+    <Month id="7">
+      <StartDate>10/17/1935</StartDate>
+      <EndDate>11/15/1935</EndDate>
+    </Month>
+    <Month id="8">
+      <StartDate>11/16/1935</StartDate>
+      <EndDate>12/16/1935</EndDate>
+    </Month>
+    <Month id="9">
+      <StartDate>12/17/1935</StartDate>
+      <EndDate>1/13/1936</EndDate>
+    </Month>
+    <Month id="10">
+      <StartDate>1/14/1936</StartDate>
+      <EndDate>2/12/1936</EndDate>
+    </Month>
+    <Month id="11">
+      <StartDate>2/13/1936</StartDate>
+      <EndDate>3/12/1936</EndDate>
+    </Month>
+    <Month id="12">
+      <StartDate>3/13/1936</StartDate>
+      <EndDate>4/12/1936</EndDate>
+    </Month>
+  </Year>
+  <Year yearid="1993">
+    <Month id="1">
+      <StartDate>4/13/1936</StartDate>
+      <EndDate>5/13/1936</EndDate>
+    </Month>
+    <Month id="2">
+      <StartDate>5/14/1936</StartDate>
+      <EndDate>6/13/1936</EndDate>
+    </Month>
+    <Month id="3">
+      <StartDate>6/14/1936</StartDate>
+      <EndDate>7/14/1936</EndDate>
+    </Month>
+    <Month id="4">
+      <StartDate>7/15/1936</StartDate>
+      <EndDate>8/15/1936</EndDate>
+    </Month>
+    <Month id="5">
+      <StartDate>8/16/1936</StartDate>
+      <EndDate>9/15/1936</EndDate>
+    </Month>
+    <Month id="6">
+      <StartDate>9/16/1936</StartDate>
+      <EndDate>10/16/1936</EndDate>
+    </Month>
+    <Month id="7">
+      <StartDate>10/17/1936</StartDate>
+      <EndDate>11/15/1936</EndDate>
+    </Month>
+    <Month id="8">
+      <StartDate>11/16/1936</StartDate>
+      <EndDate>12/14/1936</EndDate>
+    </Month>
+    <Month id="9">
+      <StartDate>12/15/1936</StartDate>
+      <EndDate>1/13/1937</EndDate>
+    </Month>
+    <Month id="10">
+      <StartDate>1/14/1937</StartDate>
+      <EndDate>2/11/1937</EndDate>
+    </Month>
+    <Month id="11">
+      <StartDate>2/12/1937</StartDate>
+      <EndDate>3/13/1937</EndDate>
+    </Month>
+    <Month id="12">
+      <StartDate>3/14/1937</StartDate>
+      <EndDate>4/12/1937</EndDate>
+    </Month>
+  </Year>
+  <Year yearid="1994">
+    <Month id="1">
+      <StartDate>4/13/1937</StartDate>
+      <EndDate>5/13/1937</EndDate>
+    </Month>
+    <Month id="2">
+      <StartDate>5/14/1937</StartDate>
+      <EndDate>6/13/1937</EndDate>
+    </Month>
+    <Month id="3">
+      <StartDate>6/14/1937</StartDate>
+      <EndDate>7/15/1937</EndDate>
+    </Month>
+    <Month id="4">
+      <StartDate>7/16/1937</StartDate>
+      <EndDate>8/15/1937</EndDate>
+    </Month>
+    <Month id="5">
+      <StartDate>8/16/1937</StartDate>
+      <EndDate>9/15/1937</EndDate>
+    </Month>
+    <Month id="6">
+      <StartDate>9/16/1937</StartDate>
+      <EndDate>10/16/1937</EndDate>
+    </Month>
+    <Month id="7">
+      <StartDate>10/17/1937</StartDate>
+      <EndDate>11/15/1937</EndDate>
+    </Month>
+    <Month id="8">
+      <StartDate>11/16/1937</StartDate>
+      <EndDate>12/14/1937</EndDate>
+    </Month>
+    <Month id="9">
+      <StartDate>12/15/1937</StartDate>
+      <EndDate>1/13/1938</EndDate>
+    </Month>
+    <Month id="10">
+      <StartDate>1/14/1938</StartDate>
+      <EndDate>2/11/1938</EndDate>
+    </Month>
+    <Month id="11">
+      <StartDate>2/12/1938</StartDate>
+      <EndDate>3/13/1938</EndDate>
+    </Month>
+    <Month id="12">
+      <StartDate>3/14/1938</StartDate>
+      <EndDate>4/12/1938</EndDate>
+    </Month>
+  </Year>
+  <Year yearid="1995">
+    <Month id="1">
+      <StartDate>4/13/1938</StartDate>
+      <EndDate>5/13/1938</EndDate>
+    </Month>
+    <Month id="2">
+      <StartDate>5/14/1938</StartDate>
+      <EndDate>6/14/1938</EndDate>
+    </Month>
+    <Month id="3">
+      <StartDate>6/15/1938</StartDate>
+      <EndDate>7/15/1938</EndDate>
+    </Month>
+    <Month id="4">
+      <StartDate>7/16/1938</StartDate>
+      <EndDate>8/16/1938</EndDate>
+    </Month>
+    <Month id="5">
+      <StartDate>8/17/1938</StartDate>
+      <EndDate>9/16/1938</EndDate>
+    </Month>
+    <Month id="6">
+      <StartDate>9/17/1938</StartDate>
+      <EndDate>10/16/1938</EndDate>
+    </Month>
+    <Month id="7">
+      <StartDate>10/17/1938</StartDate>
+      <EndDate>11/15/1938</EndDate>
+    </Month>
+    <Month id="8">
+      <StartDate>11/16/1938</StartDate>
+      <EndDate>12/15/1938</EndDate>
+    </Month>
+    <Month id="9">
+      <StartDate>12/16/1938</StartDate>
+      <EndDate>1/13/1939</EndDate>
+    </Month>
+    <Month id="10">
+      <StartDate>1/14/1939</StartDate>
+      <EndDate>2/11/1939</EndDate>
+    </Month>
+    <Month id="11">
+      <StartDate>2/12/1939</StartDate>
+      <EndDate>3/13/1939</EndDate>
+    </Month>
+    <Month id="12">
+      <StartDate>3/14/1939</StartDate>
+      <EndDate>4/12/1939</EndDate>
+    </Month>
+  </Year>
+  <Year yearid="1996">
+    <Month id="1">
+      <StartDate>4/13/1939</StartDate>
+      <EndDate>5/13/1939</EndDate>
+    </Month>
+    <Month id="2">
+      <StartDate>5/14/1939</StartDate>
+      <EndDate>6/14/1939</EndDate>
+    </Month>
+    <Month id="3">
+      <StartDate>6/15/1939</StartDate>
+      <EndDate>7/15/1939</EndDate>
+    </Month>
+    <Month id="4">
+      <StartDate>7/16/1939</StartDate>
+      <EndDate>8/16/1939</EndDate>
+    </Month>
+    <Month id="5">
+      <StartDate>8/17/1939</StartDate>
+      <EndDate>9/16/1939</EndDate>
+    </Month>
+    <Month id="6">
+      <StartDate>9/17/1939</StartDate>
+      <EndDate>10/16/1939</EndDate>
+    </Month>
+    <Month id="7">
+      <StartDate>10/17/1939</StartDate>
+      <EndDate>11/15/1939</EndDate>
+    </Month>
+    <Month id="8">
+      <StartDate>11/16/1939</StartDate>
+      <EndDate>12/15/1939</EndDate>
+    </Month>
+    <Month id="9">
+      <StartDate>12/16/1939</StartDate>
+      <EndDate>1/13/1940</EndDate>
+    </Month>
+    <Month id="10">
+      <StartDate>1/14/1940</StartDate>
+      <EndDate>2/12/1940</EndDate>
+    </Month>
+    <Month id="11">
+      <StartDate>2/13/1940</StartDate>
+      <EndDate>3/12/1940</EndDate>
+    </Month>
+    <Month id="12">
+      <StartDate>3/13/1940</StartDate>
+      <EndDate>4/12/1940</EndDate>
+    </Month>
+  </Year>
+  <Year yearid="1997">
+    <Month id="1">
+      <StartDate>4/13/1940</StartDate>
+      <EndDate>5/13/1940</EndDate>
+    </Month>
+    <Month id="2">
+      <StartDate>5/14/1940</StartDate>
+      <EndDate>6/13/1940</EndDate>
+    </Month>
+    <Month id="3">
+      <StartDate>6/14/1940</StartDate>
+      <EndDate>7/15/1940</EndDate>
+    </Month>
+    <Month id="4">
+      <StartDate>7/16/1940</StartDate>
+      <EndDate>8/15/1940</EndDate>
+    </Month>
+    <Month id="5">
+      <StartDate>8/16/1940</StartDate>
+      <EndDate>9/15/1940</EndDate>
+    </Month>
+    <Month id="6">
+      <StartDate>9/16/1940</StartDate>
+      <EndDate>10/16/1940</EndDate>
+    </Month>
+    <Month id="7">
+      <StartDate>10/17/1940</StartDate>
+      <EndDate>11/15/1940</EndDate>
+    </Month>
+    <Month id="8">
+      <StartDate>11/16/1940</StartDate>
+      <EndDate>12/14/1940</EndDate>
+    </Month>
+    <Month id="9">
+      <StartDate>12/15/1940</StartDate>
+      <EndDate>1/13/1941</EndDate>
+    </Month>
+    <Month id="10">
+      <StartDate>1/14/1941</StartDate>
+      <EndDate>2/11/1941</EndDate>
+    </Month>
+    <Month id="11">
+      <StartDate>2/12/1941</StartDate>
+      <EndDate>3/13/1941</EndDate>
+    </Month>
+    <Month id="12">
+      <StartDate>3/14/1941</StartDate>
+      <EndDate>4/12/1941</EndDate>
+    </Month>
+  </Year>
+  <Year yearid="1998">
+    <Month id="1">
+      <StartDate>4/13/1941</StartDate>
+      <EndDate>5/13/1941</EndDate>
+    </Month>
+    <Month id="2">
+      <StartDate>5/14/1941</StartDate>
+      <EndDate>6/13/1941</EndDate>
+    </Month>
+    <Month id="3">
+      <StartDate>6/14/1941</StartDate>
+      <EndDate>7/15/1941</EndDate>
+    </Month>
+    <Month id="4">
+      <StartDate>7/16/1941</StartDate>
+      <EndDate>8/15/1941</EndDate>
+    </Month>
+    <Month id="5">
+      <StartDate>8/16/1941</StartDate>
+      <EndDate>9/15/1941</EndDate>
+    </Month>
+    <Month id="6">
+      <StartDate>9/16/1941</StartDate>
+      <EndDate>10/16/1941</EndDate>
+    </Month>
+    <Month id="7">
+      <StartDate>10/17/1941</StartDate>
+      <EndDate>11/15/1941</EndDate>
+    </Month>
+    <Month id="8">
+      <StartDate>11/16/1941</StartDate>
+      <EndDate>12/14/1941</EndDate>
+    </Month>
+    <Month id="9">
+      <StartDate>12/15/1941</StartDate>
+      <EndDate>1/13/1942</EndDate>
+    </Month>
+    <Month id="10">
+      <StartDate>1/14/1942</StartDate>
+      <EndDate>2/11/1942</EndDate>
+    </Month>
+    <Month id="11">
+      <StartDate>2/12/1942</StartDate>
+      <EndDate>3/13/1942</EndDate>
+    </Month>
+    <Month id="12">
+      <StartDate>3/14/1942</StartDate>
+      <EndDate>4/12/1942</EndDate>
+    </Month>
+  </Year>
+  <Year yearid="1999">
+    <Month id="1">
+      <StartDate>4/13/1942</StartDate>
+      <EndDate>5/13/1942</EndDate>
+    </Month>
+    <Month id="2">
+      <StartDate>5/14/1942</StartDate>
+      <EndDate>6/14/1942</EndDate>
+    </Month>
+    <Month id="3">
+      <StartDate>6/15/1942</StartDate>
+      <EndDate>7/15/1942</EndDate>
+    </Month>
+    <Month id="4">
+      <StartDate>7/16/1942</StartDate>
+      <EndDate>8/16/1942</EndDate>
+    </Month>
+    <Month id="5">
+      <StartDate>8/17/1942</StartDate>
+      <EndDate>9/16/1942</EndDate>
+    </Month>
+    <Month id="6">
+      <StartDate>9/17/1942</StartDate>
+      <EndDate>10/16/1942</EndDate>
+    </Month>
+    <Month id="7">
+      <StartDate>10/17/1942</StartDate>
+      <EndDate>11/15/1942</EndDate>
+    </Month>
+    <Month id="8">
+      <StartDate>11/16/1942</StartDate>
+      <EndDate>12/15/1942</EndDate>
+    </Month>
+    <Month id="9">
+      <StartDate>12/16/1942</StartDate>
+      <EndDate>1/13/1943</EndDate>
+    </Month>
+    <Month id="10">
+      <StartDate>1/14/1943</StartDate>
+      <EndDate>2/11/1943</EndDate>
+    </Month>
+    <Month id="11">
+      <StartDate>2/12/1943</StartDate>
+      <EndDate>3/13/1943</EndDate>
+    </Month>
+    <Month id="12">
+      <StartDate>3/14/1943</StartDate>
+      <EndDate>4/13/1943</EndDate>
+    </Month>
+  </Year>
+</Date_Conversion_Information>

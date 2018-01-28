@@ -1,0 +1,45 @@
+﻿using SoftIms.Data;
+using SoftIms.Data.Helper;
+using SoftIms.Data.ViewModel;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+
+namespace SoftIms.Controllers
+{
+    public class BaseController : Controller
+    {
+        protected UnitOfWork db;
+        protected CommonHelper helper;
+        protected ImsReportService imsReportService;
+        public BaseController()
+        {
+            db = new UnitOfWork();
+            helper = new CommonHelper();
+            imsReportService = new ImsReportService();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            db.Dispose();
+            base.Dispose(disposing);
+        }
+        protected void RefreshModelState(IList<ValidationResult> validationResults)
+        {
+            foreach (ValidationResult result in validationResults)
+            {
+                foreach (string key in result.MemberNames)
+                {
+                    ModelState.AddModelError(key, result.ErrorMessage);
+                }
+            }
+        }
+
+        #region utility
+        
+        #endregion
+    }
+}

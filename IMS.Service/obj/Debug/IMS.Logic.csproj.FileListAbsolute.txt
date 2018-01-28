@@ -1,0 +1,4 @@
+D:\IMS\trunk\IMS.Service\obj\Debug\IMS.Logic.csprojResolveAssemblyReference.cache
+D:\IMS\trunk\IMS.Service\obj\Debug\IMS.Logic.csproj.CoreCompileInputs.cache
+D:\IMS\trunk\IMS.Service\obj\Debug\NTA.Logic.dll
+D:\IMS\trunk\IMS.Service\obj\Debug\NTA.Logic.pdb

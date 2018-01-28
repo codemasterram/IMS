@@ -1,0 +1,38 @@
+﻿@model IEnumerable<SoftIms.Data.ViewModel.AppUserListViewModel>
+@{
+    ViewBag.Title = "Employee List ";
+    int Sno = 1;
+
+}
+
+
+<div class="table-responsive">
+    <table class="table-bordered table">
+        <thead class="bg-light-blue">
+            <tr>
+                <th>S.No</th>
+                <th>User Name</th>
+                <th>Department</th>
+                <th>Employee Name</th>
+                <th>Designation</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Sno</td>
+                <td>@item.UserName</td>
+                <td>@item.Department</td>
+                <td>@item.EmployeeName</td>
+                <td>@item.Designation</td>
+                <td>
+                    <a href="@Url.Action("create","user",new { id = item.Id})"><span class="fa fa-edit"></span>Edit</a>
+                    <a type="button" class="btn-sm btn-danger btn-delete-using-modal" data-msg="Are you sure you wnat to delete User credentials of  - @item.EmployeeName ?" href="@Url.Action("DeleteUser", "user", new { id = item.Id })"><span class="fa fa-minus"> </span></a>
+                </td>
+
+            </tr>
+            Sno++;
+        }
+    </table>
+</div>

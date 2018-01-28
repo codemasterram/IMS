@@ -1,0 +1,32 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SoftIms.Data.ViewModel
+{
+    public class DocumentNumberingViewModel
+    {
+        public int Id { get; set; }
+        public Nullable<int> DocumentSetupId { get; set; }
+        public Nullable<int> FiscalYearId { get; set; }
+        [Required]
+        public int StartNumber { get; set; }
+        public string Prefix { get; set; }
+        public string Sufix { get; set; }
+        [Required]
+        public int Length { get; set; }
+    }
+    public class DocumentNumberingListViewModel
+    {
+        public int Id { get; set; }
+        public string DocumentSetupId { get; set; }
+        public string FiscalYearId { get; set; }
+        public int StartNumber { get; set; }
+        public string Prefix { get; set; }
+        public string Sufix { get; set; }
+        public int Length { get; set; }
+    }
+}

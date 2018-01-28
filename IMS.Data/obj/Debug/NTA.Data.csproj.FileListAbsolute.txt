@@ -1,0 +1,10 @@
+D:\softechNEw\NTA.Data\bin\Debug\NTA.Data.dll.config
+D:\softechNEw\NTA.Data\bin\Debug\NTA.Data.dll
+D:\softechNEw\NTA.Data\bin\Debug\NTA.Data.pdb
+D:\softechNEw\NTA.Data\bin\Debug\EntityFramework.dll
+D:\softechNEw\NTA.Data\bin\Debug\EntityFramework.SqlServer.dll
+D:\softechNEw\NTA.Data\bin\Debug\EntityFramework.xml
+D:\softechNEw\NTA.Data\bin\Debug\EntityFramework.SqlServer.xml
+D:\softechNEw\NTA.Data\obj\Debug\NTA.Data.csproj.CoreCompileInputs.cache
+D:\softechNEw\NTA.Data\obj\Debug\NTA.Data.dll
+D:\softechNEw\NTA.Data\obj\Debug\NTA.Data.pdb

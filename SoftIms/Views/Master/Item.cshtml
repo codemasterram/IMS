@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "सामानको विवरण ";
+}
+<div class="col-md-12">
+    <div class="box box-info">
+        <div class="box-body">
+            <form class="form-inline frm-search">
+                <div class="form-group">
+                    <label for="ItemTypeId">सामानको समूह</label> <br>
+                    @Html.DropDownList("ItemGroupId", MasterDataList<ItemGroup>("Id", "Name"), "-- सबै  --", new { @class = "form-control", @style = "min-width:200px;" })
+                </div>
+                <div class="form-group">
+                    <label for="Name">सामानको नाम</label> <br>
+                    <input type="text" placeholder="सामानको नाम खोजी...." name="Name" id="Name" class="form-control keyword">
+                </div>
+                <div class="form-group" style="margin-top:25px;">
+                    <button type="button" class="btn btn-info btn-reload" data-showLoader="false" data-resultElement=".item-detail" data-url="@Url.Action("itemdetail","master")"><span class="fa fa-search"></span></button>
+                    <a class="btn btn-new btn-info" data-id="0" data-url="@Url.Action("CreateItem", "master")" data-title="Create Department"><i class="fa fa-plus" aria-hidden="true"></i></a>
+                    <button type="button" class="btn btn-info btnPrint" data-print-element=".item-detail" data-report-title="सामानको विवरण"><span class="fa fa-print"></span></button>
+                </div>
+            </form>
+            <div class="clearfix"></div>
+            <div class="item-detail detail">
+                @Html.Action("ItemDetail", "master")
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+

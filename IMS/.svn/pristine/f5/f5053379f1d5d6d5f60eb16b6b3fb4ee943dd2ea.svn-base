@@ -1,0 +1,81 @@
+﻿@model SoftIms.Data.ViewModel.PurchaseOrderViewModel
+@{
+    ViewBag.Title = "Purchase Order";
+}
+@section head {
+    <style>
+        .text-right .item {
+            text-align: right;
+        }
+
+        .item {
+            width: 50px !important;
+        }
+
+        #frmPurchaseOrder label {
+            padding-right: 5px !important;
+        }
+    </style>
+}
+
+<div class="col-xs-12">
+    <div class="box box-info">
+        <div class="box-body" style="min-height:400px;">
+            <div id="printablediv">
+                <div class="row">
+                    <div class="col-xs-3"></div>
+                    <div class="text-center col-xs-6">
+                        <h3>नेपाल दूरसञ्चार प्राधिकरण </h3>
+                        <h4>काठमाडौं</h4>
+                        <h3>खरिद आदेश</h3>
+                    </div>
+                    <div class="col-xs-3">
+                        <span class="pull-right" font-size:small">म.ले.प.फा.नं.४५</span>
+                    </div>
+                    <br />
+                </div>
+                <div class="row">
+                    <div class="col-xs-9">
+                    </div>
+                    <div class="col-xs-3">
+                        <span class="pull-right" font-size:small">खरिद आदेश नं : @Model.DisplayDocumentNo</span>
+                        <span class="pull-right" font-size:small">मिति : @Model.DateBS</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        बिक्रेता श्री @Model.VendorDetails.Name यस प्रधिकरणको लागि आवश्यक तपसिल बमोजिमका सामानहरु उपलब्ध गराईदिनुहुन ।
+                    </div>
+                </div>
+                <br />
+                <div class="row" style="margin-top:5px;">
+                    <div class="col-xs-12">
+                        <div class="form-group list-detail detail">
+                            @Html.Action("PrintOrderItemList", "imsentry")
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-4 text-center">
+                        <h5>-----------------------</h5>
+                        <h5>तयार गर्ने</h5>
+                    </div>
+                    <div class="col-xs-4 text-center">
+
+                    </div>
+                    <div class="col-xs-4 text-center">
+                        <h5>-----------------------</h5>
+                        <h5>स्वी गर्ने</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12 pull-right" style="padding-left: 30px;">
+        <button type="button" class="btn btn-info btnPrint" data-print-element="#printablediv" data-static-title="true"><span class="fa fa-print"></span></button>
+        <button type="button" class="toexcel btn btn-success" data-report-title="Purchase Order Detail" data-sheet="Sheet1" data-table="#tblPurchaseOrderItemList"><img src="~/Content/img/excel-export-16x16.png" /></button>
+    </div>
+</div>
+

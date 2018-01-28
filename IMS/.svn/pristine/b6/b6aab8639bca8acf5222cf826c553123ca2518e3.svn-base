@@ -1,0 +1,52 @@
+﻿
+@model IList<SoftIms.Data.ViewModel.DocumentNumberingListViewModel>
+@{
+    int sno = 0;
+}
+
+<table class="table table-condensed table-striped">
+    <thead class="bg-light-blue">
+        <tr>
+            <th width="30">Sno</th>
+            <th>Document</th>
+            <th>Prefix</th>
+            <th>Start</th>
+            <th>Sufix</th>
+            <th>Length</th>
+            <th>Preview</th>
+            <th data-no-print="true"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+            {
+                sno++;
+            <tr>
+                <td class="text-right">@sno</td>
+                <td>@item.DocumentSetupName</td>
+                <td>@item.Prefix</td>
+                <td>@item.StartNumber</td>
+                <td>@item.Sufix</td>
+                <td>@item.Length</td>
+                <td class="text-bold">@string.Format("{0}{1}{2}", item.Prefix, "X".RepeateString(item.Length), item.Sufix)</td>
+                <td data-no-print="true">
+
+                    <a type="button" class="btn-sm btn-info" data-toggle="modal" data-target="#myModal" href="@Url.Action("CreateDocumentNumbering","setup",new { id = item.Id})"><span class="fa fa-plus"> </span></a>
+
+                    @* <li><a href="javascript:;" class="btnNew" data-id="@item.Id" data-refreshButton=".btnRefresh-documentNumbering" data-url="@Url.Action("CreateDocumentNumbering","setup", new { id = item.Id})" data-title="Document Numbering"><i class="fa fa-edit"></i> Edit</a></li>*@
+
+                </td>
+            </tr>
+        }
+        @if (Model.Count == 0)
+        {
+            <tr>
+                <td colspan="8" class="text-center"><b>No Record Found !</b></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script>
+    initializeCommon();
+</script>

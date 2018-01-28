@@ -1,0 +1,121 @@
+﻿
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">Inventory Setup</h3>
+                        </div>
+                        <div class="box-body">
+                            <a class="btn btn-app" href="@Url.Action("itemunit","master")">
+                                <i class="fa fa-gear"></i> सामानको इकाई
+                            </a>
+
+                            <a class="btn btn-app " href="@Url.Action("itemgroup","master")">
+                                <i class="fa fa-gear"></i> सामानको समूह
+                            </a>
+
+                            <a class="btn btn-app" href="@Url.Action("item","master")">
+                                <i class="fa fa-gear"></i> सामानको बिवरण
+                            </a>
+
+                            <a class="btn btn-app" href="@Url.Action("vendor","setup")">
+                                <i class="fa fa-gear"></i> बिक्रेताको विबरण
+                            </a>
+
+                            <a class="btn hide btn-app " href="">
+                                <i class="fa fa-gear"></i> भण्डार मिलाको प्रकार
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">Inventory Entry</h3>
+                        </div>
+                        <div class="box-body">
+                            <a class="btn btn-app" href="@Url.Action("openingstockentry","imsentry")">
+                                <i class="fa fa-file-o"></i> शुरु मौज्दात (Opening Stock)
+                            </a>
+
+                            <a class="btn btn-app" href="@Url.Action("itemrequestentry","imsentry")">
+                                <i class="fa fa-file-o"></i> माग फाराम
+                            </a>
+
+                            <a class="btn btn-app" href="@Url.Action("purchaseorderentry","imsentry")">
+                                <i class="fa fa-file-o"></i> खरिद आदेश
+                            </a>
+
+                            <a class="btn btn-app " href="@Url.Action("purchaseentryentry","imsentry")">
+                                <i class="fa fa-file-o"></i> भण्डार दाखिला
+                            </a>
+
+                            <a class="btn hide btn-app " href="">
+                                <i class="fa fa-file-o"></i> भण्डार मिलान
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">जिन्सी प्रतिवेदन</h3>
+                        </div>
+                        <div class="box-body">
+                            <a class="btn btn-app  " href="@Url.Action("openingstockList", "ImsEntry")">
+                                <i class="fa fa-th-list"></i> शुरु मौज्दात (Opening stock)
+                            </a>
+
+                            <a class="btn btn-app " href="@Url.Action("itemrequestlist","imsentry")">
+                                <i class="fa fa-th-list"></i> माग फारम
+                            </a>
+
+                            <a class="btn btn-app" href="@Url.Action("purchaseorderlist","imsentry")">
+                                <i class="fa fa-th-list"></i> खरिद आदेश
+                            </a>
+
+                            <a class="btn btn-app" href="@Url.Action("purchaseentryList","imsentry")">
+                                <i class="fa fa-th-list"></i> भण्डार दाखिला
+                            </a>
+
+                            <a class="btn btn-app " href="@Url.Action("itemreleaselist","imsentry")">
+                                <i class="fa fa-th-list"></i> निकासा
+                            </a>
+
+                            <a class="btn hide btn-app " href="">
+                                <i class="fa fa-th-list"></i> भण्डार मिलान
+                            </a>
+
+                            <div class="btn btn-group">
+                                <button type="button" class="btn btn-app dropdown-toggle" data-toggle="dropdown">
+                                    <i class="fa fa-th-list"></i> प्रतिबेदन... <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li class=""><a href="@Url.Action("consumableitemrecord","imsreport")">खर्च भएर जाने सामानको बिवरण</a></li>
+                                    <li class="divider"></li>
+                                    <li class=""><a href="@Url.Action("nonconsumableitemrecord","imsreport")">खप्ने सामानको बिवरण</a></li>
+                                    <li class="divider"></li>
+                                    <li class=""><a href="@Url.Action("itemsubrecord","imsreport")">जिन्सी मालसामानको सहायक खाता</a></li>
+                                </ul>
+                            </div>
+
+                            <a class="btn btn-app " href="">
+                                <i class="fa fa-th-list"></i> स्थायी सम्पत्ति विवरण खाता
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+

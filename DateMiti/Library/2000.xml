@@ -1,0 +1,503 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Date_Conversion_Information>
+  <Year yearid="2000">
+    <Month id="1">
+      <StartDate>4/14/1943</StartDate>
+      <EndDate>5/13/1943</EndDate>
+    </Month>
+    <Month id="2">
+      <StartDate>5/14/1943</StartDate>
+      <EndDate>6/14/1943</EndDate>
+    </Month>
+    <Month id="3">
+      <StartDate>6/15/1943</StartDate>
+      <EndDate>7/15/1943</EndDate>
+    </Month>
+    <Month id="4">
+      <StartDate>7/16/1943</StartDate>
+      <EndDate>8/16/1943</EndDate>
+    </Month>
+    <Month id="5">
+      <StartDate>8/17/1943</StartDate>
+      <EndDate>9/16/1943</EndDate>
+    </Month>
+    <Month id="6">
+      <StartDate>9/17/1943</StartDate>
+      <EndDate>10/16/1943</EndDate>
+    </Month>
+    <Month id="7">
+      <StartDate>10/17/1943</StartDate>
+      <EndDate>11/15/1943</EndDate>
+    </Month>
+    <Month id="8">
+      <StartDate>11/16/1943</StartDate>
+      <EndDate>12/15/1943</EndDate>
+    </Month>
+    <Month id="9">
+      <StartDate>12/16/1943</StartDate>
+      <EndDate>1/13/1944</EndDate>
+    </Month>
+    <Month id="10">
+      <StartDate>1/14/1944</StartDate>
+      <EndDate>2/12/1944</EndDate>
+    </Month>
+    <Month id="11">
+      <StartDate>2/13/1944</StartDate>
+      <EndDate>3/12/1944</EndDate>
+    </Month>
+    <Month id="12">
+      <StartDate>3/13/1944</StartDate>
+      <EndDate>4/12/1944</EndDate>
+    </Month>
+  </Year>
+  <Year yearid="2001">
+    <Month id="1">
+      <StartDate>4/13/1944</StartDate>
+      <EndDate>5/13/1944</EndDate>
+    </Month>
+    <Month id="2">
+      <StartDate>5/14/1944</StartDate>
+      <EndDate>6/13/1944</EndDate>
+    </Month>
+    <Month id="3">
+      <StartDate>6/14/1944</StartDate>
+      <EndDate>7/15/1944</EndDate>
+    </Month>
+    <Month id="4">
+      <StartDate>7/16/1944</StartDate>
+      <EndDate>8/15/1944</EndDate>
+    </Month>
+    <Month id="5">
+      <StartDate>8/16/1944</StartDate>
+      <EndDate>9/15/1944</EndDate>
+    </Month>
+    <Month id="6">
+      <StartDate>9/16/1944</StartDate>
+      <EndDate>10/16/1944</EndDate>
+    </Month>
+    <Month id="7">
+      <StartDate>10/17/1944</StartDate>
+      <EndDate>11/15/1944</EndDate>
+    </Month>
+    <Month id="8">
+      <StartDate>11/16/1944</StartDate>
+      <EndDate>12/14/1944</EndDate>
+    </Month>
+    <Month id="9">
+      <StartDate>12/15/1944</StartDate>
+      <EndDate>1/13/1945</EndDate>
+    </Month>
+    <Month id="10">
+      <StartDate>1/14/1945</StartDate>
+      <EndDate>2/11/1945</EndDate>
+    </Month>
+    <Month id="11">
+      <StartDate>2/12/1945</StartDate>
+      <EndDate>3/13/1945</EndDate>
+    </Month>
+    <Month id="12">
+      <StartDate>3/14/1945</StartDate>
+      <EndDate>4/12/1945</EndDate>
+    </Month>
+  </Year>
+  <Year yearid="2002">
+    <Month id="1">
+      <StartDate>4/13/1945</StartDate>
+      <EndDate>5/13/1945</EndDate>
+    </Month>
+    <Month id="2">
+      <StartDate>5/14/1945</StartDate>
+      <EndDate>6/13/1945</EndDate>
+    </Month>
+    <Month id="3">
+      <StartDate>6/14/1945</StartDate>
+      <EndDate>7/15/1945</EndDate>
+    </Month>
+    <Month id="4">
+      <StartDate>7/16/1945</StartDate>
+      <EndDate>8/16/1945</EndDate>
+    </Month>
+    <Month id="5">
+      <StartDate>8/17/1945</StartDate>
+      <EndDate>9/16/1945</EndDate>
+    </Month>
+    <Month id="6">
+      <StartDate>9/17/1945</StartDate>
+      <EndDate>10/16/1945</EndDate>
+    </Month>
+    <Month id="7">
+      <StartDate>10/17/1945</StartDate>
+      <EndDate>11/15/1945</EndDate>
+    </Month>
+    <Month id="8">
+      <StartDate>11/16/1945</StartDate>
+      <EndDate>12/14/1945</EndDate>
+    </Month>
+    <Month id="9">
+      <StartDate>12/15/1945</StartDate>
+      <EndDate>1/13/1946</EndDate>
+    </Month>
+    <Month id="10">
+      <StartDate>1/14/1946</StartDate>
+      <EndDate>2/11/1946</EndDate>
+    </Month>
+    <Month id="11">
+      <StartDate>2/12/1946</StartDate>
+      <EndDate>3/13/1946</EndDate>
+    </Month>
+    <Month id="12">
+      <StartDate>3/14/1946</StartDate>
+      <EndDate>4/12/1946</EndDate>
+    </Month>
+  </Year>
+  <Year yearid="2003">
+    <Month id="1">
+      <StartDate>4/13/1946</StartDate>
+      <EndDate>5/13/1946</EndDate>
+    </Month>
+    <Month id="2">
+      <StartDate>5/14/1946</StartDate>
+      <EndDate>6/14/1946</EndDate>
+    </Month>
+    <Month id="3">
+      <StartDate>6/15/1946</StartDate>
+      <EndDate>7/15/1946</EndDate>
+    </Month>
+    <Month id="4">
+      <StartDate>7/16/1946</StartDate>
+      <EndDate>8/16/1946</EndDate>
+    </Month>
+    <Month id="5">
+      <StartDate>8/17/1946</StartDate>
+      <EndDate>9/16/1946</EndDate>
+    </Month>
+    <Month id="6">
+      <StartDate>9/17/1946</StartDate>
+      <EndDate>10/16/1946</EndDate>
+    </Month>
+    <Month id="7">
+      <StartDate>10/17/1946</StartDate>
+      <EndDate>11/15/1946</EndDate>
+    </Month>
+    <Month id="8">
+      <StartDate>11/16/1946</StartDate>
+      <EndDate>12/15/1946</EndDate>
+    </Month>
+    <Month id="9">
+      <StartDate>12/16/1946</StartDate>
+      <EndDate>1/13/1947</EndDate>
+    </Month>
+    <Month id="10">
+      <StartDate>1/14/1947</StartDate>
+      <EndDate>2/11/1947</EndDate>
+    </Month>
+    <Month id="11">
+      <StartDate>2/12/1947</StartDate>
+      <EndDate>3/13/1947</EndDate>
+    </Month>
+    <Month id="12">
+      <StartDate>3/14/1947</StartDate>
+      <EndDate>4/13/1947</EndDate>
+    </Month>
+  </Year>
+  <Year yearid="2004">
+    <Month id="1">
+      <StartDate>4/14/1947</StartDate>
+      <EndDate>5/13/1947</EndDate>
+    </Month>
+    <Month id="2">
+      <StartDate>5/14/1947</StartDate>
+      <EndDate>6/14/1947</EndDate>
+    </Month>
+    <Month id="3">
+      <StartDate>6/15/1947</StartDate>
+      <EndDate>7/15/1947</EndDate>
+    </Month>
+    <Month id="4">
+      <StartDate>7/16/1947</StartDate>
+      <EndDate>8/16/1947</EndDate>
+    </Month>
+    <Month id="5">
+      <StartDate>8/17/1947</StartDate>
+      <EndDate>9/16/1947</EndDate>
+    </Month>
+    <Month id="6">
+      <StartDate>9/17/1947</StartDate>
+      <EndDate>10/16/1947</EndDate>
+    </Month>
+    <Month id="7">
+      <StartDate>10/17/1947</StartDate>
+      <EndDate>11/15/1947</EndDate>
+    </Month>
+    <Month id="8">
+      <StartDate>11/16/1947</StartDate>
+      <EndDate>12/15/1947</EndDate>
+    </Month>
+    <Month id="9">
+      <StartDate>12/16/1947</StartDate>
+      <EndDate>1/13/1948</EndDate>
+    </Month>
+    <Month id="10">
+      <StartDate>1/14/1948</StartDate>
+      <EndDate>2/12/1948</EndDate>
+    </Month>
+    <Month id="11">
+      <StartDate>2/13/1948</StartDate>
+      <EndDate>3/12/1948</EndDate>
+    </Month>
+    <Month id="12">
+      <StartDate>3/13/1948</StartDate>
+      <EndDate>4/12/1948</EndDate>
+    </Month>
+  </Year>
+  <Year yearid="2005">
+    <Month id="1">
+      <StartDate>4/13/1948</StartDate>
+      <EndDate>5/13/1948</EndDate>
+    </Month>
+    <Month id="2">
+      <StartDate>5/14/1948</StartDate>
+      <EndDate>6/13/1948</EndDate>
+    </Month>
+    <Month id="3">
+      <StartDate>6/14/1948</StartDate>
+      <EndDate>7/15/1948</EndDate>
+    </Month>
+    <Month id="4">
+      <StartDate>7/16/1948</StartDate>
+      <EndDate>8/15/1948</EndDate>
+    </Month>
+    <Month id="5">
+      <StartDate>8/16/1948</StartDate>
+      <EndDate>9/15/1948</EndDate>
+    </Month>
+    <Month id="6">
+      <StartDate>9/16/1948</StartDate>
+      <EndDate>10/16/1948</EndDate>
+    </Month>
+    <Month id="7">
+      <StartDate>10/17/1948</StartDate>
+      <EndDate>11/15/1948</EndDate>
+    </Month>
+    <Month id="8">
+      <StartDate>11/16/1948</StartDate>
+      <EndDate>12/14/1948</EndDate>
+    </Month>
+    <Month id="9">
+      <StartDate>12/15/1948</StartDate>
+      <EndDate>1/13/1949</EndDate>
+    </Month>
+    <Month id="10">
+      <StartDate>1/14/1949</StartDate>
+      <EndDate>2/11/1949</EndDate>
+    </Month>
+    <Month id="11">
+      <StartDate>2/12/1949</StartDate>
+      <EndDate>3/13/1949</EndDate>
+    </Month>
+    <Month id="12">
+      <StartDate>3/14/1949</StartDate>
+      <EndDate>4/12/1949</EndDate>
+    </Month>
+  </Year>
+  <Year yearid="2006">
+    <Month id="1">
+      <StartDate>4/13/1949</StartDate>
+      <EndDate>5/13/1949</EndDate>
+    </Month>
+    <Month id="2">
+      <StartDate>5/14/1949</StartDate>
+      <EndDate>6/13/1949</EndDate>
+    </Month>
+    <Month id="3">
+      <StartDate>6/14/1949</StartDate>
+      <EndDate>7/15/1949</EndDate>
+    </Month>
+    <Month id="4">
+      <StartDate>7/16/1949</StartDate>
+      <EndDate>8/16/1949</EndDate>
+    </Month>
+    <Month id="5">
+      <StartDate>8/17/1949</StartDate>
+      <EndDate>9/16/1949</EndDate>
+    </Month>
+    <Month id="6">
+      <StartDate>9/17/1949</StartDate>
+      <EndDate>10/16/1949</EndDate>
+    </Month>
+    <Month id="7">
+      <StartDate>10/17/1949</StartDate>
+      <EndDate>11/15/1949</EndDate>
+    </Month>
+    <Month id="8">
+      <StartDate>11/16/1949</StartDate>
+      <EndDate>12/14/1949</EndDate>
+    </Month>
+    <Month id="9">
+      <StartDate>12/15/1949</StartDate>
+      <EndDate>1/13/1950</EndDate>
+    </Month>
+    <Month id="10">
+      <StartDate>1/14/1950</StartDate>
+      <EndDate>2/11/1950</EndDate>
+    </Month>
+    <Month id="11">
+      <StartDate>2/12/1950</StartDate>
+      <EndDate>3/13/1950</EndDate>
+    </Month>
+    <Month id="12">
+      <StartDate>3/14/1950</StartDate>
+      <EndDate>4/12/1950</EndDate>
+    </Month>
+  </Year>
+  <Year yearid="2007">
+    <Month id="1">
+      <StartDate>4/13/1950</StartDate>
+      <EndDate>5/13/1950</EndDate>
+    </Month>
+    <Month id="2">
+      <StartDate>5/14/1950</StartDate>
+      <EndDate>6/14/1950</EndDate>
+    </Month>
+    <Month id="3">
+      <StartDate>6/15/1950</StartDate>
+      <EndDate>7/15/1950</EndDate>
+    </Month>
+    <Month id="4">
+      <StartDate>7/16/1950</StartDate>
+      <EndDate>8/16/1950</EndDate>
+    </Month>
+    <Month id="5">
+      <StartDate>8/17/1950</StartDate>
+      <EndDate>9/16/1950</EndDate>
+    </Month>
+    <Month id="6">
+      <StartDate>9/17/1950</StartDate>
+      <EndDate>10/16/1950</EndDate>
+    </Month>
+    <Month id="7">
+      <StartDate>10/17/1950</StartDate>
+      <EndDate>11/15/1950</EndDate>
+    </Month>
+    <Month id="8">
+      <StartDate>11/16/1950</StartDate>
+      <EndDate>12/15/1950</EndDate>
+    </Month>
+    <Month id="9">
+      <StartDate>12/16/1950</StartDate>
+      <EndDate>1/13/1951</EndDate>
+    </Month>
+    <Month id="10">
+      <StartDate>1/14/1951</StartDate>
+      <EndDate>2/11/1951</EndDate>
+    </Month>
+    <Month id="11">
+      <StartDate>2/12/1951</StartDate>
+      <EndDate>3/13/1951</EndDate>
+    </Month>
+    <Month id="12">
+      <StartDate>3/14/1951</StartDate>
+      <EndDate>4/13/1951</EndDate>
+    </Month>
+  </Year>
+  <Year yearid="2008">
+    <Month id="1">
+      <StartDate>4/14/1951</StartDate>
+      <EndDate>5/14/1951</EndDate>
+    </Month>
+    <Month id="2">
+      <StartDate>5/15/1951</StartDate>
+      <EndDate>6/14/1951</EndDate>
+    </Month>
+    <Month id="3">
+      <StartDate>6/15/1951</StartDate>
+      <EndDate>7/15/1951</EndDate>
+    </Month>
+    <Month id="4">
+      <StartDate>7/16/1951</StartDate>
+      <EndDate>8/16/1951</EndDate>
+    </Month>
+    <Month id="5">
+      <StartDate>8/17/1951</StartDate>
+      <EndDate>9/16/1951</EndDate>
+    </Month>
+    <Month id="6">
+      <StartDate>9/17/1951</StartDate>
+      <EndDate>10/17/1951</EndDate>
+    </Month>
+    <Month id="7">
+      <StartDate>10/18/1951</StartDate>
+      <EndDate>11/15/1951</EndDate>
+    </Month>
+    <Month id="8">
+      <StartDate>11/16/1951</StartDate>
+      <EndDate>12/15/1951</EndDate>
+    </Month>
+    <Month id="9">
+      <StartDate>12/16/1951</StartDate>
+      <EndDate>1/14/1952</EndDate>
+    </Month>
+    <Month id="10">
+      <StartDate>1/15/1952</StartDate>
+      <EndDate>2/12/1952</EndDate>
+    </Month>
+    <Month id="11">
+      <StartDate>2/13/1952</StartDate>
+      <EndDate>3/12/1952</EndDate>
+    </Month>
+    <Month id="12">
+      <StartDate>3/13/1952</StartDate>
+      <EndDate>4/12/1952</EndDate>
+    </Month>
+  </Year>
+  <Year yearid="2009">
+    <Month id="1">
+      <StartDate>4/13/1952</StartDate>
+      <EndDate>5/13/1952</EndDate>
+    </Month>
+    <Month id="2">
+      <StartDate>5/14/1952</StartDate>
+      <EndDate>6/13/1952</EndDate>
+    </Month>
+    <Month id="3">
+      <StartDate>6/14/1952</StartDate>
+      <EndDate>7/15/1952</EndDate>
+    </Month>
+    <Month id="4">
+      <StartDate>7/16/1952</StartDate>
+      <EndDate>8/15/1952</EndDate>
+    </Month>
+    <Month id="5">
+      <StartDate>8/16/1952</StartDate>
+      <EndDate>9/15/1952</EndDate>
+    </Month>
+    <Month id="6">
+      <StartDate>9/16/1952</StartDate>
+      <EndDate>10/16/1952</EndDate>
+    </Month>
+    <Month id="7">
+      <StartDate>10/17/1952</StartDate>
+      <EndDate>11/15/1952</EndDate>
+    </Month>
+    <Month id="8">
+      <StartDate>11/16/1952</StartDate>
+      <EndDate>12/14/1952</EndDate>
+    </Month>
+    <Month id="9">
+      <StartDate>12/15/1952</StartDate>
+      <EndDate>1/13/1953</EndDate>
+    </Month>
+    <Month id="10">
+      <StartDate>1/14/1953</StartDate>
+      <EndDate>2/11/1953</EndDate>
+    </Month>
+    <Month id="11">
+      <StartDate>2/12/1953</StartDate>
+      <EndDate>3/13/1953</EndDate>
+    </Month>
+    <Month id="12">
+      <StartDate>3/14/1953</StartDate>
+      <EndDate>4/12/1953</EndDate>
+    </Month>
+  </Year>
+</Date_Conversion_Information>

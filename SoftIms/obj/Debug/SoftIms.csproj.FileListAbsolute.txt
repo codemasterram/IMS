@@ -1,0 +1,90 @@
+c:\users\my pc\documents\visual studio 2015\Projects\SoftIms\SoftIms\bin\roslyn\csc.exe
+c:\users\my pc\documents\visual studio 2015\Projects\SoftIms\SoftIms\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+c:\users\my pc\documents\visual studio 2015\Projects\SoftIms\SoftIms\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+c:\users\my pc\documents\visual studio 2015\Projects\SoftIms\SoftIms\bin\roslyn\Microsoft.CodeAnalysis.dll
+c:\users\my pc\documents\visual studio 2015\Projects\SoftIms\SoftIms\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+c:\users\my pc\documents\visual studio 2015\Projects\SoftIms\SoftIms\bin\roslyn\Microsoft.CSharp.Core.targets
+c:\users\my pc\documents\visual studio 2015\Projects\SoftIms\SoftIms\bin\roslyn\Microsoft.VisualBasic.Core.targets
+c:\users\my pc\documents\visual studio 2015\Projects\SoftIms\SoftIms\bin\roslyn\System.Collections.Immutable.dll
+c:\users\my pc\documents\visual studio 2015\Projects\SoftIms\SoftIms\bin\roslyn\System.Reflection.Metadata.dll
+c:\users\my pc\documents\visual studio 2015\Projects\SoftIms\SoftIms\bin\roslyn\vbc.exe
+c:\users\my pc\documents\visual studio 2015\Projects\SoftIms\SoftIms\bin\roslyn\VBCSCompiler.exe
+c:\users\my pc\documents\visual studio 2015\Projects\SoftIms\SoftIms\bin\roslyn\VBCSCompiler.exe.config
+c:\users\my pc\documents\visual studio 2015\Projects\SoftIms\SoftIms\bin\SoftIms.dll.config
+c:\users\my pc\documents\visual studio 2015\Projects\SoftIms\SoftIms\bin\SoftIms.dll
+c:\users\my pc\documents\visual studio 2015\Projects\SoftIms\SoftIms\bin\SoftIms.pdb
+c:\users\my pc\documents\visual studio 2015\Projects\SoftIms\SoftIms\bin\Antlr3.Runtime.dll
+c:\users\my pc\documents\visual studio 2015\Projects\SoftIms\SoftIms\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+c:\users\my pc\documents\visual studio 2015\Projects\SoftIms\SoftIms\bin\Microsoft.Web.Infrastructure.dll
+c:\users\my pc\documents\visual studio 2015\Projects\SoftIms\SoftIms\bin\Newtonsoft.Json.dll
+c:\users\my pc\documents\visual studio 2015\Projects\SoftIms\SoftIms\bin\System.Web.Helpers.dll
+c:\users\my pc\documents\visual studio 2015\Projects\SoftIms\SoftIms\bin\System.Web.Mvc.dll
+c:\users\my pc\documents\visual studio 2015\Projects\SoftIms\SoftIms\bin\System.Web.Optimization.dll
+c:\users\my pc\documents\visual studio 2015\Projects\SoftIms\SoftIms\bin\System.Web.Razor.dll
+c:\users\my pc\documents\visual studio 2015\Projects\SoftIms\SoftIms\bin\System.Web.WebPages.Deployment.dll
+c:\users\my pc\documents\visual studio 2015\Projects\SoftIms\SoftIms\bin\System.Web.WebPages.dll
+c:\users\my pc\documents\visual studio 2015\Projects\SoftIms\SoftIms\bin\System.Web.WebPages.Razor.dll
+c:\users\my pc\documents\visual studio 2015\Projects\SoftIms\SoftIms\bin\WebGrease.dll
+c:\users\my pc\documents\visual studio 2015\Projects\SoftIms\SoftIms\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+c:\users\my pc\documents\visual studio 2015\Projects\SoftIms\SoftIms\bin\System.Web.Helpers.xml
+c:\users\my pc\documents\visual studio 2015\Projects\SoftIms\SoftIms\bin\System.Web.Mvc.xml
+c:\users\my pc\documents\visual studio 2015\Projects\SoftIms\SoftIms\bin\System.Web.Optimization.xml
+c:\users\my pc\documents\visual studio 2015\Projects\SoftIms\SoftIms\bin\System.Web.Razor.xml
+c:\users\my pc\documents\visual studio 2015\Projects\SoftIms\SoftIms\bin\System.Web.WebPages.xml
+c:\users\my pc\documents\visual studio 2015\Projects\SoftIms\SoftIms\bin\System.Web.WebPages.Deployment.xml
+c:\users\my pc\documents\visual studio 2015\Projects\SoftIms\SoftIms\bin\System.Web.WebPages.Razor.xml
+c:\users\my pc\documents\visual studio 2015\Projects\SoftIms\SoftIms\bin\Antlr3.Runtime.pdb
+c:\users\my pc\documents\visual studio 2015\Projects\SoftIms\SoftIms\bin\Newtonsoft.Json.xml
+c:\users\my pc\documents\visual studio 2015\Projects\SoftIms\SoftIms\obj\Debug\SoftIms.csprojResolveAssemblyReference.cache
+c:\users\my pc\documents\visual studio 2015\Projects\SoftIms\SoftIms\obj\Debug\SoftIms.dll
+c:\users\my pc\documents\visual studio 2015\Projects\SoftIms\SoftIms\obj\Debug\SoftIms.pdb
+D:\IMS\trunk\SoftIms\bin\roslyn\csc.exe
+D:\IMS\trunk\SoftIms\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\IMS\trunk\SoftIms\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\IMS\trunk\SoftIms\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\IMS\trunk\SoftIms\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\IMS\trunk\SoftIms\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\IMS\trunk\SoftIms\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\IMS\trunk\SoftIms\bin\roslyn\System.Collections.Immutable.dll
+D:\IMS\trunk\SoftIms\bin\roslyn\System.Reflection.Metadata.dll
+D:\IMS\trunk\SoftIms\bin\roslyn\vbc.exe
+D:\IMS\trunk\SoftIms\bin\roslyn\VBCSCompiler.exe
+D:\IMS\trunk\SoftIms\bin\roslyn\VBCSCompiler.exe.config
+D:\IMS\trunk\SoftIms\bin\SoftIms.dll.config
+D:\IMS\trunk\SoftIms\bin\SoftIms.dll
+D:\IMS\trunk\SoftIms\bin\SoftIms.pdb
+D:\IMS\trunk\SoftIms\bin\Antlr3.Runtime.dll
+D:\IMS\trunk\SoftIms\bin\AutoMapper.dll
+D:\IMS\trunk\SoftIms\bin\EntityFramework.dll
+D:\IMS\trunk\SoftIms\bin\EntityFramework.SqlServer.dll
+D:\IMS\trunk\SoftIms\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\IMS\trunk\SoftIms\bin\Microsoft.Web.Infrastructure.dll
+D:\IMS\trunk\SoftIms\bin\Newtonsoft.Json.dll
+D:\IMS\trunk\SoftIms\bin\SoftIms.Data.dll
+D:\IMS\trunk\SoftIms\bin\System.Web.Helpers.dll
+D:\IMS\trunk\SoftIms\bin\System.Web.Mvc.dll
+D:\IMS\trunk\SoftIms\bin\System.Web.Optimization.dll
+D:\IMS\trunk\SoftIms\bin\System.Web.Razor.dll
+D:\IMS\trunk\SoftIms\bin\System.Web.WebPages.Deployment.dll
+D:\IMS\trunk\SoftIms\bin\System.Web.WebPages.dll
+D:\IMS\trunk\SoftIms\bin\System.Web.WebPages.Razor.dll
+D:\IMS\trunk\SoftIms\bin\WebGrease.dll
+D:\IMS\trunk\SoftIms\bin\SoftIms.Data.pdb
+D:\IMS\trunk\SoftIms\bin\SoftIms.Data.dll.config
+D:\IMS\trunk\SoftIms\bin\AutoMapper.xml
+D:\IMS\trunk\SoftIms\bin\EntityFramework.xml
+D:\IMS\trunk\SoftIms\bin\EntityFramework.SqlServer.xml
+D:\IMS\trunk\SoftIms\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\IMS\trunk\SoftIms\bin\System.Web.Helpers.xml
+D:\IMS\trunk\SoftIms\bin\System.Web.Mvc.xml
+D:\IMS\trunk\SoftIms\bin\System.Web.Optimization.xml
+D:\IMS\trunk\SoftIms\bin\System.Web.Razor.xml
+D:\IMS\trunk\SoftIms\bin\System.Web.WebPages.xml
+D:\IMS\trunk\SoftIms\bin\System.Web.WebPages.Deployment.xml
+D:\IMS\trunk\SoftIms\bin\System.Web.WebPages.Razor.xml
+D:\IMS\trunk\SoftIms\bin\Antlr3.Runtime.pdb
+D:\IMS\trunk\SoftIms\bin\Newtonsoft.Json.xml
+D:\IMS\trunk\SoftIms\obj\Debug\SoftIms.csprojResolveAssemblyReference.cache
+D:\IMS\trunk\SoftIms\obj\Debug\SoftIms.csproj.CoreCompileInputs.cache
+D:\IMS\trunk\SoftIms\obj\Debug\SoftIms.dll
+D:\IMS\trunk\SoftIms\obj\Debug\SoftIms.pdb

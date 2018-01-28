@@ -1,0 +1,148 @@
+﻿@model SoftIms.Data.ViewModel.ItemRecordViewModel
+@{
+    ViewBag.Title = "Consumable Item RecordDetail";
+    int sno = 0;
+    var tdStyle = "border:1px solid; vertical-align:middle;";
+}
+
+
+<div class="col-xs-12">
+    <div class="box box-info">
+        <div class="box-body" style="min-height:400px;">
+            <div id="printablediv">
+                <div class="row">
+                    <div class="col-xs-3"></div>
+                    <div class="text-center col-xs-6">
+                        <h3>@OfficeInfo.Name </h3>
+                        <h4>@OfficeInfo.Address</h4>
+                        <h3> खप्ने जिन्सी सामानको खाता</h3>
+                    </div>
+                    <div class="col-xs-3">
+                        <span class="pull-right" font-size:small">म.ले.प.फा.नं.: ४७</span>
+                    </div>
+                    <br />
+                </div>
+                <div class="row">
+                    <div class="col-xs-5">
+                        <div>जिन्सी सामानको नाम : <span class="text-bold">@Model.ItemName</span></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-5">
+                        <div>इकाई : @Model.ItemUnitName</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-7">
+                        <div>जिन्सी सामानको सम्पत्ति वर्गीकरण संकेत नम्बर : @Model.ItemCode</div>
+                    </div>
+                </div>
+                <div class="row" style="margin-top:10px;">
+                    <div class="col-xs-12">
+                        <div class="form-group">
+                            <div class="table-responsive">
+                                <table id="tblNonConsumableItemDetail" border="1" style="min-height:400px;" class="table">
+                                    <thead class="bg-gray-light">
+                                        <tr>
+                                            <td width="10%" rowspan="2" style="@tdStyle;" class="text-center pad-4">मिति</td>
+                                            <td width="10%" rowspan="2" style="@tdStyle;" class="text-center pad-4">दाखिला नं./निकासी नं.</td>
+                                            <td width="12%" rowspan="2" style="@tdStyle;" class="text-center pad-4">स्पेसिफिकेशन</td>
+                                            <td colspan="4" class="text-center pad-4" style="@tdStyle;" width="20%">विवरण</td>
+                                            <td colspan="3" width="18%" style="@tdStyle;" class="text-center pad-4">आम्दानी</td>
+                                            <td colspan="2" width="10%" style="@tdStyle;" class="text-center pad-4">खर्च</td>
+                                            <td colspan="2" width="10%" style="@tdStyle;" class="text-center pad-4">बाँकी</td>
+                                            <td rowspan="2" class="text-center pad-4" style="@tdStyle;" width="10%">कैफियत</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center pad-4" style="@tdStyle;">उत्पादन गर्ने देश वा कम्पनीको नाम</td>
+                                            <td class="text-center pad-4" style="@tdStyle;">साइज</td>
+                                            <td class="text-center pad-4" style="@tdStyle;">अनुमानित आयु</td>
+                                            <td class="text-center pad-4" style="@tdStyle;">सामान प्राप्त भएको स्रोत</td>
+                                            <td class="text-center pad-4" style="@tdStyle;">परिमाण</td>
+                                            <td class="text-center pad-4" style="@tdStyle;">दर</td>
+                                            <td class="text-center pad-4" style="@tdStyle;">जम्मा परल रकम</td>
+                                            <td class="text-center pad-4" style="@tdStyle;">परिमाण</td>
+                                            <td class="text-center pad-4" style="@tdStyle;">जम्मा परल रकम</td>
+                                            <td class="text-center pad-4" style="@tdStyle;">परिमाण</td>
+                                            <td class="text-center pad-4" style="@tdStyle;">जम्मा परल रकम</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center pad-4" style="@tdStyle;">१</td>
+                                            <td class="text-center pad-4" style="@tdStyle;">२</td>
+                                            <td class="text-center pad-4" style="@tdStyle;">३</td>
+                                            <td class="text-center pad-4" style="@tdStyle;">४</td>
+                                            <td class="text-center pad-4" style="@tdStyle;">५</td>
+                                            <td class="text-center pad-4" style="@tdStyle;">६</td>
+                                            <td class="text-center pad-4" style="@tdStyle;">७</td>
+                                            <td class="text-center pad-4" style="@tdStyle;">८</td>
+                                            <td class="text-center pad-4" style="@tdStyle;">९</td>
+                                            <td class="text-center pad-4" style="@tdStyle;">१०</td>
+                                            <td class="text-center pad-4" style="@tdStyle;">११</td>
+                                            <td class="text-center pad-4" style="@tdStyle;">१२</td>
+                                            <td class="text-center pad-4" style="@tdStyle;">१३</td>
+                                            <td class="text-center pad-4" style="@tdStyle;">१४</td>
+                                            <td class="text-center pad-4" style="@tdStyle;">१५</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="tbl-item-list">
+                                        @foreach (var item in Model.Detail)
+                                        {
+                                            sno++;
+                                            <tr>
+                                                <td class="text-center" style="@tdStyle;">@DateMiti.GetDateMiti.GetMiti(item.Date)</td>
+                                                <td class="text-center" style="@tdStyle;">@item.DisplayDocumentNo</td>
+                                                <td class="text-center" style="@tdStyle;">@item.Remarks</td>
+                                                <td style="@tdStyle;"></td>
+                                                <td style="@tdStyle;"></td>
+                                                <td style="@tdStyle;"></td>
+                                                <td style="@tdStyle;">@item.PurchasingCompany</td>
+                                                <td class="text-center" style="@tdStyle;">@((item.EarningsQuantity == 0) ? "" : item.EarningsQuantity.ToString())</td>
+                                                <td class="text-center" style="@tdStyle;">@((item.EarningsUnitPrice == 0) ? "" : item.EarningsUnitPrice.ToString("n"))</td>
+                                                <td class="text-center" style="@tdStyle;">@((item.EarningsTotalPrice == 0) ? "" : item.EarningsTotalPrice.ToString("n"))</td>
+                                                <td class="text-center" style="@tdStyle;">@((item.ExpenseQuantity == 0) ? "" : item.ExpenseQuantity.ToString())</td>
+                                                <td class="text-center" style="@tdStyle;">@((item.ExpensesTotalPrice == 0) ? "" : item.ExpensesTotalPrice.ToString("n"))</td>
+                                                <td class="text-center" style="@tdStyle;">@((item.RemainingQuantity == 0) ? "" : item.RemainingQuantity.ToString())</td>
+                                                <td class="text-center" style="@tdStyle;">@((item.RemainingTotalPrice == 0) ? "" : item.RemainingTotalPrice.ToString("n"))</td>
+                                                <td class="text-center" style="@tdStyle;"></td>
+                                            </tr>
+                                        }
+                                        @if (!Model.Detail.Any())
+                                        {
+                                            <tr>
+                                                <td colspan="15" class="text-center" style="@tdStyle;">रेकर्ड भेटिएन् ।</td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-4">
+                        <p> फाँटवालाको दस्तखत : </p>
+                        <p> मिती : </p>
+                    </div>
+                    <div class="col-xs-4">
+                        <p> शाखा प्रमुखको दस्तखत : </p>
+                        <p> मिती : </p>
+                    </div>
+                    <div class="col-xs-4">
+                        <p> कार्यलय प्रमुखको दस्तखत : </p>
+                        <p> मिती : </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<hr />
+<div class="row @string.Format("{0}",ViewBag.ItemId != null ? "" : "hide")">
+    <div class="col-xs-12 pull-right" style="padding-left: 30px;">
+        <button type="button" class="btn btn-info btnPrint" data-static-title="true" data-print-element="#printablediv"><span class="fa fa-print"></span></button>
+        <button type="button" class="toexcel btn btn-success" data-report-title="Non-Consumable Item Report" data-sheet="Sheet1" data-table="#tblNonConsumableItemDetail"><img src="~/Content/img/excel-export-16x16.png" /></button>
+    </div>
+</div>
+
+
+

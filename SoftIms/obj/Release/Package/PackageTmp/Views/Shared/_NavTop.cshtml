@@ -1,0 +1,69 @@
+﻿<div id="header-area" class="header_area">
+    <div class="header_bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2 logo">
+                    <a href="#"><img src="http://pokharamun.gov.np/sites/pokharamun.gov.np/files/logo_0.png" alt="Home"></a>
+                </div>
+                <div class="col-md-10">
+                    <a href="#"><h1>Inventory Management System</h1></a>
+                </div>
+            </div>
+            <div class="row head">
+                <nav role="navigation" class="navbar navbar-default mainmenu">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                    <!-- Collection of nav links and other content for toggling -->
+                    <div id="navbarCollapse" class="collapse navbar-collapse">
+                        <ul id="fresponsive" class="nav navbar-nav dropdown">
+                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+
+                            <li>@Html.ActionLink("Employee", "Index", "Employee")</li>
+                            <li>@Html.ActionLink("User", "Index", "User")</li>
+                            <li class="dropdown">
+                                <a data-toggle="dropdown" class="dropdown-toggle">Master<span class="caret"></span></a>
+                                <ul class=" dropdown-menu">
+                                    <li>@Html.ActionLink("Department", "department", "master")</li>
+                                    <li>@Html.ActionLink("Item", "Item", "master")</li>
+                                    <li>@Html.ActionLink("Item Type", "ItemType", "master")</li>
+                                    <li>@Html.ActionLink("Item Group", "ItemGroup", "master")</li>
+                                    <li>@Html.ActionLink("Item Unit", "ItemUnit", "master")</li>
+                                    <li>
+                                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">Submenu 2<span class="caret"></span></a>
+                                        <ul class=" dropdown-menu">
+                                            <li><a href="#">Lorem ipsum</a></li>
+                                            <li><a href="#">Lorem ipsum</a></li>
+                                            <li>
+                                                <a href="#" data-toggle="dropdown" class="dropdown-toggle">Submenu 3<span class="caret"></span></a>
+                                                <ul class=" dropdown-menu">
+                                                    <li><a href="#">Lorem ipsum</a></li>
+                                                    <li><a href="#">Lorem ipsum</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>@Html.ActionLink("Vendor", "Vendor", "Setup")</li>
+                            <li>@Html.ActionLink("Company Information", "CompanyDetail", "Setup")</li>
+                            @if (Request.IsAuthenticated)
+
+                            {
+                                <li><a href="#">@User.Identity.Name</a></li>
+                                <li>@Html.ActionLink("Sign Out", "logoff", "user")</li>
+                            }
+
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div><!-- /.header_bottom -->
+</div>

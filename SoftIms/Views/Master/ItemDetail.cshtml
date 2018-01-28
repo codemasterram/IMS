@@ -1,0 +1,44 @@
+﻿@model IEnumerable<SoftIms.Data.ViewModel.ItemListViewModel>
+@{
+    int Sno = 1;
+}
+<div class="table-responsive">
+    <table class="table-bordered table">
+        <thead class="bg-light-blue">
+            <tr>
+                <th>S.No</th>
+                <th>Item  Name</th>
+                <th>Code</th>
+                <th>Inte Group</th>
+                <th>Item Unit</th>
+                <th data-no-print="true">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td width="30">@Sno</td>
+                    <td>@item.Name</td>
+                    <td width="20">@item.Code</td>
+                    <td>@item.ItemGroupName</td>
+                    <td>@item.ItemUnitName</td>
+                    <td data-no-print="true">
+                        <a class="btn-sm btn-new btn-info" data-id="0" data-url="@Url.Action("CreateItem", "master",new { id = item.Id})" data-title="Create Department"><i class="fa fa-plus" aria-hidden="true"></i></a>
+                        <a href="javascript:;" class="btn-sm btn-danger btn-delete" data-url="@Url.Action("deleteitem","master",new { id = item.Id })"><span class="fa fa-trash"> </span></a>
+                    </td>
+                </tr>
+                Sno++;
+            }
+            @if (Sno == 1)
+            {
+                <tr>
+                    <td colspan="8" class="text-center bg-danger"><b>तथ्यांक फेला परेन !</b></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<script>
+    initializeCommon();
+</script>

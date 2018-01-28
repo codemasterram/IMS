@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "Department  Detail";
+}
+<div class="col-md-12">
+    <div class="box box-info">
+        <div class="box-body">
+            <form class="form-inline frm-search">  
+                <div class="form-group">
+                    <label for="Name">Department  Detail</label> <br>
+                    <input type="text" placeholder="Department Name" name="Name" id="Name" class="form-control keyword">
+                </div>
+                <div class="form-group" style="margin-top:30px;">
+                    <button type="button" class="btn btn-info btnRefresh" data-showLoader="false" data-resultElement=".Department-Detail" data-url="@Url.Action("departmentdetail","master")"><span class="fa fa-search"></span></button>
+                    <a type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal" href="@Url.Action("CreateDepartment","master",new { id = 0 })"><span class="fa fa-plus"></span></a>
+                    <button type="button" class="btn btn-info btnPrint" data-print-element=".Department-Detail" data-report-title="Department  Detail"><span class="fa fa-print"></span></button>
+                </div>
+            </form>
+            <div class="clearfix"></div>
+            <div class="Department-Detail detail">
+                @Html.Action("DepartmentDetail", "master")
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+

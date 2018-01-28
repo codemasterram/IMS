@@ -1,0 +1,41 @@
+﻿@model IEnumerable<SoftIms.Data.ViewModel.StockTransactionListViewModel>
+@{
+    ViewBag.Title = "Employee List ";
+    int Sno = 1;
+
+}
+<div class="table-responsive table-hover">
+    <table class="table-bordered table">
+        <thead class="bg-light-blue">
+            <tr>
+                <th>S.No</th>
+                <th>Name</th>
+                <th>DocumentNo</th>
+                <th>DisplayDocumentNo</th>
+                <th>Date</th>
+                <th>InvoiceNo</th>
+                <th>Remarks</th>
+                <th data-no-print="true">Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Sno</td>
+                    <td>@item.DocumentSetupId @item.FiscalYearId </td>
+                    <td>@item.DocumentNo</td>
+                    <td>@item.DisplayDocumentNo</td>
+                    <td>@item.Date</td>
+                    <td>@item.InvoiceNo</td>
+                    <td>@item.Remarks</td>
+                    <td data-no-print="true">
+                        <a href=""><span class="fa fa-edit"></span>   Edit  </a>
+                        <a type="button" class="btn-sm btn-danger btn-delete-using-modal" data-msg="Are you sure you wnat to delete Stock Transcation - @item.Id ?" href="@Url.Action("deleteemployee","employee",new { id = item.Id })"><span class="fa fa-minus"> </span></a>
+                    </td>
+                </tr>
+                Sno++;
+            }
+        </tbody>
+    </table>
+</div>

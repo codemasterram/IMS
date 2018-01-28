@@ -1,0 +1,36 @@
+E:\Nta\trunk\DateMiti\bin\Debug\DateMiti.dll
+E:\Nta\trunk\DateMiti\bin\Debug\DateMiti.pdb
+E:\Nta\trunk\DateMiti\obj\Debug\DateMiti.csprojResolveAssemblyReference.cache
+E:\Nta\trunk\DateMiti\obj\Debug\DateMiti.dll
+E:\Nta\trunk\DateMiti\obj\Debug\DateMiti.pdb
+C:\Users\user\Workspace\Softech\NTAOAS\trunk\DateMiti\bin\Debug\DateMiti.dll
+C:\Users\user\Workspace\Softech\NTAOAS\trunk\DateMiti\bin\Debug\DateMiti.pdb
+C:\Users\user\Workspace\Softech\NTAOAS\trunk\DateMiti\obj\Debug\DateMiti.dll
+C:\Users\user\Workspace\Softech\NTAOAS\trunk\DateMiti\obj\Debug\DateMiti.pdb
+C:\Softech Projects\NTA Local SVN\trunk\DateMiti\bin\Debug\DateMiti.dll
+C:\Softech Projects\NTA Local SVN\trunk\DateMiti\bin\Debug\DateMiti.pdb
+C:\Softech Projects\NTA Local SVN\trunk\DateMiti\obj\Debug\DateMiti.csprojResolveAssemblyReference.cache
+C:\Softech Projects\NTA Local SVN\trunk\DateMiti\obj\Debug\DateMiti.dll
+C:\Softech Projects\NTA Local SVN\trunk\DateMiti\obj\Debug\DateMiti.pdb
+E:\Softech Infosys Project\trunk\DateMiti\bin\Debug\DateMiti.dll
+E:\Softech Infosys Project\trunk\DateMiti\bin\Debug\DateMiti.pdb
+E:\Softech Infosys Project\trunk\DateMiti\obj\Debug\DateMiti.csprojResolveAssemblyReference.cache
+E:\Softech Infosys Project\trunk\DateMiti\obj\Debug\DateMiti.csproj.CoreCompileInputs.cache
+E:\Softech Infosys Project\trunk\DateMiti\obj\Debug\DateMiti.dll
+E:\Softech Infosys Project\trunk\DateMiti\obj\Debug\DateMiti.pdb
+F:\Demo Projects\Working Project\trunk\DateMiti\bin\Debug\DateMiti.dll
+F:\Demo Projects\Working Project\trunk\DateMiti\bin\Debug\DateMiti.pdb
+F:\Demo Projects\Working Project\trunk\DateMiti\obj\Debug\DateMiti.dll
+F:\Demo Projects\Working Project\trunk\DateMiti\obj\Debug\DateMiti.pdb
+D:\softechNEw\DateMiti\bin\Debug\DateMiti.dll
+D:\softechNEw\DateMiti\bin\Debug\DateMiti.pdb
+D:\softechNEw\DateMiti\obj\Debug\DateMiti.csprojResolveAssemblyReference.cache
+D:\softechNEw\DateMiti\obj\Debug\DateMiti.csproj.CoreCompileInputs.cache
+D:\softechNEw\DateMiti\obj\Debug\DateMiti.dll
+D:\softechNEw\DateMiti\obj\Debug\DateMiti.pdb
+D:\IMS\trunk\DateMiti\bin\Debug\DateMiti.dll
+D:\IMS\trunk\DateMiti\bin\Debug\DateMiti.pdb
+D:\IMS\trunk\DateMiti\obj\Debug\DateMiti.csprojResolveAssemblyReference.cache
+D:\IMS\trunk\DateMiti\obj\Debug\DateMiti.csproj.CoreCompileInputs.cache
+D:\IMS\trunk\DateMiti\obj\Debug\DateMiti.dll
+D:\IMS\trunk\DateMiti\obj\Debug\DateMiti.pdb

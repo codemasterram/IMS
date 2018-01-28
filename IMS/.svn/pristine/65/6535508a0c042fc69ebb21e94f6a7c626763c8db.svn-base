@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftIms", "SoftIms\SoftIms.csproj", "{696DCC5B-3C12-4A79-BA68-E67ABB5C0F49}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{58EA2D6F-6CC9-490F-9AEA-70BA8649E8B8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{696DCC5B-3C12-4A79-BA68-E67ABB5C0F49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{696DCC5B-3C12-4A79-BA68-E67ABB5C0F49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{696DCC5B-3C12-4A79-BA68-E67ABB5C0F49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{696DCC5B-3C12-4A79-BA68-E67ABB5C0F49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58EA2D6F-6CC9-490F-9AEA-70BA8649E8B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58EA2D6F-6CC9-490F-9AEA-70BA8649E8B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58EA2D6F-6CC9-490F-9AEA-70BA8649E8B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58EA2D6F-6CC9-490F-9AEA-70BA8649E8B8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

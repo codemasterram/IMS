@@ -1,0 +1,50 @@
+﻿@model IEnumerable<SoftIms.Data.ViewModel.ItemGroupListViewModel>
+@{
+    int Sno = 1;
+}
+<div class="table-responsive">
+    <table class="table-bordered table">
+        <thead class="bg-light-blue">
+            <tr>
+                <th width="30">S.No</th>
+                <th>Item Group Name</th>
+                <th>Code</th>
+                <th>Item Type</th>
+                <th data-no-print="true" style="padding-right:10px;">Actions</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Sno</td>
+                    <td>@item.Name</td>
+                    <td>@item.Code</td>
+                    <td>@item.ItemTypeName</td>
+                    <td  data-no-print="true">
+                        @if (item.ItemTypeName == "Non-Consumable")
+                        {
+                            <a class="btn-sm btn-success" data-id="0" href="@Url.Action("DepreciationRateDetail", "master",new { ItemGroupId = item.Id })" data-title="Depreciation Rate"><i class="fa fa-bar-chart" aria-hidden="true"></i></a>
+
+                            @*<a class="btn-sm btn-new btn-info" type="button"  href="@Url.Action("DepreciationRateDetail","master",new { ItemGroupId = item.Id})"><i class="fa fa-area-chart"></i></a>*@
+                        }
+                        else
+                        {
+
+                        }
+                        <a class="btn-sm btn-new btn-info" data-id="0" data-url="@Url.Action("CreateItemGroup", "master",new { id = item.Id})" data-title="Edit Item Group"><i class="fa fa-plus" aria-hidden="true"></i></a>
+                        <a href="javascript:;" class="btn-sm btn-danger btn-delete" data-url="@Url.Action("DeleteItemGroup","master",new { id = item.Id })"><span class="fa fa-trash"> </span></a>
+                    </td>
+                </tr>
+                Sno++;
+            }
+            @if (Sno == 1)
+            {
+                <tr>
+                    <td colspan="8" class="text-center bg-danger"><b>तथ्यांक फेला परेन !</b></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

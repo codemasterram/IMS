@@ -1,0 +1,181 @@
+﻿@model List<SoftIms.Data.ViewModel.PurchaseEntryDetailViewModel>
+@{
+    int sno = 0;
+    Layout = null;
+}
+
+<table class="table table-condensed table-striped table-bordered">
+    <thead class="bg-light-blue">
+        <tr>
+            <th rowspan="2" width="30">सि.नं.</th>
+            <th rowspan="2">खा.पा.नं.</th>
+            <th rowspan="2" class="text-left" width="200">सामानको नाम</th>
+            <th rowspan="2" class="text-left">सव कोड नं.</th>
+            <th rowspan="2">स्पेसिफिकेसन</th>
+            <th rowspan="2">इकाई</th>
+            <th rowspan="2" class="text-center" title="Quantity">परिमाण</th>
+            <th colspan="3" class="text-center">रकम (बिल अनुसार)</th>
+            <th rowspan="2" width="50"></th>
+        </tr>
+        <tr>
+            <th class="text-right">दर</th>
+            <th class="text-right">भ्याट</th>
+            <th class="text-right">कूल रकम</th>
+        </tr>
+    </thead>
+    <tbody class="tbl-item-list">
+        @foreach (var item in Model)
+        {
+            sno++;
+            <tr class="entry-field">
+                <td>@sno</td>
+                <td>
+                    @Html.TextBoxFor(x => item.LedgerPageNo, new { @class = "ledgerpageno item input-sm form-control" })
+                    @Html.ValidationMessageFor(x => item.LedgerPageNo)
+                </td>
+                <td class="text-bold">@item.ItemName</td>
+                <td>
+                    @Html.TextBoxFor(x => item.ItemSubCodeNo, new { @class = "itemsubcodeno item input-sm form-control" })
+                @Html.DropDownListFor(x => item.DepartmentId, MasterDataList<Department>("Id", "Name", item.DepartmentId), "-- Store Dept./Section --", new { @class = "form-control item _departmentId input-sm locked hide" })
+            </td>
+            <td>
+                @Html.TextBoxFor(x => item.Narration, new { @class = "narration item form-control input-sm" })
+            </td>
+            <td>@item.UnitName</td>
+            <td class="text-center">
+                @Html.TextBoxFor(x => item.Qty, new { @class = "qty item input-sm form-control" })
+                @Html.ValidationMessageFor(x => item.Qty)
+            </td>
+            <td class="text-center">
+                @Html.TextBoxFor(x => item.Rate, new { @class = "rate item input-sm form-control" })
+                @Html.ValidationMessageFor(x => item.Rate)
+            </td>
+            <td class="text-center">
+                <div class="input-group">
+                    @Html.TextBoxFor(x => item.VatPerQty, new { @class = "vatperqty item input-sm form-control" })
+                    @Html.ValidationMessageFor(x => item.VatPerQty)
+                </div>
+            </td>
+            <td class="text-center hide">
+                @Html.TextBoxFor(x => item.BasicAmount, new { @class = "basicamount item input-sm form-control" })
+                @Html.ValidationMessageFor(x => item.BasicAmount)
+            </td>
+            <td class="text-center">
+                @Html.TextBoxFor(x => item.NetAmount, new { @class = "netamount item input-sm form-control" })
+                @Html.ValidationMessageFor(x => item.NetAmount)
+            </td>
+            <td class='text-right'>
+                <a href='javascript:;' class="btnSaveItem" data-refreshButton="#btnRefresh" data-guid="@item.Guid"><i class='fa text-success fa-edit'></i><i class="fa fa-floppy-o hide" data-guid="@item.Guid"></i></a>
+                <a href='javascript:;' class="deleteItem" data-url="@Url.Action("RemovePurchaseEntryItemList","imsentry",new { guid = item.Guid })" data-refreshButton="#btnRefresh"><i class='fa text-danger fa-trash-o'></i></a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+<script>
+    $(".deleteItem").unbind('click').on('click', function () {
+        if (!confirm('Are you sure you want to delete')) {
+            return false;
+        };
+
+        $.ajax({
+            url: $(this).attr('data-url'),
+            type: 'Post',
+            success: function () {
+                $('#btnRefresh').trigger('click');
+            }
+        })
+    });
+
+
+    //$(".deleteItem").deleteRecord({
+    //    onSuccess: 'getList'
+    //});
+
+    //var getList = function () {
+    //    $('#btnRefresh').trigger('click');
+    //};
+
+    $(".item").each(function () {
+        $(this).attr('readonly', 'readonly');
+    });
+
+    $(".fa-edit").click(function () {
+        $this = $(this);
+        $this.closest('tr').find('.fa-floppy-o').removeClass('hide');
+        $this.closest('tr').find('.item').each(function () {
+            $(this).removeAttr('readonly');
+        });
+        $this.addClass("fa-edit hide");
+    });
+
+    $('.fa-floppy-o').unbind("click").on("click", function () {
+        $this = $(this);
+        $parent = $this.closest('.entry-field');
+        var hasError = $(".field-validation-error", $parent).length > 0;
+        if (hasError)
+            return false;
+        var guid = $this.attr('data-guid');
+        var itemSubCodeNo = $(".itemsubcodeno", $parent).val();
+        var narration = $('.narration', $parent).val();
+        var qty = $('.qty', $parent).val();
+        var rate = $(".rate", $parent).val();
+        var vatPerQty = $('.vatperqty', $parent).val();
+        var basicAmount = $('.basicamount', $parent).val();
+        var netAmount = $('.netamount', $parent).val();
+        var departmentId = $('._departmentId', $parent).val();
+        var ledgerPageNo = $('.ledgerpageno', $parent).val();
+        if (departmentId == "") {
+            alert('Please select dept./section.');
+            return false;
+        }
+        $.ajax({
+            url: "@Url.Action("UpdatePurchaseItem", "imsentry")",
+            type: "get",
+            data: { guid: guid, itemSubCodeNo: itemSubCodeNo, departmentId: departmentId, narration: narration, qty: qty, rate: rate, vatPerQty: vatPerQty, basicAmount: basicAmount, netAmount: netAmount, ledgerPageNo: ledgerPageNo },
+            success: function (result) {
+                $('#btnRefresh').click();
+            },
+            error: function (result) {
+                alert('Unable to save.');
+                console.log(result);
+            }
+        });
+    });
+
+    var calculateLineItem = function (ctx) {
+        $qty = $(".qty", ctx);
+        $rate = $(".rate", ctx);
+        $vatPerQty = $(".vatperqty", ctx);
+        $basicAmount = $(".basicamount", ctx);
+        $netAmount = $(".netamount", ctx);
+
+        var vat = 13; var qty = 0; var basicAmount;
+        var rate = 0; var netAmount = 0;
+        var vatAmount = 0;
+        if (parseInt($qty.val()) > 0) {
+            qty = parseInt($qty.val());
+        }
+        if (parseFloat($rate.val()) > 0) {
+            rate = parseFloat($rate.val());
+        }
+
+        basicAmount = rate * qty;
+        $basicAmount.val(basicAmount.toFixed(2));
+
+        if ($vatPerQty.val() != '0') {
+            vatAmount = (qty * rate) * vat / 100;
+            $vatPerQty.val(vatAmount.toFixed(2));
+        }
+
+        netAmount = basicAmount + vatAmount;
+        $netAmount.val(netAmount.toFixed(2));
+    }
+
+    $(".qty, .rate, .vatperqty").on("change", function () {
+        var ctx = $(this).closest('tr');
+        calculateLineItem(ctx);
+    });
+
+</script>

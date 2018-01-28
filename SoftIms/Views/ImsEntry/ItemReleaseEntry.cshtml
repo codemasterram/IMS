@@ -1,0 +1,241 @@
+﻿@model SoftIms.Data.ViewModel.ItemReleaseViewModel
+@{
+    ViewBag.Title = "Item Release";
+}
+
+<div class="col-md-12">
+    @using (Html.BeginForm("ItemReleaseEntry", "ImsEntry", FormMethod.Post, new { @id = "frmItemRelease" }))
+    {
+        <div class="box box-info ims-entry" id="frmDetailData">
+            <div class="box-body">
+                @Html.AntiForgeryToken()
+                @Html.HiddenFor(x => x.Id)
+                @Html.HiddenFor(x => x.EmployeeId)
+                <div class="row">
+                    <div class="col-md-3">
+                        @Html.LabelFor(x => x.DisplayReleaseNo)
+                        @Html.TextBoxFor(x => x.DisplayReleaseNo, new { @class = "form-control locked" })
+                    </div>
+                    <div class="col-md-3 pull-right">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.DateBS)
+                            @Html.TextBoxFor(x => x.DateBS, new { @class = "form-control mask-miti" })
+                            @Html.ValidationMessageFor(x => x.DateBS)
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.DepartmentId)
+                            @Html.DropDownList("SectionId", MasterDataList<Department>("Id", "Name", Model.DepartmentId), "--Department/Section--", new { @class = "form-control locked" })
+                            @Html.ValidationMessage("SectionId")
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.EmployeeId)
+                            @Html.DropDownList("EmployeeId", (IEnumerable<SelectListItem>)ViewBag.employeeList, new { @class = "form-control locked", data_value = Model.EmployeeId })
+                            @Html.ValidationMessage("EmployeeId")
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.ItemRequestId)
+                            @Html.DropDownList("ItemRequestId", (IEnumerable<SelectListItem>)ViewBag.ItemRequestList, new { @class = "form-control locked" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row disable-me">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="ItemGroupId">Item Group</label>
+                            @Html.DropDownList("ItemGroupId", MasterDataList<ItemGroup>("Id", "Name", null), "-- Item Group --", new { @class = "form-control focus-first" })
+                            @Html.ValidationMessage("ItemGroupId")
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="ItemId">Item</label>
+                            @Html.DropDownList("ItemId", NoDataList, "-- Item --", new { @class = "form-control" })
+                            @Html.ValidationMessage("ItemId")
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label for="SubCode">Item Sub Code</label>
+                            <input type="text" class="form-control" name="SubCode" id="SubCode" placeholder="Item Sub Code" />
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label for="Qty">Quantity</label>
+                            @Html.TextBox("Qty", null, new { @class = "form-control int-num text-right number-type", @placeholder = "Quantity" })
+                            @Html.ValidationMessage("Qty")
+                        </div>
+                    </div>
+                    <div class="col-md-1 no-pad-left">
+                        <button type="button" class="btn btn-success btn-add" id="btnAdd">Add</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <button type="button" class="hide btn-refresh" id="btnRefresh" data-url="@Url.Action("ItemReleaseItemList","ImsEntry")"><span class="fa fa-refresh"></span></button>
+
+                        @*<button type="button" data-resultElement=".list-detail" data-url="@Url.Action("ItemReleaseItemList", "ImsEntry")" class="hide" id="btnRefresh"><span class="fa fa-refresh"></span></button>*@
+                        <div class="form-group list-detail vh65 slim-scroll lazy-loading" data-url="@Url.Action("ItemReleaseItemList", "ImsEntry")">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.Remarks)
+                            @Html.TextAreaFor(x => x.Remarks, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="box box-footer" style="margin-top:32px; border-top:1px solid #c1c1c1">         
+                            <button type="submit" class="btn btnSave btn-success">Save</button>
+                            <a href="@Url.Action("ItemReleaseList", "ImsEntry")" class="btn btn-info">Return to List</a>
+                            <a href="@Url.Action("index", "home")" class="btn btn-default">Cancel</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+@section scripts {
+    <script>
+
+        var unprocessedItemRequests = {};
+   
+        $("#ItemGroupId").on("change", function () {
+            var childElement = $('#ItemId');
+            var selectedValue = $(childElement).val();
+            $(this).loadChildList({
+                url: "@Url.Action("getitem", "master")",
+                paramData: { itemgroupId: $(this).val(), dataValueField: "Id", dataTextField: 'Name' },
+                childElement: childElement,
+                optionalLabel: '-- Item --',
+                selectedValue: selectedValue,
+                showLoader: false
+            });
+        });
+
+        $("#SectionId").on("change", function () {
+            var childElement = $('#EmployeeId');
+            var selectedValue = parseInt($('#EmployeeId').attr("data-value"));
+            selectedValue = isNaN(selectedValue) ? 0 : selectedValue;
+
+            $(this).loadChildList({
+                url: "@Url.Action("GetEmployee", "employee")",
+                paramData: { departmentid: $(this).val(), selectedValue: selectedValue },
+                childElement: "#EmployeeId",
+                optionalLabel: '-- Employee --',
+                selectedValue: selectedValue,
+                showLoader: false
+            });
+        }).change();
+
+        @*$("#EmployeeId").on("change", function () {
+            var employeeId = $(this).val();
+            var itemRequestIds = "@ViewBag.ItemRequestIds";
+            if (employeeId <= 0)
+                return;
+
+            $.get("@Url.Action("GetUnProcessedItemRequest", "ImsEntry")?employeeId=" + employeeId + "&itemRequestIds= " + itemRequestIds, function (data) {
+                var selectedRequestId = [];
+                var $trSelectedRequest = $("tr[data-request-id]");
+                $trSelectedRequest.each(function () {
+                    var ids = $(this).attr("data-request-id").split(',');
+                    if (ids.length > 0) {
+                        $.each(ids, function (idx, val) {
+                            selectedRequestId.splice(selectedRequestId.length, 0, val);
+                        });
+                    }
+                });
+                unprocessedItemRequests = data;
+                var html = "";
+                $.each(data, function (idx, val) {
+                    html += "<option value='" + val.Id + "'" + (selectedRequestId.indexOf(val.Id.toString()) != -1 ? "selected='selected'" : "") + ">" + val.DisplayDocumentNo + "</option>";
+                });
+
+                $("#ItemRequestId").html(html);
+                $("#ItemRequestId").trigger("change")
+            });
+        }).change();*@
+
+        $("#ItemRequestId").on("change", function (e) {
+            var arr = $(this).val();
+            var employeeId = $("#EmployeeId").val();
+            $.ajax({
+                url: "@Url.Action("AddItemFromRequestReferenceForItemRelease", "ImsEntry")",
+                type: "POST",
+                data: { employeeId: employeeId, requestId: arr },
+                success: function (html) {
+                    $(".list-detail").html(html);
+                }
+            });
+        }).change();
+    </script>
+
+    <script>
+        $("#btnAdd").on("click", function (e) {
+            var sno = $(".tbl-item-list tr").length;
+            $itemId = $("#ItemId");
+            $qty = $("#Qty");
+
+            if (($itemId.val() == "" || $itemId.val() == null) && sno > 0) {
+                $(".btnSave").focus();
+                return;
+            }
+
+            if ($itemId.val() == "" || $itemId.val() == null) {
+                alert('Please select item.');
+                $itemId.focus();
+                return false;
+            }
+
+            if ($qty.val() < 1) {
+                alert('Plesase enter valid quantity!');
+                $qty.focus();
+                return false;
+            }
+
+            var data = $('#frmDetailData :input').serialize();
+            $.ajax({
+                url: "@Url.Action("AddItemReleaseDetail", "ImsEntry")",
+                type: "post",
+                data: data,
+                success: function (result) {
+                    $("#btnRefresh").trigger("click");
+                    $itemId.val('');
+                    $qty.val(1);
+                    $("#Narration").val(null);
+                },
+                error: function (result) {
+                    alert('Unable to add item');
+                    console.log(result);
+                }
+            });
+        });
+
+        $("#btnRefresh").refreshData();
+    </script>
+
+    <script>
+        $("#frmItemRelease").on("submit", function (e) {
+            var detail = $(".tbl-item-list tr").length;
+            if (detail < 1) {
+                showErrorMessage('Please enter item to process!');
+                return false;
+            }
+            return true;
+        });
+    </script>
+}
+

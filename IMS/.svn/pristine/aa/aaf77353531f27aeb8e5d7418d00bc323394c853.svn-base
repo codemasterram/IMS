@@ -1,0 +1,281 @@
+﻿using SoftIms.Data;
+using SoftIms.Data.Infrastructure;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using static SoftIms.Data.Enums;
+
+namespace SoftIms.Utilities
+{
+    public static class ViewHelper
+    {
+        public static SelectList MasterDataList<T>(string dataValueField = "Id", string dataTextField = "Name", object selectedValue = null) where T : class
+        {
+            using (UnitOfWork db = new UnitOfWork())
+            {
+                return new SelectList(db.Table<T>().ToList(), dataValueField, dataTextField, selectedValue);
+            }
+        }
+
+        public static SelectList MasterDataList<T>(IEnumerable<T> list, string dataValueField = "Id", string dataTextField = "Name", object selectedValue = null) where T : class
+        {
+            return new SelectList(list, dataValueField, dataTextField, selectedValue);
+        }
+
+        public static SelectList MasterDataList(eSelectListType listType, object selectedValue = null, object pushItemBefore = null)
+        {
+            List<SelectListItem> items = new List<SelectListItem>();
+            if (pushItemBefore != null)
+            {
+                if (pushItemBefore is SelectListItem)
+                {
+                    items.Add((SelectListItem)pushItemBefore);
+                }
+            }
+            switch (listType)
+            {
+                case eSelectListType.Gender:
+                    items.AddRange(new SelectListItem[]
+                    {
+                        new SelectListItem { Value = "Male", Text = "Male"}, new SelectListItem { Value = "Female", Text = "Female" }, new SelectListItem { Value = "Other", Text = "Other" }
+                    });
+                    break;
+
+                case eSelectListType.EmployeeStatus:
+                    items.AddRange(new SelectListItem[]
+                    {
+                        new SelectListItem { Value = "Active", Text = "Active"}, new SelectListItem { Value = "Resigned", Text = "Resigned" }, new SelectListItem { Value = "Retired", Text = "Retired" }
+                    });
+                    break;
+
+                case eSelectListType.EmployeeType:
+                    items.AddRange(new SelectListItem[]
+                    {
+                        new SelectListItem { Value = "Permanent", Text = "Permanent"}, new SelectListItem { Value = "Temporary", Text = "Temporary" }, new SelectListItem { Value = "Contract", Text = "Contract" }
+                    });
+                    break;
+                case eSelectListType.ApplicableFor:
+                    items.AddRange(new SelectListItem[]
+                    {
+                        new SelectListItem { Value="All",Text="All"} ,new SelectListItem { Value="Male",Text="Male" }, new SelectListItem {Value="Female",Text="Female" }
+                    });
+                    break;
+                case eSelectListType.IsActive:
+                    items.AddRange(new SelectListItem[]
+                    {
+                        new SelectListItem { Value="True",Text="Active"},new SelectListItem { Value="False",Text="Not Active"}
+                    });
+                    break;
+                case eSelectListType.ApprovedStatus:
+                    items.AddRange(new SelectListItem[]
+                        {
+                            new SelectListItem {Value="1",Text="Pending" },new SelectListItem {Value="2",Text="Accept" },new SelectListItem {Value="3",Text="Reject" }
+                        });
+                    break;
+
+                case eSelectListType.StockInOutType:
+                    items.AddRange(new SelectListItem[]
+                         {
+                            new SelectListItem {Value="1",Text="In" },new SelectListItem {Value="2",Text="Out" }
+                         });
+                    break;
+            }
+
+            return new SelectList(items, "Value", "Text", selectedValue);
+        }
+
+        //public static SelectList ModuleList(bool forClient = false, object selectedValue = null)
+        //{
+        //    IAuthService svc = DependencyResolver.Current.GetService<IAuthService>();
+        //    var items = svc.GetModules(forClient: forClient);
+        //    return new SelectList(items, "Id", "DisplayName", selectedValue);
+        //}
+
+
+
+        public static IEnumerable<SelectListItem> MonthNameList(bool selectCurrentMonth = true, object selectedValue = null)
+        {
+            List<SelectListItem> items = new List<SelectListItem>();
+            items.AddRange(new SelectListItem[]
+                    {
+                        new SelectListItem { Value = "Baishakh", Text = "Baishakh"},
+                        new SelectListItem { Value = "Jestha", Text = "Jestha"},
+                        new SelectListItem { Value = "Ashadh", Text = "Ashadh"},
+                        new SelectListItem { Value = "Srawan", Text = "Srawan"},
+                        new SelectListItem { Value = "Bhadra", Text = "Bhadra"},
+                        new SelectListItem { Value = "Aswin", Text = "Aswin"},
+                        new SelectListItem { Value = "Kartik", Text = "Kartik"},
+                        new SelectListItem { Value = "Mansir", Text = "Mansir"},
+                        new SelectListItem { Value = "Paush", Text = "Paush"},
+                        new SelectListItem { Value = "Marg", Text = "Marg"},
+                        new SelectListItem { Value = "Falgun", Text = "Falgun"},
+                        new SelectListItem { Value = "Chaitra", Text = "Chaitra"},
+                    });
+            var data = new SelectList(items, "Value", "Text", selectCurrentMonth ? DateMiti.GetDateMiti.CurrentMonthName() : selectedValue);
+            return data.AsEnumerable();
+        }
+
+
+        public static IEnumerable<SelectListItem> MonthList(bool selectCurrentMonth = true, bool addEmpty = true)
+        {
+            List<SelectListItem> items = new List<SelectListItem>();
+            items.AddRange(new SelectListItem[]
+                    {
+                        new SelectListItem { Value = "1", Text = "बैशाख"},
+                        new SelectListItem { Value = "2", Text = "Jestha"},
+                        new SelectListItem { Value = "3", Text = "Ashadh"},
+                        new SelectListItem { Value = "4", Text = "Srawan"},
+                        new SelectListItem { Value = "5", Text = "Bhadra"},
+                        new SelectListItem { Value = "6", Text = "Aswin"},
+                        new SelectListItem { Value = "7", Text = "Kartik"},
+                        new SelectListItem { Value = "8", Text = "Mansir"},
+                        new SelectListItem { Value = "9", Text = "Paush"},
+                        new SelectListItem { Value = "10", Text = "Marg"},
+                        new SelectListItem { Value = "11", Text = "Falgun"},
+                        new SelectListItem { Value = "12", Text = "Chaitra"},
+                    });
+
+            var currentMonth = Convert.ToInt16(DateMiti.GetDateMiti.GetMiti(DateTime.Today).Substring(5, 2));
+            var data = new SelectList(items, "Value", "Text");
+            if (selectCurrentMonth)
+                data = new SelectList(items, "Value", "Text", currentMonth);
+            return data.AsEnumerable();
+        }
+
+        public static IEnumerable<SelectListItem> YearList(bool selectCurrentYear = true, bool addEmpty = true)
+        {
+            List<SelectListItem> items = new List<SelectListItem>();
+            items.AddRange(new SelectListItem[]
+                    {
+                        new SelectListItem { Value = "2065", Text = "2065"},
+                        new SelectListItem { Value = "2066", Text = "2066"},
+                        new SelectListItem { Value = "2067", Text = "2067"},
+                        new SelectListItem { Value = "2068", Text = "2068"},
+                        new SelectListItem { Value = "2069", Text = "2069"},
+                        new SelectListItem { Value = "2070", Text = "2070"},
+                        new SelectListItem { Value = "2071", Text = "2071"},
+                        new SelectListItem { Value = "2072", Text = "2072"},
+                        new SelectListItem { Value = "2073", Text = "2073"},
+                        new SelectListItem { Value = "2074", Text = "2074"},
+                        new SelectListItem { Value = "2075", Text = "2075"},
+                        new SelectListItem { Value = "2076", Text = "2076"},
+                        new SelectListItem { Value = "2077", Text = "2077"},
+                        new SelectListItem { Value = "2078", Text = "2078"},
+                        new SelectListItem { Value = "2079", Text = "2079"},
+                        new SelectListItem { Value = "2080", Text = "2080"},
+                    });
+
+            if (addEmpty)
+                items.Insert(0, new SelectListItem { Value = "", Text = "-- All --" });
+
+            var currentYear = Convert.ToInt16(DateMiti.GetDateMiti.GetMiti(DateTime.Today).Substring(0, 4));
+            var data = new SelectList(items, "Value", "Text");
+
+            if (selectCurrentYear)
+                data = new SelectList(items, "Value", "Text", currentYear);
+
+            return data.AsEnumerable();
+        }
+
+        public static SelectList NoDataList
+        {
+            get
+            {
+                List<SelectListItem> items = new List<SelectListItem>();
+                return new SelectList(items);
+            }
+        }
+
+        public static SelectList GetItemList(int? itemGroupId, object selectedValue = null)
+        {
+            using (UnitOfWork db = new UnitOfWork())
+            {
+                var data = db.ItemRepo.Table().Where(x => x.ItemGroupId == itemGroupId).OrderBy(x => x.DisplayOrder).ThenBy(x => x.Name);
+                List<Item> list = new List<Item>();
+                foreach (var item in data)
+                {
+                    list.Add(new Item
+                    {
+                        Id = item.Id,
+                        Name = string.Format("{2} {0} - {1}", item.Name, item.ItemUnit.Name, item.Code)
+                    });
+                }
+                return new SelectList(list, "Id", "Name", selectedValue);
+            }
+        }
+
+        public static SelectList DataList(eSelectListType type, object selectedValue = null)
+        {
+
+            var values = new List<SelectListItem>();
+            switch (type)
+            {
+                case eSelectListType.Trimester:
+                    values.Add(new SelectListItem
+                    {
+                        Value = "First",
+                        Text = "First"
+                    });
+                    values.Add(new SelectListItem
+                    {
+                        Value = "Second",
+                        Text = "Second",
+                    });
+                    values.Add(new SelectListItem
+                    {
+                        Value = "Third",
+                        Text = "Third",
+                    });
+                    values.Add(new SelectListItem
+                    {
+                        Value = "Fourth",
+                        Text = "Fourth",
+                    });
+                    break;
+            }
+
+            return new SelectList(values, "Value", "Text", selectedValue);
+        }
+
+
+        //public static SelectList DistrictList(int? zoneId, string dataValueField, string dataTextField, object selectedValue = null)
+        //{
+        //    ICommonService svc = DependencyResolver.Current.GetService<ICommonService>();
+        //    return svc.GetDistrictList(zoneId, dataValueField, dataTextField, selectedValue);
+        //}
+
+        //public static SelectList VdcList(int? districtId, string dataValueField, string dataTextField, object selectedValue = null)
+        //{
+        //    ICommonService svc = DependencyResolver.Current.GetService<ICommonService>();
+        //    return svc.GetVdcList(districtId, dataValueField, dataTextField, selectedValue);
+        //}
+
+        //public static SelectList GetEmployeeList(int? sectionId, object selectedValue = null)
+        //{
+        //    ICommonService svc = DependencyResolver.Current.GetService<ICommonService>();
+        //    return svc.GetEmployeeList(sectionId, selectedValue);
+        //}
+
+        //public static SelectList GetConsumableItems(object selectedValue = null)
+        //{
+        //    ICommonService svc = DependencyResolver.Current.GetService<ICommonService>();
+        //    return svc.GetConsumableItems(selectedValue);
+        //}
+
+        //public static SelectList GetNonConsumableItems(object selectedValue = null)
+        //{
+        //    ICommonService svc = DependencyResolver.Current.GetService<ICommonService>();
+        //    return svc.GetNonConsumableItems(selectedValue);
+        //}
+
+        //public static SelectList GetTelecomServiceType(object selectedValue = null)
+        //{
+        //    ICommonService svc = DependencyResolver.Current.GetService<ICommonService>();
+        //    return svc.GetTelecomServiceType(selectedValue);
+        //}
+
+
+    }
+}

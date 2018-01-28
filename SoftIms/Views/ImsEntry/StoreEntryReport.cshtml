@@ -1,0 +1,192 @@
+﻿@model SoftIms.Data.ViewModel.PurchaseEntryViewModel
+@{
+    int sno = 0;
+    var tdStyle = "border:1px solid; vertical-align:middle;font-size:14px;padding: 3px !important;";
+    var emptyTdStyle = "border-left:1px solid; border-right:1px solid; border-bottom:0px;border-top:0px;";
+    var detail = (List<SoftIms.Data.ViewModel.PurchaseEntryDetailViewModel>)Session["PurchaseEntry"];
+    var rowcount = detail.Count > 8 ? 30 : 45;
+    var emptyRows = rowcount - detail.Count;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" />
+    <title>Stock Entry Report</title>
+    <link href="~/Content/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/css/font-awesome.css" rel="stylesheet" />
+    <link href="~/Content/css/AdminLTE.min.css" rel="stylesheet" />
+    <link href="~/Content/css/custom.css" rel="stylesheet" />
+    <script src="~/Content/plugins/jQuery/jquery-2.2.3.min.js"></script>
+    <link href="~/app.ico" rel="shortcut icon" />
+    <style>
+        body {
+            background: rgb(204,204,204);
+        }
+
+        page[size="A4"] {
+            background: white;
+            width: 21cm;
+            height: 29.7cm;
+            display: block;
+            margin: 0 auto;
+            margin-bottom: 0.5cm;
+            box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
+        }
+
+        @@media print {
+            body, page[size="A4"] {
+                margin: 0;
+                box-shadow: 0;
+            }
+
+            .do-not-print {
+                border: 0px !important;
+                background: white !important;
+            }
+        }
+
+        .do-not-print {
+            max-height: 800px !important;
+        }
+
+        .print-table td, th {
+            padding: 6px !important;
+        }
+
+        th {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <page size="A4" style="padding:1px 20px; font-size:14px; min-height:800px;">
+        <div class="row">
+            <div class="col-xs-3">
+                <div class="text-center">
+                    <img src="~/app.ico" style="z-index:-999; border: 6px solid #FFFFFF; border-radius: 50%;margin-bottom: -40px;width: 125px;height: 125px;" class="img-circle img">
+                </div>
+            </div>
+            <div class="text-center col-xs-6">
+                <h3 style="font-weight:bold;">@OfficeInfo.Name</h3>
+                <h4>@OfficeInfo.Address</h4>
+                <h3 style="width:350px; margin:auto; color: white;background: black;font-size: 25px;border-radius: 8px;height: 42px;font-weight: bold;padding: 10px;">भण्डार दाखिला प्रतिवेदन</h3>
+            </div>
+            <div class="col-xs-3" style="margin-top:70px;padding:0 20px;">
+                <span class="pull-right" font-size:small">भ.दा.नं. : @Model.DisplayDocumentNo</span>
+            </div>
+        </div>
+
+        <table style="width:100%;">
+            <tr>
+                <td>
+                    <p>श्री लेखा शाखा</p>
+                    <p>......................................</p>
+                </td>
+                <td style="padding:0 20px;">
+                    <p></p>
+                    <p class="pull-right" contenteditable="true">मिति : @Model.DateBS</p>
+                </td>
+            </tr>
+        </table>
+
+        <p style="font-size:16px; line-height:30px;">
+            खरिद आदेश नं <span class="text-bold">@Model.PurchaseOrderDisplayDocumentNo</span>  मिति <span class="text-bold">
+                @Model.PurchaseOrderDateBS
+            </span> को यस भण्डार शाखामा निम्न बमोजिमको सामानहरु आपूर्तिकर्ता श्री <span class="text-bold"> @Model.VendorDetail.Name </span>
+            को बिल नं <span class="text-bold">@Model.InvoiceNo </span> बाट दाखिला भएको हुादा भुक्तानीको लागि अनुरोध छ ।
+        </p>
+
+        <table id="tblStockEntry" border="1" style="border-collapse:collapse; width:100%;" class="print-table">
+            <thead class="bg-gray-light">
+                <tr>
+                    <th rowspan="2" width="2%" style="@tdStyle;">सि.नं.</th>
+                    <th rowspan="2" width="48%" style="@tdStyle;">विवरण</th>
+                    <th rowspan="2" width="10%" style="@tdStyle;">भण्डार खाता नं.</th>
+                    <th rowspan="2" width="10%" style="@tdStyle;">ईकाइ</th>
+                    <th rowspan="10" width="10%" style="@tdStyle;">परिमाण</th>
+                    <th rowspan="2" width="5" style="@tdStyle;">दर </th>
+                    <th colspan="2" width="15%" class="text-center" style="@tdStyle;">जम्मा मुल्य</th>
+                </tr>
+                <tr>
+                    <th style="@tdStyle;">रुपैया</th>
+                    <th style="@tdStyle;">पैसा</th>
+                </tr>
+
+            </thead>
+            <tbody class="tbl-item-list report-content-line-item">
+                @foreach (var item in detail)
+                {
+                    string s = item.NetAmount.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture);
+                    string[] parts = s.Split('.');
+                    string rupees = parts[0];
+                    string paisa = parts[1];
+                    sno++;
+                    <tr class="entry-field">
+                        <td style="@tdStyle;">@sno</td>
+                        <td style="@tdStyle;">@item.ItemName</td>
+                        <td style="@tdStyle;">@item.LedgerPageNo</td>
+                        <td style="@tdStyle;">@item.UnitName</td>
+                        <td class="text-right" style="@tdStyle;">@((item.Qty == 0) ? "" : item.Qty.ToString())</td>
+                        <td class="text-right" style="@tdStyle;">@((item.Rate == 0) ? "" : item.Rate.ToString())</td>
+                        <td class="text-right" style="@tdStyle;">@rupees</td>
+                        <td style="@tdStyle;" class="text-right">@paisa</td>
+                    </tr>
+                }
+                @for (int i = 0; i < emptyRows; i++)
+                {
+                    <tr>
+                        @for (int j = 0; j < 8; j++)
+                        {
+                            <td style="@emptyTdStyle"></td>
+                        }
+                    </tr>
+                }
+                <tr>
+                    <td style="@tdStyle"></td>
+                    <td style="@tdStyle" class="text-right">जम्मा</td>
+                    <td style="@tdStyle"></td>
+                    <td style="@tdStyle"></td>
+                    <td style="@tdStyle"></td>
+                    <td style="@tdStyle"></td>
+                    <td style="@tdStyle" colspan="2" class="text-right">@ViewBag.NetAmount</td>
+                </tr>
+            </tbody>
+        </table>
+        <br />
+        <br />
+        <table style="width:100%; margin:10px 20px;">
+            <tr>
+                <td>
+                    <p>......................................</p>
+                    <p>खाता चढाउनेको हस्ताक्षर</p>
+                </td>
+                <td style="padding:0 20px;" class="pull-right">
+                    <p>......................................</p>
+                    <p>भण्डार शाखाको हस्ताक्षर</p>
+                </td>
+            </tr>
+        </table>
+
+    </page>
+    <script>
+        $('body').bind('keydown', function (e) {
+            if (e.keyCode == 27) {
+                window.close();
+                return false;
+            }
+
+            if (e.ctrlKey || e.metaKey) {
+                switch (String.fromCharCode(e.which).toLowerCase()) {
+                    case 'p':
+                        e.preventDefault();
+                        $('.btnPrint').trigger('click');
+                        break;
+                };
+            };
+        });
+    </script>
+</body>
+</html>
+

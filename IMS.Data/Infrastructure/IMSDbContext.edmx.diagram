@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1b54fe70855c42dfbf046f28c3eb6d45" Name="Diagram1" ZoomLevel="37">
+        <EntityTypeShape EntityType="ImsNewModel.AppUser" Width="1.5" PointX="5.25" PointY="20" />
+        <EntityTypeShape EntityType="ImsNewModel.Company" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ImsNewModel.Department" Width="1.5" PointX="0.75" PointY="14.375" />
+        <EntityTypeShape EntityType="ImsNewModel.DepreciationRate" Width="1.5" PointX="8.25" PointY="5.75" />
+        <EntityTypeShape EntityType="ImsNewModel.Designation" Width="1.5" PointX="0.75" PointY="11.625" />
+        <EntityTypeShape EntityType="ImsNewModel.DocumentNumbering" Width="1.5" PointX="5.25" PointY="8.625" />
+        <EntityTypeShape EntityType="ImsNewModel.DocumentSetup" Width="1.5" PointX="3" PointY="19.375" />
+        <EntityTypeShape EntityType="ImsNewModel.Employee" Width="1.5" PointX="3" PointY="12.875" />
+        <EntityTypeShape EntityType="ImsNewModel.FiscalYear" Width="1.5" PointX="3" PointY="8.375" />
+        <EntityTypeShape EntityType="ImsNewModel.Item" Width="1.5" PointX="5.25" PointY="2.875" />
+        <EntityTypeShape EntityType="ImsNewModel.ItemGroup" Width="1.5" PointX="3" PointY="1.875" />
+        <EntityTypeShape EntityType="ImsNewModel.ItemRelease" Width="1.5" PointX="5.25" PointY="13" />
+        <EntityTypeShape EntityType="ImsNewModel.ItemReleaseDetail" Width="1.5" PointX="7.5" PointY="9.25" />
+        <EntityTypeShape EntityType="ImsNewModel.ItemRequest" Width="1.5" PointX="11.25" PointY="12.5" />
+        <EntityTypeShape EntityType="ImsNewModel.ItemRequestDetail" Width="1.5" PointX="13.5" PointY="13.875" />
+        <EntityTypeShape EntityType="ImsNewModel.ItemType" Width="1.5" PointX="0.75" PointY="2.25" />
+        <EntityTypeShape EntityType="ImsNewModel.ItemUnit" Width="1.5" PointX="3" PointY="5.25" />
+        <EntityTypeShape EntityType="ImsNewModel.LoginHistory" Width="1.5" PointX="9.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ImsNewModel.PasswordResetLog" Width="1.5" PointX="10.75" PointY="4.75" />
+        <EntityTypeShape EntityType="ImsNewModel.Permission" Width="1.5" PointX="5.25" PointY="31.5" />
+        <EntityTypeShape EntityType="ImsNewModel.PurchaseOrder" Width="1.5" PointX="8.25" PointY="12.625" />
+        <EntityTypeShape EntityType="ImsNewModel.PurchaseOrderDetail" Width="1.5" PointX="13.5" PointY="18.125" />
+        <EntityTypeShape EntityType="ImsNewModel.Role" Width="1.5" PointX="5.25" PointY="28.25" />
+        <EntityTypeShape EntityType="ImsNewModel.RolePermission" Width="1.5" PointX="7.5" PointY="28.375" />
+        <EntityTypeShape EntityType="ImsNewModel.StockTransaction" Width="1.5" PointX="13.5" PointY="6.875" />
+        <EntityTypeShape EntityType="ImsNewModel.StockTransactionDetail" Width="1.5" PointX="15.75" PointY="10.125" />
+        <EntityTypeShape EntityType="ImsNewModel.sysdiagram" Width="1.5" PointX="9.75" PointY="9.75" />
+        <EntityTypeShape EntityType="ImsNewModel.SystemConfiguration" Width="1.5" PointX="11.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ImsNewModel.UserRole" Width="1.5" PointX="7.5" PointY="20.375" />
+        <EntityTypeShape EntityType="ImsNewModel.Vendor" Width="1.5" PointX="6" PointY="23.75" />
+        <AssociationConnector Association="ImsNewModel.FK_AppUser_Employee" />
+        <AssociationConnector Association="ImsNewModel.FK_UserRole_User" />
+        <AssociationConnector Association="ImsNewModel.FK_Employee_Department" />
+        <AssociationConnector Association="ImsNewModel.FK_ItemRelease_Department" />
+        <AssociationConnector Association="ImsNewModel.FK_ItemRequest_Department" />
+        <AssociationConnector Association="ImsNewModel.FK_StockTransaction_Department" />
+        <AssociationConnector Association="ImsNewModel.FK_StockTransactionDetail_Department" />
+        <AssociationConnector Association="ImsNewModel.FK_DepreciationRate_FiscalYear" />
+        <AssociationConnector Association="ImsNewModel.FK_DepreciationRate_ItemGroup" />
+        <AssociationConnector Association="ImsNewModel.FK_Employee_Designation" />
+        <AssociationConnector Association="ImsNewModel.FK_DocumentNumbering_DocumentSetup" />
+        <AssociationConnector Association="ImsNewModel.FK_DocumentNumbering_FiscalYear" />
+        <AssociationConnector Association="ImsNewModel.FK_ItemRelease_DocumentSetup" />
+        <AssociationConnector Association="ImsNewModel.FK_ItemRequest_DocumentSetup" />
+        <AssociationConnector Association="ImsNewModel.FK_PurchaseOrder_DocumentSetup" />
+        <AssociationConnector Association="ImsNewModel.FK_ItemRelease_Employee" />
+        <AssociationConnector Association="ImsNewModel.FK_ItemRequest_Employee" />
+        <AssociationConnector Association="ImsNewModel.FK_PurchaseOrder_Employee" />
+        <AssociationConnector Association="ImsNewModel.FK_StockTransaction_Employee" />
+        <AssociationConnector Association="ImsNewModel.FK_StockTransactionDetail_Employee" />
+        <AssociationConnector Association="ImsNewModel.FK_ItemRelease_FiscalYear" />
+        <AssociationConnector Association="ImsNewModel.FK_ItemRequest_FiscalYear" />
+        <AssociationConnector Association="ImsNewModel.FK_PurchaseOrder_FiscalYear" />
+        <AssociationConnector Association="ImsNewModel.FK_StockTransaction_FiscalYear" />
+        <AssociationConnector Association="ImsNewModel.FK_Item_ItemGroup" />
+        <AssociationConnector Association="ImsNewModel.FK_Item_ItemUnit" />
+        <AssociationConnector Association="ImsNewModel.FK_ItemReleaseDetail_Item" />
+        <AssociationConnector Association="ImsNewModel.FK_ItemRequestDetail_Item" />
+        <AssociationConnector Association="ImsNewModel.FK_PurchaseOrderDetail_Item" />
+        <AssociationConnector Association="ImsNewModel.FK_StockTransactionDetail_Item" />
+        <AssociationConnector Association="ImsNewModel.FK_ItemGroup_ItemType" />
+        <AssociationConnector Association="ImsNewModel.FK_ItemRelease_ItemRequest" />
+        <AssociationConnector Association="ImsNewModel.FK_ItemReleaseDetail_ItemRelease" />
+        <AssociationConnector Association="ImsNewModel.FK_ItemRequestDetail_ItemRelease" />
+        <AssociationConnector Association="ImsNewModel.FK_ItemRequestDetail_ItemRequest" />
+        <AssociationConnector Association="ImsNewModel.FK_ItemRequestDetail_PurchaseOrder" />
+        <AssociationConnector Association="ImsNewModel.FK_RoleModulePermission_Permission" />
+        <AssociationConnector Association="ImsNewModel.FK_PurchaseOrder_Vendor" />
+        <AssociationConnector Association="ImsNewModel.FK_PurchaseOrderDetail_PurchaseOrder" />
+        <AssociationConnector Association="ImsNewModel.FK_StockTransaction_PurchaseOrder" />
+        <AssociationConnector Association="ImsNewModel.FK_RoleModulePermission_Role" />
+        <AssociationConnector Association="ImsNewModel.FK_UserRole_Role" />
+        <AssociationConnector Association="ImsNewModel.FK_StockTransaction_Vendor" />
+        <AssociationConnector Association="ImsNewModel.FK_StockTransactionDetail_StockTransaction" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

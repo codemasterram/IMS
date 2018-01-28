@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "बिक्रेताको विवरण ";
+}
+
+<div class="col-md-12">
+    <div class="box box-info">
+        <div class="box-body">
+            <form class="form-inline frm-search">
+                <div class="form-group">
+                    <label for="name">बिक्रेताको नाम</label> <br>
+                    @Html.TextBox("Name", "", new { @class = "form-control keyword", @style = "width:200px", @placeholder = "बिक्रेताको नाम खोजी..." })
+                </div>
+                <div class="form-group" style="margin-top:30px;">
+                    <button type="button" class="btn btn-info btnRefresh" data-showLoader="false" data-resultElement=".vendor-detail" data-url="@Url.Action("vendordetail","setup")"><span class="fa fa-search"></span></button>
+                    <a type="button" class="btn btn-info" href="@Url.Action("Createvendor","setup",new { id = 0 })"><span class="fa fa-plus"></span></a>
+                    <button type="button" class="btn btn-info btnPrint" data-print-element=".vendor-detail" data-report-title="Vendor Detail"><span class="fa fa-print"></span></button>
+
+                </div>
+            </form>
+            <div class="clearfix"></div>
+            <div class="vendor-detail detail">
+                @Html.Action("vendordetail", "setup")
+            </div>
+        </div>
+    </div>
+</div>
